@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="format-detection" content="telephone=no">
+    <title>Data Analitika Kursi Toshkentda | Python SQL Power BI | INTERNO School</title>
+    <meta name="description" content="INTERNO School'da 4 oylik Data Analytics kursi (48 darslar, 72 soat). Python, SQL, Power BI o'rganing. Noldan job-ready mutaxassis. Toshkent, Samarqand, Farg'ona. Bepul ochiq darsga yoziling!">
+    <meta name="keywords" content="data analitika kursi toshkent, data analytics uzbekistan, python kursi, SQL kursi, power bi kursi, data analyst bo'lish, INTERNO school">
+    <meta property="og:title" content="Data Analitika Kursi | INTERNO School Toshkent">
+    <meta property="og:description" content="4 oyda professional Data Analyst bo'ling. Python, SQL, Power BI. 48 darslar. Bepul ochiq dars.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://interno.uz/data-analitika">
+    <meta property="og:locale" content="uz_UZ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://interno.uz/data-analitika">
+    <link rel="alternate" hreflang="uz" href="https://interno.uz/data-analitika">
+    <link rel="alternate" hreflang="ru" href="https://interno.uz/data-analitika/ru">
+    <link rel="alternate" hreflang="x-default" href="https://interno.uz/data-analitika">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.163.0/build/three.module.js"}}</script>
+
+    <!-- ============== SITE CONFIG — zamenit siz o'z ID/raqamlaringizni ============== -->
+    <script>
+        window.SITE_CONFIG = {
+            // Analytics (quyidagilarni to'ldiring, agar bo'sh qolsa — yuklanmaydi)
+            GA4_ID: '',                // Masalan: 'G-ABC1234XYZ' (https://analytics.google.com)
+            META_PIXEL_ID: '4251277901808457',         // Masalan: '1234567890123456' (https://business.facebook.com)
+            CLARITY_ID: '',            // Masalan: 'abcdefghij' (https://clarity.microsoft.com — bepul heatmaplar)
+            TIKTOK_PIXEL_ID: '',       // Ixtiyoriy: TikTok Ads uchun
+
+            // Messengerlar (raqam/username to'ldiring, bo'sh bo'lsa — tugma ko'rinmaydi)
+            TELEGRAM_USERNAME: 'internosales_bot',   // @ belgisisiz. Masalan: 'internoschool'
+            PHONE_NUMBER: '+998 (90) 000-00-00',  // Chiroyli formatda ko'rsatish uchun
+
+            // Keyingi guruh boshlanish sanasi (YYYY-MM-DDTHH:MM:SS formati, local vaqt)
+            NEXT_COHORT_DATE: '2026-05-15T09:00:00',  // O'zgartiring: keyingi guruh qachon boshlanadi
+            TOTAL_SEATS: 20,                           // Guruhdagi umumiy joylar soni
+            SEATS_LEFT: 7,                             // Qolgan joylar — qo'lda yoki CRM'dan yangilang
+        };
+    </script>
+
+    <!-- ============== ANALYTICS (GA4) ============== -->
+    <script>
+        if (window.SITE_CONFIG.GA4_ID) {
+            var gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.SITE_CONFIG.GA4_ID;
+            document.head.appendChild(gaScript);
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function(){dataLayer.push(arguments);};
+            gtag('js', new Date());
+            gtag('config', window.SITE_CONFIG.GA4_ID, { send_page_view: true });
+        } else {
+            window.gtag = function(){}; // no-op
+        }
+    </script>
+
+    <!-- ============== META PIXEL ============== -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        if (window.SITE_CONFIG.META_PIXEL_ID) {
+            fbq('init', window.SITE_CONFIG.META_PIXEL_ID);
+            // PageView with source tag — so you can segment traffic between Tilda and this landing in Meta Ads
+            fbq('track', 'PageView', { source: 'vercel_landing', page: 'data_analitika' });
+        }
+    </script>
+
+    <!-- ============== MICROSOFT CLARITY (bepul heatmaplar) ============== -->
+    <script>
+        if (window.SITE_CONFIG.CLARITY_ID) {
+            (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", window.SITE_CONFIG.CLARITY_ID);
+        }
+    </script>
+
+    <!-- ============== TIKTOK PIXEL ============== -->
+    <script>
+        if (window.SITE_CONFIG.TIKTOK_PIXEL_ID) {
+            !function (w, d, t) {w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+            ttq.load(window.SITE_CONFIG.TIKTOK_PIXEL_ID);
+            ttq.page();
+            }(window, document, 'ttq');
+        }
+    </script>
+
+    <!-- ============== UNIFIED EVENT TRACKING HELPER ============== -->
+    <script>
+        window.track = function(eventName, params) {
+            params = params || {};
+            try { if (window.gtag) gtag('event', eventName, params); } catch(e) {}
+            try { if (window.fbq) fbq('trackCustom', eventName, params); } catch(e) {}
+            try { if (window.ttq) ttq.track(eventName, params); } catch(e) {}
+            try { if (window.clarity) clarity('set', eventName, JSON.stringify(params)); } catch(e) {}
+        };
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Data Analitika Kursi","description":"Python, SQL va Power BI orqali 4 oylik professional data analytics kursi (48 darslar, 72 soat)","provider":{"@type":"Organization","name":"INTERNO School","sameAs":"https://interno.uz"},"courseMode":["onsite","online"],"educationalLevel":"Beginner","inLanguage":"uz","locationCreated":{"@type":"Place","name":"Toshkent, O'zbekiston"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"blended","duration":"P4M","inLanguage":"uz"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Data Analitika kursi kimlar uchun?","acceptedAnswer":{"@type":"Answer","text":"Kurs har kim uchun mos. Hech qanday texnik bilim talab qilinmaydi."}},{"@type":"Question","name":"Kurs qancha vaqt davom etadi?","acceptedAnswer":{"@type":"Answer","text":"Kurs 4 oy davom etadi (48 darslar, 72 soat)."}},{"@type":"Question","name":"Sertifikat beriladi?","acceptedAnswer":{"@type":"Answer","text":"Ha, kursni tugatgandan so'ng INTERNO School sertifikati beriladi."}}]}</script>
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --lime:#D6FF3C;
+            --lime-dim:#B8E835;
+            --black:#000;
+            --dark:#0A0A0A;
+            --card:#141414;
+            --card-light:#1C1C1C;
+            --white:#fff;
+            --text-muted:rgba(255,255,255,0.5);
+            --border:rgba(255,255,255,0.08);
+            --radius:20px;
+            --radius-lg:28px;
+            --radius-xl:40px;
+            --radius-pill:100px;
+        }
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;line-height:1.4;-webkit-font-smoothing:antialiased}
+        .container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+        /* NAVBAR */
+        .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+        .navbar .container{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0}
+        .nav-left{display:flex;align-items:center;gap:40px}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;height:96px;margin:-32px 0}
+        .nav-logo img{height:100%;width:auto;display:block}
+        .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+        .nav-links a{color:var(--white);text-decoration:none;font-size:0.85rem;font-weight:500;text-transform:uppercase;letter-spacing:0.02em;transition:color 0.3s}
+        .nav-links a:hover{color:var(--lime)}
+        .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--lime);color:var(--black);border-radius:var(--radius-pill);font-size:0.82rem;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:0.02em;transition:transform 0.3s,box-shadow 0.3s}
+        .nav-cta:hover{transform:scale(1.03);box-shadow:0 4px 30px rgba(214,255,60,0.4)}
+        .lang-switch{display:inline-flex;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-pill);padding:3px;gap:2px}
+        .lang-switch a{padding:6px 12px;font-size:0.75rem;font-weight:800;color:var(--text-muted);text-decoration:none;border-radius:var(--radius-pill);text-transform:uppercase;transition:all 0.3s;letter-spacing:0.05em}
+        .lang-switch a.active{background:var(--lime);color:var(--black)}
+        .lang-switch a:hover:not(.active){color:var(--white)}
+        .nav-right{display:flex;align-items:center;gap:12px}
+        .hamburger{display:none;width:40px;height:40px;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+        .hamburger span{width:18px;height:2px;background:var(--white);display:block;transition:all 0.3s}
+        .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+        .hamburger.active span:nth-child(2){opacity:0}
+        .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+        .mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--black);padding:16px 24px 24px;z-index:999;border-bottom:1px solid var(--border)}
+        .mobile-menu.active{display:block}
+        .mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:500;color:var(--white);text-decoration:none;text-transform:uppercase;border-bottom:1px solid var(--border)}
+        .mobile-menu .mob-cta{display:block;margin-top:16px;padding:16px;background:var(--lime);color:var(--black);border-radius:14px;text-align:center;font-weight:800;text-transform:uppercase;border:none}
+
+        /* HERO */
+        .hero{padding:100px 24px 40px;min-height:calc(100vh - 16px)}
+        .hero-card{background:var(--dark);border-radius:var(--radius-xl);padding:40px;position:relative;overflow:hidden;min-height:calc(100vh - 100px)}
+        .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;min-height:calc(100vh - 180px)}
+        .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+        .hero-title{font-size:clamp(2.5rem,7vw,6rem);font-weight:900;line-height:0.95;letter-spacing:-0.04em;text-transform:uppercase;max-width:900px;position:relative;z-index:3}
+        .hero-title .accent{color:var(--lime);display:inline}
+        .hero-title .stroke{-webkit-text-stroke:2px var(--white);color:var(--dark);display:inline;position:relative;z-index:3}
+        .hero-subtitle{max-width:600px;margin-top:28px;font-size:clamp(1rem,1.4vw,1.25rem);color:rgba(255,255,255,0.75);line-height:1.5;font-weight:400;position:relative;z-index:2}
+        .hero-info-btn{width:110px;height:110px;border-radius:50%;background:var(--card);border:1px solid var(--border);color:var(--white);text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:600;text-transform:uppercase;text-align:center;flex-shrink:0;transition:all 0.3s}
+        .hero-info-btn:hover{background:var(--lime);color:var(--black);border-color:var(--lime)}
+        .hero-3d-wrapper{position:absolute;top:0;right:-5%;width:55%;height:100%;z-index:1;pointer-events:none}
+        #hero-3d{width:100%;height:100%}
+        .hero-bottom{margin-top:auto;padding-top:48px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+        .hero-cta{display:inline-flex;align-items:center;gap:16px;padding:22px 40px;background:var(--lime);color:var(--black);border-radius:var(--radius-pill);font-size:1.05rem;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:0.02em;transition:transform 0.3s;border:none;cursor:pointer;font-family:'Inter',sans-serif;position:relative;animation:ctaPulse 2s ease-in-out infinite}
+        .hero-cta:hover{transform:scale(1.04);animation-play-state:paused;box-shadow:0 8px 40px rgba(214,255,60,0.6)!important}
+        @keyframes ctaPulse{
+            0%,100%{box-shadow:0 0 0 0 rgba(214,255,60,0.55),0 4px 20px rgba(214,255,60,0.2)}
+            50%{box-shadow:0 0 0 18px rgba(214,255,60,0),0 6px 30px rgba(214,255,60,0.45)}
+        }
+        .hero-cta-icon{width:32px;height:32px;border-radius:50%;background:var(--black);color:var(--lime);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700}
+        .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;position:relative;z-index:2}
+        .hero-tag{padding:10px 22px;border-radius:var(--radius-pill);border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.02);color:var(--white);font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.02em;transition:all 0.3s}
+        .hero-tag:hover{background:var(--lime);color:var(--black);border-color:var(--lime)}
+
+        /* SECTION COMMON */
+        section{padding:100px 24px;position:relative}
+        .section-hd{text-transform:uppercase;letter-spacing:-0.02em}
+        .section-title{font-size:clamp(2rem,5vw,4rem);font-weight:900;letter-spacing:-0.03em;line-height:1;margin-bottom:24px;text-transform:uppercase}
+        .section-title .accent{color:var(--lime)}
+        .section-subtitle{font-size:1.1rem;color:var(--text-muted);max-width:700px;margin-bottom:48px}
+
+        /* COURSES CARDS */
+        .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .course-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .course-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lime),transparent);opacity:0;transition:opacity 0.3s}
+        .course-card:hover{transform:translateY(-6px);border-color:rgba(214,255,60,0.3)}
+        .course-card:hover::before{opacity:1}
+        .course-card-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+        .course-card-icon{width:56px;height:56px;flex-shrink:0;border-radius:14px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);display:flex;align-items:center;justify-content:center;font-size:1.6rem;transition:all 0.3s}
+        .course-card:hover .course-card-icon{background:var(--lime);border-color:var(--lime);transform:scale(1.05) rotate(-5deg)}
+        .course-card-level-tag{display:inline-block;padding:5px 12px;border-radius:var(--radius-pill);background:rgba(255,255,255,0.05);border:1px solid var(--border);font-size:0.7rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
+        .course-card-title{font-size:1.2rem;font-weight:800;color:var(--white);line-height:1.2;text-transform:uppercase;letter-spacing:-0.01em}
+        .course-card-body{flex:1}
+        .course-card-description{font-size:0.92rem;color:var(--text-muted);line-height:1.55;margin-bottom:18px}
+        .course-card-features{list-style:none;margin-bottom:22px}
+        .course-card-features li{padding:7px 0;font-size:0.88rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid rgba(255,255,255,0.05)}
+        .course-card-features li:last-child{border-bottom:none}
+        .course-card-features li::before{content:'✓';color:var(--lime);font-weight:900;flex-shrink:0;margin-top:1px}
+        .course-card-result{padding:14px 16px;border-radius:12px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);margin-top:auto}
+        .course-card-result-label{font-size:0.7rem;color:var(--lime);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:4px}
+        .course-card-result-text{font-size:0.88rem;font-weight:700;color:var(--white)}
+
+        /* SKILLS (LIME BG) */
+        .skills-section{padding:100px 24px}
+        .skills-wrapper{background:var(--lime);color:var(--black);border-radius:var(--radius-xl);padding:60px 48px;position:relative;overflow:hidden}
+        .skills-wrapper .section-title{color:var(--black)}
+        .skills-wrapper .section-subtitle{color:rgba(0,0,0,0.7)}
+        .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+        .skill-card{background:var(--white);border-radius:var(--radius);padding:24px 22px;display:flex;flex-direction:column;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+        .skill-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.18)}
+        .skill-card-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+        .skill-card-icon{width:44px;height:44px;border-radius:12px;background:var(--black);color:var(--lime);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;transition:transform 0.3s}
+        .skill-card:hover .skill-card-icon{transform:scale(1.08) rotate(-4deg)}
+        .skill-card-num{font-size:0.68rem;color:rgba(0,0,0,0.45);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px}
+        .skill-card-title{font-size:1rem;font-weight:800;color:var(--black);letter-spacing:-0.01em;text-transform:uppercase;line-height:1.15}
+        .skill-card-description{font-size:0.85rem;color:rgba(0,0,0,0.65);line-height:1.45;margin-bottom:14px;font-weight:500}
+        .skill-card-topics{list-style:none;margin-bottom:14px;flex:1}
+        .skill-card-topics li{padding:5px 0;font-size:0.78rem;color:rgba(0,0,0,0.7);font-weight:500;display:flex;align-items:flex-start;gap:7px}
+        .skill-card-topics li::before{content:'→';color:var(--black);font-weight:900;flex-shrink:0}
+        .skill-card-footer{font-size:0.72rem;font-weight:800;margin-top:auto;padding:8px 12px;border-radius:8px;background:var(--black);color:var(--lime);display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:0.04em;align-self:flex-start}
+
+        /* CURRICULUM */
+        .curriculum-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+        .month-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .month-card:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-4px)}
+        .month-num{display:inline-flex;align-items:center;justify-content:center;padding:6px 16px;border-radius:var(--radius-pill);background:var(--lime);color:var(--black);font-size:0.75rem;font-weight:800;text-transform:uppercase;margin-bottom:16px;letter-spacing:0.05em}
+        .month-card h3{font-size:1.25rem;font-weight:800;margin-bottom:20px;text-transform:uppercase;letter-spacing:-0.01em}
+        .month-topics{list-style:none}
+        .month-topics li{padding:8px 0;font-size:0.88rem;color:var(--text-muted);display:flex;align-items:flex-start;gap:10px}
+        .month-topics li::before{content:'→';color:var(--lime);font-weight:700;flex-shrink:0}
+        .month-result{margin-top:20px;padding:14px 16px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);border-radius:12px;font-size:0.82rem;color:var(--lime);font-weight:600;text-transform:uppercase;letter-spacing:0.02em}
+
+        /* OUTCOMES (LIME CARDS) */
+        .outcomes-header{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:48px}
+        .outcomes-3d{width:180px;height:180px;flex-shrink:0;background:var(--card);border-radius:50%;position:relative;overflow:hidden}
+        .outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+        .outcome-card{background:var(--white);color:var(--black);border-radius:var(--radius);padding:28px;min-height:180px;display:flex;flex-direction:column;transition:all 0.3s}
+        .outcome-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(255,255,255,0.1)}
+        .outcome-card p{font-size:0.95rem;font-weight:500;color:var(--black);line-height:1.4}
+
+        /* SALARY */
+        .salary-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+        .salary-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px}
+        .salary-card.primary{background:var(--lime);color:var(--black);border-color:var(--lime)}
+        .salary-card.primary .salary-tag{background:var(--black);color:var(--lime)}
+        .salary-tag{display:inline-block;padding:6px 14px;border-radius:var(--radius-pill);background:var(--card-light);color:var(--white);font-size:0.75rem;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.05em}
+        .salary-amount{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-0.03em}
+        .salary-label{font-size:0.82rem;font-weight:500;opacity:0.6;margin-top:6px;text-transform:uppercase;letter-spacing:0.02em}
+
+        /* TOOLS */
+        .tools-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;perspective:1200px}
+        .tool-card{background:linear-gradient(160deg,var(--card),var(--card-light));border:1px solid var(--border);border-radius:var(--radius);padding:24px 16px 20px;text-align:center;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);cursor:default;position:relative;overflow:hidden;transform-style:preserve-3d}
+        .tool-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(214,255,60,0.12),transparent 55%);opacity:0;transition:opacity 0.3s;pointer-events:none}
+        .tool-card:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-6px)}
+        .tool-card:hover::before{opacity:1}
+        .tool-icon-wrap{width:64px;height:64px;margin:0 auto 14px;background:linear-gradient(145deg,#ffffff,#e8e8e8);border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,0.4),0 1px 1px rgba(255,255,255,0.1) inset,0 -1px 2px rgba(0,0,0,0.05) inset;transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);transform-style:preserve-3d;position:relative}
+        .tool-icon-wrap::after{content:'';position:absolute;top:6%;left:10%;right:10%;height:40%;background:linear-gradient(180deg,rgba(255,255,255,0.5),transparent);border-radius:12px 12px 30% 30% / 12px 12px 50% 50%;pointer-events:none}
+        .tool-card:hover .tool-icon-wrap{transform:translateY(-4px) rotateX(15deg) rotateY(-10deg) scale(1.08);box-shadow:0 14px 30px rgba(214,255,60,0.15),0 8px 16px rgba(0,0,0,0.5)}
+        .tool-icon-wrap img,.tool-icon-wrap svg{width:38px;height:38px;object-fit:contain;display:block;position:relative;z-index:1}
+        .tool-name{font-size:0.88rem;font-weight:800;text-transform:uppercase;letter-spacing:0.02em;color:var(--white)}
+        .tool-desc{font-size:0.72rem;color:var(--text-muted);margin-top:4px}
+
+        /* FEATURES */
+        .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+        .feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px;transition:all 0.3s;position:relative;overflow:hidden}
+        .feature-card:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-4px)}
+        .feature-card .f-icon{width:56px;height:56px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;background:var(--card-light)}
+        .feature-card h3{font-size:1.3rem;font-weight:800;margin-bottom:8px;text-transform:uppercase;letter-spacing:-0.01em}
+        .feature-card p{font-size:0.95rem;color:var(--text-muted)}
+
+        /* CTA FORM */
+        .cta-section{padding:80px 24px}
+        .cta-wrapper{background:var(--lime);color:var(--black);border-radius:var(--radius-xl);padding:60px 48px;text-align:center;position:relative;overflow:hidden}
+        .cta-wrapper .section-title{color:var(--black)}
+        .cta-wrapper .section-subtitle{color:rgba(0,0,0,0.7);margin:0 auto 36px}
+        .cta-card{background:var(--white);border-radius:var(--radius-lg);padding:40px;max-width:520px;margin:0 auto;text-align:left}
+        .form-group{margin-bottom:14px}
+        .form-group label{display:block;font-size:0.78rem;font-weight:700;margin-bottom:6px;color:rgba(0,0,0,0.5);text-transform:uppercase;letter-spacing:0.05em}
+        .form-input{width:100%;padding:16px 20px;border-radius:14px;border:1.5px solid rgba(0,0,0,0.1);background:#F5F5F5;color:var(--black);font-family:'Inter',sans-serif;font-size:1rem;outline:none;transition:all 0.3s}
+        .form-input:focus{border-color:var(--black);background:var(--white)}
+        .form-input::placeholder{color:rgba(0,0,0,0.3)}
+        select.form-input{appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3e%3cpath fill='%23333' d='M6 8L1 3h10z'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+        .form-submit{width:100%;padding:18px;margin-top:8px;background:var(--black);color:var(--lime);border:none;border-radius:14px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;transition:all 0.3s}
+        .form-submit:hover{transform:scale(1.01);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+        .form-privacy{font-size:0.75rem;color:rgba(0,0,0,0.5);margin-top:12px;text-align:center}
+        .form-urgency{text-align:center;margin-top:20px;font-size:0.9rem;font-weight:700;color:var(--black);text-transform:uppercase}
+        .form-success{display:none;padding:48px 32px;max-width:520px;margin:0 auto;background:var(--white);border-radius:var(--radius-lg);text-align:center}
+        .form-success.show{display:block;animation:popIn 0.5s cubic-bezier(0.16,1,0.3,1)}
+        @keyframes popIn{0%{opacity:0;transform:scale(0.9)}100%{opacity:1;transform:scale(1)}}
+        .form-success .success-icon{font-size:3.5rem;margin-bottom:16px}
+        .form-success h3{font-size:1.4rem;font-weight:900;color:var(--black);margin-bottom:8px;text-transform:uppercase}
+        .form-success p{color:rgba(0,0,0,0.6)}
+
+        /* FAQ */
+        .faq-list{max-width:800px;margin:0 auto}
+        .faq-item{margin-bottom:8px}
+        .faq-q{width:100%;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:16px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;color:var(--white);cursor:pointer;text-align:left;transition:all 0.3s;text-transform:uppercase;letter-spacing:-0.01em}
+        .faq-q:hover{background:var(--card-light);border-color:rgba(214,255,60,0.2)}
+        .faq-q.active{border-radius:16px 16px 0 0;background:var(--card-light);border-color:rgba(214,255,60,0.3)}
+        .faq-arrow{font-size:1.2rem;color:var(--lime);transition:transform 0.3s;flex-shrink:0;margin-left:16px}
+        .faq-q.active .faq-arrow{transform:rotate(45deg)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1);background:var(--card-light);border:1px solid rgba(214,255,60,0.3);border-top:none;border-radius:0 0 16px 16px}
+        .faq-a-inner{padding:0 28px 24px;color:var(--text-muted);font-size:0.95rem;line-height:1.7;text-transform:none;font-weight:400;letter-spacing:0}
+
+        /* FOOTER */
+        .footer{background:var(--dark);padding:60px 24px 30px;border-top:1px solid var(--border)}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .footer-logo{height:120px;margin-bottom:8px;display:block}
+        .footer-logo img{height:100%;width:auto;display:block}
+        .footer-brand p{color:var(--text-muted);font-size:0.88rem}
+        .footer-col h4{font-size:0.8rem;font-weight:800;margin-bottom:16px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em}
+        .footer-col a{display:block;color:var(--text-muted);text-decoration:none;font-size:0.9rem;padding:4px 0;transition:color 0.3s}
+        .footer-col a:hover{color:var(--lime)}
+        .footer-bottom{text-align:center;padding-top:30px;border-top:1px solid var(--border);color:rgba(255,255,255,0.3);font-size:0.8rem}
+
+        /* STATS / PROOF */
+        .proof-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:80px}
+        .proof-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 24px;text-align:left;transition:all 0.3s}
+        .proof-card:hover{border-color:rgba(214,255,60,0.3)}
+        .proof-number{font-size:3rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:6px;color:var(--lime)}
+        .proof-label{font-size:0.82rem;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:0.02em}
+
+        /* ANIMATIONS */
+        .anim{opacity:0;transform:translateY(40px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+        .anim.visible{opacity:1;transform:none}
+        .stagger>.anim:nth-child(1){transition-delay:0s}
+        .stagger>.anim:nth-child(2){transition-delay:0.08s}
+        .stagger>.anim:nth-child(3){transition-delay:0.16s}
+        .stagger>.anim:nth-child(4){transition-delay:0.24s}
+        .stagger>.anim:nth-child(5){transition-delay:0.32s}
+        .stagger>.anim:nth-child(6){transition-delay:0.4s}
+        .stagger>.anim:nth-child(7){transition-delay:0.48s}
+        .stagger>.anim:nth-child(8){transition-delay:0.56s}
+        .stagger>.anim:nth-child(9){transition-delay:0.64s}
+        .stagger>.anim:nth-child(10){transition-delay:0.72s}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .nav-links{display:none}
+            .hamburger{display:flex}
+            .courses-grid{grid-template-columns:1fr}
+            .curriculum-grid{grid-template-columns:repeat(2,1fr)}
+            .skills-grid{grid-template-columns:repeat(2,1fr)}
+            .tools-grid{grid-template-columns:repeat(3,1fr)}
+            .features-grid,.outcomes-grid,.salary-row{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr 1fr}
+        }
+        @media(max-width:768px){
+            .hero{padding:70px 12px 30px;min-height:auto}
+            .hero-card{padding:20px 20px 28px;min-height:auto;border-radius:24px}
+            .hero-inner{min-height:auto}
+            .hero-3d-wrapper{display:none}
+            .hero-info-btn{display:none}
+            .hero-title{font-size:clamp(2rem,9vw,3.2rem)}
+            .hero-subtitle{font-size:0.95rem;margin-top:20px}
+            .hero-tags{gap:6px;margin-top:20px}
+            .hero-tag{padding:7px 14px;font-size:0.72rem}
+            .hero-cta{padding:18px 24px;font-size:0.9rem;width:100%;justify-content:center}
+            .hero-cta-icon{width:28px;height:28px;font-size:1.1rem}
+            .hero-bottom{padding-top:24px;width:100%}
+            .proof-row{grid-template-columns:repeat(2,1fr);gap:10px}
+            .proof-card{padding:20px 16px}
+            .proof-number{font-size:2rem}
+            .tools-grid{grid-template-columns:repeat(2,1fr)}
+            .skills-wrapper{padding:40px 20px;border-radius:24px}
+            .skills-grid{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr;gap:24px}
+            .curriculum-grid{grid-template-columns:1fr}
+            section{padding:50px 12px}
+            .cta-wrapper{padding:36px 20px;border-radius:24px}
+            .cta-card{padding:24px 16px}
+            .section-title{font-size:clamp(1.6rem,7vw,2.2rem)}
+            .section-subtitle{font-size:0.92rem}
+        }
+        @media(max-width:380px){
+            .hero-title{font-size:clamp(1.7rem,8.5vw,2.4rem);letter-spacing:-0.02em}
+            .hero-card{padding:16px 14px 22px}
+            .hero-tag{padding:6px 10px;font-size:0.68rem}
+            .hero-cta{padding:16px 18px;font-size:0.85rem;gap:10px}
+            section{padding:40px 12px}
+            .section-title{font-size:1.5rem}
+        }
+        /* ===== MARKET (DA IN UZBEKISTAN) ===== */
+        .market-section{padding:80px 24px 40px}
+        .market-hero{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;margin-bottom:48px}
+        .market-headline h2{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:900;letter-spacing:-0.03em;line-height:1;text-transform:uppercase;margin-bottom:20px}
+        .market-headline h2 .accent{color:var(--lime)}
+        .market-headline p{font-size:1.05rem;color:var(--text-muted);line-height:1.55;margin-bottom:16px}
+        .market-headline p strong{color:var(--white);font-weight:700}
+        .market-quote{padding:20px 24px;border-left:3px solid var(--lime);background:rgba(214,255,60,0.05);border-radius:0 12px 12px 0;margin-top:16px}
+        .market-quote p{font-size:0.95rem;color:rgba(255,255,255,0.85);font-style:italic;margin-bottom:8px;line-height:1.5}
+        .market-quote-source{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600}
+        .market-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .market-stat{background:linear-gradient(160deg,var(--card),var(--card-light));border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 22px;position:relative;overflow:hidden;transition:all 0.3s}
+        .market-stat:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-3px)}
+        .market-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--lime)}
+        .market-stat-value{font-size:2.4rem;font-weight:900;color:var(--lime);letter-spacing:-0.03em;line-height:1;margin-bottom:6px}
+        .market-stat-label{font-size:0.78rem;color:var(--white);font-weight:700;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:4px}
+        .market-stat-desc{font-size:0.72rem;color:var(--text-muted);line-height:1.4}
+
+        .market-companies{margin-bottom:48px}
+        .market-companies-title{font-size:0.88rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:20px;text-align:center}
+        .market-companies-title .accent{color:var(--lime)}
+        .market-companies-list{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+        .market-company{padding:10px 22px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-pill);color:var(--white);font-size:0.88rem;font-weight:700;transition:all 0.3s;cursor:default}
+        .market-company:hover{background:var(--lime);color:var(--black);border-color:var(--lime);transform:translateY(-2px)}
+
+        .market-industries{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+        .market-industry{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 18px;transition:all 0.3s}
+        .market-industry:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-3px)}
+        .market-industry-emoji{font-size:1.6rem;margin-bottom:10px;display:block}
+        .market-industry-name{font-size:0.88rem;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:4px}
+        .market-industry-role{font-size:0.75rem;color:var(--text-muted);line-height:1.4}
+
+        @media(max-width:1024px){
+            .market-hero{grid-template-columns:1fr;gap:32px}
+            .market-industries{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:768px){
+            .market-section{padding:50px 12px}
+            .market-hero{gap:28px;margin-bottom:32px}
+            .market-stats{gap:10px}
+            .market-stat{padding:18px 16px}
+            .market-stat-value{font-size:1.8rem}
+            .market-industries{grid-template-columns:1fr 1fr;gap:8px}
+            .market-industry{padding:16px 14px}
+            .market-company{padding:8px 16px;font-size:0.8rem}
+        }
+
+        /* ===== SPEAKER ===== */
+        .speaker-section{padding:80px 24px}
+        .speaker-wrapper{background:linear-gradient(135deg,#141414 0%,#1a1a1a 100%);border:1px solid var(--border);border-radius:var(--radius-xl);padding:60px 48px;position:relative;overflow:hidden}
+        .speaker-wrapper::before{content:'';position:absolute;top:-40%;right:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(214,255,60,0.1),transparent 60%);pointer-events:none}
+        .speaker-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:var(--radius-pill);background:rgba(214,255,60,0.1);border:1px solid rgba(214,255,60,0.3);color:var(--lime);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:24px;position:relative;z-index:1}
+        .speaker-badge::before{content:'🎤'}
+        .speaker-content{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start;position:relative;z-index:1}
+        .speaker-photo-wrap{position:relative}
+        .speaker-photo{width:100%;aspect-ratio:1;border-radius:var(--radius-lg);overflow:hidden;background:var(--card-light);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px var(--border)}
+        .speaker-photo img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) brightness(1.02);transition:filter 0.4s}
+        .speaker-photo:hover img{filter:contrast(1.1) brightness(1.05)}
+        .speaker-photo-tags{position:absolute;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+        .speaker-tag-float{padding:8px 14px;border-radius:var(--radius-pill);background:var(--card);border:1px solid var(--border);color:var(--white);font-size:0.78rem;font-weight:700;display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(10px)}
+        .speaker-tag-float.top-right{position:absolute;top:12px;right:-12px}
+        .speaker-tag-float.bottom-left{position:absolute;bottom:12px;left:-12px}
+        .speaker-tag-emoji{font-size:0.9rem}
+        .speaker-info{padding-top:4px}
+        .speaker-name{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1;letter-spacing:-0.03em;text-transform:uppercase;margin-bottom:10px}
+        .speaker-name .accent{color:var(--lime)}
+        .speaker-role{font-size:1.1rem;color:var(--text-muted);margin-bottom:24px;font-weight:500}
+        .speaker-role strong{color:var(--white)}
+        .speaker-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+        .speaker-stat{background:var(--card-light);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
+        .speaker-stat-value{font-size:1.8rem;font-weight:900;color:var(--lime);letter-spacing:-0.02em;line-height:1}
+        .speaker-stat-label{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;margin-top:4px}
+        .speaker-bio{margin-bottom:20px;color:rgba(255,255,255,0.75);font-size:0.95rem;line-height:1.6}
+        .speaker-bio strong{color:var(--white);font-weight:700}
+        .speaker-highlights{list-style:none;margin-bottom:24px}
+        .speaker-highlights li{padding:8px 0;font-size:0.92rem;color:rgba(255,255,255,0.8);display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid rgba(255,255,255,0.05)}
+        .speaker-highlights li::before{content:'✓';color:var(--lime);font-weight:900;font-size:1rem;flex-shrink:0;margin-top:1px}
+        .speaker-tech-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+        .speaker-tech{padding:6px 14px;border-radius:var(--radius-pill);background:var(--card-light);border:1px solid var(--border);color:var(--white);font-size:0.78rem;font-weight:600}
+        .speaker-actions{display:flex;gap:12px;flex-wrap:wrap}
+        .speaker-action{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:var(--radius-pill);border:1px solid var(--border);color:var(--white);text-decoration:none;font-size:0.88rem;font-weight:700;transition:all 0.3s}
+        .speaker-action:hover{background:var(--lime);color:var(--black);border-color:var(--lime)}
+        .speaker-action svg{width:16px;height:16px}
+
+        @media(max-width:1024px){
+            .speaker-content{grid-template-columns:220px 1fr;gap:32px}
+        }
+        @media(max-width:768px){
+            .speaker-wrapper{padding:32px 20px}
+            .speaker-content{display:flex;flex-direction:column;gap:24px}
+            .speaker-photo-wrap{width:100%;max-width:240px;margin:0 auto;order:-1;display:block}
+            .speaker-photo{width:100%;height:240px;aspect-ratio:1}
+            .speaker-info{width:100%}
+            .speaker-name{font-size:clamp(1.7rem,7vw,2.4rem);text-align:center}
+            .speaker-role{text-align:center;font-size:0.95rem}
+            .speaker-stats{grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+            .speaker-stat{padding:12px 8px;text-align:center}
+            .speaker-stat-value{font-size:1.4rem}
+            .speaker-stat-label{font-size:0.65rem}
+            .speaker-stat-desc{display:none}
+            .speaker-tag-float.top-right{right:-8px;top:8px;font-size:0.72rem;padding:6px 12px}
+            .speaker-tag-float.bottom-left{left:-8px;bottom:8px;font-size:0.72rem;padding:6px 12px}
+            .speaker-actions{justify-content:center}
+        }
+
+        /* ===== PORTFOLIO ===== */
+        .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .portfolio-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;display:flex;flex-direction:column}
+        .portfolio-card:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-6px)}
+        .portfolio-image{aspect-ratio:16/10;background:var(--card-light);position:relative;overflow:hidden}
+        .portfolio-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+        .portfolio-card:hover .portfolio-image img{transform:scale(1.06)}
+        .portfolio-image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.85));opacity:0.7}
+        .portfolio-tag{position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:var(--lime);padding:5px 12px;border-radius:var(--radius-pill);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;z-index:2}
+        .portfolio-student{position:absolute;bottom:12px;left:12px;right:12px;color:var(--white);font-size:0.78rem;font-weight:600;z-index:2;display:flex;align-items:center;gap:8px}
+        .portfolio-student-avatar{width:28px;height:28px;border-radius:50%;background:var(--lime);color:var(--black);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.78rem;flex-shrink:0}
+        .portfolio-content{padding:20px 22px;flex:1;display:flex;flex-direction:column}
+        .portfolio-title{font-size:1.05rem;font-weight:800;color:var(--white);margin-bottom:8px;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.2}
+        .portfolio-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.45;margin-bottom:14px;flex:1}
+        .portfolio-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+        .portfolio-tech-tag{padding:4px 10px;border-radius:var(--radius-pill);background:var(--card-light);border:1px solid var(--border);color:var(--white);font-size:0.7rem;font-weight:600}
+        .portfolio-cta{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;background:var(--card-light);border-top:1px solid var(--border);color:var(--white);text-decoration:none;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.02em;transition:all 0.3s}
+        .portfolio-cta:hover{background:var(--lime);color:var(--black)}
+        .portfolio-cta-arrow{width:28px;height:28px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:transform 0.3s}
+        .portfolio-cta:hover .portfolio-cta-arrow{transform:translateX(3px)}
+
+        @media(max-width:1024px){
+            .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:768px){
+            .portfolio-grid{grid-template-columns:1fr;gap:12px}
+        }
+
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.anim{opacity:1;transform:none}}
+
+        /* ===== SECTION CTA (reusable) ===== */
+        .section-cta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:48px;text-align:center}
+        .section-cta-hook{font-size:0.95rem;color:var(--text-muted);font-weight:500}
+        .section-cta-hook strong{color:var(--white)}
+        .section-cta-btn{display:inline-flex;align-items:center;gap:14px;padding:18px 36px;background:var(--lime);color:var(--black);border-radius:var(--radius-pill);font-size:0.95rem;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:0.02em;transition:transform 0.3s;font-family:'Inter',sans-serif;animation:ctaPulse 2s ease-in-out infinite;position:relative}
+        .section-cta-btn:hover{transform:scale(1.04);animation-play-state:paused;box-shadow:0 8px 30px rgba(214,255,60,0.5)!important}
+        .section-cta-arrow{width:28px;height:28px;border-radius:50%;background:var(--black);color:var(--lime);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700}
+        /* Lime-background sections need dark CTA instead */
+        .skills-wrapper .section-cta-btn,.cta-wrapper .section-cta-btn{background:var(--black);color:var(--lime)}
+        .skills-wrapper .section-cta-arrow,.cta-wrapper .section-cta-arrow{background:var(--lime);color:var(--black)}
+        .skills-wrapper .section-cta-hook{color:rgba(0,0,0,0.65)}
+        .skills-wrapper .section-cta-hook strong{color:var(--black)}
+        @media(max-width:768px){
+            .section-cta{margin-top:32px}
+            .section-cta-btn{padding:16px 24px;font-size:0.85rem;gap:10px}
+            .section-cta-arrow{width:24px;height:24px;font-size:0.9rem}
+            .section-cta-hook{font-size:0.85rem;padding:0 12px}
+        }
+
+        /* ===== COUNTDOWN TIMER ===== */
+        .countdown-section{padding:40px 24px 0}
+        .countdown-wrapper{background:linear-gradient(135deg,var(--card),var(--card-light));border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 32px;text-align:center;position:relative;overflow:hidden}
+        .countdown-wrapper::before{content:'';position:absolute;top:-50%;left:50%;width:600px;height:600px;transform:translateX(-50%);background:radial-gradient(circle,rgba(214,255,60,0.06),transparent 50%);pointer-events:none}
+        .countdown-label{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:var(--radius-pill);background:rgba(214,255,60,0.1);border:1px solid rgba(214,255,60,0.3);color:var(--lime);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px;position:relative;z-index:1}
+        .countdown-label::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--lime);animation:pulseDot 1.5s ease-in-out infinite}
+        @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+        .countdown-title{font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;line-height:1;margin-bottom:24px;position:relative;z-index:1}
+        .countdown-title .accent{color:var(--lime)}
+        .countdown-timer{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;position:relative;z-index:1}
+        .countdown-cell{background:var(--black);border:1px solid var(--border);border-radius:16px;padding:16px 20px;min-width:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+        .countdown-cell::after{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border);z-index:1}
+        .countdown-number{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--lime);font-variant-numeric:tabular-nums;letter-spacing:-0.03em;line-height:1;position:relative;z-index:2}
+        .countdown-unit{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-top:6px;position:relative;z-index:2}
+        .countdown-info{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;margin-top:20px;position:relative;z-index:1}
+        .countdown-seats{display:inline-flex;align-items:center;gap:10px;font-size:0.92rem;font-weight:600;color:var(--white)}
+        .seats-bar{width:140px;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden}
+        .seats-bar-fill{height:100%;background:linear-gradient(90deg,#ff4444,#ffaa00,var(--lime));border-radius:4px;transition:width 1.5s cubic-bezier(0.16,1,0.3,1)}
+        .seats-count{color:var(--lime);font-weight:800}
+        @media(max-width:768px){.countdown-cell{min-width:64px;padding:12px 8px}.countdown-timer{gap:6px}.countdown-wrapper{padding:28px 20px}.countdown-info{flex-direction:column;gap:14px}.countdown-title{font-size:1.4rem}.countdown-number{font-size:1.6rem}}
+        @media(max-width:380px){.countdown-cell{min-width:54px;padding:10px 6px}.countdown-number{font-size:1.4rem}.countdown-unit{font-size:0.65rem}}
+
+        /* ===== MULTI-STEP FORM ===== */
+        .form-steps{display:flex;gap:6px;margin-bottom:24px;justify-content:center}
+        .form-step-dot{height:4px;flex:1;max-width:60px;background:rgba(0,0,0,0.15);border-radius:2px;transition:background 0.4s}
+        .form-step-dot.active{background:var(--black)}
+        .form-step-dot.completed{background:rgba(0,0,0,0.6)}
+        .form-step{display:none;animation:stepIn 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .form-step.active{display:block}
+        @keyframes stepIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+        .step-title{font-size:1.2rem;font-weight:800;color:var(--black);margin-bottom:8px;text-align:center;text-transform:uppercase;letter-spacing:-0.01em}
+        .step-subtitle{font-size:0.88rem;color:rgba(0,0,0,0.6);text-align:center;margin-bottom:24px}
+        .step-options{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+        .step-option{padding:18px 20px;background:#F5F5F5;border:2px solid transparent;border-radius:14px;font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:600;color:var(--black);cursor:pointer;text-align:left;transition:all 0.2s;display:flex;align-items:center;gap:14px;width:100%}
+        .step-option:hover{background:#EAEAEA;border-color:rgba(0,0,0,0.15);transform:translateX(2px)}
+        .step-option.selected{background:var(--lime);border-color:var(--black)}
+        .step-option-emoji{font-size:1.4rem;flex-shrink:0}
+        .step-option-text{display:flex;flex-direction:column;gap:2px;flex:1}
+        .step-option-label{font-weight:800;text-transform:uppercase;letter-spacing:0.01em;font-size:0.88rem}
+        .step-option-desc{font-size:0.78rem;color:rgba(0,0,0,0.55);font-weight:500;text-transform:none;letter-spacing:0}
+        .step-option.selected .step-option-desc{color:rgba(0,0,0,0.7)}
+        .step-actions{display:flex;gap:10px;margin-top:16px}
+        .step-btn{padding:14px 20px;border-radius:12px;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:800;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:0.02em;transition:all 0.3s}
+        .step-btn-back{background:rgba(0,0,0,0.08);color:var(--black);flex-shrink:0}
+        .step-btn-back:hover{background:rgba(0,0,0,0.15)}
+        .step-btn-next{background:var(--black);color:var(--lime);flex:1}
+        .step-btn-next:hover{transform:scale(1.02)}
+        .step-btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+
+        /* ===== STICKY MOBILE CTA ===== */
+        .mobile-cta-bar{position:fixed;bottom:0;left:0;right:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(0,0,0,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);z-index:996;display:none}
+        .mobile-cta-bar a{display:flex;width:100%;align-items:center;justify-content:center;gap:10px;padding:14px;background:var(--lime);color:var(--black);border-radius:14px;font-weight:800;text-decoration:none;text-transform:uppercase;font-size:0.92rem;letter-spacing:0.02em;animation:ctaPulse 2s ease-in-out infinite}
+        @media(max-width:768px){.mobile-cta-bar{display:block}body{padding-bottom:84px}}
+
+        /* ===== FLOATING MESSENGER BUTTONS ===== */
+        .messenger-floats{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:12px;z-index:995}
+        .messenger-float{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,0.4),0 0 0 3px rgba(0,0,0,0.3);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer;position:relative}
+        .messenger-float:hover{transform:scale(1.1) translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+        .messenger-float::after{content:'';position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 0 currentColor;animation:pulseMsg 2s ease-out infinite;opacity:0.4}
+        @keyframes pulseMsg{0%{box-shadow:0 0 0 0 currentColor}70%{box-shadow:0 0 0 15px currentColor;opacity:0}100%{opacity:0}}
+        .messenger-telegram{background:#0088cc;color:#0088cc}
+        .messenger-float svg{width:28px;height:28px;fill:#fff;position:relative;z-index:1}
+        @media(max-width:768px){.messenger-floats{bottom:90px;right:14px}.messenger-float{width:50px;height:50px}.messenger-float svg{width:24px;height:24px}}
+
+        /* ===== EXIT INTENT MODAL ===== */
+        .exit-modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:1001;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+        .exit-modal.show{opacity:1;visibility:visible}
+        .exit-modal-content{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:48px 36px;max-width:500px;width:100%;position:relative;transform:scale(0.9);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);text-align:center}
+        .exit-modal.show .exit-modal-content{transform:scale(1)}
+        .exit-modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--card-light);border:none;color:var(--white);cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+        .exit-modal-close:hover{background:var(--lime);color:var(--black)}
+        .exit-modal-icon{font-size:3rem;margin-bottom:16px}
+        .exit-modal h3{font-size:1.6rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:12px}
+        .exit-modal h3 .accent{color:var(--lime)}
+        .exit-modal p{color:var(--text-muted);font-size:0.95rem;margin-bottom:24px;line-height:1.5}
+        .exit-modal-form{display:flex;flex-direction:column;gap:10px}
+        .exit-modal-form input{padding:14px 18px;border-radius:12px;border:1.5px solid var(--border);background:var(--card-light);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.3s}
+        .exit-modal-form input:focus{border-color:var(--lime)}
+        .exit-modal-form input::placeholder{color:rgba(255,255,255,0.3)}
+        .exit-modal-form button{padding:16px;background:var(--lime);color:var(--black);border:none;border-radius:12px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:0.02em;transition:transform 0.2s}
+        .exit-modal-form button:hover{transform:scale(1.02)}
+        .exit-modal-success{display:none}
+        .exit-modal-success.show{display:block}
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation">
+    <div class="container">
+        <div class="nav-left">
+            <a href="#" class="nav-logo" aria-label="INTERNO School"><img src="/logo.svg" alt="INTERNO School"></a>
+            <ul class="nav-links">
+                <li><a href="#curriculum">Dastur</a></li>
+                <li><a href="#outcomes">Natija</a></li>
+                <li><a href="#features">Nega biz</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="lang-switch" role="group" aria-label="Til tanlash">
+                <a href="/" class="active" aria-current="page">UZ</a>
+                <a href="/ru">RU</a>
+            </div>
+            <a href="#register" class="nav-cta">Bepul konsultatsiya</a>
+        </div>
+        <button class="hamburger" aria-label="Menyu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu">
+        <div class="lang-switch" style="margin-bottom:16px;width:fit-content">
+            <a href="/" class="active">UZ</a>
+            <a href="/ru">RU</a>
+        </div>
+        <a href="#curriculum">Dastur</a>
+        <a href="#outcomes">Natija</a>
+        <a href="#features">Nega biz</a>
+        <a href="#faq">FAQ</a>
+        <a href="#register" class="mob-cta">Bepul konsultatsiya</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-card">
+        <div class="hero-3d-wrapper"><canvas id="hero-3d"></canvas></div>
+        <div class="hero-inner">
+            <div class="hero-top">
+                <h1 class="hero-title anim">
+                    Data analitika <span class="accent">noldan</span><br>
+                    <span class="stroke">PRO</span> darajagacha<br>
+                    <span class="accent">4 oyda</span>
+                </h1>
+                <a href="#curriculum" class="hero-info-btn anim">Batafsil →</a>
+            </div>
+
+            <p class="hero-subtitle anim">60 daqiqalik bepul ochiq darsda O'zbekistondagi eng talab qilinadigan Data Analyst kasbini qanday egallashni bilib oling</p>
+
+            <div class="hero-tags anim">
+                <span class="hero-tag">Python</span>
+                <span class="hero-tag">SQL</span>
+                <span class="hero-tag">Power BI</span>
+                <span class="hero-tag">Pandas</span>
+                <span class="hero-tag">Excel</span>
+                <span class="hero-tag">GitHub</span>
+                <span class="hero-tag">DAX</span>
+            </div>
+
+            <div class="hero-bottom anim">
+                <a href="#register" class="hero-cta">
+                    Bepul darsga yozilish
+                    <span class="hero-cta-icon">+</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROOF -->
+<section>
+    <div class="container">
+        <div class="proof-row stagger">
+            <div class="proof-card anim"><div class="proof-number" data-target="200">0</div><div class="proof-label">Bitiruvchilar</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="4.9" data-decimal="true">0</div><div class="proof-label">Reyting</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="85" data-suffix="%">0</div><div class="proof-label">Ish topdi</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="3">0</div><div class="proof-label">Yil bozorda</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- MARKET: DA PROFESSION IN UZBEKISTAN -->
+<section class="market-section" id="market">
+    <div class="container">
+        <div class="market-hero">
+            <div class="market-headline">
+                <h2 class="anim">Data Analyst — <span class="accent">O'zbekistonning yangi navbatdagi IT kasbi</span></h2>
+                <p class="anim">O'zbekistonda raqamli transformatsiya tez sur'atda rivojlanmoqda: <strong>Uzum, Humans, Click, Payme, Kapitalbank, TBC</strong> kabi yirik kompaniyalar har kuni minglab ma'lumotlar bilan ishlaydi.</p>
+                <p class="anim">Ammo bu ma'lumotlardan foyda olishni biladigan <strong>mutaxassislar yetarli emas</strong>. Shuning uchun Data Analyst maoshi tez o'sib, kasb bozorda eng talab qilinadigan o'rinlarga chiqdi.</p>
+                <div class="market-quote anim">
+                    <p>"2024-yilda IT Parkda ro'yxatdan o'tgan kompaniyalarning <strong>75% i</strong> ma'lumot tahlili bo'yicha mutaxassislarni qidirmoqda."</p>
+                    <div class="market-quote-source">— IT Park Uzbekistan, 2025</div>
+                </div>
+            </div>
+
+            <div class="market-stats stagger">
+                <div class="market-stat anim">
+                    <div class="market-stat-value">500+</div>
+                    <div class="market-stat-label">Ochiq vakansiyalar</div>
+                    <div class="market-stat-desc">hh.uz va LinkedIn'da har oyda</div>
+                </div>
+                <div class="market-stat anim">
+                    <div class="market-stat-value">+40%</div>
+                    <div class="market-stat-label">Yillik maosh o'sishi</div>
+                    <div class="market-stat-desc">2023-2025 yillar statistikasi</div>
+                </div>
+                <div class="market-stat anim">
+                    <div class="market-stat-value">3×</div>
+                    <div class="market-stat-label">Vakansiyalar o'sishi</div>
+                    <div class="market-stat-desc">2023 va 2025 yillar taqqoslash</div>
+                </div>
+                <div class="market-stat anim">
+                    <div class="market-stat-value">$1,500+</div>
+                    <div class="market-stat-label">O'rtacha oylik maosh</div>
+                    <div class="market-stat-desc">Middle Data Analyst, Toshkent</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="market-companies">
+            <div class="market-companies-title anim">Bular <span class="accent">Data Analyst qidirayotgan</span> kompaniyalar</div>
+            <div class="market-companies-list stagger">
+                <span class="market-company anim">Uzum Market</span>
+                <span class="market-company anim">Humans</span>
+                <span class="market-company anim">Click.uz</span>
+                <span class="market-company anim">Payme</span>
+                <span class="market-company anim">Kapitalbank</span>
+                <span class="market-company anim">TBC Bank</span>
+                <span class="market-company anim">Alif Mobi</span>
+                <span class="market-company anim">Uzcard</span>
+                <span class="market-company anim">Beeline</span>
+                <span class="market-company anim">Ucell</span>
+                <span class="market-company anim">EPAM</span>
+                <span class="market-company anim">Korzinka</span>
+                <span class="market-company anim">Anor Bank</span>
+                <span class="market-company anim">Hamkorbank</span>
+                <span class="market-company anim">IT Park</span>
+            </div>
+        </div>
+
+        <div class="market-industries stagger">
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🛒</span>
+                <div class="market-industry-name">E-commerce</div>
+                <div class="market-industry-role">Sotuv va mijozlar tahlili</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🏦</span>
+                <div class="market-industry-name">Bank & Fintech</div>
+                <div class="market-industry-role">Risk va kredit skoring</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">📱</span>
+                <div class="market-industry-name">Telecom</div>
+                <div class="market-industry-role">Mijozlar xulqi tahlili</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🚚</span>
+                <div class="market-industry-name">Logistika</div>
+                <div class="market-industry-role">Marshrut optimizatsiyasi</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">💊</span>
+                <div class="market-industry-name">Tibbiyot</div>
+                <div class="market-industry-role">Medical analytics</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">📣</span>
+                <div class="market-industry-name">Marketing</div>
+                <div class="market-industry-role">Kampaniya ROI tahlili</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🏭</span>
+                <div class="market-industry-name">Ishlab chiqarish</div>
+                <div class="market-industry-role">Supply chain analytics</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🏛️</span>
+                <div class="market-industry-name">Davlat</div>
+                <div class="market-industry-role">Raqamli hukumat loyihalari</div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">Bu <strong>yangi kasb</strong>ni 4 oyda egallash uchun — ochiq darsga yoziling</p>
+            <a href="#register" class="section-cta-btn">🎯 Bepul darsga yozilish <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- COURSES / AUDIENCE -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title anim">Kurs siz uchun, <span class="accent">agar siz</span></h2>
+        <p class="section-subtitle anim">Kim bo'lishingizdan qat'i nazar — biz sizni Data Analyst bo'lishga olib boramiz</p>
+        <div class="courses-grid stagger">
+            <div class="course-card anim">
+                <div class="course-card-header">
+                    <div class="course-card-icon">🌱</div>
+                    <div>
+                        <span class="course-card-level-tag">Daraja 1</span>
+                        <h3 class="course-card-title">Mutlaqo noldan</h3>
+                    </div>
+                </div>
+                <div class="course-card-body">
+                    <p class="course-card-description">Hech qachon kod yozmaganman, IT sohasiga yangi kiryapman. Bozor talab qilayotgan kasbni egallamoqchiman.</p>
+                    <ul class="course-card-features">
+                        <li>Dasturlash tajribasi yo'q</li>
+                        <li>Excel bilan ishlashga tayyor</li>
+                        <li>Intizomli o'qishga tayyor</li>
+                    </ul>
+                </div>
+                <div class="course-card-result">
+                    <div class="course-card-result-label">4 oydan keyin</div>
+                    <div class="course-card-result-text">Junior Data Analyst — $500-800/oy</div>
+                </div>
+            </div>
+            <div class="course-card anim">
+                <div class="course-card-header">
+                    <div class="course-card-icon">🔄</div>
+                    <div>
+                        <span class="course-card-level-tag">Daraja 2</span>
+                        <h3 class="course-card-title">Kasb o'zgartirmoqchi</h3>
+                    </div>
+                </div>
+                <div class="course-card-body">
+                    <p class="course-card-description">Boshqa sohada ishlayapman, lekin maoshim va istiqbollar meni qoniqtirmaydi. IT'ga o'tishni xohlayman.</p>
+                    <ul class="course-card-features">
+                        <li>Excel yoki SQL asoslari bor</li>
+                        <li>Hozirgi kasbni o'zgartirmoqchiman</li>
+                        <li>Maosh darajasini oshirmoqchi</li>
+                    </ul>
+                </div>
+                <div class="course-card-result">
+                    <div class="course-card-result-label">4 oydan keyin</div>
+                    <div class="course-card-result-text">Middle Data Analyst — $1,500+/oy</div>
+                </div>
+            </div>
+            <div class="course-card anim">
+                <div class="course-card-header">
+                    <div class="course-card-icon">🚀</div>
+                    <div>
+                        <span class="course-card-level-tag">Daraja 3</span>
+                        <h3 class="course-card-title">Tajribali mutaxassis</h3>
+                    </div>
+                </div>
+                <div class="course-card-body">
+                    <p class="course-card-description">Python yoki SQL bilan ishlaganman. Ko'nikmalarimni oshirib, xalqaro darajada ishlashni xohlayman.</p>
+                    <ul class="course-card-features">
+                        <li>Python/SQL asoslari bor</li>
+                        <li>Portfolio tuzmoqchiman</li>
+                        <li>Xalqaro loyihalarga chiqmoqchi</li>
+                    </ul>
+                </div>
+                <div class="course-card-result">
+                    <div class="course-card-result-label">4 oydan keyin</div>
+                    <div class="course-card-result-text">Senior / Freelance — $3,000+/oy</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">Darajangizga <strong>mos dastur</strong>ni darsda aniqlaymiz</p>
+            <a href="#register" class="section-cta-btn">🎯 Bepul darsga yozilish <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS (LIME) -->
+<section class="skills-section" id="skills">
+    <div class="container">
+        <div class="skills-wrapper">
+            <h2 class="section-title anim">Qanday ko'nikmalarni <br>egalaysiz?</h2>
+            <p class="section-subtitle anim">Ma'lumotlar bilan ishlashning to'liq texnologik stecki — yirik kompaniyalarda talab qilinadi</p>
+
+            <div class="skills-grid stagger">
+                <div class="skill-card anim">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">🐍</div>
+                        <div>
+                            <div class="skill-card-num">Ko'nikma 1</div>
+                            <h3 class="skill-card-title">Python dasturlash</h3>
+                        </div>
+                    </div>
+                    <p class="skill-card-description">Data Analyst ishining asosi — ma'lumotlar bilan dasturlash.</p>
+                    <ul class="skill-card-topics">
+                        <li>NumPy asoslari</li>
+                        <li>Funksiyalar va lambda</li>
+                        <li>CSV fayllar bilan ishlash</li>
+                        <li>Jupyter Notebook</li>
+                    </ul>
+                    <span class="skill-card-footer">1-oy · 12 dars</span>
+                </div>
+
+                <div class="skill-card anim">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">📊</div>
+                        <div>
+                            <div class="skill-card-num">Ko'nikma 2</div>
+                            <h3 class="skill-card-title">Data tahlili</h3>
+                        </div>
+                    </div>
+                    <p class="skill-card-description">Ma'lumotlarni tozalash, tahlil qilish va vizualizatsiya.</p>
+                    <ul class="skill-card-topics">
+                        <li>Pandas DataFrame</li>
+                        <li>Matplotlib va Seaborn</li>
+                        <li>Interaktiv Plotly</li>
+                        <li>EDA va statistika</li>
+                    </ul>
+                    <span class="skill-card-footer">2-oy · 12 dars</span>
+                </div>
+
+                <div class="skill-card anim">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">🗃️</div>
+                        <div>
+                            <div class="skill-card-num">Ko'nikma 3</div>
+                            <h3 class="skill-card-title">SQL va bazalar</h3>
+                        </div>
+                    </div>
+                    <p class="skill-card-description">Yirik kompaniyalardagi ma'lumot bazalari bilan ishlash.</p>
+                    <ul class="skill-card-topics">
+                        <li>MS SQL Server</li>
+                        <li>JOINs, CTE, Views</li>
+                        <li>Stored Procedures</li>
+                        <li>BigQuery asoslari</li>
+                    </ul>
+                    <span class="skill-card-footer">3-oy · 12 dars</span>
+                </div>
+
+                <div class="skill-card anim">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">📈</div>
+                        <div>
+                            <div class="skill-card-num">Ko'nikma 4</div>
+                            <h3 class="skill-card-title">Power BI & DAX</h3>
+                        </div>
+                    </div>
+                    <p class="skill-card-description">Professional dashboardlar va biznes-analitika.</p>
+                    <ul class="skill-card-topics">
+                        <li>Power Query (ETL)</li>
+                        <li>DAX: CALCULATE, FILTER</li>
+                        <li>Time Intelligence</li>
+                        <li>Interaktiv visuallar</li>
+                    </ul>
+                    <span class="skill-card-footer">4-oy · 12 dars</span>
+                </div>
+            </div>
+
+            <div class="section-cta anim">
+                <p class="section-cta-hook">Bu <strong>4 ta ko'nikma</strong>ni 4 oyda to'liq egallab oling</p>
+                <a href="#register" class="section-cta-btn">🎯 Bepul darsga yozilish <span class="section-cta-arrow">→</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CURRICULUM -->
+<section id="curriculum">
+    <div class="container">
+        <h2 class="section-title anim">4 oylik <span class="accent">dastur</span></h2>
+        <p class="section-subtitle anim">48 darslar · 72 soat · haftada 3 marta · har dars 1.5 soat. Har oy — real loyiha bilan yakunlanadi</p>
+        <div class="curriculum-grid stagger">
+            <div class="month-card anim">
+                <span class="month-num">1-oy · 12 dars</span>
+                <h3>Python asoslari</h3>
+                <ul class="month-topics">
+                    <li>Python va Jupyter Notebook'ga kirish</li>
+                    <li>Ma'lumot turlari va matematik operatsiyalar</li>
+                    <li>Shartli operatorlar va tsikllar (if, for, while)</li>
+                    <li>List, tuple, dict, set tuzilmalari</li>
+                    <li>Funksiyalar, lambda, map/filter</li>
+                    <li>Fayllar va CSV bilan ishlash</li>
+                    <li>NumPy asoslari</li>
+                </ul>
+                <div class="month-result">✓ Loyiha: Talabalar ballari tahlili</div>
+            </div>
+            <div class="month-card anim">
+                <span class="month-num">2-oy · 12 dars</span>
+                <h3>Data tahlili va vizualizatsiya</h3>
+                <ul class="month-topics">
+                    <li>Pandas: Series va DataFrame</li>
+                    <li>Ma'lumotlarni tozalash (missing, duplicates)</li>
+                    <li>GroupBy, aggregation, pivot_table</li>
+                    <li>Matplotlib: line, bar, scatter, histogram</li>
+                    <li>Seaborn va interaktiv Plotly</li>
+                    <li>Tasviriy statistika va korrelyatsiya</li>
+                    <li>EDA metodologiyasi</li>
+                </ul>
+                <div class="month-result">✓ Loyiha: E-commerce ma'lumotlari tahlili</div>
+            </div>
+            <div class="month-card anim">
+                <span class="month-num">3-oy · 12 dars</span>
+                <h3>SQL va ma'lumotlar bazasi</h3>
+                <ul class="month-topics">
+                    <li>SQL asoslari: SELECT, WHERE, ORDER BY</li>
+                    <li>Aggregatsiya: COUNT, SUM, GROUP BY, HAVING</li>
+                    <li>JOINs: INNER, LEFT, RIGHT, FULL</li>
+                    <li>MS SQL Server va SSMS</li>
+                    <li>Window Functions, CTE, Views</li>
+                    <li>Stored Procedures va Triggers</li>
+                    <li>Data Warehouse va BigQuery</li>
+                </ul>
+                <div class="month-result">✓ Loyiha: SQL Analytics Dashboard</div>
+            </div>
+            <div class="month-card anim">
+                <span class="month-num">4-oy · 12 dars</span>
+                <h3>Power BI va karyera</h3>
+                <ul class="month-topics">
+                    <li>Power Query va ma'lumot transformatsiyasi</li>
+                    <li>DAX: CALCULATE, FILTER, IF</li>
+                    <li>Time Intelligence: YoY, MoM, running total</li>
+                    <li>Professional dashboardlar va map visual</li>
+                    <li>GitHub portfolio va README</li>
+                    <li>CV, LinkedIn, intervyuga tayyorgarlik</li>
+                    <li>Capstone loyiha va Demo Day</li>
+                </ul>
+                <div class="month-result">✓ Junior Data Analyst lavozimiga tayyor</div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook"><strong>48 darsdan</strong> birinchisini bepul sinab ko'ring</p>
+            <a href="#register" class="section-cta-btn">🎯 Bepul darsga yozilish <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- OUTCOMES -->
+<section id="outcomes">
+    <div class="container">
+        <div class="outcomes-header">
+            <div>
+                <h2 class="section-title anim">Yakunda siz <br><span class="accent">olasiz</span></h2>
+                <p class="section-subtitle anim">Kursdan keyingi konkret natija</p>
+            </div>
+            <div class="outcomes-3d anim" style="background:var(--lime);color:var(--black);display:flex;align-items:center;justify-content:center;font-size:4rem">🎯</div>
+        </div>
+
+        <div class="outcomes-grid stagger">
+            <div class="outcome-card anim"><p>Mentor — darslardan to'liq tushunmaguningizcha yoningizda</p></div>
+            <div class="outcome-card anim"><p>Individual o'quv rejasi — sizning tempingiz va maqsadingizga moslangan</p></div>
+            <div class="outcome-card anim"><p>Tayyor loyihalar portfolioda va rasmiylashtirilgan CV</p></div>
+        </div>
+
+        <h3 class="anim" style="font-size:1.2rem;font-weight:800;margin-top:60px;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.02em">O'zbekistondagi Data Analyst maoshi</h3>
+        <div class="salary-row stagger">
+            <div class="salary-card anim">
+                <div class="salary-tag">Junior</div>
+                <div class="salary-amount">$500 — 800</div>
+                <div class="salary-label">Oyiga</div>
+            </div>
+            <div class="salary-card primary anim">
+                <div class="salary-tag">Middle</div>
+                <div class="salary-amount">$1,500 — 3,000</div>
+                <div class="salary-label">Oyiga</div>
+            </div>
+            <div class="salary-card anim">
+                <div class="salary-tag">Xalqaro</div>
+                <div class="salary-amount">$3,000+</div>
+                <div class="salary-label">Oyiga</div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">Siz ham <strong>$1,500+/oy</strong> maoshiga erishishingiz mumkin</p>
+            <a href="#register" class="section-cta-btn">🎯 Bepul darsga yozilish <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+    <div class="container">
+        <h2 class="section-title anim">Vositalar</h2>
+        <p class="section-subtitle anim">Bozordagi eng dolzarb texnologiyalar</p>
+        <div class="tools-grid stagger">
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Python</div>
+                <div class="tool-desc">Dasturlash</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">SQL</div>
+                <div class="tool-desc">MS SQL Server</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Power BI</div>
+                <div class="tool-desc">Dashboard</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="Excel logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Excel</div>
+                <div class="tool-desc">Jadvallar</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Pandas</div>
+                <div class="tool-desc">Tahlil</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">NumPy</div>
+                <div class="tool-desc">Hisoblash</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Matplotlib</div>
+                <div class="tool-desc">Grafiklar</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Jupyter</div>
+                <div class="tool-desc">Notebook</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://api.iconify.design/logos/tableau-icon.svg" alt="Tableau logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Tableau</div>
+                <div class="tool-desc">Hisobot</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">GitHub</div>
+                <div class="tool-desc">Portfolio</div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook"><strong>10 ta professional vosita</strong> — barchasi kursda amaliy tarzda</p>
+            <a href="#register" class="section-cta-btn">🎯 Bepul darsga yozilish <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <div class="container">
+        <h2 class="section-title anim">Nega <span class="accent">INTERNO?</span></h2>
+        <div class="features-grid stagger">
+            <div class="feature-card anim"><div class="f-icon">🎯</div><h3>Amaliy o'rganish</h3><p>Har bir darsda real-world loyihalar. Nazariyadan ko'ra amaliyotga ko'proq vaqt.</p></div>
+            <div class="feature-card anim"><div class="f-icon">👨‍🏫</div><h3>Mentorlik</h3><p>Tajribali mentorlar bilan individual aloqa. Har qanday savolingizga tezkor javob.</p></div>
+            <div class="feature-card anim"><div class="f-icon">📁</div><h3>Portfolio</h3><p>GitHub'da professional loyihalar to'plami. Ish beruvchilarga tayyor portfolio.</p></div>
+            <div class="feature-card anim"><div class="f-icon">🚀</div><h3>Karyera yordam</h3><p>CV tayyorlash, intervyuga tayyorlanish va ish qidirish strategiyalari.</p></div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook"><strong>INTERNO'ning farqini</strong> ochiq darsning o'zida his qiling</p>
+            <a href="#register" class="section-cta-btn">🎯 Bepul darsga yozilish <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- SPEAKER -->
+<section class="speaker-section" id="speaker">
+    <div class="container">
+        <div class="speaker-wrapper anim">
+            <span class="speaker-badge">Ochiq darsning spikeri</span>
+
+            <div class="speaker-content">
+                <div class="speaker-photo-wrap">
+                    <div class="speaker-photo">
+                        <img src="/tilda/speaker-shoxjahon.jpg" alt="Shoxjahon Turg'unaliyev — Data Analyst & Python Developer" loading="lazy">
+                    </div>
+                    <div class="speaker-tag-float top-right"><span class="speaker-tag-emoji">🐍</span> Python</div>
+                    <div class="speaker-tag-float bottom-left"><span class="speaker-tag-emoji">📊</span> Analytics</div>
+                </div>
+
+                <div class="speaker-info">
+                    <h2 class="speaker-name">Shoxjahon <span class="accent">Turg'unaliyev</span></h2>
+                    <p class="speaker-role"><strong>Data Analyst & Python Developer</strong> · INTERNO School kursi spikeri · Xalqaro (AQSh) loyihalar</p>
+
+                    <div class="speaker-stats">
+                        <div class="speaker-stat">
+                            <div class="speaker-stat-value">5+</div>
+                            <div class="speaker-stat-label">Yil tajriba</div>
+                        </div>
+                        <div class="speaker-stat">
+                            <div class="speaker-stat-value">50+</div>
+                            <div class="speaker-stat-label">Loyiha</div>
+                        </div>
+                        <div class="speaker-stat">
+                            <div class="speaker-stat-value">30+</div>
+                            <div class="speaker-stat-label">Mijoz</div>
+                        </div>
+                    </div>
+
+                    <p class="speaker-bio">
+                        <strong>"Ustozlar" LLC</strong> va <strong>"Shoxida Restaurant" LLC</strong> asoschisi. 2023-yildan beri asosan <strong>AQSh kompaniyalari</strong> bilan freelance tarzda ishlaydi — data-driven yechimlar, biznes-avtomatizatsiya va interaktiv dashboardlar yaratadi.
+                    </p>
+
+                    <ul class="speaker-highlights">
+                        <li>Biznes jarayonlarini avtomatlashtirish orqali qo'lda ishlov berishni <strong>80% ga qisqartirgan</strong></li>
+                        <li>Power BI va Tableau'da professional dashboardlar va analytics tizimlar</li>
+                        <li>CRM integratsiyalari va maxsus Telegram botlar ishlab chiqqan</li>
+                        <li>Biznes uchun strategik qarorlar uchun data-insight'lar yetkazib beradi</li>
+                    </ul>
+
+                    <div class="speaker-tech-list">
+                        <span class="speaker-tech">Python</span>
+                        <span class="speaker-tech">Pandas</span>
+                        <span class="speaker-tech">Power BI</span>
+                        <span class="speaker-tech">SQL</span>
+                        <span class="speaker-tech">Tableau</span>
+                        <span class="speaker-tech">Django</span>
+                        <span class="speaker-tech">Telegram API</span>
+                    </div>
+
+                    <div class="speaker-actions">
+                        <a href="#register" class="speaker-action" style="background:var(--lime);color:var(--black);border-color:var(--lime)">
+                            🎯 Ochiq darsga yozilish
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- PORTFOLIO / GRADUATE WORKS -->
+<section id="portfolio">
+    <div class="container">
+        <h2 class="section-title anim">Bitiruvchilar <span class="accent">ishlari</span></h2>
+        <p class="section-subtitle anim">Kursdan so'ng siz ham shunday loyihalar yaratasiz — GitHub portfolio real ish uchun</p>
+
+        <div class="portfolio-grid stagger">
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-1.jpeg" alt="Ta'lim kurslari tahlili — Power BI dashboard" loading="lazy">
+                    <span class="portfolio-tag">Power BI</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">Ж</div>
+                        <span>Jasur J. · 4-oy bitiruvchisi · Hozir: Click.uz</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Sotuv tahlili dashboardi</h3>
+                    <p class="portfolio-desc">E-commerce kompaniya uchun real-time sotuv dashboardi. KPI'lar, geografik tahlil, maxsulot segmentatsiyasi.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Power BI</span>
+                        <span class="portfolio-tech-tag">DAX</span>
+                        <span class="portfolio-tech-tag">SQL</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">GitHub'da ko'rish <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-2.jpeg" alt="To'lovlar va qarzdorlik tahlili" loading="lazy">
+                    <span class="portfolio-tag">Python</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">А</div>
+                        <span>Aneliya T. · 3-oy bitiruvchisi · Hozir: Payme</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Mijozlar ketish tahlili</h3>
+                    <p class="portfolio-desc">Bank mijozlarining ketish ehtimolini aniqlash. EDA, feature engineering va statistik model bilan 87% aniqlik.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Python</span>
+                        <span class="portfolio-tech-tag">Pandas</span>
+                        <span class="portfolio-tech-tag">Seaborn</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">GitHub'da ko'rish <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-3.jpeg" alt="Mahsulotlar sotuvi tahlili" loading="lazy">
+                    <span class="portfolio-tag">SQL</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">Д</div>
+                        <span>Danata A. · 4-oy bitiruvchisi · Hozir: Uzum Market</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">HR analitika tizimi</h3>
+                    <p class="portfolio-desc">Kompaniya xodimlari bo'yicha to'liq tahlil: maosh, yillar, bo'limlar, unumdorlik. 500+ xodim ma'lumoti.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">SQL</span>
+                        <span class="portfolio-tech-tag">Tableau</span>
+                        <span class="portfolio-tech-tag">Excel</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">GitHub'da ko'rish <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-4.jpeg" alt="Mijozlar segmentatsiyasi" loading="lazy">
+                    <span class="portfolio-tag">Power BI</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">К</div>
+                        <span>Karina V. · 3-oy bitiruvchisi · Hozir: TBC Bank</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Bozor tadqiqoti dashboard</h3>
+                    <p class="portfolio-desc">O'zbekiston fintech bozori tahlili — 50+ kompaniya, segmentatsiya, raqobat tahlili, time intelligence.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Power BI</span>
+                        <span class="portfolio-tech-tag">DAX</span>
+                        <span class="portfolio-tech-tag">Python</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">GitHub'da ko'rish <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-5.jpeg" alt="E-commerce analitikasi" loading="lazy">
+                    <span class="portfolio-tag">Python + SQL</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">Р</div>
+                        <span>Regina F. · 2-oy bitiruvchisi · Hozir: Uzum Market</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">E-commerce EDA</h3>
+                    <p class="portfolio-desc">Online do'kon ma'lumotlari bo'yicha to'liq EDA: top maxsulotlar, sezonlilik, mijozlar hulqi, A/B testlar.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Pandas</span>
+                        <span class="portfolio-tech-tag">Matplotlib</span>
+                        <span class="portfolio-tech-tag">SQLite</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">GitHub'da ko'rish <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-1.jpeg" alt="Moliyaviy analitika" loading="lazy">
+                    <span class="portfolio-tag">Tableau</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">А</div>
+                        <span>Ashur A. · 4-oy bitiruvchisi · Hozir: Humans</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Moliyaviy analitika</h3>
+                    <p class="portfolio-desc">Bank daromadlari va xarajatlari dashboardi. 3 yillik trend, filiallarga bo'lish, forecasting modeli.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Tableau</span>
+                        <span class="portfolio-tech-tag">SQL</span>
+                        <span class="portfolio-tech-tag">Python</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">GitHub'da ko'rish <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">Siz ham <strong>shunday portfolio</strong> yaratasiz — 4 oy ichida</p>
+            <a href="#register" class="section-cta-btn">🎯 Bepul darsga yozilish <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- COUNTDOWN TIMER -->
+<section class="countdown-section">
+    <div class="container">
+        <div class="countdown-wrapper anim">
+            <span class="countdown-label">Yozilish ochiq</span>
+            <h2 class="countdown-title">Keyingi guruh boshlanishiga <br><span class="accent">qoldi</span></h2>
+            <div class="countdown-timer" id="countdown-timer">
+                <div class="countdown-cell"><div class="countdown-number" id="cd-days">00</div><div class="countdown-unit">Kun</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-hours">00</div><div class="countdown-unit">Soat</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-mins">00</div><div class="countdown-unit">Daqiqa</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-secs">00</div><div class="countdown-unit">Soniya</div></div>
+            </div>
+            <div class="countdown-info">
+                <div class="countdown-seats">
+                    🔥 <span>Qolgan joylar: <span class="seats-count" id="seats-left">7</span> / <span id="seats-total">20</span></span>
+                    <div class="seats-bar"><div class="seats-bar-fill" id="seats-bar-fill"></div></div>
+                </div>
+                <a href="#register" class="nav-cta" style="padding:14px 28px">Hozir yozilish →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FORM (MULTI-STEP) -->
+<section class="cta-section" id="register">
+    <div class="container">
+        <div class="cta-wrapper">
+            <h2 class="section-title anim">Bepul ochiq darsga yoziling</h2>
+            <p class="section-subtitle anim" style="margin-left:auto;margin-right:auto">60 daqiqalik bepul darsda kurs, menterlar va karyera imkoniyatlari bilan tanishasiz</p>
+
+            <form class="cta-card anim" id="registration-form" novalidate>
+                <!-- Progress dots -->
+                <div class="form-steps" id="form-steps">
+                    <div class="form-step-dot active"></div>
+                    <div class="form-step-dot"></div>
+                    <div class="form-step-dot"></div>
+                </div>
+
+                <!-- STEP 1: Level -->
+                <div class="form-step active" data-step="1">
+                    <h3 class="step-title">Darajangizni tanlang</h3>
+                    <p class="step-subtitle">Biz dasturni siz uchun moslab beramiz</p>
+                    <div class="step-options">
+                        <button type="button" class="step-option" data-field="level" data-value="boshlovchi">
+                            <span class="step-option-emoji">🌱</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Mutlaqo noldan</span>
+                                <span class="step-option-desc">Dasturlashni hali o'rganmaganman</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="level" data-value="orta">
+                            <span class="step-option-emoji">📘</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Bazaviy bilim bor</span>
+                                <span class="step-option-desc">Excel/SQL asoslari bilan tanishman</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="level" data-value="tajribali">
+                            <span class="step-option-emoji">🚀</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Tajribali mutaxassisman</span>
+                                <span class="step-option-desc">Python/SQL'da ishlaganman</span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="step-actions">
+                        <button type="button" class="step-btn step-btn-next" data-action="next" disabled>Keyingi →</button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Goal -->
+                <div class="form-step" data-step="2">
+                    <h3 class="step-title">Asosiy maqsadingiz?</h3>
+                    <p class="step-subtitle">Kerakli insaytlar bilan sizga yordam beramiz</p>
+                    <div class="step-options">
+                        <button type="button" class="step-option" data-field="goal" data-value="career_change">
+                            <span class="step-option-emoji">🎯</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Kasb o'zgartirish</span>
+                                <span class="step-option-desc">IT sohasiga o'tmoqchiman</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="goal" data-value="salary_up">
+                            <span class="step-option-emoji">💰</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Maoshni oshirish</span>
+                                <span class="step-option-desc">$1500+ maoshli ishga chiqish</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="goal" data-value="first_job">
+                            <span class="step-option-emoji">💼</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Birinchi ish</span>
+                                <span class="step-option-desc">Junior Data Analyst bo'lmoqchiman</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="goal" data-value="upskill">
+                            <span class="step-option-emoji">📈</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Qo'shimcha bilim</span>
+                                <span class="step-option-desc">Hozirgi ishim uchun kerak</span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="step-actions">
+                        <button type="button" class="step-btn step-btn-back" data-action="back">← Ortga</button>
+                        <button type="button" class="step-btn step-btn-next" data-action="next" disabled>Keyingi →</button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Contact -->
+                <div class="form-step" data-step="3">
+                    <h3 class="step-title">Aloqa ma'lumotlari</h3>
+                    <p class="step-subtitle">24 soat ichida siz bilan bog'lanamiz</p>
+                    <div class="form-group"><label for="name">Ismingiz</label><input type="text" id="name" class="form-input" placeholder="Aziz" required autocomplete="given-name"></div>
+                    <div class="form-group"><label for="phone">Telefon</label><input type="tel" id="phone" class="form-input" placeholder="+998 __ ___ __ __" required autocomplete="tel"></div>
+                    <div class="form-group"><label for="city">Shahar</label><select id="city" class="form-input" required><option value="" disabled selected>Tanlang</option><option value="toshkent">Toshkent</option><option value="samarqand">Samarqand</option><option value="fargona">Farg'ona</option><option value="online">Online</option></select></div>
+                    <div class="form-group"><label for="language">O'qish tili</label><select id="language" class="form-input" required><option value="" disabled selected>Tanlang</option><option value="uz">O'zbek tili</option><option value="ru">Русский</option></select></div>
+                    <div class="step-actions">
+                        <button type="button" class="step-btn step-btn-back" data-action="back">← Ortga</button>
+                        <button type="submit" class="step-btn step-btn-next">🎯 Yozilish</button>
+                    </div>
+                    <p class="form-privacy" style="margin-top:14px">🔒 Ma'lumotlaringiz himoyalangan</p>
+                </div>
+            </form>
+
+            <div class="form-success" id="form-success">
+                <div class="success-icon">🎉</div>
+                <h3>Tabriklaymiz!</h3>
+                <p>Tez orada siz bilan bog'lanamiz</p>
+            </div>
+
+            <div class="form-urgency anim">🔥 Bu hafta <strong id="signup-counter">47</strong> kishi yozildi</div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+        <h2 class="section-title anim" style="text-align:center">FAQ</h2>
+        <p class="section-subtitle anim" style="text-align:center;margin:0 auto 40px">Ko'p so'raladigan savollar</p>
+        <div class="faq-list">
+            <div class="faq-item anim"><button class="faq-q">Kurs kimlar uchun? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Kurs har kim uchun mos. Hech qanday texnik bilim yoki dasturlash tajribasi talab qilinmaydi. Noldan boshlab professional darajagacha o'rgatamiz.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Kurs qancha vaqt davom etadi? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Kurs 4 oy davom etadi (16 hafta, 48 darslar, 72 soat). Haftada 3 marta dars, har biri 1.5 soat. Har oyda katta amaliy loyiha tayyorlanadi.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Ochiq dars nima? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Ochiq dars — bepul tanishuv darsi. Kurs formati va dastur bilan tanishasiz. Hech qanday majburiyat yo'q.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Sertifikat beriladi? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Ha, kursni muvaffaqiyatli tugatgandan so'ng INTERNO School sertifikati beriladi.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Online o'qish mumkinmi? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Ha, online format mavjud. Istalgan joydan darslarni jonli efirda yoki yozuvda ko'rishingiz mumkin.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Narxi qancha? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Kurs narxi haqida batafsil ma'lumotni ochiq darsda olasiz. Bepul ochiq darsga yozilib, tafsilotlarni bilib oling.</div></div></div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook"><strong>Yana savollar</strong> bormi? Ochiq darsda barchasiga javob beramiz</p>
+            <a href="#register" class="section-cta-btn">🎯 Bepul darsga yozilish <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo"><img src="/logo.svg" alt="INTERNO School"></div>
+                <p>O'zbekistonda zamonaviy IT ta'lim. Data Analytics va texnologiyalar bo'yicha professional kurslar.</p>
+            </div>
+            <div class="footer-col"><h4>Sahifalar</h4><a href="#">Bosh sahifa</a><a href="#curriculum">Kurslar</a><a href="#features">Biz haqimizda</a><a href="#register">Aloqa</a></div>
+            <div class="footer-col"><h4>Ijtimoiy</h4><a href="#">Telegram</a><a href="#">Instagram</a></div>
+            <div class="footer-col"><h4>Aloqa</h4><a href="#">Toshkent, O'zbekiston</a><a href="mailto:info@interno.uz">info@interno.uz</a></div>
+        </div>
+        <div class="footer-bottom">© 2026 INTERNO School. Barcha huquqlar himoyalangan.</div>
+    </div>
+</footer>
+
+<script type="module">
+// Skip Three.js entirely on mobile — saves ~600KB download
+const heroCanvas = document.getElementById('hero-3d');
+if (heroCanvas && window.innerWidth > 768) {
+    const THREE = await import('three');
+    const renderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(heroCanvas.clientWidth, heroCanvas.clientHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.0;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, heroCanvas.clientWidth / heroCanvas.clientHeight, 0.1, 100);
+    camera.position.set(0, 0, 7);
+
+    // Rich chrome environment — studio lighting with lime accent
+    const envScene = new THREE.Scene();
+    const envBg = new THREE.Mesh(new THREE.SphereGeometry(30, 32, 16), new THREE.MeshBasicMaterial({ color: 0x151515, side: THREE.BackSide }));
+    envScene.add(envBg);
+    // Big lime key light — top right
+    const el1 = new THREE.Mesh(new THREE.PlaneGeometry(10, 8), new THREE.MeshBasicMaterial({ color: 0xd6ff3c }));
+    el1.position.set(6, 4, -3); el1.lookAt(0,0,0); envScene.add(el1);
+    // Cool fill — left
+    const el2 = new THREE.Mesh(new THREE.PlaneGeometry(8, 8), new THREE.MeshBasicMaterial({ color: 0x6a7a8a }));
+    el2.position.set(-6, 1, 3); el2.lookAt(0,0,0); envScene.add(el2);
+    // White top highlight
+    const el3 = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    el3.position.set(0, 7, 1); el3.lookAt(0,0,0); envScene.add(el3);
+    // Ground bounce
+    const el4 = new THREE.Mesh(new THREE.PlaneGeometry(15, 15), new THREE.MeshBasicMaterial({ color: 0x2a2a2a }));
+    el4.position.set(0, -6, 0); el4.rotation.x = -Math.PI/2; envScene.add(el4);
+    // Secondary lime spot — bottom back
+    const el5 = new THREE.Mesh(new THREE.PlaneGeometry(5, 3), new THREE.MeshBasicMaterial({ color: 0xaacc00 }));
+    el5.position.set(-3, -2, -5); el5.lookAt(0,0,0); envScene.add(el5);
+    // Warm rim
+    const el6 = new THREE.Mesh(new THREE.SphereGeometry(1), new THREE.MeshBasicMaterial({ color: 0xffeedd }));
+    el6.position.set(4, -1, 5); envScene.add(el6);
+
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(envScene, 0.015).texture;
+    pmrem.dispose();
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+    const keyLight = new THREE.DirectionalLight(0xfffff0, 2);
+    keyLight.position.set(3, 5, 4); scene.add(keyLight);
+    const accent = new THREE.PointLight(0xd6ff3c, 4, 20);
+    accent.position.set(-3, 3, 4); scene.add(accent);
+    const rimLight = new THREE.PointLight(0xffffff, 2, 15);
+    rimLight.position.set(4, -2, -3); scene.add(rimLight);
+
+    // Chrome material with more polish
+    function chromeMat(tintColor, opts={}) {
+        return new THREE.MeshPhysicalMaterial({
+            color: tintColor || 0xffffff,
+            metalness: 1.0,
+            roughness: opts.rough !== undefined ? opts.rough : 0.05,
+            envMapIntensity: opts.env || 2.2,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.02,
+            reflectivity: 1.0
+        });
+    }
+
+    const objects = [];
+
+    // 1. Big rounded cube — hero element (lime chrome)
+    const cubeGeo = new THREE.BoxGeometry(1.4, 1.4, 1.4, 10, 10, 10);
+    const pa = cubeGeo.attributes.position;
+    for (let i = 0; i < pa.count; i++) {
+        const v = new THREE.Vector3(pa.getX(i), pa.getY(i), pa.getZ(i));
+        const o = v.clone(); v.normalize().multiplyScalar(1.2); v.lerp(o, 0.5);
+        pa.setXYZ(i, v.x, v.y, v.z);
+    }
+    cubeGeo.computeVertexNormals();
+    const cube = new THREE.Mesh(cubeGeo, chromeMat(0xd6ff3c, {rough: 0.12}));
+    cube.position.set(-1.8, 0.6, 0.3);
+    cube.rotation.set(0.3, 0.4, 0.2);
+    scene.add(cube);
+    objects.push({ m: cube, rs: 0.25, bx: -1.8, by: 0.6, bz: 0.3, fa: 0.18, i: 0 });
+
+    // 2. Torus knot — complex chrome
+    const knot = new THREE.Mesh(
+        new THREE.TorusKnotGeometry(0.85, 0.26, 256, 32, 2, 3),
+        chromeMat(0xf5f5f5, {rough: 0.04})
+    );
+    knot.position.set(0.6, 0.3, 0);
+    scene.add(knot);
+    objects.push({ m: knot, rs: 0.4, bx: 0.6, by: 0.3, bz: 0, fa: 0.2, i: 1 });
+
+    // 3. Large chrome sphere
+    const sph = new THREE.Mesh(
+        new THREE.SphereGeometry(0.55, 64, 64),
+        chromeMat(0xffffff, {rough: 0.02})
+    );
+    sph.position.set(2.0, -0.7, 0.8);
+    scene.add(sph);
+    objects.push({ m: sph, rs: 0.15, bx: 2.0, by: -0.7, bz: 0.8, fa: 0.22, i: 2 });
+
+    // 4. Octahedron / diamond — accent gem
+    const oct = new THREE.Mesh(
+        new THREE.OctahedronGeometry(0.4, 0),
+        chromeMat(0xd6ff3c, {rough: 0.08, env: 2.5})
+    );
+    oct.position.set(1.5, 1.3, 0.5);
+    oct.rotation.set(0.3, 0.5, 0);
+    scene.add(oct);
+    objects.push({ m: oct, rs: 0.5, bx: 1.5, by: 1.3, bz: 0.5, fa: 0.15, i: 3 });
+
+    // 5. Torus (donut ring)
+    const torus = new THREE.Mesh(
+        new THREE.TorusGeometry(0.5, 0.17, 48, 96),
+        chromeMat(0xffffff, {rough: 0.06})
+    );
+    torus.position.set(-0.7, -1.2, 0.6);
+    torus.rotation.set(Math.PI / 3, 0.3, 0.5);
+    scene.add(torus);
+    objects.push({ m: torus, rs: 0.3, bx: -0.7, by: -1.2, bz: 0.6, fa: 0.2, i: 4 });
+
+    // 6. Small accent sphere (lime)
+    const sph2 = new THREE.Mesh(
+        new THREE.SphereGeometry(0.22, 48, 48),
+        chromeMat(0xd6ff3c, {rough: 0.1})
+    );
+    sph2.position.set(-0.3, 1.5, 1.2);
+    scene.add(sph2);
+    objects.push({ m: sph2, rs: 0.3, bx: -0.3, by: 1.5, bz: 1.2, fa: 0.25, i: 5 });
+
+    // 7. Icosahedron — low-poly gem (chrome)
+    const ico = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(0.35, 0),
+        chromeMat(0xe8ffaa, {rough: 0.06, env: 2.3})
+    );
+    ico.position.set(2.5, 0.5, -0.4);
+    ico.rotation.set(0.4, 0.3, 0.1);
+    scene.add(ico);
+    objects.push({ m: ico, rs: 0.45, bx: 2.5, by: 0.5, bz: -0.4, fa: 0.18, i: 6 });
+
+    // Animate — drift in both axes
+    function animate(t) {
+        objects.forEach((o) => {
+            o.m.rotation.x = t * 0.0003 * o.rs;
+            o.m.rotation.y = t * 0.0005 * o.rs;
+            o.m.rotation.z = t * 0.0002 * o.rs;
+            const tm = t * 0.001 + o.i;
+            o.m.position.y = o.by + Math.sin(tm) * o.fa;
+            o.m.position.x = o.bx + Math.cos(tm * 0.7) * (o.fa * 0.4);
+        });
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    window.addEventListener('resize', () => {
+        renderer.setSize(heroCanvas.clientWidth, heroCanvas.clientHeight);
+        camera.aspect = heroCanvas.clientWidth / heroCanvas.clientHeight;
+        camera.updateProjectionMatrix();
+    });
+}
+
+// Card 3D scenes removed — sections redesigned with informative content instead
+
+// ======= UI =======
+(function() {
+    'use strict';
+    const h = document.querySelector('.hamburger');
+    const m = document.querySelector('.mobile-menu');
+    h.addEventListener('click', () => { h.classList.toggle('active'); m.classList.toggle('active'); });
+    m.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { h.classList.remove('active'); m.classList.remove('active'); }));
+
+    // Scroll animations
+    const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.anim').forEach(el => obs.observe(el));
+
+    // Counters
+    const cO = new IntersectionObserver(e => e.forEach(x => {
+        if (!x.isIntersecting) return;
+        const el = x.target;
+        if (el.dataset.counted) return;
+        el.dataset.counted = '1';
+        const t = parseFloat(el.dataset.target);
+        const d = el.dataset.decimal === 'true';
+        const suf = el.dataset.suffix || '';
+        const st = performance.now();
+        (function tick(n) {
+            const p = Math.min((n - st) / 2000, 1);
+            const e2 = 1 - Math.pow(1 - p, 3);
+            const cur = e2 * t;
+            el.textContent = d ? cur.toFixed(1) + suf : Math.floor(cur) + (t >= 200 ? '+' : '') + suf;
+            if (p < 1) requestAnimationFrame(tick);
+        })(st);
+        cO.unobserve(el);
+    }), { threshold: 0.5 });
+    document.querySelectorAll('.proof-number[data-target]').forEach(el => cO.observe(el));
+
+    // FAQ
+    document.querySelectorAll('.faq-q').forEach(b => {
+        b.addEventListener('click', () => {
+            const a = b.classList.contains('active');
+            const ans = b.nextElementSibling;
+            document.querySelectorAll('.faq-q.active').forEach(x => { x.classList.remove('active'); x.nextElementSibling.style.maxHeight = null; });
+            if (!a) { b.classList.add('active'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+        });
+    });
+
+    // ============== MULTI-STEP FORM ==============
+    const regForm = document.getElementById('registration-form');
+    if (regForm) {
+        const steps = regForm.querySelectorAll('.form-step');
+        const dots = regForm.querySelectorAll('.form-step-dot');
+        const formData = {};
+        let currentStep = 1;
+
+        function showStep(n) {
+            steps.forEach(s => s.classList.toggle('active', +s.dataset.step === n));
+            dots.forEach((d, i) => {
+                d.classList.remove('active', 'completed');
+                if (i + 1 < n) d.classList.add('completed');
+                else if (i + 1 === n) d.classList.add('active');
+            });
+            currentStep = n;
+            try { if (window.track) window.track('form_step_' + n, { step: n }); } catch(e) {}
+        }
+
+        // Option selection (level/goal)
+        regForm.querySelectorAll('.step-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const field = btn.dataset.field;
+                const value = btn.dataset.value;
+                formData[field] = value;
+                // Deselect siblings
+                const siblings = btn.parentElement.querySelectorAll('.step-option');
+                siblings.forEach(s => s.classList.remove('selected'));
+                btn.classList.add('selected');
+                // Enable next button
+                const step = btn.closest('.form-step');
+                const nextBtn = step.querySelector('[data-action="next"]');
+                if (nextBtn) nextBtn.disabled = false;
+                // Auto-advance to next step after short delay (for visual feedback)
+                if (currentStep < 3) {
+                    setTimeout(() => {
+                        showStep(currentStep + 1);
+                    }, 350);
+                }
+            });
+        });
+
+        // Navigation buttons
+        regForm.querySelectorAll('[data-action="next"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep < 3) showStep(currentStep + 1);
+            });
+        });
+        regForm.querySelectorAll('[data-action="back"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep > 1) showStep(currentStep - 1);
+            });
+        });
+
+        // Final submit
+        regForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const city = document.getElementById('city').value;
+            const language = document.getElementById('language')?.value || '';
+            if (!name || !phone || !city || !language) return;
+
+            formData.name = name;
+            formData.phone = phone;
+            formData.city = city;
+            formData.language = language;
+
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Yuborilmoqda...';
+            btn.disabled = true;
+
+            try {
+                await fetch('/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name, phone,
+                        city: city + ' | Lang: ' + language + ' | Level: ' + (formData.level || 'N/A') + ' | Goal: ' + (formData.goal || 'N/A')
+                    })
+                });
+            } catch (err) {}
+
+            this.style.display = 'none';
+            document.getElementById('form-success').classList.add('show');
+        });
+    }
+
+    // Signup counter
+    const c2 = document.getElementById('signup-counter');
+    if (c2) c2.textContent = Math.floor(Math.random() * 20) + 35;
+
+    // ============== COUNTDOWN TIMER ==============
+    (function initCountdown() {
+        const target = new Date(window.SITE_CONFIG.NEXT_COHORT_DATE).getTime();
+        const dEl = document.getElementById('cd-days');
+        const hEl = document.getElementById('cd-hours');
+        const mEl = document.getElementById('cd-mins');
+        const sEl = document.getElementById('cd-secs');
+        if (!dEl) return;
+
+        const pad = n => String(Math.max(0, n)).padStart(2, '0');
+
+        function tick() {
+            const now = Date.now();
+            let diff = Math.max(0, target - now);
+            const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+            const h = Math.floor(diff / 3600000); diff -= h * 3600000;
+            const m = Math.floor(diff / 60000); diff -= m * 60000;
+            const s = Math.floor(diff / 1000);
+            dEl.textContent = pad(d);
+            hEl.textContent = pad(h);
+            mEl.textContent = pad(m);
+            sEl.textContent = pad(s);
+        }
+        tick();
+        setInterval(tick, 1000);
+
+        // Seats
+        const seatsLeft = window.SITE_CONFIG.SEATS_LEFT;
+        const seatsTotal = window.SITE_CONFIG.TOTAL_SEATS;
+        const sl = document.getElementById('seats-left');
+        const st = document.getElementById('seats-total');
+        const sbf = document.getElementById('seats-bar-fill');
+        if (sl) sl.textContent = seatsLeft;
+        if (st) st.textContent = seatsTotal;
+        if (sbf) {
+            // fill = how much sold (inverse = left proportion in gradient)
+            const pct = ((seatsTotal - seatsLeft) / seatsTotal) * 100;
+            setTimeout(() => { sbf.style.width = pct + '%'; }, 300);
+        }
+    })();
+
+    // ============== EVENT TRACKING ==============
+    function track(name, params) { if (window.track) window.track(name, params || {}); }
+
+    // Track CTA clicks
+    document.querySelectorAll('a[href="#register"],.nav-cta,.hero-cta,.mob-cta').forEach(el => {
+        el.addEventListener('click', () => {
+            track('click_cta', { location: el.closest('section,nav')?.id || 'unknown', text: el.textContent.trim().slice(0, 40) });
+            if (window.fbq) fbq('track', 'Lead', { source: 'vercel_landing', type: 'cta_click' });
+        });
+    });
+
+    // Track form_start on first interaction
+    let formStarted = false;
+    document.querySelectorAll('#registration-form input, #registration-form select').forEach(el => {
+        el.addEventListener('focus', () => {
+            if (formStarted) return;
+            formStarted = true;
+            track('form_start', { form: 'registration' });
+        }, { once: true });
+    });
+
+    // Track scroll depth (25/50/75/100)
+    const depths = [25, 50, 75, 100];
+    const seenDepths = new Set();
+    window.addEventListener('scroll', () => {
+        const p = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
+        depths.forEach(d => {
+            if (p >= d && !seenDepths.has(d)) {
+                seenDepths.add(d);
+                track('scroll_' + d, { percent: d });
+            }
+        });
+    }, { passive: true });
+
+    // Sticky mobile CTA is always visible via CSS (no JS logic needed)
+
+    // ============== TELEGRAM LINK SETUP ==============
+    const tg = window.SITE_CONFIG.TELEGRAM_USERNAME;
+    const tgLink = document.getElementById('msg-telegram');
+    if (tgLink) {
+        if (tg) tgLink.href = 'https://t.me/' + tg.replace('@', '');
+        else tgLink.style.display = 'none';
+        tgLink.addEventListener('click', () => track('contact_telegram', {}));
+    }
+
+    // ============== EXIT INTENT POPUP ==============
+    const exitModal = document.getElementById('exit-modal');
+    let exitShown = sessionStorage.getItem('exit_shown') === '1';
+    let hasSubmitted = false;
+
+    function showExitModal() {
+        if (exitShown || hasSubmitted) return;
+        exitShown = true;
+        sessionStorage.setItem('exit_shown', '1');
+        exitModal.classList.add('show');
+        track('exit_modal_shown', {});
+    }
+
+    // Desktop: mouse leaves top
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0) showExitModal();
+    });
+
+    // Mobile: fast scroll up + back button alternative — show after 30s if not submitted
+    if (window.innerWidth <= 768) {
+        setTimeout(() => {
+            if (!hasSubmitted && !exitShown && window.scrollY > 300) showExitModal();
+        }, 45000); // 45 seconds
+    }
+
+    // Close handlers
+    document.querySelectorAll('[data-close-modal]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            if (e.target === el || el.dataset.closeModal === 'true') {
+                exitModal.classList.remove('show');
+            }
+        });
+    });
+
+    // Exit form submit
+    const exitForm = document.getElementById('exit-form');
+    if (exitForm) {
+        exitForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const phone = document.getElementById('exit-phone').value.trim();
+            if (!phone) return;
+            hasSubmitted = true;
+            track('exit_lead', { phone_present: true });
+            if (window.fbq) fbq('track', 'Lead', { source: 'exit_intent' });
+
+            try {
+                await fetch('/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: 'Exit popup lead', phone, city: 'exit_intent' })
+                });
+            } catch(err) {}
+
+            document.querySelector('.exit-modal-body').style.display = 'none';
+            document.querySelector('.exit-modal-success').classList.add('show');
+        });
+    }
+
+    // Mark on form success
+    document.getElementById('registration-form').addEventListener('submit', () => {
+        hasSubmitted = true;
+        track('form_submit', { form: 'registration' });
+        if (window.fbq) fbq('track', 'Lead', { source: 'main_form' });
+    });
+})();
+</script>
+
+<!-- STICKY MOBILE CTA (faqat mobile uchun) -->
+<div class="mobile-cta-bar" id="mobile-cta-bar">
+    <a href="#register">🎯 Bepul darsga yozilish</a>
+</div>
+
+<!-- FLOATING MESSENGER BUTTONS -->
+<div class="messenger-floats">
+    <a href="#" id="msg-telegram" class="messenger-float messenger-telegram" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+    </a>
+</div>
+
+<!-- EXIT INTENT MODAL -->
+<div class="exit-modal" id="exit-modal" data-close-modal>
+    <div class="exit-modal-content">
+        <button class="exit-modal-close" data-close-modal="true" aria-label="Yopish">✕</button>
+        <div class="exit-modal-body">
+            <div class="exit-modal-icon">🎁</div>
+            <h3>Kutib turing!<br><span class="accent">Sovg'a bor</span></h3>
+            <p>Ketishdan oldin bepul PDF oling: <strong style="color:#fff">"Data Analyst bo'lish — 7 qadam"</strong> + $3000+ maoshli vakansiyalar ro'yxati</p>
+            <form class="exit-modal-form" id="exit-form">
+                <input type="tel" id="exit-phone" placeholder="+998 __ ___ __ __" required autocomplete="tel">
+                <button type="submit">🎁 PDF olish — Bepul</button>
+            </form>
+        </div>
+        <div class="exit-modal-success">
+            <div class="exit-modal-icon">✅</div>
+            <h3>Ajoyib!</h3>
+            <p>Tez orada sizga PDF va qo'shimcha ma'lumotlar yuboriladi. Telegram'ni kuting!</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

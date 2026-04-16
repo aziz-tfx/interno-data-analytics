@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://interno-data-analytics.vercel.app/sitemap.xml

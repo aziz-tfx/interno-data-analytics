@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="format-detection" content="telephone=no">
+    <title>Курсы Data Аналитики в Ташкенте | Python SQL Power BI | INTERNO School</title>
+    <meta name="description" content="Курс Data Analytics от INTERNO School. 4 месяца, 48 уроков, 72 часа. Python, SQL, Power BI — с нуля до профессионала. Ташкент, Самарканд, Фергана. Запишитесь на бесплатный открытый урок!">
+    <meta name="keywords" content="курс data analyst ташкент, курсы аналитики данных узбекистан, python курсы, SQL курсы, power bi курсы, стать data analyst, INTERNO school">
+    <meta property="og:title" content="Курс Data Аналитики | INTERNO School Ташкент">
+    <meta property="og:description" content="Станьте Data Аналитиком за 4 месяца. Python, SQL, Power BI. 48 уроков. Бесплатный открытый урок.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://interno.uz/data-analitika">
+    <meta property="og:locale" content="ru_RU">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://interno.uz/data-analitika">
+    <link rel="alternate" hreflang="uz" href="https://interno.uz/data-analitika">
+    <link rel="alternate" hreflang="ru" href="https://interno.uz/data-analitika/ru">
+    <link rel="alternate" hreflang="x-default" href="https://interno.uz/data-analitika">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.163.0/build/three.module.js"}}</script>
+
+    <!-- ============== SITE CONFIG — zamenit siz o'z ID/raqamlaringizni ============== -->
+    <script>
+        window.SITE_CONFIG = {
+            // Analytics (quyidagilarni to'ldiring, agar bo'sh qolsa — yuklanmaydi)
+            GA4_ID: '',                // Masalan: 'G-ABC1234XYZ' (https://analytics.google.com)
+            META_PIXEL_ID: '4251277901808457',         // Masalan: '1234567890123456' (https://business.facebook.com)
+            CLARITY_ID: '',            // Masalan: 'abcdefghij' (https://clarity.microsoft.com — bepul heatmaplar)
+            TIKTOK_PIXEL_ID: '',       // Ixtiyoriy: TikTok Ads uchun
+
+            // Messengerlar (raqam/username to'ldiring, bo'sh bo'lsa — tugma ko'rinmaydi)
+            TELEGRAM_USERNAME: 'internosales_bot',   // @ belgisisiz. Masalan: 'internoschool'
+            PHONE_NUMBER: '+998 (90) 000-00-00',  // Chiroyli formatda ko'rsatish uchun
+
+            // Keyingi guruh boshlanish sanasi (YYYY-MM-DDTHH:MM:SS formati, local vaqt)
+            NEXT_COHORT_DATE: '2026-05-15T09:00:00',  // O'zgartiring: keyingi guruh qachon boshlanadi
+            TOTAL_SEATS: 20,                           // Guruhdagi umumiy joylar soni
+            SEATS_LEFT: 7,                             // Qolgan joylar — qo'lda yoki CRM'dan yangilang
+        };
+    </script>
+
+    <!-- ============== ANALYTICS (GA4) ============== -->
+    <script>
+        if (window.SITE_CONFIG.GA4_ID) {
+            var gaScript = document.createElement('script');
+            gaScript.async = true;
+            gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.SITE_CONFIG.GA4_ID;
+            document.head.appendChild(gaScript);
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function(){dataLayer.push(arguments);};
+            gtag('js', new Date());
+            gtag('config', window.SITE_CONFIG.GA4_ID, { send_page_view: true });
+        } else {
+            window.gtag = function(){}; // no-op
+        }
+    </script>
+
+    <!-- ============== META PIXEL ============== -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        if (window.SITE_CONFIG.META_PIXEL_ID) {
+            fbq('init', window.SITE_CONFIG.META_PIXEL_ID);
+            // PageView with source tag — so you can segment traffic between Tilda and this landing in Meta Ads
+            fbq('track', 'PageView', { source: 'vercel_landing', page: 'data_analitika' });
+        }
+    </script>
+
+    <!-- ============== MICROSOFT CLARITY (bepul heatmaplar) ============== -->
+    <script>
+        if (window.SITE_CONFIG.CLARITY_ID) {
+            (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", window.SITE_CONFIG.CLARITY_ID);
+        }
+    </script>
+
+    <!-- ============== TIKTOK PIXEL ============== -->
+    <script>
+        if (window.SITE_CONFIG.TIKTOK_PIXEL_ID) {
+            !function (w, d, t) {w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e};ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+            ttq.load(window.SITE_CONFIG.TIKTOK_PIXEL_ID);
+            ttq.page();
+            }(window, document, 'ttq');
+        }
+    </script>
+
+    <!-- ============== UNIFIED EVENT TRACKING HELPER ============== -->
+    <script>
+        window.track = function(eventName, params) {
+            params = params || {};
+            try { if (window.gtag) gtag('event', eventName, params); } catch(e) {}
+            try { if (window.fbq) fbq('trackCustom', eventName, params); } catch(e) {}
+            try { if (window.ttq) ttq.track(eventName, params); } catch(e) {}
+            try { if (window.clarity) clarity('set', eventName, JSON.stringify(params)); } catch(e) {}
+        };
+    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","name":"Курс Data Аналитики","description":"4-месячный курс Data Analytics — Python, SQL и Power BI (48 уроков, 72 часа)","provider":{"@type":"Organization","name":"INTERNO School","sameAs":"https://interno.uz"},"courseMode":["onsite","online"],"educationalLevel":"Beginner","inLanguage":"ru","locationCreated":{"@type":"Place","name":"Ташкент, O'zbekiston"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"blended","duration":"P4M","inLanguage":"ru"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Для кого курс Data Analytics?","acceptedAnswer":{"@type":"Answer","text":"Курс подходит всем. Не требуется технических знаний."}},{"@type":"Question","name":"Сколько длится курс?","acceptedAnswer":{"@type":"Answer","text":"Курс длится 4 месяца (48 уроков, 72 часа)."}},{"@type":"Question","name":"Выдаётся ли сертификат?","acceptedAnswer":{"@type":"Answer","text":"Да, после окончания курса выдаётся сертификат INTERNO School."}}]}</script>
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --lime:#D6FF3C;
+            --lime-dim:#B8E835;
+            --black:#000;
+            --dark:#0A0A0A;
+            --card:#141414;
+            --card-light:#1C1C1C;
+            --white:#fff;
+            --text-muted:rgba(255,255,255,0.5);
+            --border:rgba(255,255,255,0.08);
+            --radius:20px;
+            --radius-lg:28px;
+            --radius-xl:40px;
+            --radius-pill:100px;
+        }
+        html{scroll-behavior:smooth}
+        body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;line-height:1.4;-webkit-font-smoothing:antialiased}
+        .container{max-width:1280px;margin:0 auto;padding:0 24px}
+
+        /* NAVBAR */
+        .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,0,0,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 24px}
+        .navbar .container{display:flex;align-items:center;justify-content:space-between;height:64px;padding:0}
+        .nav-left{display:flex;align-items:center;gap:40px}
+        .nav-logo{display:flex;align-items:center;text-decoration:none;height:96px;margin:-32px 0}
+        .nav-logo img{height:100%;width:auto;display:block}
+        .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+        .nav-links a{color:var(--white);text-decoration:none;font-size:0.85rem;font-weight:500;text-transform:uppercase;letter-spacing:0.02em;transition:color 0.3s}
+        .nav-links a:hover{color:var(--lime)}
+        .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:var(--lime);color:var(--black);border-radius:var(--radius-pill);font-size:0.82rem;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:0.02em;transition:transform 0.3s,box-shadow 0.3s}
+        .nav-cta:hover{transform:scale(1.03);box-shadow:0 4px 30px rgba(214,255,60,0.4)}
+        .lang-switch{display:inline-flex;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-pill);padding:3px;gap:2px}
+        .lang-switch a{padding:6px 12px;font-size:0.75rem;font-weight:800;color:var(--text-muted);text-decoration:none;border-radius:var(--radius-pill);text-transform:uppercase;transition:all 0.3s;letter-spacing:0.05em}
+        .lang-switch a.active{background:var(--lime);color:var(--black)}
+        .lang-switch a:hover:not(.active){color:var(--white)}
+        .nav-right{display:flex;align-items:center;gap:12px}
+        .hamburger{display:none;width:40px;height:40px;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+        .hamburger span{width:18px;height:2px;background:var(--white);display:block;transition:all 0.3s}
+        .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+        .hamburger.active span:nth-child(2){opacity:0}
+        .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+        .mobile-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--black);padding:16px 24px 24px;z-index:999;border-bottom:1px solid var(--border)}
+        .mobile-menu.active{display:block}
+        .mobile-menu a{display:block;padding:14px 0;font-size:1rem;font-weight:500;color:var(--white);text-decoration:none;text-transform:uppercase;border-bottom:1px solid var(--border)}
+        .mobile-menu .mob-cta{display:block;margin-top:16px;padding:16px;background:var(--lime);color:var(--black);border-radius:14px;text-align:center;font-weight:800;text-transform:uppercase;border:none}
+
+        /* HERO */
+        .hero{padding:100px 24px 40px;min-height:calc(100vh - 16px)}
+        .hero-card{background:var(--dark);border-radius:var(--radius-xl);padding:40px;position:relative;overflow:hidden;min-height:calc(100vh - 100px)}
+        .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;min-height:calc(100vh - 180px)}
+        .hero-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+        .hero-title{font-size:clamp(2.5rem,7vw,6rem);font-weight:900;line-height:0.95;letter-spacing:-0.04em;text-transform:uppercase;max-width:900px;position:relative;z-index:3}
+        .hero-title .accent{color:var(--lime);display:inline}
+        .hero-title .stroke{-webkit-text-stroke:2px var(--white);color:var(--dark);display:inline;position:relative;z-index:3}
+        .hero-subtitle{max-width:600px;margin-top:28px;font-size:clamp(1rem,1.4vw,1.25rem);color:rgba(255,255,255,0.75);line-height:1.5;font-weight:400;position:relative;z-index:2}
+        .hero-info-btn{width:110px;height:110px;border-radius:50%;background:var(--card);border:1px solid var(--border);color:var(--white);text-decoration:none;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:600;text-transform:uppercase;text-align:center;flex-shrink:0;transition:all 0.3s}
+        .hero-info-btn:hover{background:var(--lime);color:var(--black);border-color:var(--lime)}
+        .hero-3d-wrapper{position:absolute;top:0;right:-5%;width:55%;height:100%;z-index:1;pointer-events:none}
+        #hero-3d{width:100%;height:100%}
+        .hero-bottom{margin-top:auto;padding-top:48px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+        .hero-cta{display:inline-flex;align-items:center;gap:16px;padding:22px 40px;background:var(--lime);color:var(--black);border-radius:var(--radius-pill);font-size:1.05rem;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:0.02em;transition:transform 0.3s;border:none;cursor:pointer;font-family:'Inter',sans-serif;position:relative;animation:ctaPulse 2s ease-in-out infinite}
+        .hero-cta:hover{transform:scale(1.04);animation-play-state:paused;box-shadow:0 8px 40px rgba(214,255,60,0.6)!important}
+        @keyframes ctaPulse{
+            0%,100%{box-shadow:0 0 0 0 rgba(214,255,60,0.55),0 4px 20px rgba(214,255,60,0.2)}
+            50%{box-shadow:0 0 0 18px rgba(214,255,60,0),0 6px 30px rgba(214,255,60,0.45)}
+        }
+        .hero-cta-icon{width:32px;height:32px;border-radius:50%;background:var(--black);color:var(--lime);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700}
+        .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;position:relative;z-index:2}
+        .hero-tag{padding:10px 22px;border-radius:var(--radius-pill);border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.02);color:var(--white);font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:0.02em;transition:all 0.3s}
+        .hero-tag:hover{background:var(--lime);color:var(--black);border-color:var(--lime)}
+
+        /* SECTION COMMON */
+        section{padding:100px 24px;position:relative}
+        .section-hd{text-transform:uppercase;letter-spacing:-0.02em}
+        .section-title{font-size:clamp(2rem,5vw,4rem);font-weight:900;letter-spacing:-0.03em;line-height:1;margin-bottom:24px;text-transform:uppercase}
+        .section-title .accent{color:var(--lime)}
+        .section-subtitle{font-size:1.1rem;color:var(--text-muted);max-width:700px;margin-bottom:48px}
+
+        /* COURSES CARDS */
+        .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .course-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .course-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lime),transparent);opacity:0;transition:opacity 0.3s}
+        .course-card:hover{transform:translateY(-6px);border-color:rgba(214,255,60,0.3)}
+        .course-card:hover::before{opacity:1}
+        .course-card-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+        .course-card-icon{width:56px;height:56px;flex-shrink:0;border-radius:14px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);display:flex;align-items:center;justify-content:center;font-size:1.6rem;transition:all 0.3s}
+        .course-card:hover .course-card-icon{background:var(--lime);border-color:var(--lime);transform:scale(1.05) rotate(-5deg)}
+        .course-card-level-tag{display:inline-block;padding:5px 12px;border-radius:var(--radius-pill);background:rgba(255,255,255,0.05);border:1px solid var(--border);font-size:0.7rem;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px}
+        .course-card-title{font-size:1.2rem;font-weight:800;color:var(--white);line-height:1.2;text-transform:uppercase;letter-spacing:-0.01em}
+        .course-card-body{flex:1}
+        .course-card-description{font-size:0.92rem;color:var(--text-muted);line-height:1.55;margin-bottom:18px}
+        .course-card-features{list-style:none;margin-bottom:22px}
+        .course-card-features li{padding:7px 0;font-size:0.88rem;color:rgba(255,255,255,0.75);display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid rgba(255,255,255,0.05)}
+        .course-card-features li:last-child{border-bottom:none}
+        .course-card-features li::before{content:'✓';color:var(--lime);font-weight:900;flex-shrink:0;margin-top:1px}
+        .course-card-result{padding:14px 16px;border-radius:12px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);margin-top:auto}
+        .course-card-result-label{font-size:0.7rem;color:var(--lime);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:4px}
+        .course-card-result-text{font-size:0.88rem;font-weight:700;color:var(--white)}
+
+        /* SKILLS (LIME BG) */
+        .skills-section{padding:100px 24px}
+        .skills-wrapper{background:var(--lime);color:var(--black);border-radius:var(--radius-xl);padding:60px 48px;position:relative;overflow:hidden}
+        .skills-wrapper .section-title{color:var(--black)}
+        .skills-wrapper .section-subtitle{color:rgba(0,0,0,0.7)}
+        .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+        .skill-card{background:var(--white);border-radius:var(--radius);padding:24px 22px;display:flex;flex-direction:column;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+        .skill-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.18)}
+        .skill-card-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+        .skill-card-icon{width:44px;height:44px;border-radius:12px;background:var(--black);color:var(--lime);display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;transition:transform 0.3s}
+        .skill-card:hover .skill-card-icon{transform:scale(1.08) rotate(-4deg)}
+        .skill-card-num{font-size:0.68rem;color:rgba(0,0,0,0.45);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px}
+        .skill-card-title{font-size:1rem;font-weight:800;color:var(--black);letter-spacing:-0.01em;text-transform:uppercase;line-height:1.15}
+        .skill-card-description{font-size:0.85rem;color:rgba(0,0,0,0.65);line-height:1.45;margin-bottom:14px;font-weight:500}
+        .skill-card-topics{list-style:none;margin-bottom:14px;flex:1}
+        .skill-card-topics li{padding:5px 0;font-size:0.78rem;color:rgba(0,0,0,0.7);font-weight:500;display:flex;align-items:flex-start;gap:7px}
+        .skill-card-topics li::before{content:'→';color:var(--black);font-weight:900;flex-shrink:0}
+        .skill-card-footer{font-size:0.72rem;font-weight:800;margin-top:auto;padding:8px 12px;border-radius:8px;background:var(--black);color:var(--lime);display:inline-flex;align-items:center;gap:6px;text-transform:uppercase;letter-spacing:0.04em;align-self:flex-start}
+
+        /* CURRICULUM */
+        .curriculum-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+        .month-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .month-card:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-4px)}
+        .month-num{display:inline-flex;align-items:center;justify-content:center;padding:6px 16px;border-radius:var(--radius-pill);background:var(--lime);color:var(--black);font-size:0.75rem;font-weight:800;text-transform:uppercase;margin-bottom:16px;letter-spacing:0.05em}
+        .month-card h3{font-size:1.25rem;font-weight:800;margin-bottom:20px;text-transform:uppercase;letter-spacing:-0.01em}
+        .month-topics{list-style:none}
+        .month-topics li{padding:8px 0;font-size:0.88rem;color:var(--text-muted);display:flex;align-items:flex-start;gap:10px}
+        .month-topics li::before{content:'→';color:var(--lime);font-weight:700;flex-shrink:0}
+        .month-result{margin-top:20px;padding:14px 16px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);border-radius:12px;font-size:0.82rem;color:var(--lime);font-weight:600;text-transform:uppercase;letter-spacing:0.02em}
+
+        /* OUTCOMES (LIME CARDS) */
+        .outcomes-header{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:48px}
+        .outcomes-3d{width:180px;height:180px;flex-shrink:0;background:var(--card);border-radius:50%;position:relative;overflow:hidden}
+        .outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+        .outcome-card{background:var(--white);color:var(--black);border-radius:var(--radius);padding:28px;min-height:180px;display:flex;flex-direction:column;transition:all 0.3s}
+        .outcome-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(255,255,255,0.1)}
+        .outcome-card p{font-size:0.95rem;font-weight:500;color:var(--black);line-height:1.4}
+
+        /* SALARY */
+        .salary-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+        .salary-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px}
+        .salary-card.primary{background:var(--lime);color:var(--black);border-color:var(--lime)}
+        .salary-card.primary .salary-tag{background:var(--black);color:var(--lime)}
+        .salary-tag{display:inline-block;padding:6px 14px;border-radius:var(--radius-pill);background:var(--card-light);color:var(--white);font-size:0.75rem;font-weight:700;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.05em}
+        .salary-amount{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-0.03em}
+        .salary-label{font-size:0.82rem;font-weight:500;opacity:0.6;margin-top:6px;text-transform:uppercase;letter-spacing:0.02em}
+
+        /* TOOLS */
+        .tools-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;perspective:1200px}
+        .tool-card{background:linear-gradient(160deg,var(--card),var(--card-light));border:1px solid var(--border);border-radius:var(--radius);padding:24px 16px 20px;text-align:center;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);cursor:default;position:relative;overflow:hidden;transform-style:preserve-3d}
+        .tool-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(214,255,60,0.12),transparent 55%);opacity:0;transition:opacity 0.3s;pointer-events:none}
+        .tool-card:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-6px)}
+        .tool-card:hover::before{opacity:1}
+        .tool-icon-wrap{width:64px;height:64px;margin:0 auto 14px;background:linear-gradient(145deg,#ffffff,#e8e8e8);border-radius:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,0.4),0 1px 1px rgba(255,255,255,0.1) inset,0 -1px 2px rgba(0,0,0,0.05) inset;transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);transform-style:preserve-3d;position:relative}
+        .tool-icon-wrap::after{content:'';position:absolute;top:6%;left:10%;right:10%;height:40%;background:linear-gradient(180deg,rgba(255,255,255,0.5),transparent);border-radius:12px 12px 30% 30% / 12px 12px 50% 50%;pointer-events:none}
+        .tool-card:hover .tool-icon-wrap{transform:translateY(-4px) rotateX(15deg) rotateY(-10deg) scale(1.08);box-shadow:0 14px 30px rgba(214,255,60,0.15),0 8px 16px rgba(0,0,0,0.5)}
+        .tool-icon-wrap img,.tool-icon-wrap svg{width:38px;height:38px;object-fit:contain;display:block;position:relative;z-index:1}
+        .tool-name{font-size:0.88rem;font-weight:800;text-transform:uppercase;letter-spacing:0.02em;color:var(--white)}
+        .tool-desc{font-size:0.72rem;color:var(--text-muted);margin-top:4px}
+
+        /* FEATURES */
+        .features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+        .feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px;transition:all 0.3s;position:relative;overflow:hidden}
+        .feature-card:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-4px)}
+        .feature-card .f-icon{width:56px;height:56px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;background:var(--card-light)}
+        .feature-card h3{font-size:1.3rem;font-weight:800;margin-bottom:8px;text-transform:uppercase;letter-spacing:-0.01em}
+        .feature-card p{font-size:0.95rem;color:var(--text-muted)}
+
+        /* CTA FORM */
+        .cta-section{padding:80px 24px}
+        .cta-wrapper{background:var(--lime);color:var(--black);border-radius:var(--radius-xl);padding:60px 48px;text-align:center;position:relative;overflow:hidden}
+        .cta-wrapper .section-title{color:var(--black)}
+        .cta-wrapper .section-subtitle{color:rgba(0,0,0,0.7);margin:0 auto 36px}
+        .cta-card{background:var(--white);border-radius:var(--radius-lg);padding:40px;max-width:520px;margin:0 auto;text-align:left}
+        .form-group{margin-bottom:14px}
+        .form-group label{display:block;font-size:0.78rem;font-weight:700;margin-bottom:6px;color:rgba(0,0,0,0.5);text-transform:uppercase;letter-spacing:0.05em}
+        .form-input{width:100%;padding:16px 20px;border-radius:14px;border:1.5px solid rgba(0,0,0,0.1);background:#F5F5F5;color:var(--black);font-family:'Inter',sans-serif;font-size:1rem;outline:none;transition:all 0.3s}
+        .form-input:focus{border-color:var(--black);background:var(--white)}
+        .form-input::placeholder{color:rgba(0,0,0,0.3)}
+        select.form-input{appearance:none;background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3e%3cpath fill='%23333' d='M6 8L1 3h10z'/%3e%3c/svg%3e");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+        .form-submit{width:100%;padding:18px;margin-top:8px;background:var(--black);color:var(--lime);border:none;border-radius:14px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em;transition:all 0.3s}
+        .form-submit:hover{transform:scale(1.01);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+        .form-privacy{font-size:0.75rem;color:rgba(0,0,0,0.5);margin-top:12px;text-align:center}
+        .form-urgency{text-align:center;margin-top:20px;font-size:0.9rem;font-weight:700;color:var(--black);text-transform:uppercase}
+        .form-success{display:none;padding:48px 32px;max-width:520px;margin:0 auto;background:var(--white);border-radius:var(--radius-lg);text-align:center}
+        .form-success.show{display:block;animation:popIn 0.5s cubic-bezier(0.16,1,0.3,1)}
+        @keyframes popIn{0%{opacity:0;transform:scale(0.9)}100%{opacity:1;transform:scale(1)}}
+        .form-success .success-icon{font-size:3.5rem;margin-bottom:16px}
+        .form-success h3{font-size:1.4rem;font-weight:900;color:var(--black);margin-bottom:8px;text-transform:uppercase}
+        .form-success p{color:rgba(0,0,0,0.6)}
+
+        /* FAQ */
+        .faq-list{max-width:800px;margin:0 auto}
+        .faq-item{margin-bottom:8px}
+        .faq-q{width:100%;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;background:var(--card);border:1px solid var(--border);border-radius:16px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:700;color:var(--white);cursor:pointer;text-align:left;transition:all 0.3s;text-transform:uppercase;letter-spacing:-0.01em}
+        .faq-q:hover{background:var(--card-light);border-color:rgba(214,255,60,0.2)}
+        .faq-q.active{border-radius:16px 16px 0 0;background:var(--card-light);border-color:rgba(214,255,60,0.3)}
+        .faq-arrow{font-size:1.2rem;color:var(--lime);transition:transform 0.3s;flex-shrink:0;margin-left:16px}
+        .faq-q.active .faq-arrow{transform:rotate(45deg)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.16,1,0.3,1);background:var(--card-light);border:1px solid rgba(214,255,60,0.3);border-top:none;border-radius:0 0 16px 16px}
+        .faq-a-inner{padding:0 28px 24px;color:var(--text-muted);font-size:0.95rem;line-height:1.7;text-transform:none;font-weight:400;letter-spacing:0}
+
+        /* FOOTER */
+        .footer{background:var(--dark);padding:60px 24px 30px;border-top:1px solid var(--border)}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+        .footer-logo{height:120px;margin-bottom:8px;display:block}
+        .footer-logo img{height:100%;width:auto;display:block}
+        .footer-brand p{color:var(--text-muted);font-size:0.88rem}
+        .footer-col h4{font-size:0.8rem;font-weight:800;margin-bottom:16px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em}
+        .footer-col a{display:block;color:var(--text-muted);text-decoration:none;font-size:0.9rem;padding:4px 0;transition:color 0.3s}
+        .footer-col a:hover{color:var(--lime)}
+        .footer-bottom{text-align:center;padding-top:30px;border-top:1px solid var(--border);color:rgba(255,255,255,0.3);font-size:0.8rem}
+
+        /* STATS / PROOF */
+        .proof-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:80px}
+        .proof-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:32px 24px;text-align:left;transition:all 0.3s}
+        .proof-card:hover{border-color:rgba(214,255,60,0.3)}
+        .proof-number{font-size:3rem;font-weight:900;letter-spacing:-0.03em;margin-bottom:6px;color:var(--lime)}
+        .proof-label{font-size:0.82rem;color:var(--text-muted);font-weight:500;text-transform:uppercase;letter-spacing:0.02em}
+
+        /* ANIMATIONS */
+        .anim{opacity:0;transform:translateY(40px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+        .anim.visible{opacity:1;transform:none}
+        .stagger>.anim:nth-child(1){transition-delay:0s}
+        .stagger>.anim:nth-child(2){transition-delay:0.08s}
+        .stagger>.anim:nth-child(3){transition-delay:0.16s}
+        .stagger>.anim:nth-child(4){transition-delay:0.24s}
+        .stagger>.anim:nth-child(5){transition-delay:0.32s}
+        .stagger>.anim:nth-child(6){transition-delay:0.4s}
+        .stagger>.anim:nth-child(7){transition-delay:0.48s}
+        .stagger>.anim:nth-child(8){transition-delay:0.56s}
+        .stagger>.anim:nth-child(9){transition-delay:0.64s}
+        .stagger>.anim:nth-child(10){transition-delay:0.72s}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){
+            .nav-links{display:none}
+            .hamburger{display:flex}
+            .courses-grid{grid-template-columns:1fr}
+            .curriculum-grid{grid-template-columns:repeat(2,1fr)}
+            .skills-grid{grid-template-columns:repeat(2,1fr)}
+            .tools-grid{grid-template-columns:repeat(3,1fr)}
+            .features-grid,.outcomes-grid,.salary-row{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr 1fr}
+        }
+        @media(max-width:768px){
+            .hero{padding:70px 12px 30px;min-height:auto}
+            .hero-card{padding:20px 20px 28px;min-height:auto;border-radius:24px}
+            .hero-inner{min-height:auto}
+            .hero-3d-wrapper{display:none}
+            .hero-info-btn{display:none}
+            .hero-title{font-size:clamp(2rem,9vw,3.2rem)}
+            .hero-subtitle{font-size:0.95rem;margin-top:20px}
+            .hero-tags{gap:6px;margin-top:20px}
+            .hero-tag{padding:7px 14px;font-size:0.72rem}
+            .hero-cta{padding:18px 24px;font-size:0.9rem;width:100%;justify-content:center}
+            .hero-cta-icon{width:28px;height:28px;font-size:1.1rem}
+            .hero-bottom{padding-top:24px;width:100%}
+            .proof-row{grid-template-columns:repeat(2,1fr);gap:10px}
+            .proof-card{padding:20px 16px}
+            .proof-number{font-size:2rem}
+            .tools-grid{grid-template-columns:repeat(2,1fr)}
+            .skills-wrapper{padding:40px 20px;border-radius:24px}
+            .skills-grid{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr;gap:24px}
+            .curriculum-grid{grid-template-columns:1fr}
+            section{padding:50px 12px}
+            .cta-wrapper{padding:36px 20px;border-radius:24px}
+            .cta-card{padding:24px 16px}
+            .section-title{font-size:clamp(1.6rem,7vw,2.2rem)}
+            .section-subtitle{font-size:0.92rem}
+        }
+        @media(max-width:380px){
+            .hero-title{font-size:clamp(1.7rem,8.5vw,2.4rem);letter-spacing:-0.02em}
+            .hero-card{padding:16px 14px 22px}
+            .hero-tag{padding:6px 10px;font-size:0.68rem}
+            .hero-cta{padding:16px 18px;font-size:0.85rem;gap:10px}
+            section{padding:40px 12px}
+            .section-title{font-size:1.5rem}
+        }
+        /* ===== MARKET (DA IN UZBEKISTAN) ===== */
+        .market-section{padding:80px 24px 40px}
+        .market-hero{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;margin-bottom:48px}
+        .market-headline h2{font-size:clamp(2rem,4.5vw,3.5rem);font-weight:900;letter-spacing:-0.03em;line-height:1;text-transform:uppercase;margin-bottom:20px}
+        .market-headline h2 .accent{color:var(--lime)}
+        .market-headline p{font-size:1.05rem;color:var(--text-muted);line-height:1.55;margin-bottom:16px}
+        .market-headline p strong{color:var(--white);font-weight:700}
+        .market-quote{padding:20px 24px;border-left:3px solid var(--lime);background:rgba(214,255,60,0.05);border-radius:0 12px 12px 0;margin-top:16px}
+        .market-quote p{font-size:0.95rem;color:rgba(255,255,255,0.85);font-style:italic;margin-bottom:8px;line-height:1.5}
+        .market-quote-source{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600}
+        .market-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+        .market-stat{background:linear-gradient(160deg,var(--card),var(--card-light));border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 22px;position:relative;overflow:hidden;transition:all 0.3s}
+        .market-stat:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-3px)}
+        .market-stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--lime)}
+        .market-stat-value{font-size:2.4rem;font-weight:900;color:var(--lime);letter-spacing:-0.03em;line-height:1;margin-bottom:6px}
+        .market-stat-label{font-size:0.78rem;color:var(--white);font-weight:700;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:4px}
+        .market-stat-desc{font-size:0.72rem;color:var(--text-muted);line-height:1.4}
+
+        .market-companies{margin-bottom:48px}
+        .market-companies-title{font-size:0.88rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin-bottom:20px;text-align:center}
+        .market-companies-title .accent{color:var(--lime)}
+        .market-companies-list{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+        .market-company{padding:10px 22px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-pill);color:var(--white);font-size:0.88rem;font-weight:700;transition:all 0.3s;cursor:default}
+        .market-company:hover{background:var(--lime);color:var(--black);border-color:var(--lime);transform:translateY(-2px)}
+
+        .market-industries{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+        .market-industry{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px 18px;transition:all 0.3s}
+        .market-industry:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-3px)}
+        .market-industry-emoji{font-size:1.6rem;margin-bottom:10px;display:block}
+        .market-industry-name{font-size:0.88rem;font-weight:800;color:var(--white);text-transform:uppercase;letter-spacing:0.02em;margin-bottom:4px}
+        .market-industry-role{font-size:0.75rem;color:var(--text-muted);line-height:1.4}
+
+        @media(max-width:1024px){
+            .market-hero{grid-template-columns:1fr;gap:32px}
+            .market-industries{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:768px){
+            .market-section{padding:50px 12px}
+            .market-hero{gap:28px;margin-bottom:32px}
+            .market-stats{gap:10px}
+            .market-stat{padding:18px 16px}
+            .market-stat-value{font-size:1.8rem}
+            .market-industries{grid-template-columns:1fr 1fr;gap:8px}
+            .market-industry{padding:16px 14px}
+            .market-company{padding:8px 16px;font-size:0.8rem}
+        }
+
+        /* ===== SPEAKER ===== */
+        .speaker-section{padding:80px 24px}
+        .speaker-wrapper{background:linear-gradient(135deg,#141414 0%,#1a1a1a 100%);border:1px solid var(--border);border-radius:var(--radius-xl);padding:60px 48px;position:relative;overflow:hidden}
+        .speaker-wrapper::before{content:'';position:absolute;top:-40%;right:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(214,255,60,0.1),transparent 60%);pointer-events:none}
+        .speaker-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:var(--radius-pill);background:rgba(214,255,60,0.1);border:1px solid rgba(214,255,60,0.3);color:var(--lime);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:24px;position:relative;z-index:1}
+        .speaker-badge::before{content:'🎤'}
+        .speaker-content{display:grid;grid-template-columns:280px 1fr;gap:48px;align-items:start;position:relative;z-index:1}
+        .speaker-photo-wrap{position:relative}
+        .speaker-photo{width:100%;aspect-ratio:1;border-radius:var(--radius-lg);overflow:hidden;background:var(--card-light);box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px var(--border)}
+        .speaker-photo img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) brightness(1.02);transition:filter 0.4s}
+        .speaker-photo:hover img{filter:contrast(1.1) brightness(1.05)}
+        .speaker-photo-tags{position:absolute;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+        .speaker-tag-float{padding:8px 14px;border-radius:var(--radius-pill);background:var(--card);border:1px solid var(--border);color:var(--white);font-size:0.78rem;font-weight:700;display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(10px)}
+        .speaker-tag-float.top-right{position:absolute;top:12px;right:-12px}
+        .speaker-tag-float.bottom-left{position:absolute;bottom:12px;left:-12px}
+        .speaker-tag-emoji{font-size:0.9rem}
+        .speaker-info{padding-top:4px}
+        .speaker-name{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1;letter-spacing:-0.03em;text-transform:uppercase;margin-bottom:10px}
+        .speaker-name .accent{color:var(--lime)}
+        .speaker-role{font-size:1.1rem;color:var(--text-muted);margin-bottom:24px;font-weight:500}
+        .speaker-role strong{color:var(--white)}
+        .speaker-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+        .speaker-stat{background:var(--card-light);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
+        .speaker-stat-value{font-size:1.8rem;font-weight:900;color:var(--lime);letter-spacing:-0.02em;line-height:1}
+        .speaker-stat-label{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;font-weight:600;margin-top:4px}
+        .speaker-bio{margin-bottom:20px;color:rgba(255,255,255,0.75);font-size:0.95rem;line-height:1.6}
+        .speaker-bio strong{color:var(--white);font-weight:700}
+        .speaker-highlights{list-style:none;margin-bottom:24px}
+        .speaker-highlights li{padding:8px 0;font-size:0.92rem;color:rgba(255,255,255,0.8);display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid rgba(255,255,255,0.05)}
+        .speaker-highlights li::before{content:'✓';color:var(--lime);font-weight:900;font-size:1rem;flex-shrink:0;margin-top:1px}
+        .speaker-tech-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+        .speaker-tech{padding:6px 14px;border-radius:var(--radius-pill);background:var(--card-light);border:1px solid var(--border);color:var(--white);font-size:0.78rem;font-weight:600}
+        .speaker-actions{display:flex;gap:12px;flex-wrap:wrap}
+        .speaker-action{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:var(--radius-pill);border:1px solid var(--border);color:var(--white);text-decoration:none;font-size:0.88rem;font-weight:700;transition:all 0.3s}
+        .speaker-action:hover{background:var(--lime);color:var(--black);border-color:var(--lime)}
+        .speaker-action svg{width:16px;height:16px}
+
+        @media(max-width:1024px){
+            .speaker-content{grid-template-columns:220px 1fr;gap:32px}
+        }
+        @media(max-width:768px){
+            .speaker-wrapper{padding:32px 20px}
+            .speaker-content{display:flex;flex-direction:column;gap:24px}
+            .speaker-photo-wrap{width:100%;max-width:240px;margin:0 auto;order:-1;display:block}
+            .speaker-photo{width:100%;height:240px;aspect-ratio:1}
+            .speaker-info{width:100%}
+            .speaker-name{font-size:clamp(1.7rem,7vw,2.4rem);text-align:center}
+            .speaker-role{text-align:center;font-size:0.95rem}
+            .speaker-stats{grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+            .speaker-stat{padding:12px 8px;text-align:center}
+            .speaker-stat-value{font-size:1.4rem}
+            .speaker-stat-label{font-size:0.65rem}
+            .speaker-stat-desc{display:none}
+            .speaker-tag-float.top-right{right:-8px;top:8px;font-size:0.72rem;padding:6px 12px}
+            .speaker-tag-float.bottom-left{left:-8px;bottom:8px;font-size:0.72rem;padding:6px 12px}
+            .speaker-actions{justify-content:center}
+        }
+
+        /* ===== PORTFOLIO ===== */
+        .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .portfolio-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;display:flex;flex-direction:column}
+        .portfolio-card:hover{border-color:rgba(214,255,60,0.3);transform:translateY(-6px)}
+        .portfolio-image{aspect-ratio:16/10;background:var(--card-light);position:relative;overflow:hidden}
+        .portfolio-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+        .portfolio-card:hover .portfolio-image img{transform:scale(1.06)}
+        .portfolio-image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,0.85));opacity:0.7}
+        .portfolio-tag{position:absolute;top:12px;left:12px;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.15);color:var(--lime);padding:5px 12px;border-radius:var(--radius-pill);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;z-index:2}
+        .portfolio-student{position:absolute;bottom:12px;left:12px;right:12px;color:var(--white);font-size:0.78rem;font-weight:600;z-index:2;display:flex;align-items:center;gap:8px}
+        .portfolio-student-avatar{width:28px;height:28px;border-radius:50%;background:var(--lime);color:var(--black);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.78rem;flex-shrink:0}
+        .portfolio-content{padding:20px 22px;flex:1;display:flex;flex-direction:column}
+        .portfolio-title{font-size:1.05rem;font-weight:800;color:var(--white);margin-bottom:8px;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.2}
+        .portfolio-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.45;margin-bottom:14px;flex:1}
+        .portfolio-tech{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+        .portfolio-tech-tag{padding:4px 10px;border-radius:var(--radius-pill);background:var(--card-light);border:1px solid var(--border);color:var(--white);font-size:0.7rem;font-weight:600}
+        .portfolio-cta{display:flex;align-items:center;justify-content:space-between;padding:12px 22px;background:var(--card-light);border-top:1px solid var(--border);color:var(--white);text-decoration:none;font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.02em;transition:all 0.3s}
+        .portfolio-cta:hover{background:var(--lime);color:var(--black)}
+        .portfolio-cta-arrow{width:28px;height:28px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:0.9rem;transition:transform 0.3s}
+        .portfolio-cta:hover .portfolio-cta-arrow{transform:translateX(3px)}
+
+        @media(max-width:1024px){
+            .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+        }
+        @media(max-width:768px){
+            .portfolio-grid{grid-template-columns:1fr;gap:12px}
+        }
+
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.anim{opacity:1;transform:none}}
+
+        /* ===== SECTION CTA (reusable) ===== */
+        .section-cta{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:48px;text-align:center}
+        .section-cta-hook{font-size:0.95rem;color:var(--text-muted);font-weight:500}
+        .section-cta-hook strong{color:var(--white)}
+        .section-cta-btn{display:inline-flex;align-items:center;gap:14px;padding:18px 36px;background:var(--lime);color:var(--black);border-radius:var(--radius-pill);font-size:0.95rem;font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:0.02em;transition:transform 0.3s;font-family:'Inter',sans-serif;animation:ctaPulse 2s ease-in-out infinite;position:relative}
+        .section-cta-btn:hover{transform:scale(1.04);animation-play-state:paused;box-shadow:0 8px 30px rgba(214,255,60,0.5)!important}
+        .section-cta-arrow{width:28px;height:28px;border-radius:50%;background:var(--black);color:var(--lime);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700}
+        /* Lime-background sections need dark CTA instead */
+        .skills-wrapper .section-cta-btn,.cta-wrapper .section-cta-btn{background:var(--black);color:var(--lime)}
+        .skills-wrapper .section-cta-arrow,.cta-wrapper .section-cta-arrow{background:var(--lime);color:var(--black)}
+        .skills-wrapper .section-cta-hook{color:rgba(0,0,0,0.65)}
+        .skills-wrapper .section-cta-hook strong{color:var(--black)}
+        @media(max-width:768px){
+            .section-cta{margin-top:32px}
+            .section-cta-btn{padding:16px 24px;font-size:0.85rem;gap:10px}
+            .section-cta-arrow{width:24px;height:24px;font-size:0.9rem}
+            .section-cta-hook{font-size:0.85rem;padding:0 12px}
+        }
+
+        /* ===== COUNTDOWN TIMER ===== */
+        .countdown-section{padding:40px 24px 0}
+        .countdown-wrapper{background:linear-gradient(135deg,var(--card),var(--card-light));border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px 32px;text-align:center;position:relative;overflow:hidden}
+        .countdown-wrapper::before{content:'';position:absolute;top:-50%;left:50%;width:600px;height:600px;transform:translateX(-50%);background:radial-gradient(circle,rgba(214,255,60,0.06),transparent 50%);pointer-events:none}
+        .countdown-label{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:var(--radius-pill);background:rgba(214,255,60,0.1);border:1px solid rgba(214,255,60,0.3);color:var(--lime);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px;position:relative;z-index:1}
+        .countdown-label::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--lime);animation:pulseDot 1.5s ease-in-out infinite}
+        @keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.3)}}
+        .countdown-title{font-size:clamp(1.5rem,3.5vw,2.4rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;line-height:1;margin-bottom:24px;position:relative;z-index:1}
+        .countdown-title .accent{color:var(--lime)}
+        .countdown-timer{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:24px;position:relative;z-index:1}
+        .countdown-cell{background:var(--black);border:1px solid var(--border);border-radius:16px;padding:16px 20px;min-width:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden}
+        .countdown-cell::after{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border);z-index:1}
+        .countdown-number{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--lime);font-variant-numeric:tabular-nums;letter-spacing:-0.03em;line-height:1;position:relative;z-index:2}
+        .countdown-unit{font-size:0.72rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-top:6px;position:relative;z-index:2}
+        .countdown-info{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;margin-top:20px;position:relative;z-index:1}
+        .countdown-seats{display:inline-flex;align-items:center;gap:10px;font-size:0.92rem;font-weight:600;color:var(--white)}
+        .seats-bar{width:140px;height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden}
+        .seats-bar-fill{height:100%;background:linear-gradient(90deg,#ff4444,#ffaa00,var(--lime));border-radius:4px;transition:width 1.5s cubic-bezier(0.16,1,0.3,1)}
+        .seats-count{color:var(--lime);font-weight:800}
+        @media(max-width:768px){.countdown-cell{min-width:64px;padding:12px 8px}.countdown-timer{gap:6px}.countdown-wrapper{padding:28px 20px}.countdown-info{flex-direction:column;gap:14px}.countdown-title{font-size:1.4rem}.countdown-number{font-size:1.6rem}}
+        @media(max-width:380px){.countdown-cell{min-width:54px;padding:10px 6px}.countdown-number{font-size:1.4rem}.countdown-unit{font-size:0.65rem}}
+
+        /* ===== MULTI-STEP FORM ===== */
+        .form-steps{display:flex;gap:6px;margin-bottom:24px;justify-content:center}
+        .form-step-dot{height:4px;flex:1;max-width:60px;background:rgba(0,0,0,0.15);border-radius:2px;transition:background 0.4s}
+        .form-step-dot.active{background:var(--black)}
+        .form-step-dot.completed{background:rgba(0,0,0,0.6)}
+        .form-step{display:none;animation:stepIn 0.4s cubic-bezier(0.16,1,0.3,1)}
+        .form-step.active{display:block}
+        @keyframes stepIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+        .step-title{font-size:1.2rem;font-weight:800;color:var(--black);margin-bottom:8px;text-align:center;text-transform:uppercase;letter-spacing:-0.01em}
+        .step-subtitle{font-size:0.88rem;color:rgba(0,0,0,0.6);text-align:center;margin-bottom:24px}
+        .step-options{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+        .step-option{padding:18px 20px;background:#F5F5F5;border:2px solid transparent;border-radius:14px;font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:600;color:var(--black);cursor:pointer;text-align:left;transition:all 0.2s;display:flex;align-items:center;gap:14px;width:100%}
+        .step-option:hover{background:#EAEAEA;border-color:rgba(0,0,0,0.15);transform:translateX(2px)}
+        .step-option.selected{background:var(--lime);border-color:var(--black)}
+        .step-option-emoji{font-size:1.4rem;flex-shrink:0}
+        .step-option-text{display:flex;flex-direction:column;gap:2px;flex:1}
+        .step-option-label{font-weight:800;text-transform:uppercase;letter-spacing:0.01em;font-size:0.88rem}
+        .step-option-desc{font-size:0.78rem;color:rgba(0,0,0,0.55);font-weight:500;text-transform:none;letter-spacing:0}
+        .step-option.selected .step-option-desc{color:rgba(0,0,0,0.7)}
+        .step-actions{display:flex;gap:10px;margin-top:16px}
+        .step-btn{padding:14px 20px;border-radius:12px;font-family:'Inter',sans-serif;font-size:0.9rem;font-weight:800;cursor:pointer;border:none;text-transform:uppercase;letter-spacing:0.02em;transition:all 0.3s}
+        .step-btn-back{background:rgba(0,0,0,0.08);color:var(--black);flex-shrink:0}
+        .step-btn-back:hover{background:rgba(0,0,0,0.15)}
+        .step-btn-next{background:var(--black);color:var(--lime);flex:1}
+        .step-btn-next:hover{transform:scale(1.02)}
+        .step-btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+
+        /* ===== STICKY MOBILE CTA ===== */
+        .mobile-cta-bar{position:fixed;bottom:0;left:0;right:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(0,0,0,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--border);z-index:996;display:none}
+        .mobile-cta-bar a{display:flex;width:100%;align-items:center;justify-content:center;gap:10px;padding:14px;background:var(--lime);color:var(--black);border-radius:14px;font-weight:800;text-decoration:none;text-transform:uppercase;font-size:0.92rem;letter-spacing:0.02em;animation:ctaPulse 2s ease-in-out infinite}
+        @media(max-width:768px){.mobile-cta-bar{display:block}body{padding-bottom:84px}}
+
+        /* ===== FLOATING MESSENGER BUTTONS ===== */
+        .messenger-floats{position:fixed;bottom:24px;right:20px;display:flex;flex-direction:column;gap:12px;z-index:995}
+        .messenger-float{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,0.4),0 0 0 3px rgba(0,0,0,0.3);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer;position:relative}
+        .messenger-float:hover{transform:scale(1.1) translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+        .messenger-float::after{content:'';position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 0 currentColor;animation:pulseMsg 2s ease-out infinite;opacity:0.4}
+        @keyframes pulseMsg{0%{box-shadow:0 0 0 0 currentColor}70%{box-shadow:0 0 0 15px currentColor;opacity:0}100%{opacity:0}}
+        .messenger-telegram{background:#0088cc;color:#0088cc}
+        .messenger-float svg{width:28px;height:28px;fill:#fff;position:relative;z-index:1}
+        @media(max-width:768px){.messenger-floats{bottom:90px;right:14px}.messenger-float{width:50px;height:50px}.messenger-float svg{width:24px;height:24px}}
+
+        /* ===== EXIT INTENT MODAL ===== */
+        .exit-modal{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:1001;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+        .exit-modal.show{opacity:1;visibility:visible}
+        .exit-modal-content{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:48px 36px;max-width:500px;width:100%;position:relative;transform:scale(0.9);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);text-align:center}
+        .exit-modal.show .exit-modal-content{transform:scale(1)}
+        .exit-modal-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--card-light);border:none;color:var(--white);cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s}
+        .exit-modal-close:hover{background:var(--lime);color:var(--black)}
+        .exit-modal-icon{font-size:3rem;margin-bottom:16px}
+        .exit-modal h3{font-size:1.6rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;margin-bottom:12px}
+        .exit-modal h3 .accent{color:var(--lime)}
+        .exit-modal p{color:var(--text-muted);font-size:0.95rem;margin-bottom:24px;line-height:1.5}
+        .exit-modal-form{display:flex;flex-direction:column;gap:10px}
+        .exit-modal-form input{padding:14px 18px;border-radius:12px;border:1.5px solid var(--border);background:var(--card-light);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.3s}
+        .exit-modal-form input:focus{border-color:var(--lime)}
+        .exit-modal-form input::placeholder{color:rgba(255,255,255,0.3)}
+        .exit-modal-form button{padding:16px;background:var(--lime);color:var(--black);border:none;border-radius:12px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:0.02em;transition:transform 0.2s}
+        .exit-modal-form button:hover{transform:scale(1.02)}
+        .exit-modal-success{display:none}
+        .exit-modal-success.show{display:block}
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" role="navigation">
+    <div class="container">
+        <div class="nav-left">
+            <a href="#" class="nav-logo" aria-label="INTERNO School"><img src="/logo.svg" alt="INTERNO School"></a>
+            <ul class="nav-links">
+                <li><a href="#curriculum">Программа</a></li>
+                <li><a href="#outcomes">Результат</a></li>
+                <li><a href="#features">Почему мы</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="lang-switch" role="group" aria-label="Выбор языка">
+                <a href="/">UZ</a>
+                <a href="/ru" class="active" aria-current="page">RU</a>
+            </div>
+            <a href="#register" class="nav-cta">Бесплатная консультация</a>
+        </div>
+        <button class="hamburger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu">
+        <div class="lang-switch" style="margin-bottom:16px;width:fit-content">
+            <a href="/">UZ</a>
+            <a href="/ru" class="active">RU</a>
+        </div>
+        <a href="#curriculum">Программа</a>
+        <a href="#outcomes">Результат</a>
+        <a href="#features">Почему мы</a>
+        <a href="#faq">FAQ</a>
+        <a href="#register" class="mob-cta">Бесплатная консультация</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-card">
+        <div class="hero-3d-wrapper"><canvas id="hero-3d"></canvas></div>
+        <div class="hero-inner">
+            <div class="hero-top">
+                <h1 class="hero-title anim">
+                    Data аналитика <span class="accent">с нуля</span><br>
+                    <span class="stroke">PRO</span> уровня<br>
+                    <span class="accent">за 4 месяца</span>
+                </h1>
+                <a href="#curriculum" class="hero-info-btn anim">Подробнее →</a>
+            </div>
+
+            <p class="hero-subtitle anim">На бесплатном 60-минутном открытом уроке узнайте, как освоить самую востребованную IT-профессию Узбекистана — Data Аналитик</p>
+
+            <div class="hero-tags anim">
+                <span class="hero-tag">Python</span>
+                <span class="hero-tag">SQL</span>
+                <span class="hero-tag">Power BI</span>
+                <span class="hero-tag">Pandas</span>
+                <span class="hero-tag">Excel</span>
+                <span class="hero-tag">GitHub</span>
+                <span class="hero-tag">DAX</span>
+            </div>
+
+            <div class="hero-bottom anim">
+                <a href="#register" class="hero-cta">
+                    Записаться бесплатно
+                    <span class="hero-cta-icon">+</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROOF -->
+<section>
+    <div class="container">
+        <div class="proof-row stagger">
+            <div class="proof-card anim"><div class="proof-number" data-target="200">0</div><div class="proof-label">Выпускники</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="4.9" data-decimal="true">0</div><div class="proof-label">Рейтинг</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="85" data-suffix="%">0</div><div class="proof-label">Трудоустроились</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="3">0</div><div class="proof-label">Лет на рынке</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- MARKET: DA PROFESSION IN UZBEKISTAN -->
+<section class="market-section" id="market">
+    <div class="container">
+        <div class="market-hero">
+            <div class="market-headline">
+                <h2 class="anim">Data Analyst — <span class="accent">новая востребованная IT-профессия в Узбекистане</span></h2>
+                <p class="anim">В Узбекистане цифровая трансформация идёт рекордными темпами: <strong>Uzum, Humans, Click, Payme, Kapitalbank, TBC</strong> и другие крупные компании ежедневно работают с тысячами данных.</p>
+                <p class="anim">Но <strong>специалистов, умеющих извлекать пользу из этих данных, критически не хватает</strong>. Поэтому зарплаты Data Аналитиков стремительно растут, а профессия вошла в топ самых востребованных на рынке.</p>
+                <div class="market-quote anim">
+                    <p>"В 2024 году <strong>75% компаний</strong>, зарегистрированных в IT Park, искали специалистов по анализу данных."</p>
+                    <div class="market-quote-source">— IT Park Uzbekistan, 2025</div>
+                </div>
+            </div>
+
+            <div class="market-stats stagger">
+                <div class="market-stat anim">
+                    <div class="market-stat-value">500+</div>
+                    <div class="market-stat-label">Открытых вакансий</div>
+                    <div class="market-stat-desc">hh.uz и LinkedIn ежемесячно</div>
+                </div>
+                <div class="market-stat anim">
+                    <div class="market-stat-value">+40%</div>
+                    <div class="market-stat-label">Годовой рост зарплаты</div>
+                    <div class="market-stat-desc">Статистика 2023-2025</div>
+                </div>
+                <div class="market-stat anim">
+                    <div class="market-stat-value">3×</div>
+                    <div class="market-stat-label">Рост вакансий</div>
+                    <div class="market-stat-desc">Сравнение 2023 и 2025</div>
+                </div>
+                <div class="market-stat anim">
+                    <div class="market-stat-value">$1,500+</div>
+                    <div class="market-stat-label">Средняя зарплата</div>
+                    <div class="market-stat-desc">Middle Data Analyst, Ташкент</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="market-companies">
+            <div class="market-companies-title anim">Компании, которые <span class="accent">активно нанимают Data Аналитиков</span></div>
+            <div class="market-companies-list stagger">
+                <span class="market-company anim">Uzum Market</span>
+                <span class="market-company anim">Humans</span>
+                <span class="market-company anim">Click.uz</span>
+                <span class="market-company anim">Payme</span>
+                <span class="market-company anim">Kapitalbank</span>
+                <span class="market-company anim">TBC Bank</span>
+                <span class="market-company anim">Alif Mobi</span>
+                <span class="market-company anim">Uzcard</span>
+                <span class="market-company anim">Beeline</span>
+                <span class="market-company anim">Ucell</span>
+                <span class="market-company anim">EPAM</span>
+                <span class="market-company anim">Korzinka</span>
+                <span class="market-company anim">Anor Bank</span>
+                <span class="market-company anim">Hamkorbank</span>
+                <span class="market-company anim">IT Park</span>
+            </div>
+        </div>
+
+        <div class="market-industries stagger">
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🛒</span>
+                <div class="market-industry-name">E-commerce</div>
+                <div class="market-industry-role">Анализ продаж и клиентов</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🏦</span>
+                <div class="market-industry-name">Bank & Fintech</div>
+                <div class="market-industry-role">Риски и кредитный скоринг</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">📱</span>
+                <div class="market-industry-name">Telecom</div>
+                <div class="market-industry-role">Анализ поведения клиентов</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🚚</span>
+                <div class="market-industry-name">Логистика</div>
+                <div class="market-industry-role">Оптимизация маршрутов</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">💊</span>
+                <div class="market-industry-name">Медицина</div>
+                <div class="market-industry-role">Медицинская аналитика</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">📣</span>
+                <div class="market-industry-name">Маркетинг</div>
+                <div class="market-industry-role">Анализ ROI кампаний</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🏭</span>
+                <div class="market-industry-name">Производство</div>
+                <div class="market-industry-role">Аналитика цепочек поставок</div>
+            </div>
+            <div class="market-industry anim">
+                <span class="market-industry-emoji">🏛️</span>
+                <div class="market-industry-name">Госсектор</div>
+                <div class="market-industry-role">Проекты цифрового правительства</div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">Освойте эту <strong>новую профессию</strong> за 4 месяца — запишитесь на открытый урок</p>
+            <a href="#register" class="section-cta-btn">🎯 Записаться бесплатно <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- COURSES / AUDIENCE -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title anim">Курс для вас, <span class="accent">если вы</span></h2>
+        <p class="section-subtitle anim">Кем бы вы ни были — мы сделаем из вас Data Аналитика</p>
+        <div class="courses-grid stagger">
+            <div class="course-card anim">
+                <div class="course-card-header">
+                    <div class="course-card-icon">🌱</div>
+                    <div>
+                        <span class="course-card-level-tag">Уровень 1</span>
+                        <h3 class="course-card-title">Полный новичок</h3>
+                    </div>
+                </div>
+                <div class="course-card-body">
+                    <p class="course-card-description">Никогда не писал код, только начинаю путь в IT. Хочу освоить востребованную профессию.</p>
+                    <ul class="course-card-features">
+                        <li>Нет опыта программирования</li>
+                        <li>Готов(а) работать с Excel</li>
+                        <li>Готов(а) учиться дисциплинированно</li>
+                    </ul>
+                </div>
+                <div class="course-card-result">
+                    <div class="course-card-result-label">Через 4 месяца</div>
+                    <div class="course-card-result-text">Junior Data Analyst — $500-800/мес</div>
+                </div>
+            </div>
+            <div class="course-card anim">
+                <div class="course-card-header">
+                    <div class="course-card-icon">🔄</div>
+                    <div>
+                        <span class="course-card-level-tag">Уровень 2</span>
+                        <h3 class="course-card-title">Хочу сменить профессию</h3>
+                    </div>
+                </div>
+                <div class="course-card-body">
+                    <p class="course-card-description">Работаю в другой сфере, но зарплата и перспективы не устраивают. Хочу перейти в IT.</p>
+                    <ul class="course-card-features">
+                        <li>Есть базовые знания Excel или SQL</li>
+                        <li>Хочу сменить текущую профессию</li>
+                        <li>Хочу поднять уровень зарплаты</li>
+                    </ul>
+                </div>
+                <div class="course-card-result">
+                    <div class="course-card-result-label">Через 4 месяца</div>
+                    <div class="course-card-result-text">Middle Data Analyst — $1,500+/мес</div>
+                </div>
+            </div>
+            <div class="course-card anim">
+                <div class="course-card-header">
+                    <div class="course-card-icon">🚀</div>
+                    <div>
+                        <span class="course-card-level-tag">Уровень 3</span>
+                        <h3 class="course-card-title">Опытный специалист</h3>
+                    </div>
+                </div>
+                <div class="course-card-body">
+                    <p class="course-card-description">Уже работал с Python или SQL. Хочу прокачать навыки и выйти на международный уровень.</p>
+                    <ul class="course-card-features">
+                        <li>Есть базовые Python/SQL</li>
+                        <li>Хочу собрать портфолио</li>
+                        <li>Хочу международные проекты</li>
+                    </ul>
+                </div>
+                <div class="course-card-result">
+                    <div class="course-card-result-label">Через 4 месяца</div>
+                    <div class="course-card-result-text">Senior / Freelance — $3,000+/мес</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">На уроке подберём <strong>программу</strong> под ваш уровень</p>
+            <a href="#register" class="section-cta-btn">🎯 Записаться бесплатно <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS (LIME) -->
+<section class="skills-section" id="skills">
+    <div class="container">
+        <div class="skills-wrapper">
+            <h2 class="section-title anim">Какие навыки <br>вы получите?</h2>
+            <p class="section-subtitle anim">Полный технологический стек для работы с данными — востребован в крупных компаниях</p>
+
+            <div class="skills-grid stagger">
+                <div class="skill-card anim">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">🐍</div>
+                        <div>
+                            <div class="skill-card-num">Навык 1</div>
+                            <h3 class="skill-card-title">Программирование Python</h3>
+                        </div>
+                    </div>
+                    <p class="skill-card-description">Основа работы Data Analyst — программирование с данными.</p>
+                    <ul class="skill-card-topics">
+                        <li>Основы NumPy</li>
+                        <li>Функции и lambda</li>
+                        <li>Работа с CSV-файлами</li>
+                        <li>Jupyter Notebook</li>
+                    </ul>
+                    <span class="skill-card-footer">1-й месяц · 12 уроков</span>
+                </div>
+
+                <div class="skill-card anim">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">📊</div>
+                        <div>
+                            <div class="skill-card-num">Навык 2</div>
+                            <h3 class="skill-card-title">Анализ данных</h3>
+                        </div>
+                    </div>
+                    <p class="skill-card-description">Очистка, анализ и визуализация данных.</p>
+                    <ul class="skill-card-topics">
+                        <li>Pandas DataFrame</li>
+                        <li>Matplotlib и Seaborn</li>
+                        <li>Интерактивный Plotly</li>
+                        <li>EDA и статистика</li>
+                    </ul>
+                    <span class="skill-card-footer">2-й месяц · 12 уроков</span>
+                </div>
+
+                <div class="skill-card anim">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">🗃️</div>
+                        <div>
+                            <div class="skill-card-num">Навык 3</div>
+                            <h3 class="skill-card-title">SQL и базы данных</h3>
+                        </div>
+                    </div>
+                    <p class="skill-card-description">Работа с базами данных крупных компаний.</p>
+                    <ul class="skill-card-topics">
+                        <li>MS SQL Server</li>
+                        <li>JOINs, CTE, Views</li>
+                        <li>Stored Procedures</li>
+                        <li>Основы BigQuery</li>
+                    </ul>
+                    <span class="skill-card-footer">3-й месяц · 12 уроков</span>
+                </div>
+
+                <div class="skill-card anim">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">📈</div>
+                        <div>
+                            <div class="skill-card-num">Навык 4</div>
+                            <h3 class="skill-card-title">Power BI & DAX</h3>
+                        </div>
+                    </div>
+                    <p class="skill-card-description">Профессиональные дашборды и бизнес-аналитика.</p>
+                    <ul class="skill-card-topics">
+                        <li>Power Query (ETL)</li>
+                        <li>DAX: CALCULATE, FILTER</li>
+                        <li>Time Intelligence</li>
+                        <li>Интерактивные визуалы</li>
+                    </ul>
+                    <span class="skill-card-footer">4-й месяц · 12 уроков</span>
+                </div>
+            </div>
+
+            <div class="section-cta anim">
+                <p class="section-cta-hook">Освойте <strong>эти 4 навыка</strong> полностью за 4 месяца</p>
+                <a href="#register" class="section-cta-btn">🎯 Записаться бесплатно <span class="section-cta-arrow">→</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CURRICULUM -->
+<section id="curriculum">
+    <div class="container">
+        <h2 class="section-title anim">4-месячная <span class="accent">программа</span></h2>
+        <p class="section-subtitle anim">48 уроков · 72 часа · 3 раза в неделю · по 1.5 часа. Каждый месяц завершается реальным проектом</p>
+        <div class="curriculum-grid stagger">
+            <div class="month-card anim">
+                <span class="month-num">1-й месяц · 12 уроков</span>
+                <h3>Основы Python</h3>
+                <ul class="month-topics">
+                    <li>Введение в Python и Jupyter Notebook</li>
+                    <li>Типы данных и математические операции</li>
+                    <li>Условные операторы и циклы (if, for, while)</li>
+                    <li>Структуры List, tuple, dict, set</li>
+                    <li>Функции, lambda, map/filter</li>
+                    <li>Работа с файлами и CSV</li>
+                    <li>Основы NumPy</li>
+                </ul>
+                <div class="month-result">✓ Проект: Анализ оценок студентов</div>
+            </div>
+            <div class="month-card anim">
+                <span class="month-num">2-й месяц · 12 уроков</span>
+                <h3>Анализ данных va vizualizatsiya</h3>
+                <ul class="month-topics">
+                    <li>Pandas: Series и DataFrame</li>
+                    <li>Очистка данных (missing, duplicates)</li>
+                    <li>GroupBy, агрегация, pivot_table</li>
+                    <li>Matplotlib: line, bar, scatter, histogram</li>
+                    <li>Seaborn и интерактивный Plotly</li>
+                    <li>Описательная статистика и корреляция</li>
+                    <li>Методология EDA</li>
+                </ul>
+                <div class="month-result">✓ Проект: Анализ данных e-commerce</div>
+            </div>
+            <div class="month-card anim">
+                <span class="month-num">3-й месяц · 12 уроков</span>
+                <h3>SQL и базы данных</h3>
+                <ul class="month-topics">
+                    <li>Основы SQL: SELECT, WHERE, ORDER BY</li>
+                    <li>Агрегация: COUNT, SUM, GROUP BY, HAVING</li>
+                    <li>JOINs: INNER, LEFT, RIGHT, FULL</li>
+                    <li>MS SQL Server и SSMS</li>
+                    <li>Window Functions, CTE, Views</li>
+                    <li>Stored Procedures и Triggers</li>
+                    <li>Data Warehouse и BigQuery</li>
+                </ul>
+                <div class="month-result">✓ Проект: SQL Analytics Dashboard</div>
+            </div>
+            <div class="month-card anim">
+                <span class="month-num">4-й месяц · 12 уроков</span>
+                <h3>Power BI и карьера</h3>
+                <ul class="month-topics">
+                    <li>Power Query и трансформация данных</li>
+                    <li>DAX: CALCULATE, FILTER, IF</li>
+                    <li>Time Intelligence: YoY, MoM, running total</li>
+                    <li>Профессиональные дашборды и карты-визуалы</li>
+                    <li>GitHub portfolio и README</li>
+                    <li>CV, LinkedIn, подготовка к интервью</li>
+                    <li>Capstone-проект и Demo Day</li>
+                </ul>
+                <div class="month-result">✓ Готовы к позиции Junior Data Analyst</div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">Попробуйте <strong>первый из 48 уроков</strong> бесплатно</p>
+            <a href="#register" class="section-cta-btn">🎯 Записаться бесплатно <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- OUTCOMES -->
+<section id="outcomes">
+    <div class="container">
+        <div class="outcomes-header">
+            <div>
+                <h2 class="section-title anim">В итоге вы <br><span class="accent">получите</span></h2>
+                <p class="section-subtitle anim">Конкретный результат после курса</p>
+            </div>
+            <div class="outcomes-3d anim" style="background:var(--lime);color:var(--black);display:flex;align-items:center;justify-content:center;font-size:4rem">🎯</div>
+        </div>
+
+        <div class="outcomes-grid stagger">
+            <div class="outcome-card anim"><p>Ментор — рядом с вами, пока не разберётесь до конца</p></div>
+            <div class="outcome-card anim"><p>Индивидуальный учебный план — под ваш темп и цели</p></div>
+            <div class="outcome-card anim"><p>Готовые проекты в портфолио и оформленное CV</p></div>
+        </div>
+
+        <h3 class="anim" style="font-size:1.2rem;font-weight:800;margin-top:60px;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.02em">Зарплата Data Analyst в Узбекистане</h3>
+        <div class="salary-row stagger">
+            <div class="salary-card anim">
+                <div class="salary-tag">Junior</div>
+                <div class="salary-amount">$500 — 800</div>
+                <div class="salary-label">/мес</div>
+            </div>
+            <div class="salary-card primary anim">
+                <div class="salary-tag">Middle</div>
+                <div class="salary-amount">$1,500 — 3,000</div>
+                <div class="salary-label">/мес</div>
+            </div>
+            <div class="salary-card anim">
+                <div class="salary-tag">Международный</div>
+                <div class="salary-amount">$3,000+</div>
+                <div class="salary-label">/мес</div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">Вы тоже можете зарабатывать <strong>$1,500+/мес</strong></p>
+            <a href="#register" class="section-cta-btn">🎯 Записаться бесплатно <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+    <div class="container">
+        <h2 class="section-title anim">Инструменты</h2>
+        <p class="section-subtitle anim">Самые актуальные технологии на рынке</p>
+        <div class="tools-grid stagger">
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Python</div>
+                <div class="tool-desc">Dasturlash</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">SQL</div>
+                <div class="tool-desc">MS SQL Server</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Power BI</div>
+                <div class="tool-desc">Dashboard</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="Excel logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Excel</div>
+                <div class="tool-desc">Таблицы</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Pandas</div>
+                <div class="tool-desc">Анализ</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">NumPy</div>
+                <div class="tool-desc">Вычисления</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Matplotlib</div>
+                <div class="tool-desc">Графики</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Jupyter</div>
+                <div class="tool-desc">Notebook</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://api.iconify.design/logos/tableau-icon.svg" alt="Tableau logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">Tableau</div>
+                <div class="tool-desc">Отчёты</div>
+            </div>
+            <div class="tool-card anim">
+                <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub logo" loading="lazy" width="38" height="38"></div>
+                <div class="tool-name">GitHub</div>
+                <div class="tool-desc">Портфолио</div>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook"><strong>10 профессиональных инструментов</strong> — все в курсе amaliy tarzda</p>
+            <a href="#register" class="section-cta-btn">🎯 Записаться бесплатно <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <div class="container">
+        <h2 class="section-title anim">Почему <span class="accent">INTERNO?</span></h2>
+        <div class="features-grid stagger">
+            <div class="feature-card anim"><div class="f-icon">🎯</div><h3>Практическое обучение</h3><p>В каждом уроке — реальные проекты. Больше практики, чем теории.</p></div>
+            <div class="feature-card anim"><div class="f-icon">👨‍🏫</div><h3>Менторство</h3><p>Опытный mentorlar bilan individual aloqa. Har qanday savolingizga tezkor javob.</p></div>
+            <div class="feature-card anim"><div class="f-icon">📁</div><h3>Портфолио</h3><p>Коллекция профессиональных проектов на GitHub. Готовое портфолио для работодателей.</p></div>
+            <div class="feature-card anim"><div class="f-icon">🚀</div><h3>Помощь с карьерой</h3><p>Подготовка CV, подготовка к интервью и стратегии поиска работы.</p></div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook"><strong>разницу INTERNO</strong> почувствуйте на открытом уроке</p>
+            <a href="#register" class="section-cta-btn">🎯 Записаться бесплатно <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- SPEAKER -->
+<section class="speaker-section" id="speaker">
+    <div class="container">
+        <div class="speaker-wrapper anim">
+            <span class="speaker-badge">Спикер открытого урока</span>
+
+            <div class="speaker-content">
+                <div class="speaker-photo-wrap">
+                    <div class="speaker-photo">
+                        <img src="/tilda/speaker-shoxjahon.jpg" alt="Shoxjahon Turg'unaliyev — Data Analyst & Python Developer" loading="lazy">
+                    </div>
+                    <div class="speaker-tag-float top-right"><span class="speaker-tag-emoji">🐍</span> Python</div>
+                    <div class="speaker-tag-float bottom-left"><span class="speaker-tag-emoji">📊</span> Analytics</div>
+                </div>
+
+                <div class="speaker-info">
+                    <h2 class="speaker-name">Shoxjahon <span class="accent">Turg'unaliyev</span></h2>
+                    <p class="speaker-role"><strong>Data Analyst & Python Developer</strong> · Спикер курса INTERNO School · Международный (AQSh) loyihalar</p>
+
+                    <div class="speaker-stats">
+                        <div class="speaker-stat">
+                            <div class="speaker-stat-value">5+</div>
+                            <div class="speaker-stat-label">лет опыта</div>
+                        </div>
+                        <div class="speaker-stat">
+                            <div class="speaker-stat-value">50+</div>
+                            <div class="speaker-stat-label">Проектов</div>
+                        </div>
+                        <div class="speaker-stat">
+                            <div class="speaker-stat-value">30+</div>
+                            <div class="speaker-stat-label">Клиентов</div>
+                        </div>
+                    </div>
+
+                    <p class="speaker-bio">
+                        <strong>"Ustozlar" LLC</strong> va <strong>"Shoxida Restaurant" LLC</strong> asoschisi. 2023-yildan beri asosan <strong>AQSh kompaniyalari</strong> bilan freelance tarzda ishlaydi — data-driven yechimlar, biznes-avtomatizatsiya va interaktiv dashboardlar yaratadi.
+                    </p>
+
+                    <ul class="speaker-highlights">
+                        <li>Сократил ручную обработку на <strong>80%</strong> за счёт автоматизации бизнес-процессов</li>
+                        <li>Профессиональные дашборды и аналитические системы в Power BI и Tableau</li>
+                        <li>Разработал CRM-интеграции и кастомные Telegram-боты</li>
+                        <li>Предоставляет data-инсайты для стратегических бизнес-решений</li>
+                    </ul>
+
+                    <div class="speaker-tech-list">
+                        <span class="speaker-tech">Python</span>
+                        <span class="speaker-tech">Pandas</span>
+                        <span class="speaker-tech">Power BI</span>
+                        <span class="speaker-tech">SQL</span>
+                        <span class="speaker-tech">Tableau</span>
+                        <span class="speaker-tech">Django</span>
+                        <span class="speaker-tech">Telegram API</span>
+                    </div>
+
+                    <div class="speaker-actions">
+                        <a href="#register" class="speaker-action" style="background:var(--lime);color:var(--black);border-color:var(--lime)">
+                            🎯 Записаться на открытый урок
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- PORTFOLIO / GRADUATE WORKS -->
+<section id="portfolio">
+    <div class="container">
+        <h2 class="section-title anim">Выпускники <span class="accent">ishlari</span></h2>
+        <p class="section-subtitle anim">После курса вы создадите такие же проекты — GitHub portfolio для реальной работы</p>
+
+        <div class="portfolio-grid stagger">
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-1.jpeg" alt="Ta'lim kurslari tahlili — Power BI dashboard" loading="lazy">
+                    <span class="portfolio-tag">Power BI</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">Ж</div>
+                        <span>Jasur J. · Выпускник 4-го месяца · Сейчас: Click.uz</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Дашборд анализа продаж</h3>
+                    <p class="portfolio-desc">Real-time дашборд продаж для e-commerce компании. KPI, географический анализ, сегментация товаров.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Power BI</span>
+                        <span class="portfolio-tech-tag">DAX</span>
+                        <span class="portfolio-tech-tag">SQL</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">Посмотреть на GitHub <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-2.jpeg" alt="To'lovlar va qarzdorlik tahlili" loading="lazy">
+                    <span class="portfolio-tag">Python</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">А</div>
+                        <span>Aneliya T. · Выпускник 3-го месяца · Сейчас: Payme</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Клиентовlar ketish tahlili</h3>
+                    <p class="portfolio-desc">Прогнозирование оттока клиентов банка. EDA, feature engineering и статистическая модель с точностью 87%.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Python</span>
+                        <span class="portfolio-tech-tag">Pandas</span>
+                        <span class="portfolio-tech-tag">Seaborn</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">Посмотреть на GitHub <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-3.jpeg" alt="Mahsulotlar sotuvi tahlili" loading="lazy">
+                    <span class="portfolio-tag">SQL</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">Д</div>
+                        <span>Danata A. · Выпускник 4-го месяца · Сейчас: Uzum Market</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">HR-аналитика</h3>
+                    <p class="portfolio-desc">Полный анализ сотрудников компании: зарплата, стаж, отделы, производительность. Данные 500+ сотрудников.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">SQL</span>
+                        <span class="portfolio-tech-tag">Tableau</span>
+                        <span class="portfolio-tech-tag">Excel</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">Посмотреть на GitHub <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-4.jpeg" alt="Клиентовlar segmentatsiyasi" loading="lazy">
+                    <span class="portfolio-tag">Power BI</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">К</div>
+                        <span>Karina V. · Выпускник 3-го месяца · Сейчас: TBC Bank</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Дашборд рыночных исследований</h3>
+                    <p class="portfolio-desc">Анализ fintech-рынка Узбекистана — 50+ компаний, сегментация, конкурентный анализ, time intelligence.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Power BI</span>
+                        <span class="portfolio-tech-tag">DAX</span>
+                        <span class="portfolio-tech-tag">Python</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">Посмотреть на GitHub <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-5.jpeg" alt="E-commerce analitikasi" loading="lazy">
+                    <span class="portfolio-tag">Python + SQL</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">Р</div>
+                        <span>Regina F. · Выпускник 2-го месяца · Сейчас: Uzum Market</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">E-commerce EDA</h3>
+                    <p class="portfolio-desc">Полный EDA по данным онлайн-магазина: топ-товары, сезонность, поведение клиентов, A/B-тесты.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Pandas</span>
+                        <span class="portfolio-tech-tag">Matplotlib</span>
+                        <span class="portfolio-tech-tag">SQLite</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">Посмотреть на GitHub <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+
+            <div class="portfolio-card anim">
+                <div class="portfolio-image">
+                    <img src="/tilda/dashboard-1.jpeg" alt="Финансовая аналитика" loading="lazy">
+                    <span class="portfolio-tag">Tableau</span>
+                    <div class="portfolio-student">
+                        <div class="portfolio-student-avatar">А</div>
+                        <span>Ashur A. · Выпускник 4-го месяца · Сейчас: Humans</span>
+                    </div>
+                </div>
+                <div class="portfolio-content">
+                    <h3 class="portfolio-title">Финансовая аналитика</h3>
+                    <p class="portfolio-desc">Дашборд доходов и расходов банка. Тренд 3 года, разбивка по филиалам, модель прогноза.</p>
+                    <div class="portfolio-tech">
+                        <span class="portfolio-tech-tag">Tableau</span>
+                        <span class="portfolio-tech-tag">SQL</span>
+                        <span class="portfolio-tech-tag">Python</span>
+                    </div>
+                </div>
+                <a href="#" class="portfolio-cta">Посмотреть на GitHub <span class="portfolio-cta-arrow">→</span></a>
+            </div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">Siz ham <strong>shunday portfolio</strong> yaratasiz — 4 oy ichida</p>
+            <a href="#register" class="section-cta-btn">🎯 Записаться бесплатно <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- COUNTDOWN TIMER -->
+<section class="countdown-section">
+    <div class="container">
+        <div class="countdown-wrapper anim">
+            <span class="countdown-label">Запись открыта</span>
+            <h2 class="countdown-title">До старта следующей группы <br><span class="accent">осталось</span></h2>
+            <div class="countdown-timer" id="countdown-timer">
+                <div class="countdown-cell"><div class="countdown-number" id="cd-days">00</div><div class="countdown-unit">Дней</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-hours">00</div><div class="countdown-unit">Часов</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-mins">00</div><div class="countdown-unit">Минут</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-secs">00</div><div class="countdown-unit">Секунд</div></div>
+            </div>
+            <div class="countdown-info">
+                <div class="countdown-seats">
+                    🔥 <span>Осталось мест: <span class="seats-count" id="seats-left">7</span> / <span id="seats-total">20</span></span>
+                    <div class="seats-bar"><div class="seats-bar-fill" id="seats-bar-fill"></div></div>
+                </div>
+                <a href="#register" class="nav-cta" style="padding:14px 28px">Записаться сейчас →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA FORM (MULTI-STEP) -->
+<section class="cta-section" id="register">
+    <div class="container">
+        <div class="cta-wrapper">
+            <h2 class="section-title anim">Запишитесь на бесплатный открытый урок</h2>
+            <p class="section-subtitle anim" style="margin-left:auto;margin-right:auto">На бесплатном 60-минутном уроке узнаете о курсе, менторах и карьерных возможностях</p>
+
+            <form class="cta-card anim" id="registration-form" novalidate>
+                <!-- Progress dots -->
+                <div class="form-steps" id="form-steps">
+                    <div class="form-step-dot active"></div>
+                    <div class="form-step-dot"></div>
+                    <div class="form-step-dot"></div>
+                </div>
+
+                <!-- STEP 1: Level -->
+                <div class="form-step active" data-step="1">
+                    <h3 class="step-title">Выберите ваш уровень</h3>
+                    <p class="step-subtitle">Мы подберём программу под вас</p>
+                    <div class="step-options">
+                        <button type="button" class="step-option" data-field="level" data-value="boshlovchi">
+                            <span class="step-option-emoji">🌱</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Полный новичок</span>
+                                <span class="step-option-desc">Ещё не программировал</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="level" data-value="orta">
+                            <span class="step-option-emoji">📘</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Bazaviy bilim bor</span>
+                                <span class="step-option-desc">Знаком с основами Excel/SQL</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="level" data-value="tajribali">
+                            <span class="step-option-emoji">🚀</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Опытный специалистman</span>
+                                <span class="step-option-desc">Работал с Python/SQL</span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="step-actions">
+                        <button type="button" class="step-btn step-btn-next" data-action="next" disabled>Далее →</button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Goal -->
+                <div class="form-step" data-step="2">
+                    <h3 class="step-title">Ваша главная цель?</h3>
+                    <p class="step-subtitle">Дадим нужные инсайты, чтобы помочь вам</p>
+                    <div class="step-options">
+                        <button type="button" class="step-option" data-field="goal" data-value="career_change">
+                            <span class="step-option-emoji">🎯</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Сменить профессию</span>
+                                <span class="step-option-desc">Хочу перейти в IT</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="goal" data-value="salary_up">
+                            <span class="step-option-emoji">💰</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Поднять зарплату</span>
+                                <span class="step-option-desc">Выйти на зарплату $1,500+</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="goal" data-value="first_job">
+                            <span class="step-option-emoji">💼</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Первая работа</span>
+                                <span class="step-option-desc">Хочу стать Junior Data Analyst</span>
+                            </span>
+                        </button>
+                        <button type="button" class="step-option" data-field="goal" data-value="upskill">
+                            <span class="step-option-emoji">📈</span>
+                            <span class="step-option-text">
+                                <span class="step-option-label">Дополнительные знания</span>
+                                <span class="step-option-desc">Нужно для текущей работы</span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="step-actions">
+                        <button type="button" class="step-btn step-btn-back" data-action="back">← Назад</button>
+                        <button type="button" class="step-btn step-btn-next" data-action="next" disabled>Далее →</button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Contact -->
+                <div class="form-step" data-step="3">
+                    <h3 class="step-title">Контактные данные</h3>
+                    <p class="step-subtitle">Свяжемся с вами в течение 24 часов</p>
+                    <div class="form-group"><label for="name">Ваше имя</label><input type="text" id="name" class="form-input" placeholder="Азиз" required autocomplete="given-name"></div>
+                    <div class="form-group"><label for="phone">Телефон</label><input type="tel" id="phone" class="form-input" placeholder="+998 __ ___ __ __" required autocomplete="tel"></div>
+                    <div class="form-group"><label for="city">Город</label><select id="city" class="form-input" required><option value="" disabled selected>Выберите</option><option value="toshkent">Ташкент</option><option value="samarqand">Самарканд</option><option value="fargona">Фергана</option><option value="online">Онлайн</option></select></div>
+                    <div class="form-group"><label for="language">Язык обучения</label><select id="language" class="form-input" required><option value="" disabled selected>Выберите</option><option value="uz">Узбекский</option><option value="ru">Русский</option></select></div>
+                    <div class="step-actions">
+                        <button type="button" class="step-btn step-btn-back" data-action="back">← Назад</button>
+                        <button type="submit" class="step-btn step-btn-next">🎯 Записаться</button>
+                    </div>
+                    <p class="form-privacy" style="margin-top:14px">🔒 Ваши данные защищены</p>
+                </div>
+            </form>
+
+            <div class="form-success" id="form-success">
+                <div class="success-icon">🎉</div>
+                <h3>Поздравляем!</h3>
+                <p>Скоро мы с вами свяжемся</p>
+            </div>
+
+            <div class="form-urgency anim">🔥 На этой неделе <strong id="signup-counter">47</strong> человек записалось</div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+        <h2 class="section-title anim" style="text-align:center">FAQ</h2>
+        <p class="section-subtitle anim" style="text-align:center;margin:0 auto 40px">Часто задаваемые вопросы</p>
+        <div class="faq-list">
+            <div class="faq-item anim"><button class="faq-q">Для кого курс? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Курс подходит для всех. Не требуется технических знаний или опыта программирования. Обучаем с нуля до профессионального уровня.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Сколько длится курс? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Курс длится 4 месяца (16 недель, 48 уроков, 72 часа). 3 раза в неделю по 1.5 часа. Каждый месяц — крупный практический проект.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Что такое открытый урок? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Открытый урок — бесплатный ознакомительный урок. Познакомитесь с форматом курса и программой. Никаких обязательств.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Выдаётся ли сертификат? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Да, после успешного окончания курса выдаётся сертификат INTERNO School.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Можно ли учиться онлайн? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Да, доступен онлайн-формат. Можно смотреть уроки в прямом эфире или в записи из любого места.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Сколько стоит? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Подробную информацию о цене курса вы получите на открытом уроке. Запишитесь бесплатно и узнайте детали.</div></div></div>
+        </div>
+
+        <div class="section-cta anim">
+            <p class="section-cta-hook">Остались <strong>ещё вопросы</strong>? Ответим на все на открытом уроке</p>
+            <a href="#register" class="section-cta-btn">🎯 Записаться бесплатно <span class="section-cta-arrow">→</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo"><img src="/logo.svg" alt="INTERNO School"></div>
+                <p>Современное IT-образование в Узбекистане. Профессиональные курсы по Data Analytics и технологиям.</p>
+            </div>
+            <div class="footer-col"><h4>Страницы</h4><a href="#">Главная</a><a href="#curriculum">Курсы</a><a href="#features">О нас</a><a href="#register">Контакты</a></div>
+            <div class="footer-col"><h4>Соцсети</h4><a href="#">Telegram</a><a href="#">Instagram</a></div>
+            <div class="footer-col"><h4>Контакты</h4><a href="#">Ташкент, O'zbekiston</a><a href="mailto:info@interno.uz">info@interno.uz</a></div>
+        </div>
+        <div class="footer-bottom">© 2026 INTERNO School. Все права защищены.</div>
+    </div>
+</footer>
+
+<script type="module">
+// Skip Three.js entirely on mobile — saves ~600KB download
+const heroCanvas = document.getElementById('hero-3d');
+if (heroCanvas && window.innerWidth > 768) {
+    const THREE = await import('three');
+    const renderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(heroCanvas.clientWidth, heroCanvas.clientHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.0;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, heroCanvas.clientWidth / heroCanvas.clientHeight, 0.1, 100);
+    camera.position.set(0, 0, 7);
+
+    // Rich chrome environment — studio lighting with lime accent
+    const envScene = new THREE.Scene();
+    const envBg = new THREE.Mesh(new THREE.SphereGeometry(30, 32, 16), new THREE.MeshBasicMaterial({ color: 0x151515, side: THREE.BackSide }));
+    envScene.add(envBg);
+    // Big lime key light — top right
+    const el1 = new THREE.Mesh(new THREE.PlaneGeometry(10, 8), new THREE.MeshBasicMaterial({ color: 0xd6ff3c }));
+    el1.position.set(6, 4, -3); el1.lookAt(0,0,0); envScene.add(el1);
+    // Cool fill — left
+    const el2 = new THREE.Mesh(new THREE.PlaneGeometry(8, 8), new THREE.MeshBasicMaterial({ color: 0x6a7a8a }));
+    el2.position.set(-6, 1, 3); el2.lookAt(0,0,0); envScene.add(el2);
+    // White top highlight
+    const el3 = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    el3.position.set(0, 7, 1); el3.lookAt(0,0,0); envScene.add(el3);
+    // Ground bounce
+    const el4 = new THREE.Mesh(new THREE.PlaneGeometry(15, 15), new THREE.MeshBasicMaterial({ color: 0x2a2a2a }));
+    el4.position.set(0, -6, 0); el4.rotation.x = -Math.PI/2; envScene.add(el4);
+    // Secondary lime spot — bottom back
+    const el5 = new THREE.Mesh(new THREE.PlaneGeometry(5, 3), new THREE.MeshBasicMaterial({ color: 0xaacc00 }));
+    el5.position.set(-3, -2, -5); el5.lookAt(0,0,0); envScene.add(el5);
+    // Warm rim
+    const el6 = new THREE.Mesh(new THREE.SphereGeometry(1), new THREE.MeshBasicMaterial({ color: 0xffeedd }));
+    el6.position.set(4, -1, 5); envScene.add(el6);
+
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(envScene, 0.015).texture;
+    pmrem.dispose();
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+    const keyLight = new THREE.DirectionalLight(0xfffff0, 2);
+    keyLight.position.set(3, 5, 4); scene.add(keyLight);
+    const accent = new THREE.PointLight(0xd6ff3c, 4, 20);
+    accent.position.set(-3, 3, 4); scene.add(accent);
+    const rimLight = new THREE.PointLight(0xffffff, 2, 15);
+    rimLight.position.set(4, -2, -3); scene.add(rimLight);
+
+    // Chrome material with more polish
+    function chromeMat(tintColor, opts={}) {
+        return new THREE.MeshPhysicalMaterial({
+            color: tintColor || 0xffffff,
+            metalness: 1.0,
+            roughness: opts.rough !== undefined ? opts.rough : 0.05,
+            envMapIntensity: opts.env || 2.2,
+            clearcoat: 1.0,
+            clearcoatRoughness: 0.02,
+            reflectivity: 1.0
+        });
+    }
+
+    const objects = [];
+
+    // 1. Big rounded cube — hero element (lime chrome)
+    const cubeGeo = new THREE.BoxGeometry(1.4, 1.4, 1.4, 10, 10, 10);
+    const pa = cubeGeo.attributes.position;
+    for (let i = 0; i < pa.count; i++) {
+        const v = new THREE.Vector3(pa.getX(i), pa.getY(i), pa.getZ(i));
+        const o = v.clone(); v.normalize().multiplyScalar(1.2); v.lerp(o, 0.5);
+        pa.setXYZ(i, v.x, v.y, v.z);
+    }
+    cubeGeo.computeVertexNormals();
+    const cube = new THREE.Mesh(cubeGeo, chromeMat(0xd6ff3c, {rough: 0.12}));
+    cube.position.set(-1.8, 0.6, 0.3);
+    cube.rotation.set(0.3, 0.4, 0.2);
+    scene.add(cube);
+    objects.push({ m: cube, rs: 0.25, bx: -1.8, by: 0.6, bz: 0.3, fa: 0.18, i: 0 });
+
+    // 2. Torus knot — complex chrome
+    const knot = new THREE.Mesh(
+        new THREE.TorusKnotGeometry(0.85, 0.26, 256, 32, 2, 3),
+        chromeMat(0xf5f5f5, {rough: 0.04})
+    );
+    knot.position.set(0.6, 0.3, 0);
+    scene.add(knot);
+    objects.push({ m: knot, rs: 0.4, bx: 0.6, by: 0.3, bz: 0, fa: 0.2, i: 1 });
+
+    // 3. Large chrome sphere
+    const sph = new THREE.Mesh(
+        new THREE.SphereGeometry(0.55, 64, 64),
+        chromeMat(0xffffff, {rough: 0.02})
+    );
+    sph.position.set(2.0, -0.7, 0.8);
+    scene.add(sph);
+    objects.push({ m: sph, rs: 0.15, bx: 2.0, by: -0.7, bz: 0.8, fa: 0.22, i: 2 });
+
+    // 4. Octahedron / diamond — accent gem
+    const oct = new THREE.Mesh(
+        new THREE.OctahedronGeometry(0.4, 0),
+        chromeMat(0xd6ff3c, {rough: 0.08, env: 2.5})
+    );
+    oct.position.set(1.5, 1.3, 0.5);
+    oct.rotation.set(0.3, 0.5, 0);
+    scene.add(oct);
+    objects.push({ m: oct, rs: 0.5, bx: 1.5, by: 1.3, bz: 0.5, fa: 0.15, i: 3 });
+
+    // 5. Torus (donut ring)
+    const torus = new THREE.Mesh(
+        new THREE.TorusGeometry(0.5, 0.17, 48, 96),
+        chromeMat(0xffffff, {rough: 0.06})
+    );
+    torus.position.set(-0.7, -1.2, 0.6);
+    torus.rotation.set(Math.PI / 3, 0.3, 0.5);
+    scene.add(torus);
+    objects.push({ m: torus, rs: 0.3, bx: -0.7, by: -1.2, bz: 0.6, fa: 0.2, i: 4 });
+
+    // 6. Small accent sphere (lime)
+    const sph2 = new THREE.Mesh(
+        new THREE.SphereGeometry(0.22, 48, 48),
+        chromeMat(0xd6ff3c, {rough: 0.1})
+    );
+    sph2.position.set(-0.3, 1.5, 1.2);
+    scene.add(sph2);
+    objects.push({ m: sph2, rs: 0.3, bx: -0.3, by: 1.5, bz: 1.2, fa: 0.25, i: 5 });
+
+    // 7. Icosahedron — low-poly gem (chrome)
+    const ico = new THREE.Mesh(
+        new THREE.IcosahedronGeometry(0.35, 0),
+        chromeMat(0xe8ffaa, {rough: 0.06, env: 2.3})
+    );
+    ico.position.set(2.5, 0.5, -0.4);
+    ico.rotation.set(0.4, 0.3, 0.1);
+    scene.add(ico);
+    objects.push({ m: ico, rs: 0.45, bx: 2.5, by: 0.5, bz: -0.4, fa: 0.18, i: 6 });
+
+    // Animate — drift in both axes
+    function animate(t) {
+        objects.forEach((o) => {
+            o.m.rotation.x = t * 0.0003 * o.rs;
+            o.m.rotation.y = t * 0.0005 * o.rs;
+            o.m.rotation.z = t * 0.0002 * o.rs;
+            const tm = t * 0.001 + o.i;
+            o.m.position.y = o.by + Math.sin(tm) * o.fa;
+            o.m.position.x = o.bx + Math.cos(tm * 0.7) * (o.fa * 0.4);
+        });
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    window.addEventListener('resize', () => {
+        renderer.setSize(heroCanvas.clientWidth, heroCanvas.clientHeight);
+        camera.aspect = heroCanvas.clientWidth / heroCanvas.clientHeight;
+        camera.updateProjectionMatrix();
+    });
+}
+
+// Card 3D scenes removed — sections redesigned with informative content instead
+
+// ======= UI =======
+(function() {
+    'use strict';
+    const h = document.querySelector('.hamburger');
+    const m = document.querySelector('.mobile-menu');
+    h.addEventListener('click', () => { h.classList.toggle('active'); m.classList.toggle('active'); });
+    m.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { h.classList.remove('active'); m.classList.remove('active'); }));
+
+    // Scroll animations
+    const obs = new IntersectionObserver(e => e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.anim').forEach(el => obs.observe(el));
+
+    // Counters
+    const cO = new IntersectionObserver(e => e.forEach(x => {
+        if (!x.isIntersecting) return;
+        const el = x.target;
+        if (el.dataset.counted) return;
+        el.dataset.counted = '1';
+        const t = parseFloat(el.dataset.target);
+        const d = el.dataset.decimal === 'true';
+        const suf = el.dataset.suffix || '';
+        const st = performance.now();
+        (function tick(n) {
+            const p = Math.min((n - st) / 2000, 1);
+            const e2 = 1 - Math.pow(1 - p, 3);
+            const cur = e2 * t;
+            el.textContent = d ? cur.toFixed(1) + suf : Math.floor(cur) + (t >= 200 ? '+' : '') + suf;
+            if (p < 1) requestAnimationFrame(tick);
+        })(st);
+        cO.unobserve(el);
+    }), { threshold: 0.5 });
+    document.querySelectorAll('.proof-number[data-target]').forEach(el => cO.observe(el));
+
+    // FAQ
+    document.querySelectorAll('.faq-q').forEach(b => {
+        b.addEventListener('click', () => {
+            const a = b.classList.contains('active');
+            const ans = b.nextElementSibling;
+            document.querySelectorAll('.faq-q.active').forEach(x => { x.classList.remove('active'); x.nextElementSibling.style.maxHeight = null; });
+            if (!a) { b.classList.add('active'); ans.style.maxHeight = ans.scrollHeight + 'px'; }
+        });
+    });
+
+    // ============== MULTI-STEP FORM ==============
+    const regForm = document.getElementById('registration-form');
+    if (regForm) {
+        const steps = regForm.querySelectorAll('.form-step');
+        const dots = regForm.querySelectorAll('.form-step-dot');
+        const formData = {};
+        let currentStep = 1;
+
+        function showStep(n) {
+            steps.forEach(s => s.classList.toggle('active', +s.dataset.step === n));
+            dots.forEach((d, i) => {
+                d.classList.remove('active', 'completed');
+                if (i + 1 < n) d.classList.add('completed');
+                else if (i + 1 === n) d.classList.add('active');
+            });
+            currentStep = n;
+            try { if (window.track) window.track('form_step_' + n, { step: n }); } catch(e) {}
+        }
+
+        // Option selection (level/goal)
+        regForm.querySelectorAll('.step-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const field = btn.dataset.field;
+                const value = btn.dataset.value;
+                formData[field] = value;
+                // Deselect siblings
+                const siblings = btn.parentElement.querySelectorAll('.step-option');
+                siblings.forEach(s => s.classList.remove('selected'));
+                btn.classList.add('selected');
+                // Enable next button
+                const step = btn.closest('.form-step');
+                const nextBtn = step.querySelector('[data-action="next"]');
+                if (nextBtn) nextBtn.disabled = false;
+                // Auto-advance to next step after short delay (for visual feedback)
+                if (currentStep < 3) {
+                    setTimeout(() => {
+                        showStep(currentStep + 1);
+                    }, 350);
+                }
+            });
+        });
+
+        // Navigation buttons
+        regForm.querySelectorAll('[data-action="next"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep < 3) showStep(currentStep + 1);
+            });
+        });
+        regForm.querySelectorAll('[data-action="back"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentStep > 1) showStep(currentStep - 1);
+            });
+        });
+
+        // Final submit
+        regForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const city = document.getElementById('city').value;
+            const language = document.getElementById('language')?.value || '';
+            if (!name || !phone || !city || !language) return;
+
+            formData.name = name;
+            formData.phone = phone;
+            formData.city = city;
+            formData.language = language;
+
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Yuborilmoqda...';
+            btn.disabled = true;
+
+            try {
+                await fetch('/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name, phone,
+                        city: city + ' | Lang: ' + language + ' | Level: ' + (formData.level || 'N/A') + ' | Goal: ' + (formData.goal || 'N/A')
+                    })
+                });
+            } catch (err) {}
+
+            this.style.display = 'none';
+            document.getElementById('form-success').classList.add('show');
+        });
+    }
+
+    // Signup counter
+    const c2 = document.getElementById('signup-counter');
+    if (c2) c2.textContent = Math.floor(Math.random() * 20) + 35;
+
+    // ============== COUNTDOWN TIMER ==============
+    (function initCountdown() {
+        const target = new Date(window.SITE_CONFIG.NEXT_COHORT_DATE).getTime();
+        const dEl = document.getElementById('cd-days');
+        const hEl = document.getElementById('cd-hours');
+        const mEl = document.getElementById('cd-mins');
+        const sEl = document.getElementById('cd-secs');
+        if (!dEl) return;
+
+        const pad = n => String(Math.max(0, n)).padStart(2, '0');
+
+        function tick() {
+            const now = Date.now();
+            let diff = Math.max(0, target - now);
+            const d = Math.floor(diff / 86400000); diff -= d * 86400000;
+            const h = Math.floor(diff / 3600000); diff -= h * 3600000;
+            const m = Math.floor(diff / 60000); diff -= m * 60000;
+            const s = Math.floor(diff / 1000);
+            dEl.textContent = pad(d);
+            hEl.textContent = pad(h);
+            mEl.textContent = pad(m);
+            sEl.textContent = pad(s);
+        }
+        tick();
+        setInterval(tick, 1000);
+
+        // Seats
+        const seatsLeft = window.SITE_CONFIG.SEATS_LEFT;
+        const seatsTotal = window.SITE_CONFIG.TOTAL_SEATS;
+        const sl = document.getElementById('seats-left');
+        const st = document.getElementById('seats-total');
+        const sbf = document.getElementById('seats-bar-fill');
+        if (sl) sl.textContent = seatsLeft;
+        if (st) st.textContent = seatsTotal;
+        if (sbf) {
+            // fill = how much sold (inverse = left proportion in gradient)
+            const pct = ((seatsTotal - seatsLeft) / seatsTotal) * 100;
+            setTimeout(() => { sbf.style.width = pct + '%'; }, 300);
+        }
+    })();
+
+    // ============== EVENT TRACKING ==============
+    function track(name, params) { if (window.track) window.track(name, params || {}); }
+
+    // Track CTA clicks
+    document.querySelectorAll('a[href="#register"],.nav-cta,.hero-cta,.mob-cta').forEach(el => {
+        el.addEventListener('click', () => {
+            track('click_cta', { location: el.closest('section,nav')?.id || 'unknown', text: el.textContent.trim().slice(0, 40) });
+            if (window.fbq) fbq('track', 'Lead', { source: 'vercel_landing', type: 'cta_click' });
+        });
+    });
+
+    // Track form_start on first interaction
+    let formStarted = false;
+    document.querySelectorAll('#registration-form input, #registration-form select').forEach(el => {
+        el.addEventListener('focus', () => {
+            if (formStarted) return;
+            formStarted = true;
+            track('form_start', { form: 'registration' });
+        }, { once: true });
+    });
+
+    // Track scroll depth (25/50/75/100)
+    const depths = [25, 50, 75, 100];
+    const seenDepths = new Set();
+    window.addEventListener('scroll', () => {
+        const p = (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100;
+        depths.forEach(d => {
+            if (p >= d && !seenDepths.has(d)) {
+                seenDepths.add(d);
+                track('scroll_' + d, { percent: d });
+            }
+        });
+    }, { passive: true });
+
+    // Sticky mobile CTA is always visible via CSS (no JS logic needed)
+
+    // ============== TELEGRAM LINK SETUP ==============
+    const tg = window.SITE_CONFIG.TELEGRAM_USERNAME;
+    const tgLink = document.getElementById('msg-telegram');
+    if (tgLink) {
+        if (tg) tgLink.href = 'https://t.me/' + tg.replace('@', '');
+        else tgLink.style.display = 'none';
+        tgLink.addEventListener('click', () => track('contact_telegram', {}));
+    }
+
+    // ============== EXIT INTENT POPUP ==============
+    const exitModal = document.getElementById('exit-modal');
+    let exitShown = sessionStorage.getItem('exit_shown') === '1';
+    let hasSubmitted = false;
+
+    function showExitModal() {
+        if (exitShown || hasSubmitted) return;
+        exitShown = true;
+        sessionStorage.setItem('exit_shown', '1');
+        exitModal.classList.add('show');
+        track('exit_modal_shown', {});
+    }
+
+    // Desktop: mouse leaves top
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0) showExitModal();
+    });
+
+    // Mobile: fast scroll up + back button alternative — show after 30s if not submitted
+    if (window.innerWidth <= 768) {
+        setTimeout(() => {
+            if (!hasSubmitted && !exitShown && window.scrollY > 300) showExitModal();
+        }, 45000); // 45 seconds
+    }
+
+    // Close handlers
+    document.querySelectorAll('[data-close-modal]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            if (e.target === el || el.dataset.closeModal === 'true') {
+                exitModal.classList.remove('show');
+            }
+        });
+    });
+
+    // Exit form submit
+    const exitForm = document.getElementById('exit-form');
+    if (exitForm) {
+        exitForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const phone = document.getElementById('exit-phone').value.trim();
+            if (!phone) return;
+            hasSubmitted = true;
+            track('exit_lead', { phone_present: true });
+            if (window.fbq) fbq('track', 'Lead', { source: 'exit_intent' });
+
+            try {
+                await fetch('/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: 'Exit popup lead', phone, city: 'exit_intent' })
+                });
+            } catch(err) {}
+
+            document.querySelector('.exit-modal-body').style.display = 'none';
+            document.querySelector('.exit-modal-success').classList.add('show');
+        });
+    }
+
+    // Mark on form success
+    document.getElementById('registration-form').addEventListener('submit', () => {
+        hasSubmitted = true;
+        track('form_submit', { form: 'registration' });
+        if (window.fbq) fbq('track', 'Lead', { source: 'main_form' });
+    });
+})();
+</script>
+
+<!-- STICKY MOBILE CTA (faqat mobile uchun) -->
+<div class="mobile-cta-bar" id="mobile-cta-bar">
+    <a href="#register">🎯 Записаться бесплатно</a>
+</div>
+
+<!-- FLOATING MESSENGER BUTTONS -->
+<div class="messenger-floats">
+    <a href="#" id="msg-telegram" class="messenger-float messenger-telegram" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+    </a>
+</div>
+
+<!-- EXIT INTENT MODAL -->
+<div class="exit-modal" id="exit-modal" data-close-modal>
+    <div class="exit-modal-content">
+        <button class="exit-modal-close" data-close-modal="true" aria-label="Закрыть">✕</button>
+        <div class="exit-modal-body">
+            <div class="exit-modal-icon">🎁</div>
+            <h3>Подождите!<br><span class="accent">Для вас подарок</span></h3>
+            <p>Перед уходом получите бесплатный PDF: <strong style="color:#fff">"Стать Data Analyst — 7 шагов"</strong> + список вакансий с зарплатой $3,000+</p>
+            <form class="exit-modal-form" id="exit-form">
+                <input type="tel" id="exit-phone" placeholder="+998 __ ___ __ __" required autocomplete="tel">
+                <button type="submit">🎁 Получить PDF — Бесплатно</button>
+            </form>
+        </div>
+        <div class="exit-modal-success">
+            <div class="exit-modal-icon">✅</div>
+            <h3>Отлично!</h3>
+            <p>Скоро вы получите PDF и дополнительную информацию. Ждите сообщение в Telegram!</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
