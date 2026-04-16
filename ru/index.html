@@ -228,13 +228,16 @@
         .month-topics li::before{content:'→';color:var(--lime);font-weight:700;flex-shrink:0}
         .month-result{margin-top:20px;padding:14px 16px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);border-radius:12px;font-size:0.82rem;color:var(--lime);font-weight:600;text-transform:uppercase;letter-spacing:0.02em}
 
-        /* OUTCOMES (LIME CARDS) */
-        .outcomes-header{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:48px}
-        .outcomes-3d{width:180px;height:180px;flex-shrink:0;background:var(--card);border-radius:50%;position:relative;overflow:hidden}
-        .outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-        .outcome-card{background:var(--white);color:var(--black);border-radius:var(--radius);padding:28px;min-height:180px;display:flex;flex-direction:column;transition:all 0.3s}
-        .outcome-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(255,255,255,0.1)}
-        .outcome-card p{font-size:0.95rem;font-weight:500;color:var(--black);line-height:1.4}
+        /* OUTCOMES */
+        .outcomes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+        .outcome-card{background:var(--card);border:1px solid var(--border);color:var(--white);border-radius:var(--radius);padding:28px 24px;display:flex;flex-direction:column;gap:14px;transition:all 0.3s;position:relative;overflow:hidden}
+        .outcome-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(214,255,60,0.1),transparent 60%);opacity:0;transition:opacity 0.3s;pointer-events:none}
+        .outcome-card:hover{border-color:rgba(214,255,60,0.35);transform:translateY(-4px)}
+        .outcome-card:hover::before{opacity:1}
+        .outcome-icon{width:52px;height:52px;border-radius:14px;background:rgba(214,255,60,0.12);border:1px solid rgba(214,255,60,0.25);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0}
+        .outcome-title{font-size:1.05rem;font-weight:800;letter-spacing:-0.01em;line-height:1.25;color:var(--white)}
+        .outcome-desc{font-size:0.88rem;font-weight:400;color:var(--text-muted);line-height:1.5}
+        @media(max-width:960px){.outcomes-grid{grid-template-columns:repeat(2,1fr)}}
 
         /* SALARY */
         .salary-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
@@ -1049,18 +1052,40 @@
 <!-- OUTCOMES -->
 <section id="outcomes">
     <div class="container">
-        <div class="outcomes-header">
-            <div>
-                <h2 class="section-title anim">В итоге вы <br><span class="accent">получите</span></h2>
-                <p class="section-subtitle anim">Конкретный результат после курса</p>
-            </div>
-            <div class="outcomes-3d anim" style="background:var(--lime);color:var(--black);display:flex;align-items:center;justify-content:center;font-size:4rem">🎯</div>
-        </div>
+        <h2 class="section-title anim">В итоге вы <span class="accent">получите</span></h2>
+        <p class="section-subtitle anim">6 конкретных результатов, которые пригодятся при поиске работы</p>
 
         <div class="outcomes-grid stagger">
-            <div class="outcome-card anim"><p>Ментор — рядом с вами, пока не разберётесь до конца</p></div>
-            <div class="outcome-card anim"><p>Индивидуальный учебный план — под ваш темп и цели</p></div>
-            <div class="outcome-card anim"><p>Готовые проекты в портфолио и оформленное CV</p></div>
+            <div class="outcome-card anim">
+                <div class="outcome-icon">📊</div>
+                <h3 class="outcome-title">Портфолио из 5+ проектов</h3>
+                <p class="outcome-desc">На GitHub: дашборды, A/B-тесты, когортный анализ, SQL-отчёты на реальных данных</p>
+            </div>
+            <div class="outcome-card anim">
+                <div class="outcome-icon">📄</div>
+                <h3 class="outcome-title">Оформленное резюме</h3>
+                <p class="outcome-desc">Под вакансии Data Analyst — проходит HR-сканеры, с кейсами из портфолио</p>
+            </div>
+            <div class="outcome-card anim">
+                <div class="outcome-icon">🛠</div>
+                <h3 class="outcome-title">6 ключевых инструментов</h3>
+                <p class="outcome-desc">Python, SQL, Power BI, Excel, Pandas, NumPy — уверенно и в связке</p>
+            </div>
+            <div class="outcome-card anim">
+                <div class="outcome-icon">🧠</div>
+                <h3 class="outcome-title">Бизнес-мышление</h3>
+                <p class="outcome-desc">Метрики, A/B-тесты, проверка гипотез и умение защищать результаты перед командой</p>
+            </div>
+            <div class="outcome-card anim">
+                <div class="outcome-icon">💬</div>
+                <h3 class="outcome-title">Подготовка к собеседованиям</h3>
+                <p class="outcome-desc">Мок-интервью, типовые вопросы, live SQL/Python — вы готовы к реальному найму</p>
+            </div>
+            <div class="outcome-card anim">
+                <div class="outcome-icon">🎓</div>
+                <h3 class="outcome-title">Сертификат INTERNO</h3>
+                <p class="outcome-desc">Документ о прохождении курса — признаётся работодателями в Узбекистане</p>
+            </div>
         </div>
 
         <h3 class="anim" style="font-size:1.2rem;font-weight:800;margin-top:60px;margin-bottom:20px;text-transform:uppercase;letter-spacing:0.02em">Зарплата Data Analyst в Узбекистане</h3>
