@@ -34,7 +34,7 @@
 
             // Messengerlar (raqam/username to'ldiring, bo'sh bo'lsa — tugma ko'rinmaydi)
             TELEGRAM_USERNAME: 'internosales_bot',   // @ belgisisiz. Masalan: 'internoschool'
-            PHONE_NUMBER: '+998 78 113 18 08',  // Chiroyli formatda ko'rsatish uchun
+            PHONE_NUMBER: '+998 (90) 000-00-00',  // Chiroyli formatda ko'rsatish uchun
 
             // Keyingi guruh boshlanish sanasi (YYYY-MM-DDTHH:MM:SS formati, local vaqt)
             NEXT_COHORT_DATE: '2026-05-15T09:00:00',  // O'zgartiring: keyingi guruh qachon boshlanadi
@@ -135,11 +135,6 @@
         .lang-switch a.active{background:var(--lime);color:var(--black)}
         .lang-switch a:hover:not(.active){color:var(--white)}
         .nav-right{display:flex;align-items:center;gap:12px}
-        .nav-phone{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:var(--radius-pill);background:transparent;border:1px solid rgba(255,255,255,0.12);color:var(--white);text-decoration:none;font-size:0.82rem;font-weight:700;letter-spacing:0.02em;transition:all 0.3s;white-space:nowrap}
-        .nav-phone:hover{border-color:var(--lime);color:var(--lime)}
-        .nav-phone svg{width:14px;height:14px}
-        @media(max-width:1100px){.nav-phone{display:none}}
-        .messenger-phone{background:#25D366;color:#25D366}
         .hamburger{display:none;width:40px;height:40px;background:var(--card);border:1px solid var(--border);border-radius:10px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px}
         .hamburger span{width:18px;height:2px;background:var(--white);display:block;transition:all 0.3s}
         .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
@@ -640,10 +635,6 @@
             </ul>
         </div>
         <div class="nav-right">
-            <a href="tel:+998781131808" class="nav-phone" aria-label="Позвонить">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.07 15.07 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
-                +998 78 113 18 08
-            </a>
             <div class="lang-switch" role="group" aria-label="Выбор языка">
                 <a href="/">UZ</a>
                 <a href="/ru" class="active" aria-current="page">RU</a>
@@ -656,7 +647,6 @@
             <a href="/">UZ</a>
             <a href="/ru" class="active">RU</a>
         </div>
-        <a href="tel:+998781131808" style="padding:14px 16px;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px;font-weight:700;border-bottom:1px solid var(--border);margin-bottom:8px">📞 +998 78 113 18 08</a>
         <a href="#curriculum">Программа</a>
         <a href="#outcomes">Результат</a>
         <a href="#features">Почему мы</a>
@@ -1583,7 +1573,7 @@
             </div>
             <div class="footer-col"><h4>Страницы</h4><a href="#">Главная</a><a href="#curriculum">Курсы</a><a href="#features">О нас</a><a href="#register">Контакты</a></div>
             <div class="footer-col"><h4>Соцсети</h4><a href="#">Telegram</a><a href="#">Instagram</a></div>
-            <div class="footer-col"><h4>Контакты</h4><a href="tel:+998781131808" style="color:var(--lime);font-weight:700">📞 +998 78 113 18 08</a><a href="mailto:info@interno.uz">info@interno.uz</a><a href="#">Ташкент, Узбекистан</a></div>
+            <div class="footer-col"><h4>Контакты</h4><a href="#">Ташкент, O'zbekiston</a><a href="mailto:info@interno.uz">info@interno.uz</a></div>
         </div>
         <div class="footer-bottom">© 2026 INTERNO School. Все права защищены.</div>
     </div>
@@ -2046,9 +2036,6 @@ if (heroCanvas && window.innerWidth > 768) {
 
 <!-- FLOATING MESSENGER BUTTONS -->
 <div class="messenger-floats">
-    <a href="tel:+998781131808" id="msg-phone" class="messenger-float messenger-phone" aria-label="Позвонить">
-        <svg viewBox="0 0 24 24"><path d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.07 15.07 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1 17 17 0 0 0 17 17 1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1z"/></svg>
-    </a>
     <a href="#" id="msg-telegram" class="messenger-float messenger-telegram" target="_blank" rel="noopener" aria-label="Telegram">
         <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
     </a>
