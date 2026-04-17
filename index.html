@@ -1480,9 +1480,6 @@
                             </span>
                         </button>
                     </div>
-                    <div class="step-actions">
-                        <button type="button" class="step-btn step-btn-next" data-action="next" disabled>Keyingi →</button>
-                    </div>
                 </div>
 
                 <!-- STEP 2: Goal -->
@@ -1519,10 +1516,6 @@
                             </span>
                         </button>
                     </div>
-                    <div class="step-actions">
-                        <button type="button" class="step-btn step-btn-back" data-action="back">← Ortga</button>
-                        <button type="button" class="step-btn step-btn-next" data-action="next" disabled>Keyingi →</button>
-                    </div>
                 </div>
 
                 <!-- STEP 3: Contact -->
@@ -1530,12 +1523,11 @@
                     <h3 class="step-title">Aloqa ma'lumotlari</h3>
                     <p class="step-subtitle">24 soat ichida siz bilan bog'lanamiz</p>
                     <div class="form-group"><label for="name">Ismingiz</label><input type="text" id="name" class="form-input" placeholder="Aziz" required autocomplete="given-name"></div>
-                    <div class="form-group"><label for="phone">Telefon</label><input type="tel" id="phone" class="form-input" placeholder="+998 __ ___ __ __" required autocomplete="tel"></div>
+                    <div class="form-group"><label for="phone">Telefon</label><input type="tel" id="phone" class="form-input" placeholder="+998 __ ___ __ __" required autocomplete="tel" inputmode="tel" maxlength="19"></div>
                     <div class="form-group"><label for="city">Shahar</label><select id="city" class="form-input" required><option value="" disabled selected>Tanlang</option><option value="toshkent">Toshkent</option><option value="samarqand">Samarqand</option><option value="fargona">Farg'ona</option><option value="online">Online</option></select></div>
                     <div class="form-group"><label for="language">O'qish tili</label><select id="language" class="form-input" required><option value="" disabled selected>Tanlang</option><option value="uz">O'zbek tili</option><option value="ru">Русский</option></select></div>
                     <div class="step-actions">
-                        <button type="button" class="step-btn step-btn-back" data-action="back">← Ortga</button>
-                        <button type="submit" class="step-btn step-btn-next">🎯 Yozilish</button>
+                        <button type="submit" class="step-btn step-btn-next" style="flex:1">🎯 Yozilish</button>
                     </div>
                     <p class="form-privacy" style="margin-top:14px">🔒 Ma'lumotlaringiz himoyalangan</p>
                 </div>
@@ -1793,6 +1785,52 @@ if (heroCanvas && window.innerWidth > 768) {
         });
     });
 
+    // ============== UZBEK PHONE MASK ==============
+    // Formats user input as: +998 XX XXX XX XX (max 12 digits)
+    function applyUzPhoneMask(input) {
+        if (!input) return;
+        function format(val) {
+            // Strip everything but digits
+            let digits = val.replace(/\D/g, '');
+            // If user typed without country code, prefix with 998
+            if (digits.length && !digits.startsWith('998')) {
+                // If they started with 9 (common)  or 7/8 prefix, treat rest as number
+                if (digits.startsWith('9') && !digits.startsWith('99')) digits = '998' + digits.slice(1);
+                else if (!digits.startsWith('998')) digits = '998' + digits;
+            }
+            // Cap to 12 digits (998 + 9 digits)
+            digits = digits.slice(0, 12);
+            if (!digits) return '';
+            let out = '+998';
+            if (digits.length > 3) out += ' ' + digits.slice(3, 5);
+            if (digits.length > 5) out += ' ' + digits.slice(5, 8);
+            if (digits.length > 8) out += ' ' + digits.slice(8, 10);
+            if (digits.length > 10) out += ' ' + digits.slice(10, 12);
+            return out;
+        }
+        input.addEventListener('focus', function() {
+            if (!this.value) this.value = '+998 ';
+        });
+        input.addEventListener('input', function() {
+            this.value = format(this.value);
+        });
+        input.addEventListener('paste', function(e) {
+            e.preventDefault();
+            const pasted = (e.clipboardData || window.clipboardData).getData('text');
+            this.value = format(pasted);
+        });
+        input.addEventListener('keydown', function(e) {
+            // Don't let Backspace delete the +998 prefix
+            if (e.key === 'Backspace' && this.value === '+998 ') {
+                e.preventDefault();
+            }
+        });
+        input.addEventListener('blur', function() {
+            if (this.value === '+998 ' || this.value === '+998') this.value = '';
+        });
+    }
+    ['phone', 'exit-phone'].forEach(id => applyUzPhoneMask(document.getElementById(id)));
+
     // ============== MULTI-STEP FORM ==============
     const regForm = document.getElementById('registration-form');
     if (regForm) {
@@ -1822,28 +1860,12 @@ if (heroCanvas && window.innerWidth > 768) {
                 const siblings = btn.parentElement.querySelectorAll('.step-option');
                 siblings.forEach(s => s.classList.remove('selected'));
                 btn.classList.add('selected');
-                // Enable next button
-                const step = btn.closest('.form-step');
-                const nextBtn = step.querySelector('[data-action="next"]');
-                if (nextBtn) nextBtn.disabled = false;
                 // Auto-advance to next step after short delay (for visual feedback)
                 if (currentStep < 3) {
                     setTimeout(() => {
                         showStep(currentStep + 1);
                     }, 350);
                 }
-            });
-        });
-
-        // Navigation buttons
-        regForm.querySelectorAll('[data-action="next"]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (currentStep < 3) showStep(currentStep + 1);
-            });
-        });
-        regForm.querySelectorAll('[data-action="back"]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (currentStep > 1) showStep(currentStep - 1);
             });
         });
 
