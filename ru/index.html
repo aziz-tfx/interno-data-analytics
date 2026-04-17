@@ -623,6 +623,32 @@
         .exit-modal-form button:hover{transform:scale(1.02)}
         .exit-modal-success{display:none}
         .exit-modal-success.show{display:block}
+
+        /* ===== HERO POPUP (same base as exit-modal) ===== */
+        .hero-popup{position:fixed;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:1002;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity 0.3s,visibility 0.3s}
+        .hero-popup.show{opacity:1;visibility:visible}
+        .hero-popup-content{background:linear-gradient(145deg,var(--card),var(--card-light));border:1px solid rgba(214,255,60,0.25);border-radius:var(--radius-lg);padding:44px 32px 32px;max-width:480px;width:100%;position:relative;transform:scale(0.92) translateY(10px);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);text-align:center;box-shadow:0 30px 80px rgba(0,0,0,0.6),0 0 60px rgba(214,255,60,0.1)}
+        .hero-popup.show .hero-popup-content{transform:scale(1) translateY(0)}
+        .hero-popup-close{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--card-light);border:1px solid var(--border);color:var(--white);cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+        .hero-popup-close:hover{background:var(--lime);color:var(--black);border-color:var(--lime)}
+        .hero-popup-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:var(--radius-pill);background:rgba(214,255,60,0.12);border:1px solid rgba(214,255,60,0.3);color:var(--lime);font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px}
+        .hero-popup-badge::before{content:'🎁'}
+        .hero-popup h3{font-size:1.6rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;line-height:1.1;margin-bottom:10px;color:var(--white)}
+        .hero-popup h3 .accent{color:var(--lime)}
+        .hero-popup p{color:var(--text-muted);font-size:0.95rem;margin-bottom:22px;line-height:1.5}
+        .hero-popup-form{display:flex;flex-direction:column;gap:10px;text-align:left}
+        .hero-popup-form label{display:block;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:4px}
+        .hero-popup-form input{padding:14px 18px;border-radius:12px;border:1.5px solid var(--border);background:var(--card-light);color:var(--white);font-family:'Inter',sans-serif;font-size:0.95rem;outline:none;transition:all 0.3s;width:100%}
+        .hero-popup-form input:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(214,255,60,0.12)}
+        .hero-popup-form input::placeholder{color:rgba(255,255,255,0.3)}
+        .hero-popup-form button{padding:16px;background:var(--lime);color:var(--black);border:none;border-radius:12px;font-family:'Inter',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;text-transform:uppercase;letter-spacing:0.02em;transition:transform 0.2s;margin-top:6px;animation:ctaPulse 2s ease-in-out infinite}
+        .hero-popup-form button:hover{transform:scale(1.02);animation-play-state:paused}
+        .hero-popup-privacy{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:12px;text-align:center}
+        .hero-popup-bonus{display:flex;gap:8px;justify-content:center;margin:18px 0 6px;flex-wrap:wrap}
+        .hero-popup-bonus-item{font-size:0.72rem;color:var(--white);padding:5px 12px;border-radius:var(--radius-pill);background:rgba(255,255,255,0.04);border:1px solid var(--border)}
+        .hero-popup-success{display:none;text-align:center}
+        .hero-popup-success.show{display:block;animation:popIn 0.5s cubic-bezier(0.16,1,0.3,1)}
+        .hero-popup-success-icon{font-size:3.5rem;margin-bottom:12px}
     </style>
 </head>
 <body>
@@ -1983,6 +2009,81 @@ if (heroCanvas && window.innerWidth > 768) {
         tgLink.addEventListener('click', () => track('contact_telegram', {}));
     }
 
+    // ============== HERO POPUP ==============
+    const heroPopup = document.getElementById('hero-popup');
+    const heroPopupBody = heroPopup?.querySelector('.hero-popup-body');
+    const heroPopupSuccess = heroPopup?.querySelector('.hero-popup-success');
+    const hpNameInput = document.getElementById('hp-name');
+    const hpPhoneInput = document.getElementById('hp-phone');
+    applyUzPhoneMask(hpPhoneInput);
+
+    function openHeroPopup(source) {
+        if (!heroPopup) return;
+        heroPopup.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        if (heroPopupBody) heroPopupBody.style.display = '';
+        if (heroPopupSuccess) heroPopupSuccess.classList.remove('show');
+        setTimeout(() => hpNameInput?.focus(), 300);
+        try { if (window.track) window.track('hero_popup_open', { source: source || 'unknown' }); } catch(e) {}
+        try { if (window.fbq) fbq('track', 'InitiateCheckout', { source: source || 'hero_popup' }); } catch(e) {}
+    }
+    function closeHeroPopup() {
+        if (!heroPopup) return;
+        heroPopup.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.hero-cta, #mobile-cta-bar a, .nav-cta[href="#register"]').forEach(el => {
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+            const src = this.closest('#mobile-cta-bar') ? 'mobile_sticky' : this.classList.contains('nav-cta') ? 'navbar' : 'hero';
+            openHeroPopup(src);
+        });
+    });
+
+    document.querySelectorAll('[data-close-hero-popup]').forEach(el => {
+        el.addEventListener('click', (e) => {
+            if (e.target === el || el.dataset.closeHeroPopup === 'true') closeHeroPopup();
+        });
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && heroPopup?.classList.contains('show')) closeHeroPopup();
+    });
+
+    const heroPopupForm = document.getElementById('hero-popup-form');
+    if (heroPopupForm) {
+        heroPopupForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const name = hpNameInput.value.trim();
+            const phone = hpPhoneInput.value.trim();
+            if (!name || phone.replace(/\D/g, '').length < 9) {
+                hpPhoneInput.style.borderColor = '#ff4444';
+                setTimeout(() => { hpPhoneInput.style.borderColor = ''; }, 2000);
+                return;
+            }
+            const btn = this.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            btn.textContent = 'Отправка...';
+            btn.disabled = true;
+
+            try {
+                await fetch('/api/lead', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, phone, city: 'Source: hero_popup_ru' })
+                });
+            } catch (err) {}
+
+            try { if (window.track) window.track('form_submit', { form: 'hero_popup' }); } catch(e) {}
+            try { if (window.fbq) fbq('track', 'Lead', { source: 'hero_popup_ru' }); } catch(e) {}
+
+            if (heroPopupBody) heroPopupBody.style.display = 'none';
+            if (heroPopupSuccess) heroPopupSuccess.classList.add('show');
+            btn.textContent = originalText;
+            btn.disabled = false;
+        });
+    }
+
     // ============== EXIT INTENT POPUP ==============
     const exitModal = document.getElementById('exit-modal');
     let exitShown = sessionStorage.getItem('exit_shown') === '1';
@@ -2063,6 +2164,40 @@ if (heroCanvas && window.innerWidth > 768) {
     <a href="#" id="msg-telegram" class="messenger-float messenger-telegram" target="_blank" rel="noopener" aria-label="Telegram">
         <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
     </a>
+</div>
+
+<!-- HERO POPUP (for hero CTA / sticky mobile / nav phone) -->
+<div class="hero-popup" id="hero-popup" data-close-hero-popup>
+    <div class="hero-popup-content">
+        <button class="hero-popup-close" data-close-hero-popup="true" aria-label="Закрыть">✕</button>
+        <div class="hero-popup-body">
+            <span class="hero-popup-badge">Бесплатный открытый урок</span>
+            <h3>Первый шаг к профессии <span class="accent">Data Analyst</span></h3>
+            <p>На бесплатном 60-минутном уроке познакомитесь с курсом, менторами и карьерными возможностями</p>
+            <form class="hero-popup-form" id="hero-popup-form">
+                <div>
+                    <label for="hp-name">Ваше имя</label>
+                    <input type="text" id="hp-name" placeholder="Азиз" required autocomplete="given-name">
+                </div>
+                <div>
+                    <label for="hp-phone">Телефон</label>
+                    <input type="tel" id="hp-phone" placeholder="+998 __ ___ __ __" required autocomplete="tel" inputmode="tel" maxlength="19">
+                </div>
+                <button type="submit">🎯 Записаться бесплатно</button>
+            </form>
+            <div class="hero-popup-bonus">
+                <span class="hero-popup-bonus-item">⚡ 60 минут</span>
+                <span class="hero-popup-bonus-item">🎁 Без обязательств</span>
+                <span class="hero-popup-bonus-item">📞 Связь за 24 ч</span>
+            </div>
+            <p class="hero-popup-privacy">🔒 Ваши данные защищены</p>
+        </div>
+        <div class="hero-popup-success">
+            <div class="hero-popup-success-icon">🎉</div>
+            <h3>Поздравляем!</h3>
+            <p>Вы успешно записались на открытый урок. Скоро мы с вами свяжемся!</p>
+        </div>
+    </div>
 </div>
 
 <!-- EXIT INTENT MODAL -->
