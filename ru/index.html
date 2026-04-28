@@ -156,6 +156,16 @@
             mask-composite:exclude;
             pointer-events:none;
         }
+        /* Glass keeps text readable in every state. Without this, chips like
+           .month-num (default lime-bg + black text) and hover styles like
+           .hero-tag:hover (lime-bg + black text on hover) lose visibility
+           because the glass utility forces the bg dark while text stays black. */
+        .liquid-glass,
+        .liquid-glass:hover,
+        .liquid-glass:focus,
+        .liquid-glass:active{
+            color:var(--white)!important;
+        }
         html{scroll-behavior:smooth}
         body{font-family:'Inter',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;line-height:1.4;-webkit-font-smoothing:antialiased}
         .container{max-width:1280px;margin:0 auto;padding:0 24px}
