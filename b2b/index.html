@@ -227,7 +227,7 @@
         .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
         .course-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
         .course-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lime),transparent);opacity:0;transition:opacity 0.3s}
-        .course-card:hover{transform:translateY(-6px)}
+        .course-card:hover{transform:translateY(-6px);border-color:rgba(214,255,60,0.3)}
         .course-card:hover::before{opacity:1}
         .course-card-header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
         .course-card-icon{width:56px;height:56px;flex-shrink:0;border-radius:14px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);display:flex;align-items:center;justify-content:center;font-size:1.6rem;transition:all 0.3s}
@@ -771,10 +771,10 @@
 <section>
     <div class="container">
         <div class="proof-row stagger">
-            <div class="proof-card anim liquid-glass"><div class="proof-number" data-target="200">0</div><div class="proof-label">Bitiruvchilar</div></div>
-            <div class="proof-card anim liquid-glass"><div class="proof-number" data-target="4.9" data-decimal="true">0</div><div class="proof-label">Reyting</div></div>
-            <div class="proof-card anim liquid-glass"><div class="proof-number" data-target="85" data-suffix="%">0</div><div class="proof-label">Ish topdi</div></div>
-            <div class="proof-card anim liquid-glass"><div class="proof-number" data-target="3">0</div><div class="proof-label">Yil bozorda</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="200">0</div><div class="proof-label">Bitiruvchilar</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="4.9" data-decimal="true">0</div><div class="proof-label">Reyting</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="85" data-suffix="%">0</div><div class="proof-label">Ish topdi</div></div>
+            <div class="proof-card anim"><div class="proof-number" data-target="3">0</div><div class="proof-label">Yil bozorda</div></div>
         </div>
     </div>
 </section>
@@ -794,22 +794,22 @@
             </div>
 
             <div class="market-stats stagger">
-                <div class="market-stat anim liquid-glass">
+                <div class="market-stat anim">
                     <div class="market-stat-value">500+</div>
                     <div class="market-stat-label">Ichki loyihalar</div>
                     <div class="market-stat-desc">kompaniyalarda yopilmoqda</div>
                 </div>
-                <div class="market-stat anim liquid-glass">
+                <div class="market-stat anim">
                     <div class="market-stat-value">+40%</div>
                     <div class="market-stat-label">ROI ta'lim orqali</div>
                     <div class="market-stat-desc">Harvard Business Review, 2024</div>
                 </div>
-                <div class="market-stat anim liquid-glass">
+                <div class="market-stat anim">
                     <div class="market-stat-value">3×</div>
                     <div class="market-stat-label">Retention o'sishi</div>
                     <div class="market-stat-desc">Data skills bergan xodimlar qolyapti</div>
                 </div>
-                <div class="market-stat anim liquid-glass">
+                <div class="market-stat anim">
                     <div class="market-stat-value">$1,500+</div>
                     <div class="market-stat-label">Investitsiya 1 xodim uchun</div>
                     <div class="market-stat-desc">Yangi yollashdan 3x arzonroq</div>
@@ -839,42 +839,42 @@
         </div>
 
         <div class="market-industries stagger">
-            <div class="market-industry anim liquid-glass">
+            <div class="market-industry anim">
                 <span class="market-industry-emoji">🛒</span>
                 <div class="market-industry-name">E-commerce</div>
                 <div class="market-industry-role">Sotuv va mijozlar tahlili</div>
             </div>
-            <div class="market-industry anim liquid-glass">
+            <div class="market-industry anim">
                 <span class="market-industry-emoji">🏦</span>
                 <div class="market-industry-name">Bank & Fintech</div>
                 <div class="market-industry-role">Risk va kredit skoring</div>
             </div>
-            <div class="market-industry anim liquid-glass">
+            <div class="market-industry anim">
                 <span class="market-industry-emoji">📱</span>
                 <div class="market-industry-name">Telecom</div>
                 <div class="market-industry-role">Mijozlar xulqi tahlili</div>
             </div>
-            <div class="market-industry anim liquid-glass">
+            <div class="market-industry anim">
                 <span class="market-industry-emoji">🚚</span>
                 <div class="market-industry-name">Logistika</div>
                 <div class="market-industry-role">Marshrut optimizatsiyasi</div>
             </div>
-            <div class="market-industry anim liquid-glass">
+            <div class="market-industry anim">
                 <span class="market-industry-emoji">💊</span>
                 <div class="market-industry-name">Tibbiyot</div>
                 <div class="market-industry-role">Medical analytics</div>
             </div>
-            <div class="market-industry anim liquid-glass">
+            <div class="market-industry anim">
                 <span class="market-industry-emoji">📣</span>
                 <div class="market-industry-name">Marketing</div>
                 <div class="market-industry-role">Kampaniya ROI tahlili</div>
             </div>
-            <div class="market-industry anim liquid-glass">
+            <div class="market-industry anim">
                 <span class="market-industry-emoji">🏭</span>
                 <div class="market-industry-name">Ishlab chiqarish</div>
                 <div class="market-industry-role">Supply chain analytics</div>
             </div>
-            <div class="market-industry anim liquid-glass">
+            <div class="market-industry anim">
                 <span class="market-industry-emoji">🏛️</span>
                 <div class="market-industry-name">Davlat</div>
                 <div class="market-industry-role">Raqamli hukumat loyihalari</div>
@@ -883,7 +883,7 @@
 
         <div class="section-cta anim">
             <p class="section-cta-hook">Jamoangizni <strong>4 oyda</strong> data-driven qiling — taklif so'rang</p>
-            <a href="#register" class="section-cta-btn liquid-glass">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
+            <a href="#register" class="section-cta-btn">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
         </div>
     </div>
 </section>
@@ -894,7 +894,7 @@
         <h2 class="section-title anim">Bu dastur <span class="accent">siz uchun</span>, agar siz</h2>
         <p class="section-subtitle anim">Kompaniyadagi pozitsiyangizdan qat'i nazar — biz yechim taklif qilamiz</p>
         <div class="courses-grid stagger">
-            <div class="course-card anim liquid-glass">
+            <div class="course-card anim">
                 <div class="course-card-header">
                     <div class="course-card-icon">🌱</div>
                     <div>
@@ -915,7 +915,7 @@
                     <div class="course-card-result-text">Kompaniya — data-driven qarorlar bilan</div>
                 </div>
             </div>
-            <div class="course-card anim liquid-glass">
+            <div class="course-card anim">
                 <div class="course-card-header">
                     <div class="course-card-icon">🔄</div>
                     <div>
@@ -936,7 +936,7 @@
                     <div class="course-card-result-text">Jamoa — sertifikat va yangi skill bilan</div>
                 </div>
             </div>
-            <div class="course-card anim liquid-glass">
+            <div class="course-card anim">
                 <div class="course-card-header">
                     <div class="course-card-icon">🚀</div>
                     <div>
@@ -961,7 +961,7 @@
 
         <div class="section-cta anim">
             <p class="section-cta-hook">Kompaniyangiz uchun <strong>individual dastur</strong>ni tuzamiz</p>
-            <a href="#register" class="section-cta-btn liquid-glass">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
+            <a href="#register" class="section-cta-btn">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
         </div>
     </div>
 </section>
@@ -974,7 +974,7 @@
             <p class="section-subtitle anim">4 oyda — noldan professional darajagacha. Real loyihalar ustida, kompaniyangiz ma'lumotlariga moslab</p>
 
             <div class="skills-grid stagger">
-                <div class="skill-card anim liquid-glass">
+                <div class="skill-card anim">
                     <div class="skill-card-header">
                         <div class="skill-card-icon">🐍</div>
                         <div>
@@ -992,7 +992,7 @@
                     <span class="skill-card-footer">1-oy · 12 dars</span>
                 </div>
 
-                <div class="skill-card anim liquid-glass">
+                <div class="skill-card anim">
                     <div class="skill-card-header">
                         <div class="skill-card-icon">📊</div>
                         <div>
@@ -1010,7 +1010,7 @@
                     <span class="skill-card-footer">2-oy · 12 dars</span>
                 </div>
 
-                <div class="skill-card anim liquid-glass">
+                <div class="skill-card anim">
                     <div class="skill-card-header">
                         <div class="skill-card-icon">🗃️</div>
                         <div>
@@ -1028,7 +1028,7 @@
                     <span class="skill-card-footer">3-oy · 12 dars</span>
                 </div>
 
-                <div class="skill-card anim liquid-glass">
+                <div class="skill-card anim">
                     <div class="skill-card-header">
                         <div class="skill-card-icon">📈</div>
                         <div>
@@ -1049,7 +1049,7 @@
 
             <div class="section-cta anim">
                 <p class="section-cta-hook">Xodimlaringiz <strong>4 ta ko'nikma</strong>ni egallab olishadi</p>
-                <a href="#register" class="section-cta-btn liquid-glass">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
+                <a href="#register" class="section-cta-btn">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
             </div>
         </div>
     </div>
@@ -1061,7 +1061,7 @@
         <h2 class="section-title anim">4 oylik <span class="accent">dastur</span></h2>
         <p class="section-subtitle anim">48 darslar · 72 soat · jamoangiz tempiga moslashadi. Har oy — kompaniyangiz uchun real loyiha</p>
         <div class="curriculum-grid stagger">
-            <div class="month-card anim liquid-glass">
+            <div class="month-card anim">
                 <span class="month-num liquid-glass">1-oy · 12 dars</span>
                 <h3>Python asoslari</h3>
                 <ul class="month-topics">
@@ -1075,7 +1075,7 @@
                 </ul>
                 <div class="month-result">✓ Loyiha: Talabalar ballari tahlili</div>
             </div>
-            <div class="month-card anim liquid-glass">
+            <div class="month-card anim">
                 <span class="month-num liquid-glass">2-oy · 12 dars</span>
                 <h3>Data tahlili va vizualizatsiya</h3>
                 <ul class="month-topics">
@@ -1089,7 +1089,7 @@
                 </ul>
                 <div class="month-result">✓ Loyiha: E-commerce ma'lumotlari tahlili</div>
             </div>
-            <div class="month-card anim liquid-glass">
+            <div class="month-card anim">
                 <span class="month-num liquid-glass">3-oy · 12 dars</span>
                 <h3>SQL va ma'lumotlar bazasi</h3>
                 <ul class="month-topics">
@@ -1103,7 +1103,7 @@
                 </ul>
                 <div class="month-result">✓ Loyiha: SQL Analytics Dashboard</div>
             </div>
-            <div class="month-card anim liquid-glass">
+            <div class="month-card anim">
                 <span class="month-num liquid-glass">4-oy · 12 dars</span>
                 <h3>Power BI va karyera</h3>
                 <ul class="month-topics">
@@ -1121,7 +1121,7 @@
 
         <div class="section-cta anim">
             <p class="section-cta-hook">Dastur <strong>kompaniyangizga moslashadi</strong> — misol so'rang</p>
-            <a href="#register" class="section-cta-btn liquid-glass">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
+            <a href="#register" class="section-cta-btn">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
         </div>
     </div>
 </section>
@@ -1133,32 +1133,32 @@
         <p class="section-subtitle anim">Real o'zgarishlar — jamoa va biznes uchun</p>
 
         <div class="outcomes-grid stagger">
-            <div class="outcome-card anim liquid-glass">
+            <div class="outcome-card anim">
                 <div class="outcome-icon">📊</div>
                 <h3 class="outcome-title">Real biznes-loyihalar</h3>
                 <p class="outcome-desc">Kompaniyangiz ma'lumotlari ustida: 5+ dashboard, KPI tahlili, forecasting modellar</p>
             </div>
-            <div class="outcome-card anim liquid-glass">
+            <div class="outcome-card anim">
                 <div class="outcome-icon">📄</div>
                 <h3 class="outcome-title">Ichki ekspertiza</h3>
                 <p class="outcome-desc">Tashqi konsultantlarga bog'liqlik yo'qoladi. Jamoa o'zi tahlil qila oladi.</p>
             </div>
-            <div class="outcome-card anim liquid-glass">
+            <div class="outcome-card anim">
                 <div class="outcome-icon">🛠</div>
                 <h3 class="outcome-title">Unified tech stack</h3>
                 <p class="outcome-desc">Python, SQL, Power BI, Excel, Pandas, NumPy — jamoa bir xil tilda gaplashadi</p>
             </div>
-            <div class="outcome-card anim liquid-glass">
+            <div class="outcome-card anim">
                 <div class="outcome-icon">🧠</div>
                 <h3 class="outcome-title">Data-driven madaniyat</h3>
                 <p class="outcome-desc">Qarorlar his-tuyg'u emas ma'lumotlarga asoslanadi. Metrics, A/B, gipotezalar.</p>
             </div>
-            <div class="outcome-card anim liquid-glass">
+            <div class="outcome-card anim">
                 <div class="outcome-icon">💬</div>
                 <h3 class="outcome-title">Retention va HR brendi</h3>
                 <p class="outcome-desc">O'qitish investitsiyasi — xodimlar qolish ko'rsatkichini +40% oshiradi (Gallup)</p>
             </div>
-            <div class="outcome-card anim liquid-glass">
+            <div class="outcome-card anim">
                 <div class="outcome-icon">🎓</div>
                 <h3 class="outcome-title">Sertifikatlangan jamoa</h3>
                 <p class="outcome-desc">Har bir xodim INTERNO sertifikati oladi — LinkedIn'da, CV'da ko'rinadi</p>
@@ -1186,7 +1186,7 @@
 
         <div class="section-cta anim">
             <p class="section-cta-hook">Xodimlaringizning <strong>samaradorligi</strong> o'sadi</p>
-            <a href="#register" class="section-cta-btn liquid-glass">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
+            <a href="#register" class="section-cta-btn">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
         </div>
     </div>
 </section>
@@ -1197,52 +1197,52 @@
         <h2 class="section-title anim">Vositalar</h2>
         <p class="section-subtitle anim">Bozordagi eng dolzarb texnologiyalar</p>
         <div class="tools-grid stagger">
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">Python</div>
                 <div class="tool-desc">Dasturlash</div>
             </div>
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">SQL</div>
                 <div class="tool-desc">MS SQL Server</div>
             </div>
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">Power BI</div>
                 <div class="tool-desc">Dashboard</div>
             </div>
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="Excel logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">Excel</div>
                 <div class="tool-desc">Jadvallar</div>
             </div>
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">Pandas</div>
                 <div class="tool-desc">Tahlil</div>
             </div>
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">NumPy</div>
                 <div class="tool-desc">Hisoblash</div>
             </div>
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">Matplotlib</div>
                 <div class="tool-desc">Grafiklar</div>
             </div>
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">Jupyter</div>
                 <div class="tool-desc">Notebook</div>
             </div>
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://api.iconify.design/logos/tableau-icon.svg" alt="Tableau logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">Tableau</div>
                 <div class="tool-desc">Hisobot</div>
             </div>
-            <div class="tool-card anim liquid-glass">
+            <div class="tool-card anim">
                 <div class="tool-icon-wrap"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub logo" loading="lazy" width="38" height="38"></div>
                 <div class="tool-name">GitHub</div>
                 <div class="tool-desc">Portfolio</div>
@@ -1251,7 +1251,7 @@
 
         <div class="section-cta anim">
             <p class="section-cta-hook">Jamoa <strong>to'liq technology stack</strong>ni o'zlashtiradi amaliy tarzda</p>
-            <a href="#register" class="section-cta-btn liquid-glass">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
+            <a href="#register" class="section-cta-btn">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
         </div>
     </div>
 </section>
@@ -1261,15 +1261,15 @@
     <div class="container">
         <h2 class="section-title anim">Nega <span class="accent">INTERNO?</span></h2>
         <div class="features-grid stagger">
-            <div class="feature-card anim liquid-glass"><div class="f-icon">🎯</div><h3>Kompaniyangizga moslash</h3><p>Dastur sizning sohangiz ustida: e-commerce, bank, telekom. Real misollar va data.</p></div>
-            <div class="feature-card anim liquid-glass"><div class="f-icon">👨‍🏫</div><h3>HR-konsultatsiya</h3><p>10-19 xodim mentorlar bilan individual aloqa. Har qanday savolingizga tezkor javob.</p></div>
-            <div class="feature-card anim liquid-glass"><div class="f-icon">📁</div><h3>Portfolio</h3><p>Jamoaning ko'nikmalari portfolio, LinkedIn'da, ichki loyihalarda ko'rinadi.</p></div>
-            <div class="feature-card anim liquid-glass"><div class="f-icon">🚀</div><h3>Post-training qo'llab-quvvatlash</h3><p>Kurs tugagandan so'ng 3 oy — savollar, mentorlik, refresh sessiyalar.</p></div>
+            <div class="feature-card anim"><div class="f-icon">🎯</div><h3>Kompaniyangizga moslash</h3><p>Dastur sizning sohangiz ustida: e-commerce, bank, telekom. Real misollar va data.</p></div>
+            <div class="feature-card anim"><div class="f-icon">👨‍🏫</div><h3>HR-konsultatsiya</h3><p>10-19 xodim mentorlar bilan individual aloqa. Har qanday savolingizga tezkor javob.</p></div>
+            <div class="feature-card anim"><div class="f-icon">📁</div><h3>Portfolio</h3><p>Jamoaning ko'nikmalari portfolio, LinkedIn'da, ichki loyihalarda ko'rinadi.</p></div>
+            <div class="feature-card anim"><div class="f-icon">🚀</div><h3>Post-training qo'llab-quvvatlash</h3><p>Kurs tugagandan so'ng 3 oy — savollar, mentorlik, refresh sessiyalar.</p></div>
         </div>
 
         <div class="section-cta anim">
             <p class="section-cta-hook"><strong>INTERNO'ning farqini</strong> ochiq darsning o'zida his qiling</p>
-            <a href="#register" class="section-cta-btn liquid-glass">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
+            <a href="#register" class="section-cta-btn">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
         </div>
     </div>
 </section>
@@ -1294,15 +1294,15 @@
                     <p class="speaker-role"><strong>Data Analyst & Python Developer</strong> · INTERNO School kursi spikeri · 20+ xodim (AQSh) loyihalar</p>
 
                     <div class="speaker-stats">
-                        <div class="speaker-stat liquid-glass">
+                        <div class="speaker-stat">
                             <div class="speaker-stat-value">5+</div>
                             <div class="speaker-stat-label">Yil tajriba</div>
                         </div>
-                        <div class="speaker-stat liquid-glass">
+                        <div class="speaker-stat">
                             <div class="speaker-stat-value">50+</div>
                             <div class="speaker-stat-label">Loyiha</div>
                         </div>
-                        <div class="speaker-stat liquid-glass">
+                        <div class="speaker-stat">
                             <div class="speaker-stat-value">30+</div>
                             <div class="speaker-stat-label">Mijoz</div>
                         </div>
@@ -1330,7 +1330,7 @@
                     </div>
 
                     <div class="speaker-actions">
-                        <a href="#register" class="speaker-action liquid-glass" style="background:var(--lime);color:var(--black);border-color:var(--lime)">
+                        <a href="#register" class="speaker-action" style="background:var(--lime);color:var(--black);border-color:var(--lime)">
                             🎯 Ochiq darsga yozilish
                         </a>
                     </div>
@@ -1477,7 +1477,7 @@
 
         <div class="section-cta anim">
             <p class="section-cta-hook">Siz ham <strong>shunday portfolio</strong> yaratasiz — 4 oy ichida</p>
-            <a href="#register" class="section-cta-btn liquid-glass">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
+            <a href="#register" class="section-cta-btn">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
         </div>
     </div>
 </section>
@@ -1489,10 +1489,10 @@
             <span class="countdown-label liquid-glass">Keyingi oqim</span>
             <h2 class="countdown-title">Korporativ oqim boshlanishiga <br><span class="accent">qoldi</span></h2>
             <div class="countdown-timer" id="countdown-timer">
-                <div class="countdown-cell liquid-glass"><div class="countdown-number" id="cd-days">00</div><div class="countdown-unit">Kun</div></div>
-                <div class="countdown-cell liquid-glass"><div class="countdown-number" id="cd-hours">00</div><div class="countdown-unit">Soat</div></div>
-                <div class="countdown-cell liquid-glass"><div class="countdown-number" id="cd-mins">00</div><div class="countdown-unit">Daqiqa</div></div>
-                <div class="countdown-cell liquid-glass"><div class="countdown-number" id="cd-secs">00</div><div class="countdown-unit">Soniya</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-days">00</div><div class="countdown-unit">Kun</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-hours">00</div><div class="countdown-unit">Soat</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-mins">00</div><div class="countdown-unit">Daqiqa</div></div>
+                <div class="countdown-cell"><div class="countdown-number" id="cd-secs">00</div><div class="countdown-unit">Soniya</div></div>
             </div>
             <div class="countdown-info">
                 <div class="countdown-seats">
@@ -1525,21 +1525,21 @@
                     <h3 class="step-title">Kompaniyangiz profili</h3>
                     <p class="step-subtitle">Biz dasturni jamoaangiz uchun moslab beramiz</p>
                     <div class="step-options">
-                        <button type="button" class="step-option liquid-glass" data-field="level" data-value="boshlovchi">
+                        <button type="button" class="step-option" data-field="level" data-value="boshlovchi">
                             <span class="step-option-emoji">🌱</span>
                             <span class="step-option-text">
                                 <span class="step-option-label">Kichik jamoa</span>
                                 <span class="step-option-desc">5-9 xodim</span>
                             </span>
                         </button>
-                        <button type="button" class="step-option liquid-glass" data-field="level" data-value="orta">
+                        <button type="button" class="step-option" data-field="level" data-value="orta">
                             <span class="step-option-emoji">📘</span>
                             <span class="step-option-text">
                                 <span class="step-option-label">O'rta jamoa</span>
                                 <span class="step-option-desc">10-19 xodim</span>
                             </span>
                         </button>
-                        <button type="button" class="step-option liquid-glass" data-field="level" data-value="tajribali">
+                        <button type="button" class="step-option" data-field="level" data-value="tajribali">
                             <span class="step-option-emoji">🚀</span>
                             <span class="step-option-text">
                                 <span class="step-option-label">Katta jamoa</span>
@@ -1554,28 +1554,28 @@
                     <h3 class="step-title">Asosiy vazifangiz?</h3>
                     <p class="step-subtitle">Tanlovingiz asosida individual dastur taklif qilamiz</p>
                     <div class="step-options">
-                        <button type="button" class="step-option liquid-glass" data-field="goal" data-value="career_change">
+                        <button type="button" class="step-option" data-field="goal" data-value="career_change">
                             <span class="step-option-emoji">🎯</span>
                             <span class="step-option-text">
                                 <span class="step-option-label">Yangi skill</span>
                                 <span class="step-option-desc">Jamoaga Data Analytics qo'shmoqchi</span>
                             </span>
                         </button>
-                        <button type="button" class="step-option liquid-glass" data-field="goal" data-value="salary_up">
+                        <button type="button" class="step-option" data-field="goal" data-value="salary_up">
                             <span class="step-option-emoji">💰</span>
                             <span class="step-option-text">
                                 <span class="step-option-label">Retention</span>
                                 <span class="step-option-desc">Xodimlarni qolish ko'rsatkichi</span>
                             </span>
                         </button>
-                        <button type="button" class="step-option liquid-glass" data-field="goal" data-value="first_job">
+                        <button type="button" class="step-option" data-field="goal" data-value="first_job">
                             <span class="step-option-emoji">💼</span>
                             <span class="step-option-text">
                                 <span class="step-option-label">Samaradorlik</span>
                                 <span class="step-option-desc">Jamoa samaradorligini oshirish</span>
                             </span>
                         </button>
-                        <button type="button" class="step-option liquid-glass" data-field="goal" data-value="upskill">
+                        <button type="button" class="step-option" data-field="goal" data-value="upskill">
                             <span class="step-option-emoji">📈</span>
                             <span class="step-option-text">
                                 <span class="step-option-label">Transformatsiya</span>
@@ -1617,17 +1617,17 @@
         <h2 class="section-title anim" style="text-align:center">FAQ</h2>
         <p class="section-subtitle anim" style="text-align:center;margin:0 auto 40px">Korporativ buyurtmachilar savollar</p>
         <div class="faq-list">
-            <div class="faq-item anim liquid-glass"><button class="faq-q liquid-glass">Korporativ format kimlar uchun mos? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">5+ xodimli kompaniyalar uchun. Har qanday soha — bank, e-commerce, telekom, marketing, HR. Texnik bilim shart emas, noldan boshlaymiz.</div></div></div>
-            <div class="faq-item anim liquid-glass"><button class="faq-q liquid-glass">Dastur qancha davom etadi? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Standart dastur 4 oy. Kompaniyangiz tempiga qarab 3-6 oyga cho'zish mumkin. Jamoa grafigiga moslashadi.</div></div></div>
-            <div class="faq-item anim liquid-glass"><button class="faq-q liquid-glass">Bepul konsultatsiya nima? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">30 daqiqalik qo'ng'iroq. Sizning kompaniyangiz vazifalari, jamoa hajmi va byudjetini tushunib — individual taklif tayyorlaymiz.</div></div></div>
-            <div class="faq-item anim liquid-glass"><button class="faq-q liquid-glass">Xodimlar sertifikat oladimi? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Ha, har bir xodim INTERNO School sertifikatini oladi. Sertifikat CV va LinkedIn'da ko'rsatiladi.</div></div></div>
-            <div class="faq-item anim liquid-glass"><button class="faq-q liquid-glass">Qaysi formatlar mavjud? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Oflayn (ofisingizda yoki bizda), onlayn (jamoa uzoqda), gibrid. Siz tanlaysiz.</div></div></div>
-            <div class="faq-item anim liquid-glass"><button class="faq-q liquid-glass">Narx qancha? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">$750 dan boshlab 1 xodim uchun (20+ xodim guruhda). Individual taklif — konsultatsiyadan so'ng. To'lov bosqichlari moslashadi.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Korporativ format kimlar uchun mos? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">5+ xodimli kompaniyalar uchun. Har qanday soha — bank, e-commerce, telekom, marketing, HR. Texnik bilim shart emas, noldan boshlaymiz.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Dastur qancha davom etadi? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Standart dastur 4 oy. Kompaniyangiz tempiga qarab 3-6 oyga cho'zish mumkin. Jamoa grafigiga moslashadi.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Bepul konsultatsiya nima? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">30 daqiqalik qo'ng'iroq. Sizning kompaniyangiz vazifalari, jamoa hajmi va byudjetini tushunib — individual taklif tayyorlaymiz.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Xodimlar sertifikat oladimi? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Ha, har bir xodim INTERNO School sertifikatini oladi. Sertifikat CV va LinkedIn'da ko'rsatiladi.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Qaysi formatlar mavjud? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">Oflayn (ofisingizda yoki bizda), onlayn (jamoa uzoqda), gibrid. Siz tanlaysiz.</div></div></div>
+            <div class="faq-item anim"><button class="faq-q">Narx qancha? <span class="faq-arrow">+</span></button><div class="faq-a"><div class="faq-a-inner">$750 dan boshlab 1 xodim uchun (20+ xodim guruhda). Individual taklif — konsultatsiyadan so'ng. To'lov bosqichlari moslashadi.</div></div></div>
         </div>
 
         <div class="section-cta anim">
             <p class="section-cta-hook"><strong>Batafsil taklif</strong> — HR menejerimiz bilan qo'ng'iroqda</p>
-            <a href="#register" class="section-cta-btn liquid-glass">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
+            <a href="#register" class="section-cta-btn">🎯 Bepul konsultatsiya olish <span class="section-cta-arrow">→</span></a>
         </div>
     </div>
 </section>
