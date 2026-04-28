@@ -1911,7 +1911,9 @@ if (heroCanvas && window.innerWidth > 768) {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         name, phone,
-                        city: city + ' | Lang: ' + language + ' | Level: ' + (formData.level || 'N/A') + ' | Goal: ' + (formData.goal || 'N/A')
+                        city: city + ' | Form-lang: ' + language + ' | Level: ' + (formData.level || 'N/A') + ' | Goal: ' + (formData.goal || 'N/A'),
+                        lang: 'ru',
+                        landing: 'b2c'
                     })
                 });
             } catch (err) {}
@@ -2072,7 +2074,7 @@ if (heroCanvas && window.innerWidth > 768) {
                 await fetch('/api/lead', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, phone, city: 'Source: hero_popup_ru' })
+                    body: JSON.stringify({ name, phone, city: 'Source: hero_popup_ru', lang: 'ru', landing: 'b2c' })
                 });
             } catch (err) {}
 
@@ -2135,7 +2137,7 @@ if (heroCanvas && window.innerWidth > 768) {
                 await fetch('/api/lead', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: 'Exit popup lead', phone, city: 'exit_intent' })
+                    body: JSON.stringify({ name: 'Exit popup lead', phone, city: 'exit_intent', lang: 'ru', landing: 'b2c' })
                 });
             } catch(err) {}
 

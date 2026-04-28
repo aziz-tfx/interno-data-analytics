@@ -7,8 +7,40 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
     try {
-        const { name, phone, city } = req.body;
+        const { name, phone, city, lang, landing } = req.body;
         if (!name || !phone) return res.status(400).json({ error: 'Name and phone required' });
+
+        // Build a visible language/landing tag so AmoCRM operators can tell apart
+        // RU vs UZ leads and B2C vs B2B at a glance in the lead list.
+        // Example results:
+        //   [UZ] Aziz Toshpolatov
+        //   [RU] Шахло Мафтуна
+        //   [B2B-UZ] Aziz Toshpolatov · HR-direktor
+        //   [B2B-RU] Шахло Мафтуна · HR-директор
+        const langTag = (lang || '').toLowerCase() === 'ru' ? 'RU'
+                      : (lang || '').toLowerCase() === 'uz' ? 'UZ'
+                      : '';
+        const isB2B = (landing || '').toLowerCase() === 'b2b';
+        let prefix = '';
+        if (langTag && isB2B) prefix = `[B2B-${langTag}] `;
+        else if (langTag) prefix = `[${langTag}] `;
+        else if (isB2B) prefix = '[B2B] ';
+
+        const finalName = prefix + name;
+
+        // Course/source label for the AmoCRM note — also helps the manager
+        const courseLabel = isB2B ? 'Korporativ Data Analitika (B2B)' : 'Data Analitika';
+        const sourceUrl = isB2B
+            ? (langTag === 'RU' ? 'interno-data-analytics.vercel.app/b2b/ru' : 'interno-data-analytics.vercel.app/b2b')
+            : (langTag === 'RU' ? 'interno-data-analytics.vercel.app/ru' : 'interno-data-analytics.vercel.app');
+
+        const note = [
+            'Lang: ' + (langTag || 'N/A'),
+            'Landing: ' + (isB2B ? 'B2B' : 'B2C'),
+            'Shahar/Kompaniya: ' + (city || 'N/A'),
+            'Kurs: ' + courseLabel,
+            'Manba: ' + sourceUrl,
+        ].join(' | ');
 
         // Build multipart/form-data exactly like the AmoCRM form does
         const boundary = '----FormBoundary' + Math.random().toString(36).substring(2);
@@ -16,9 +48,9 @@ export default async function handler(req, res) {
         const fields = {
             'form_id': '1581142',
             'hash': '962447f89902c84d012960cec37135fd',
-            'fields[name_1]': name,
+            'fields[name_1]': finalName,
             'fields[875427_1][1182433]': phone,
-            'fields[note_2]': 'Shahar: ' + (city || 'N/A') + ' | Kurs: Data Analitika | Manba: interno-data-analytics.vercel.app',
+            'fields[note_2]': note,
         };
 
         let body = '';
@@ -41,7 +73,7 @@ export default async function handler(req, res) {
         });
 
         const responseText = await amoResponse.text();
-        console.log('AmoCRM response:', amoResponse.status, responseText);
+        console.log('AmoCRM response:', amoResponse.status, responseText, '| name:', finalName);
 
         return res.status(200).json({
             success: amoResponse.ok,
