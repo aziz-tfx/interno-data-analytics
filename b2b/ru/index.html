@@ -2130,7 +2130,7 @@ if (heroCanvas && window.innerWidth > 768) {
             try { if (window.track) window.track('form_submit', { form: 'hero_popup' }); } catch(e) {}
             try { if (window.fbq) fbq('track', 'Lead', { source: 'hero_popup_ru' }); } catch(e) {}
 
-            if (heroPopupBody) heroPopupBody.style.display = 'none';
+            hasSubmitted = true; try { sessionStorage.setItem('lead_submitted', '1'); } catch(e) {} if (heroPopupBody) heroPopupBody.style.display = 'none';
             if (heroPopupSuccess) heroPopupSuccess.classList.add('show');
             btn.textContent = originalText;
             btn.disabled = false;
@@ -2140,7 +2140,7 @@ if (heroCanvas && window.innerWidth > 768) {
     // ============== EXIT INTENT POPUP ==============
     const exitModal = document.getElementById('exit-modal');
     let exitShown = sessionStorage.getItem('exit_shown') === '1';
-    let hasSubmitted = false;
+    let hasSubmitted = sessionStorage.getItem('lead_submitted') === '1';
 
     function showExitModal() {
         if (exitShown || hasSubmitted) return;
@@ -2178,7 +2178,7 @@ if (heroCanvas && window.innerWidth > 768) {
             e.preventDefault();
             const phone = document.getElementById('exit-phone').value.trim();
             if (!phone) return;
-            hasSubmitted = true;
+            hasSubmitted = true; try { sessionStorage.setItem('lead_submitted', '1'); } catch(e) {}
             track('exit_lead', { phone_present: true });
             if (window.fbq) fbq('track', 'Lead', { source: 'exit_intent' });
 
@@ -2197,7 +2197,7 @@ if (heroCanvas && window.innerWidth > 768) {
 
     // Mark on form success
     document.getElementById('registration-form').addEventListener('submit', () => {
-        hasSubmitted = true;
+        hasSubmitted = true; try { sessionStorage.setItem('lead_submitted', '1'); } catch(e) {}
         track('form_submit', { form: 'registration' });
         if (window.fbq) fbq('track', 'Lead', { source: 'main_form' });
     });
