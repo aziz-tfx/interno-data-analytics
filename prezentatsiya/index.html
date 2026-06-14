@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#D6FF3C">
+    <meta name="format-detection" content="telephone=no">
+    <title>Ochiq dars prezentatsiyasi — Data Analitika | INTERNO School</title>
+    <meta name="description" content="INTERNO School Data Analytics ochiq darsi uchun interaktiv prezentatsiya. Python, SQL, Power BI. Bozor, dastur, ko'nikmalar va karyera imkoniyatlari.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://interno.uz/data-analitika/prezentatsiya">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+    <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.163.0/build/three.module.js"}}</script>
+<style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+        --lime:#D6FF3C;
+        --lime-dim:#B8E835;
+        --black:#000;
+        --dark:#0A0A0A;
+        --card:#141414;
+        --card-light:#1C1C1C;
+        --white:#fff;
+        --text-muted:rgba(255,255,255,0.5);
+        --border:rgba(255,255,255,0.08);
+        --radius:20px;
+        --radius-lg:28px;
+        --radius-xl:40px;
+        --radius-pill:100px;
+    }
+    /* ============== LIQUID GLASS (glassmorphism) ============== */
+    .dark{
+        --glass-bg:rgba(255,255,255,0.04);
+        --glass-blur:14px;
+        --glass-shadow-inset:rgba(255,255,255,0.12);
+        --glass-border-bright:rgba(255,255,255,0.5);
+        --glass-border-dim:rgba(255,255,255,0.15);
+        --glass-border-width:1.4px;
+    }
+    .liquid-glass{
+        background:var(--glass-bg)!important;
+        background-blend-mode:luminosity;
+        backdrop-filter:blur(var(--glass-blur))!important;
+        -webkit-backdrop-filter:blur(var(--glass-blur))!important;
+        border:none!important;
+        box-shadow:inset 0 1px 1px var(--glass-shadow-inset)!important;
+        position:relative;
+        overflow:hidden;
+    }
+    .liquid-glass::before{
+        content:'';position:absolute;inset:0;border-radius:inherit;
+        padding:var(--glass-border-width);
+        background:linear-gradient(180deg,var(--glass-border-bright) 0%,var(--glass-border-dim) 20%,transparent 40%,transparent 60%,var(--glass-border-dim) 80%,var(--glass-border-bright) 100%);
+        -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+        -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+    }
+    .liquid-glass,.liquid-glass:hover,.liquid-glass:focus,.liquid-glass:active{color:var(--white)!important}
+
+    html,body{height:100%}
+    body{
+        font-family:'Inter',sans-serif;
+        background:var(--lime);
+        color:var(--white);
+        overflow:hidden;
+        line-height:1.4;
+        -webkit-font-smoothing:antialiased;
+    }
+
+    /* ============== DECK FRAME (lime border like the reference) ============== */
+    .deck{position:fixed;inset:0;padding:clamp(10px,2.2vh,28px) clamp(10px,2.2vw,28px);background:var(--lime)}
+    .deck-title{
+        position:absolute;top:clamp(8px,1.6vh,18px);left:50%;transform:translateX(-50%);
+        font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:var(--black);
+        font-size:clamp(0.8rem,1.5vw,1.1rem);z-index:60;pointer-events:none;white-space:nowrap;
+    }
+
+    .stage{position:relative;width:100%;height:100%}
+
+    /* ============== SLIDE ============== */
+    .slide{
+        position:absolute;inset:0;
+        background:radial-gradient(120% 120% at 80% -10%,#1a1a1a 0%,var(--dark) 45%,#050505 100%);
+        border-radius:var(--radius-xl);
+        overflow:hidden;
+        opacity:0;visibility:hidden;
+        transform:scale(0.97);
+        transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1),visibility 0s linear .6s;
+        display:flex;flex-direction:column;
+        padding:clamp(24px,4.5vw,72px);
+        box-shadow:0 40px 90px rgba(0,0,0,0.45);
+    }
+    .slide.active{opacity:1;visibility:visible;transform:scale(1);transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1),visibility 0s}
+    .slide.prev{transform:scale(1.03)}
+    /* faint grid texture */
+    .slide::after{
+        content:'';position:absolute;inset:0;pointer-events:none;opacity:.4;
+        background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+        background-size:54px 54px;mask-image:radial-gradient(110% 80% at 50% 0%,#000 30%,transparent 80%);
+        -webkit-mask-image:radial-gradient(110% 80% at 50% 0%,#000 30%,transparent 80%);
+    }
+    .slide-3d{position:absolute;top:0;right:-4%;width:56%;height:100%;z-index:1;pointer-events:none}
+    .slide-3d canvas{width:100%;height:100%}
+
+    .slide-inner{position:relative;z-index:3;display:flex;flex-direction:column;height:100%;width:100%}
+
+    /* ============== COMMON SLIDE BITS ============== */
+    .s-num{
+        display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
+        font-size:clamp(0.85rem,1.5vw,1.15rem);font-weight:900;color:var(--lime);
+        letter-spacing:0.18em;text-transform:uppercase;margin-bottom:clamp(14px,2.4vh,28px);
+    }
+    .s-num .br{color:rgba(214,255,60,.45)}
+    .s-kicker{
+        display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+        padding:8px 18px;border-radius:var(--radius-pill);
+        font-size:clamp(0.62rem,1vw,0.78rem);font-weight:800;text-transform:uppercase;letter-spacing:0.08em;
+        color:var(--white);margin-bottom:18px;
+    }
+    .s-title{
+        font-size:clamp(1.9rem,5.4vw,4.6rem);font-weight:900;line-height:0.98;
+        letter-spacing:-0.035em;text-transform:uppercase;
+    }
+    .s-title .accent{color:var(--lime)}
+    .s-title .stroke{-webkit-text-stroke:2px var(--white);color:transparent;display:inline}
+    .s-sub{
+        max-width:780px;margin-top:clamp(14px,2.4vh,26px);
+        font-size:clamp(0.95rem,1.5vw,1.3rem);color:rgba(255,255,255,0.72);font-weight:400;line-height:1.5;
+    }
+    .scribble{
+        font-family:'Caveat',cursive;color:var(--lime);font-size:clamp(1.6rem,3vw,2.6rem);
+        font-weight:700;transform:rotate(-8deg);display:inline-block;line-height:1;
+    }
+
+    /* entrance reveal — triggered when slide.active */
+    .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(0.16,1,0.3,1),transform .7s cubic-bezier(0.16,1,0.3,1)}
+    .slide.active .reveal{opacity:1;transform:none}
+    .slide.active .reveal:nth-child(1){transition-delay:.08s}
+    .slide.active .reveal:nth-child(2){transition-delay:.16s}
+    .slide.active .reveal:nth-child(3){transition-delay:.24s}
+    .slide.active .reveal:nth-child(4){transition-delay:.32s}
+    .slide.active .reveal:nth-child(5){transition-delay:.40s}
+    .slide.active .reveal:nth-child(6){transition-delay:.48s}
+    .stg>*{opacity:0;transform:translateY(30px) scale(.98);transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)}
+    .slide.active .stg>*{opacity:1;transform:none}
+    .slide.active .stg>*:nth-child(1){transition-delay:.20s}
+    .slide.active .stg>*:nth-child(2){transition-delay:.28s}
+    .slide.active .stg>*:nth-child(3){transition-delay:.36s}
+    .slide.active .stg>*:nth-child(4){transition-delay:.44s}
+    .slide.active .stg>*:nth-child(5){transition-delay:.52s}
+    .slide.active .stg>*:nth-child(6){transition-delay:.60s}
+    .slide.active .stg>*:nth-child(7){transition-delay:.68s}
+    .slide.active .stg>*:nth-child(8){transition-delay:.76s}
+
+    /* ============== TITLE SLIDE ============== */
+    .title-slide .slide-inner{justify-content:center}
+    .hero-avatars{display:inline-flex;vertical-align:middle;margin-left:18px}
+    .hero-avatars span{width:clamp(34px,4vw,58px);height:clamp(34px,4vw,58px);border-radius:50%;border:2px solid var(--dark);margin-left:-14px;display:inline-flex;align-items:center;justify-content:center;font-size:clamp(0.9rem,2vw,1.5rem)}
+    .hero-avatars span:nth-child(1){background:linear-gradient(135deg,#ff9a9e,#fad0c4)}
+    .hero-avatars span:nth-child(2){background:linear-gradient(135deg,#a18cd1,#fbc2eb)}
+    .hero-avatars span:nth-child(3){background:var(--lime);color:var(--black)}
+    .title-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(18px,3vh,34px);max-width:760px}
+    .tag{padding:9px 20px;border-radius:var(--radius-pill);font-size:clamp(0.7rem,1.1vw,0.9rem);font-weight:700;text-transform:uppercase;letter-spacing:0.03em}
+    .title-foot{margin-top:auto;padding-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .title-question{
+        margin-top:clamp(18px,3vh,30px);max-width:640px;padding:18px 24px;border-radius:18px;
+        font-size:clamp(0.85rem,1.3vw,1.1rem);font-weight:600;color:var(--black);background:var(--lime);
+        box-shadow:0 10px 30px rgba(214,255,60,.25);
+    }
+
+    /* ============== AGENDA ============== */
+    .agenda-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(10px,2vw,40px);align-items:center;flex:1}
+    .agenda-rows{display:flex;flex-direction:column;gap:clamp(8px,1.6vh,18px)}
+    .agenda-row{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;padding-bottom:clamp(8px,1.6vh,16px);border-bottom:1px solid var(--border)}
+    .agenda-q{font-size:clamp(1.1rem,2.6vw,2.1rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em}
+    .agenda-q .accent{color:var(--lime)}
+    .agenda-a{font-size:clamp(0.85rem,1.3vw,1.05rem);color:var(--text-muted);font-weight:500;text-align:right}
+    .agenda-flow{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .agenda-flow span{padding:7px 16px;border-radius:var(--radius-pill);font-size:clamp(0.62rem,1vw,0.78rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em}
+    .agenda-flow b{color:var(--lime);align-self:center}
+
+    /* ============== STATS / MARKET ============== */
+    .body-head{margin-bottom:clamp(16px,2.6vh,30px)}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,18px);flex:1;align-content:center}
+    .stat-card{border-radius:var(--radius-lg);padding:clamp(18px,2.6vw,34px) clamp(16px,2vw,28px);display:flex;flex-direction:column;justify-content:center}
+    .stat-val{font-size:clamp(2rem,5vw,4rem);font-weight:900;letter-spacing:-0.04em;color:var(--lime);line-height:1}
+    .stat-label{font-size:clamp(0.78rem,1.2vw,1rem);font-weight:800;text-transform:uppercase;letter-spacing:0.02em;margin-top:10px}
+    .stat-desc{font-size:clamp(0.68rem,1vw,0.84rem);color:var(--text-muted);margin-top:6px}
+    .market-quote{margin-top:clamp(14px,2.4vh,26px);padding:18px 26px;border-radius:var(--radius);font-size:clamp(0.85rem,1.3vw,1.1rem);font-style:italic;color:rgba(255,255,255,.85);border-left:3px solid var(--lime)!important}
+    .market-quote span{display:block;margin-top:8px;font-style:normal;font-size:0.8rem;color:var(--lime);font-weight:700}
+
+    /* ============== COMPANIES ============== */
+    .chip-cloud{display:flex;flex-wrap:wrap;gap:clamp(8px,1vw,14px);align-content:center;flex:1}
+    .chip{padding:clamp(10px,1.4vw,16px) clamp(16px,2vw,28px);border-radius:var(--radius-pill);font-size:clamp(0.8rem,1.4vw,1.15rem);font-weight:700;letter-spacing:0.01em}
+
+    /* ============== CARD GRIDS (skills, curriculum, tools, outcomes) ============== */
+    .card-grid{display:grid;gap:clamp(10px,1.2vw,16px);flex:1;align-content:center}
+    .g4{grid-template-columns:repeat(4,1fr)}
+    .g3{grid-template-columns:repeat(3,1fr)}
+    .g5{grid-template-columns:repeat(5,1fr)}
+    .info-card{border-radius:var(--radius-lg);padding:clamp(16px,1.8vw,26px);display:flex;flex-direction:column;height:100%}
+    .ic-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .ic-icon{width:clamp(38px,4vw,52px);height:clamp(38px,4vw,52px);border-radius:14px;background:rgba(214,255,60,0.1);border:1px solid rgba(214,255,60,0.25);display:flex;align-items:center;justify-content:center;font-size:clamp(1.1rem,2vw,1.6rem);flex-shrink:0}
+    .ic-num{font-size:clamp(0.6rem,0.9vw,0.72rem);color:var(--lime);font-weight:800;text-transform:uppercase;letter-spacing:0.06em}
+    .ic-title{font-size:clamp(0.95rem,1.4vw,1.25rem);font-weight:800;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.1}
+    .ic-desc{font-size:clamp(0.75rem,1.05vw,0.92rem);color:var(--text-muted);line-height:1.45;margin-bottom:12px}
+    .ic-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:auto}
+    .ic-list li{font-size:clamp(0.72rem,1vw,0.88rem);color:rgba(255,255,255,0.75);display:flex;gap:8px;align-items:flex-start}
+    .ic-list li::before{content:'→';color:var(--lime);font-weight:900;flex-shrink:0}
+    .ic-foot{margin-top:14px;align-self:flex-start;padding:7px 14px;border-radius:10px;background:var(--lime);color:var(--black);font-size:clamp(0.62rem,0.95vw,0.78rem);font-weight:800;text-transform:uppercase;letter-spacing:0.03em}
+    .ic-result{margin-top:14px;padding:12px 16px;border-radius:12px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);font-size:clamp(0.7rem,1vw,0.86rem);color:var(--lime);font-weight:700;text-transform:uppercase;letter-spacing:0.01em}
+
+    /* tools */
+    .tool-card{border-radius:var(--radius);padding:clamp(16px,1.8vw,26px) 12px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+    .tool-ico{width:clamp(48px,5vw,72px);height:clamp(48px,5vw,72px);border-radius:16px;background:linear-gradient(145deg,#fff,#e6e6e6);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.4),0 1px 1px rgba(255,255,255,.1) inset}
+    .tool-ico img{width:60%;height:60%;object-fit:contain}
+    .tool-nm{font-size:clamp(0.78rem,1.2vw,1rem);font-weight:800;text-transform:uppercase;letter-spacing:0.02em}
+    .tool-ds{font-size:clamp(0.62rem,0.9vw,0.78rem);color:var(--text-muted)}
+
+    /* outcomes */
+    .oc-icon{width:clamp(40px,4vw,52px);height:clamp(40px,4vw,52px);border-radius:14px;background:rgba(214,255,60,0.12);border:1px solid rgba(214,255,60,0.25);display:flex;align-items:center;justify-content:center;font-size:clamp(1.2rem,2vw,1.6rem);margin-bottom:14px}
+
+    /* salary */
+    .salary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,22px);flex:1;align-content:center}
+    .salary-card{border-radius:var(--radius-lg);padding:clamp(24px,3vw,44px);display:flex;flex-direction:column;justify-content:center}
+    .salary-card.primary{background:var(--lime)!important;color:var(--black)}
+    .salary-card.primary .salary-tag{background:var(--black);color:var(--lime)}
+    .salary-card.primary::before{display:none}
+    .salary-tag{align-self:flex-start;padding:7px 16px;border-radius:var(--radius-pill);background:var(--card-light);color:var(--white);font-size:clamp(0.66rem,1vw,0.8rem);font-weight:800;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:18px}
+    .salary-amt{font-size:clamp(1.7rem,3.6vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1}
+    .salary-per{font-size:clamp(0.78rem,1.1vw,0.95rem);opacity:.6;margin-top:8px;text-transform:uppercase;letter-spacing:0.03em;font-weight:600}
+
+    /* speaker */
+    .speaker-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(18px,3vw,50px);align-items:center;flex:1}
+    .speaker-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:1/1.05;background:var(--card-light)}
+    .speaker-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .speaker-float{position:absolute;padding:9px 16px;border-radius:var(--radius-pill);font-size:clamp(0.66rem,1vw,0.82rem);font-weight:700;display:flex;align-items:center;gap:7px}
+    .speaker-float.tr{top:16px;right:16px}
+    .speaker-float.bl{bottom:16px;left:16px}
+    .speaker-role{color:var(--lime);font-weight:700;font-size:clamp(0.82rem,1.3vw,1.05rem);margin:10px 0 18px}
+    .speaker-stats{display:flex;gap:clamp(14px,2vw,32px);margin-bottom:18px}
+    .sp-stat-v{font-size:clamp(1.4rem,2.6vw,2.4rem);font-weight:900;color:var(--lime);letter-spacing:-0.03em;line-height:1}
+    .sp-stat-l{font-size:clamp(0.66rem,1vw,0.82rem);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.03em;margin-top:4px}
+    .speaker-bio{font-size:clamp(0.82rem,1.2vw,1rem);color:rgba(255,255,255,.78);line-height:1.6;margin-bottom:18px}
+    .speaker-tech{display:flex;flex-wrap:wrap;gap:8px}
+    .speaker-tech span{padding:7px 15px;border-radius:var(--radius-pill);font-size:clamp(0.66rem,1vw,0.82rem);font-weight:700}
+
+    /* ============== CTA SLIDE ============== */
+    .cta-slide{background:var(--lime)}
+    .cta-slide::after{display:none}
+    .cta-slide .slide-inner{justify-content:center;align-items:center;text-align:center}
+    .cta-slide .s-title{color:var(--black)}
+    .cta-slide .s-title .stroke{-webkit-text-stroke:2px var(--black)}
+    .cta-sub{max-width:680px;margin:clamp(16px,2.6vh,28px) auto;font-size:clamp(1rem,1.6vw,1.35rem);color:rgba(0,0,0,0.72);font-weight:500}
+    .cta-btn{display:inline-flex;align-items:center;gap:14px;padding:clamp(18px,2.4vw,24px) clamp(34px,4vw,52px);background:var(--black);color:var(--lime);border-radius:var(--radius-pill);font-size:clamp(1rem,1.5vw,1.3rem);font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:0.02em;transition:transform .3s,box-shadow .3s;margin-top:10px}
+    .cta-btn:hover{transform:scale(1.04);box-shadow:0 14px 50px rgba(0,0,0,0.35)}
+    .cta-meta{margin-top:clamp(24px,4vh,44px);display:flex;gap:clamp(20px,3vw,48px);flex-wrap:wrap;justify-content:center}
+    .cta-meta div{color:var(--black)}
+    .cta-meta b{display:block;font-size:clamp(1.3rem,2.4vw,2rem);font-weight:900;letter-spacing:-0.02em}
+    .cta-meta span{font-size:clamp(0.7rem,1vw,0.85rem);font-weight:700;text-transform:uppercase;opacity:.65;letter-spacing:0.03em}
+    .cta-logo{height:clamp(70px,9vh,120px);margin-bottom:8px}
+    .cta-logo img{height:100%;width:auto}
+
+    /* ============== NAV / CONTROLS ============== */
+    .ctrl{position:fixed;z-index:80;display:flex;align-items:center;gap:10px}
+    .ctrl-bottom{bottom:clamp(16px,3vh,34px);left:50%;transform:translateX(-50%)}
+    .nav-btn{
+        width:clamp(46px,5vw,58px);height:clamp(46px,5vw,58px);border-radius:50%;
+        background:var(--black);color:var(--lime);border:none;cursor:pointer;
+        display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+        transition:transform .25s,box-shadow .25s;box-shadow:0 8px 24px rgba(0,0,0,.3)
+    }
+    .nav-btn:hover{transform:scale(1.08);box-shadow:0 10px 30px rgba(0,0,0,.45)}
+    .nav-btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+    .counter{
+        min-width:88px;text-align:center;background:var(--black);color:var(--white);
+        padding:0 18px;height:clamp(46px,5vw,58px);border-radius:var(--radius-pill);
+        display:flex;align-items:center;justify-content:center;gap:4px;font-weight:800;
+        font-size:clamp(0.85rem,1.3vw,1.05rem);letter-spacing:0.04em
+    }
+    .counter .cur{color:var(--lime)}
+    .counter .tot{color:var(--text-muted)}
+    .dots{position:fixed;right:clamp(14px,2vw,28px);top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;gap:10px}
+    .dot{width:11px;height:11px;border-radius:50%;background:rgba(0,0,0,0.28);border:none;cursor:pointer;padding:0;transition:all .3s}
+    .dot.active{background:var(--black);transform:scale(1.35)}
+    .dot:hover{background:rgba(0,0,0,0.55)}
+    .fs-btn{position:fixed;top:clamp(12px,2vh,22px);right:clamp(12px,2vw,24px);z-index:80;width:44px;height:44px;border-radius:12px;background:var(--black);color:var(--lime);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:transform .25s}
+    .fs-btn:hover{transform:scale(1.08)}
+    .progress{position:fixed;top:0;left:0;height:4px;background:var(--black);z-index:90;transition:width .5s cubic-bezier(0.16,1,0.3,1);border-radius:0 4px 4px 0}
+    .hint{position:fixed;bottom:clamp(16px,3vh,34px);left:clamp(16px,2.5vw,32px);z-index:70;color:rgba(0,0,0,.5);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;display:flex;align-items:center;gap:8px}
+    .hint kbd{background:var(--black);color:var(--lime);border-radius:6px;padding:3px 8px;font-family:inherit;font-size:0.72rem;font-weight:800}
+
+    /* ============== RESPONSIVE ============== */
+    @media(max-width:860px){
+        .slide{padding:24px 20px}
+        .agenda-grid,.speaker-grid{grid-template-columns:1fr;gap:18px}
+        .agenda-a{text-align:left}
+        .stat-grid{grid-template-columns:repeat(2,1fr)}
+        .g4,.g5,.g3{grid-template-columns:repeat(2,1fr)}
+        .salary-grid{grid-template-columns:1fr}
+        .slide-3d{width:90%;opacity:.5;right:-20%}
+        .dots{display:none}
+        .hint{display:none}
+        .speaker-photo{aspect-ratio:1/1;max-height:32vh}
+        .ic-list{display:none}
+        .card-grid{overflow-y:auto}
+    }
+    @media(max-width:860px) and (orientation:landscape){
+        .ic-list{display:flex}
+    }
+    @media(prefers-reduced-motion:reduce){
+        .reveal,.stg>*{transition-duration:.01ms!important}
+        .slide{transition-duration:.1ms!important}
+    }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="deck">
+    <div class="deck-title">Prezentatsiya · Ochiq dars</div>
+    <div class="stage" id="stage">
+
+        <!-- ===================== SLIDE 1 — TITLE ===================== -->
+        <section class="slide title-slide" data-name="Kirish">
+            <div class="slide-3d"><canvas id="hero-3d"></canvas></div>
+            <div class="slide-inner">
+                <div class="s-num reveal"><span class="br">[</span> 01 <span class="br">]</span></div>
+                <h1 class="s-title reveal">
+                    DATA <span class="stroke">ANALITIKA</span><span class="hero-avatars"><span>🧑‍💻</span><span>👩‍💼</span><span>📊</span></span><br>
+                    <span class="accent">NOLDAN PRO</span> 4 OYDA
+                </h1>
+                <div class="title-tags reveal stg">
+                    <span class="tag liquid-glass">Python</span>
+                    <span class="tag liquid-glass">SQL</span>
+                    <span class="tag liquid-glass">Power BI</span>
+                    <span class="tag liquid-glass">Pandas</span>
+                    <span class="tag liquid-glass">Excel</span>
+                    <span class="tag liquid-glass">GitHub</span>
+                    <span class="tag liquid-glass">DAX</span>
+                </div>
+                <div class="title-question reveal">
+                    Bugungi 60 daqiqalik bepul ochiq darsda O'zbekistondagi eng talab qilinadigan
+                    <strong>Data Analyst</strong> kasbini qanday egallashni ko'rib chiqamiz.
+                </div>
+                <div class="title-foot reveal">
+                    <span class="scribble">INTERNO School</span>
+                    <span class="tag liquid-glass">Spiker: Shoxjahon Turg'unaliyev</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 2 — AGENDA ===================== -->
+        <section class="slide" data-name="Reja">
+            <div class="slide-inner">
+                <div class="s-num reveal"><span class="br">[</span> 02 <span class="br">]</span></div>
+                <h2 class="s-title reveal">BUGUN NIMA <span class="accent">KO'RAMIZ?</span></h2>
+                <div class="agenda-grid">
+                    <div class="agenda-rows reveal stg" style="margin-top:24px">
+                        <div class="agenda-row"><div class="agenda-q">Nima <span class="accent">qilamiz?</span></div><div class="agenda-a">Data Analyst kasbi va bozorni o'rganamiz</div></div>
+                        <div class="agenda-row"><div class="agenda-q">Qanday <span class="accent">o'rganamiz?</span></div><div class="agenda-a">Python · SQL · Power BI — amaliy stack</div></div>
+                        <div class="agenda-row"><div class="agenda-q">Qancha <span class="accent">vaqtda?</span></div><div class="agenda-a">4 oy · 48 dars · 72 soat</div></div>
+                        <div class="agenda-row" style="border-bottom:none"><div class="agenda-q">Natija <span class="accent">nima?</span></div><div class="agenda-a">Job-ready Junior Data Analyst + portfolio</div></div>
+                    </div>
+                    <div class="reveal">
+                        <p class="s-sub">Ushbu prezentatsiya — ochiq darsning yo'l xaritasi. Har bir bo'limni birma-bir ochib boramiz:</p>
+                        <div class="agenda-flow">
+                            <span class="liquid-glass">Bozor</span><b>→</b>
+                            <span class="liquid-glass">Ko'nikmalar</span><b>→</b>
+                            <span class="liquid-glass">Dastur</span><b>→</b>
+                            <span class="liquid-glass">Vositalar</span><b>→</b>
+                            <span class="liquid-glass">Karyera</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 3 — MARKET STATS ===================== -->
+        <section class="slide" data-name="Bozor">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 03 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">DATA ANALYST — <span class="accent">YANGI IT KASBI</span></h2>
+                    <p class="s-sub reveal">O'zbekistonda raqamli transformatsiya tez sur'atda rivojlanmoqda — ammo ma'lumotni tushunadigan mutaxassislar yetarli emas.</p>
+                </div>
+                <div class="stat-grid stg">
+                    <div class="stat-card liquid-glass"><div class="stat-val">500+</div><div class="stat-label">Ochiq vakansiya</div><div class="stat-desc">hh.uz va LinkedIn'da har oyda</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">+40%</div><div class="stat-label">Maosh o'sishi</div><div class="stat-desc">2023–2025 yillar statistikasi</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">3×</div><div class="stat-label">Vakansiyalar o'sishi</div><div class="stat-desc">2023 va 2025 taqqoslash</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">$1,500+</div><div class="stat-label">O'rtacha maosh</div><div class="stat-desc">Middle Data Analyst, Toshkent</div></div>
+                </div>
+                <div class="market-quote liquid-glass reveal">
+                    "2024-yilda IT Parkda ro'yxatdan o'tgan kompaniyalarning <strong>75% i</strong> ma'lumot tahlili bo'yicha mutaxassislarni qidirmoqda."
+                    <span>— IT Park Uzbekistan, 2025</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 4 — COMPANIES ===================== -->
+        <section class="slide" data-name="Kompaniyalar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 04 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">KIM <span class="accent">QIDIRMOQDA?</span></h2>
+                    <p class="s-sub reveal">Bular bugun O'zbekistonda Data Analyst qidirayotgan yetakchi kompaniyalar.</p>
+                </div>
+                <div class="chip-cloud stg">
+                    <span class="chip liquid-glass">Uzum Market</span>
+                    <span class="chip liquid-glass">Humans</span>
+                    <span class="chip liquid-glass">Click.uz</span>
+                    <span class="chip liquid-glass">Payme</span>
+                    <span class="chip liquid-glass">Kapitalbank</span>
+                    <span class="chip liquid-glass">TBC Bank</span>
+                    <span class="chip liquid-glass">Alif Mobi</span>
+                    <span class="chip liquid-glass">Uzcard</span>
+                    <span class="chip liquid-glass">Beeline</span>
+                    <span class="chip liquid-glass">Ucell</span>
+                    <span class="chip liquid-glass">EPAM</span>
+                    <span class="chip liquid-glass">Korzinka</span>
+                    <span class="chip liquid-glass">Anor Bank</span>
+                    <span class="chip liquid-glass">Hamkorbank</span>
+                    <span class="chip liquid-glass">IT Park</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 5 — SKILLS ===================== -->
+        <section class="slide" data-name="Ko'nikmalar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 05 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">4 TA <span class="accent">KO'NIKMA</span></h2>
+                    <p class="s-sub reveal">Ma'lumotlar bilan ishlashning to'liq texnologik stecki.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass">
+                        <div class="ic-top"><div class="ic-icon">🐍</div><div><div class="ic-num">Ko'nikma 1</div><div class="ic-title">Python</div></div></div>
+                        <p class="ic-desc">Data Analyst ishining asosi — ma'lumotlar bilan dasturlash.</p>
+                        <ul class="ic-list"><li>NumPy asoslari</li><li>Funksiyalar, lambda</li><li>CSV bilan ishlash</li><li>Jupyter Notebook</li></ul>
+                        <span class="ic-foot">1-oy · 12 dars</span>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <div class="ic-top"><div class="ic-icon">📊</div><div><div class="ic-num">Ko'nikma 2</div><div class="ic-title">Data tahlili</div></div></div>
+                        <p class="ic-desc">Ma'lumotlarni tozalash, tahlil va vizualizatsiya.</p>
+                        <ul class="ic-list"><li>Pandas DataFrame</li><li>Matplotlib, Seaborn</li><li>Interaktiv Plotly</li><li>EDA va statistika</li></ul>
+                        <span class="ic-foot">2-oy · 12 dars</span>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <div class="ic-top"><div class="ic-icon">🗃️</div><div><div class="ic-num">Ko'nikma 3</div><div class="ic-title">SQL & bazalar</div></div></div>
+                        <p class="ic-desc">Yirik kompaniyalardagi ma'lumot bazalari bilan ishlash.</p>
+                        <ul class="ic-list"><li>MS SQL Server</li><li>JOINs, CTE, Views</li><li>Stored Procedures</li><li>BigQuery asoslari</li></ul>
+                        <span class="ic-foot">3-oy · 12 dars</span>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <div class="ic-top"><div class="ic-icon">📈</div><div><div class="ic-num">Ko'nikma 4</div><div class="ic-title">Power BI & DAX</div></div></div>
+                        <p class="ic-desc">Professional dashboardlar va biznes-analitika.</p>
+                        <ul class="ic-list"><li>Power Query (ETL)</li><li>DAX: CALCULATE</li><li>Time Intelligence</li><li>Interaktiv visuallar</li></ul>
+                        <span class="ic-foot">4-oy · 12 dars</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 6 — CURRICULUM ===================== -->
+        <section class="slide" data-name="Dastur">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 06 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">4 OYLIK <span class="accent">DASTUR</span></h2>
+                    <p class="s-sub reveal">48 dars · 72 soat · haftada 3 marta. Har oy real loyiha bilan yakunlanadi.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass">
+                        <span class="ic-foot" style="margin:0 0 14px">1-oy</span>
+                        <div class="ic-title" style="margin-bottom:10px">Python asoslari</div>
+                        <ul class="ic-list" style="margin-top:0"><li>Jupyter Notebook</li><li>Tsikllar, funksiyalar</li><li>List, dict, set</li><li>CSV va NumPy</li></ul>
+                        <div class="ic-result">✓ Loyiha: Talaba ballari tahlili</div>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <span class="ic-foot" style="margin:0 0 14px">2-oy</span>
+                        <div class="ic-title" style="margin-bottom:10px">Data & vizualizatsiya</div>
+                        <ul class="ic-list" style="margin-top:0"><li>Pandas DataFrame</li><li>Tozalash, GroupBy</li><li>Matplotlib, Plotly</li><li>EDA metodologiyasi</li></ul>
+                        <div class="ic-result">✓ Loyiha: E-commerce tahlili</div>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <span class="ic-foot" style="margin:0 0 14px">3-oy</span>
+                        <div class="ic-title" style="margin-bottom:10px">SQL & bazalar</div>
+                        <ul class="ic-list" style="margin-top:0"><li>SELECT, JOINs</li><li>MS SQL Server, SSMS</li><li>Window, CTE, Views</li><li>BigQuery, DWH</li></ul>
+                        <div class="ic-result">✓ Loyiha: SQL Dashboard</div>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <span class="ic-foot" style="margin:0 0 14px">4-oy</span>
+                        <div class="ic-title" style="margin-bottom:10px">Power BI & karyera</div>
+                        <ul class="ic-list" style="margin-top:0"><li>Power Query, DAX</li><li>Time Intelligence</li><li>GitHub portfolio</li><li>CV va intervyu</li></ul>
+                        <div class="ic-result">✓ Junior DA lavozimiga tayyor</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 7 — TOOLS ===================== -->
+        <section class="slide" data-name="Vositalar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 07 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">VOSI<span class="stroke">TALAR</span></h2>
+                    <p class="s-sub reveal">Bozordagi eng dolzarb texnologiyalar — barchasi kursda amaliy tarzda.</p>
+                </div>
+                <div class="card-grid g5 stg">
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy"></div><div class="tool-nm">Python</div><div class="tool-ds">Dasturlash</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL" loading="lazy"></div><div class="tool-nm">SQL</div><div class="tool-ds">MS SQL Server</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI" loading="lazy"></div><div class="tool-nm">Power BI</div><div class="tool-ds">Dashboard</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="Excel" loading="lazy"></div><div class="tool-nm">Excel</div><div class="tool-ds">Jadvallar</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" loading="lazy"></div><div class="tool-nm">Pandas</div><div class="tool-ds">Tahlil</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" loading="lazy"></div><div class="tool-nm">NumPy</div><div class="tool-ds">Hisoblash</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" loading="lazy"></div><div class="tool-nm">Matplotlib</div><div class="tool-ds">Grafiklar</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter" loading="lazy"></div><div class="tool-nm">Jupyter</div><div class="tool-ds">Notebook</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/logos/tableau-icon.svg" alt="Tableau" loading="lazy"></div><div class="tool-nm">Tableau</div><div class="tool-ds">Hisobot</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" loading="lazy"></div><div class="tool-nm">GitHub</div><div class="tool-ds">Portfolio</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 8 — OUTCOMES ===================== -->
+        <section class="slide" data-name="Natijalar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 08 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">YAKUNDA SIZ <span class="accent">OLASIZ</span></h2>
+                    <p class="s-sub reveal">Ishga kirishda kerak bo'ladigan 6 ta konkret natija.</p>
+                </div>
+                <div class="card-grid g3 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">📊</div><div class="ic-title">5+ loyihali portfolio</div><p class="ic-desc" style="margin:8px 0 0">GitHub'da real loyihalar: dashboard, A/B test, kohort tahlili, SQL hisobotlar.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📄</div><div class="ic-title">Rasmiy CV</div><p class="ic-desc" style="margin:8px 0 0">Data Analyst vakansiyalari uchun zamonaviy rezyume — HR skanerlaridan o'tadi.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🛠</div><div class="ic-title">6 ta instrument</div><p class="ic-desc" style="margin:8px 0 0">Python, SQL, Power BI, Excel, Pandas, NumPy — bir-biriga bog'liq holda.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🧠</div><div class="ic-title">Biznes-fikrlash</div><p class="ic-desc" style="margin:8px 0 0">Metrikalar, A/B testlar, gipotezalarni tekshirish va natijani tushuntirish.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">💬</div><div class="ic-title">Intervyu tayyorgarlik</div><p class="ic-desc" style="margin:8px 0 0">Mock-intervyular, texnik savollar, live SQL/Python sessiyalar.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🎓</div><div class="ic-title">INTERNO sertifikati</div><p class="ic-desc" style="margin:8px 0 0">Ish beruvchilar tomonidan tanilgan kursni tugatish guvohnomasi.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 9 — SALARY ===================== -->
+        <section class="slide" data-name="Maosh">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 09 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">MAOSH <span class="accent">DARAJALARI</span></h2>
+                    <p class="s-sub reveal">O'zbekistonda Data Analyst kasbi bo'yicha o'rtacha oylik maosh.</p>
+                </div>
+                <div class="salary-grid stg">
+                    <div class="salary-card liquid-glass"><span class="salary-tag">Junior</span><div class="salary-amt">$500 — 800</div><div class="salary-per">Oyiga</div></div>
+                    <div class="salary-card primary"><span class="salary-tag">Middle</span><div class="salary-amt">$1,500 — 3,000</div><div class="salary-per">Oyiga</div></div>
+                    <div class="salary-card liquid-glass"><span class="salary-tag">Xalqaro</span><div class="salary-amt">$3,000+</div><div class="salary-per">Oyiga</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 10 — SPEAKER ===================== -->
+        <section class="slide" data-name="Spiker">
+            <div class="slide-inner">
+                <div class="s-num reveal"><span class="br">[</span> 10 <span class="br">]</span></div>
+                <div class="speaker-grid">
+                    <div class="speaker-photo reveal">
+                        <img src="/tilda/speaker-shoxjahon.jpg" alt="Shoxjahon Turg'unaliyev — Data Analyst & Python Developer" loading="lazy">
+                        <div class="speaker-float tr liquid-glass">🐍 Python</div>
+                        <div class="speaker-float bl liquid-glass">📊 Analytics</div>
+                    </div>
+                    <div>
+                        <span class="s-kicker liquid-glass reveal">Ochiq darsning spikeri</span>
+                        <h2 class="s-title reveal" style="font-size:clamp(1.6rem,3.6vw,3rem)">Shoxjahon <span class="accent">Turg'unaliyev</span></h2>
+                        <p class="speaker-role reveal">Data Analyst &amp; Python Developer · AQSh loyihalari</p>
+                        <div class="speaker-stats reveal">
+                            <div><div class="sp-stat-v">5+</div><div class="sp-stat-l">Yil tajriba</div></div>
+                            <div><div class="sp-stat-v">50+</div><div class="sp-stat-l">Loyiha</div></div>
+                            <div><div class="sp-stat-v">30+</div><div class="sp-stat-l">Mijoz</div></div>
+                        </div>
+                        <p class="speaker-bio reveal">2023-yildan beri asosan <strong>AQSh kompaniyalari</strong> bilan freelance ishlaydi — data-driven yechimlar, biznes-avtomatizatsiya va interaktiv dashboardlar yaratadi. Qo'lda ishlov berishni <strong>80% ga qisqartirgan</strong>.</p>
+                        <div class="speaker-tech reveal">
+                            <span class="liquid-glass">Python</span><span class="liquid-glass">Pandas</span><span class="liquid-glass">Power BI</span><span class="liquid-glass">SQL</span><span class="liquid-glass">Tableau</span><span class="liquid-glass">Django</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE 11 — CTA ===================== -->
+        <section class="slide cta-slide" data-name="Yozilish">
+            <div class="slide-inner">
+                <a class="cta-logo reveal" href="../"><img src="/logo.svg" alt="INTERNO School"></a>
+                <h2 class="s-title reveal">BEPUL OCHIQ <span class="stroke">DARSGA</span> YOZILING</h2>
+                <p class="cta-sub reveal">60 daqiqalik bepul darsda kurs, mentorlar va karyera imkoniyatlari bilan tanishasiz. Endi navbat sizda.</p>
+                <a href="../#register" class="cta-btn reveal" id="cta-register">Hozir yozilish <span>→</span></a>
+                <div class="cta-meta reveal stg">
+                    <div><b>4 oy</b><span>O'qish davomiyligi</span></div>
+                    <div><b>48 dars</b><span>72 soat amaliyot</span></div>
+                    <div><b>$1,500+</b><span>O'rtacha maosh</span></div>
+                    <div><b>85%</b><span>Ish topdi</span></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- progress dots -->
+<div class="dots" id="dots"></div>
+
+<!-- controls -->
+<button class="fs-btn" id="fsBtn" aria-label="To'liq ekran">⛶</button>
+<div class="ctrl ctrl-bottom">
+    <button class="nav-btn" id="prevBtn" aria-label="Oldingi slayd">‹</button>
+    <div class="counter"><span class="cur" id="cur">01</span><span class="tot" id="tot">/ 11</span></div>
+    <button class="nav-btn" id="nextBtn" aria-label="Keyingi slayd">›</button>
+</div>
+<div class="hint"><kbd>←</kbd><kbd>→</kbd> yoki <kbd>Space</kbd> — slaydlar</div>
+
+<script>
+(function(){
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const total = slides.length;
+    let idx = 0;
+
+    const curEl = document.getElementById('cur');
+    const totEl = document.getElementById('tot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progress = document.getElementById('progress');
+    const dotsWrap = document.getElementById('dots');
+
+    totEl.textContent = '/ ' + String(total).padStart(2,'0');
+
+    // build dots
+    slides.forEach((s,i)=>{
+        const b = document.createElement('button');
+        b.className='dot'; b.setAttribute('aria-label', s.dataset.name || ('Slayd '+(i+1)));
+        b.title = s.dataset.name || '';
+        b.addEventListener('click',()=>go(i));
+        dotsWrap.appendChild(b);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function render(){
+        slides.forEach((s,i)=>{
+            s.classList.toggle('active', i===idx);
+            s.classList.toggle('prev', i<idx);
+        });
+        dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+        curEl.textContent = String(idx+1).padStart(2,'0');
+        progress.style.width = ((idx+1)/total*100) + '%';
+        prevBtn.disabled = idx===0;
+        nextBtn.disabled = idx===total-1;
+        if (location.hash !== '#'+(idx+1)) history.replaceState(null,'','#'+(idx+1));
+    }
+
+    function go(n){
+        const clamped = Math.max(0, Math.min(total-1, n));
+        if (clamped===idx) return;
+        idx = clamped;
+        render();
+    }
+    function next(){ go(idx+1); }
+    function prev(){ go(idx-1); }
+
+    prevBtn.addEventListener('click',prev);
+    nextBtn.addEventListener('click',next);
+
+    // keyboard
+    document.addEventListener('keydown',(e)=>{
+        if(['ArrowRight','PageDown',' '].includes(e.key)){ e.preventDefault(); next(); }
+        else if(['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+        else if(e.key==='Home'){ e.preventDefault(); go(0); }
+        else if(e.key==='End'){ e.preventDefault(); go(total-1); }
+    });
+
+    // wheel (debounced)
+    let wheelLock=false;
+    window.addEventListener('wheel',(e)=>{
+        if(wheelLock) return;
+        if(Math.abs(e.deltaY)<24) return;
+        wheelLock=true;
+        e.deltaY>0 ? next() : prev();
+        setTimeout(()=>wheelLock=false, 700);
+    },{passive:true});
+
+    // touch swipe
+    let tsX=0, tsY=0;
+    window.addEventListener('touchstart',(e)=>{ tsX=e.touches[0].clientX; tsY=e.touches[0].clientY; },{passive:true});
+    window.addEventListener('touchend',(e)=>{
+        const dx=e.changedTouches[0].clientX-tsX, dy=e.changedTouches[0].clientY-tsY;
+        if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0 ? next() : prev(); }
+    },{passive:true});
+
+    // fullscreen
+    const fsBtn = document.getElementById('fsBtn');
+    fsBtn.addEventListener('click',()=>{
+        if(!document.fullscreenElement){ document.documentElement.requestFullscreen?.(); }
+        else { document.exitFullscreen?.(); }
+    });
+
+    // deep link via hash
+    const startHash = parseInt((location.hash||'').replace('#',''),10);
+    if(!isNaN(startHash) && startHash>=1 && startHash<=total) idx = startHash-1;
+
+    render();
+})();
+</script>
+
+<!-- ====================== HERO 3D (chrome objects, title slide) ====================== -->
+<script type="module">
+const heroCanvas = document.getElementById('hero-3d');
+if (heroCanvas && window.innerWidth > 768 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const THREE = await import('three');
+    const renderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    function size(){ renderer.setSize(heroCanvas.clientWidth, heroCanvas.clientHeight); }
+    size();
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.0;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, heroCanvas.clientWidth / heroCanvas.clientHeight, 0.1, 100);
+    camera.position.set(0, 0, 7);
+
+    // chrome studio environment with lime accent
+    const envScene = new THREE.Scene();
+    envScene.add(new THREE.Mesh(new THREE.SphereGeometry(30, 32, 16), new THREE.MeshBasicMaterial({ color: 0x151515, side: THREE.BackSide })));
+    const mk=(w,h,c,x,y,z)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:c}));m.position.set(x,y,z);m.lookAt(0,0,0);envScene.add(m);};
+    mk(10,8,0xd6ff3c,6,4,-3); mk(8,8,0x6a7a8a,-6,1,3); mk(5,5,0xffffff,0,7,1); mk(5,3,0xaacc00,-3,-2,-5);
+    const ground=new THREE.Mesh(new THREE.PlaneGeometry(15,15),new THREE.MeshBasicMaterial({color:0x2a2a2a}));ground.position.set(0,-6,0);ground.rotation.x=-Math.PI/2;envScene.add(ground);
+
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(envScene, 0.015).texture;
+    pmrem.dispose();
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+    const key = new THREE.DirectionalLight(0xfffff0, 2); key.position.set(3,5,4); scene.add(key);
+    const accent = new THREE.PointLight(0xd6ff3c, 4, 20); accent.position.set(-3,3,4); scene.add(accent);
+    const rim = new THREE.PointLight(0xffffff, 2, 15); rim.position.set(4,-2,-3); scene.add(rim);
+
+    function chrome(tint, opts={}){
+        return new THREE.MeshPhysicalMaterial({ color: tint||0xffffff, metalness:1.0, roughness: opts.rough??0.05, envMapIntensity: opts.env||2.2, clearcoat:1.0, clearcoatRoughness:0.02, reflectivity:1.0 });
+    }
+    const objects=[];
+
+    // rounded lime cube
+    const cubeGeo = new THREE.BoxGeometry(1.4,1.4,1.4,10,10,10);
+    const pa = cubeGeo.attributes.position;
+    for(let i=0;i<pa.count;i++){const v=new THREE.Vector3(pa.getX(i),pa.getY(i),pa.getZ(i));const o=v.clone();v.normalize().multiplyScalar(1.2);v.lerp(o,0.5);pa.setXYZ(i,v.x,v.y,v.z);}
+    cubeGeo.computeVertexNormals();
+    const cube = new THREE.Mesh(cubeGeo, chrome(0xd6ff3c,{rough:0.12}));
+    cube.position.set(-1.6,0.8,0.3); cube.rotation.set(0.3,0.4,0.2); scene.add(cube);
+    objects.push({m:cube,rs:0.25,bx:-1.6,by:0.8,bz:0.3,fa:0.18,i:0});
+
+    const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(0.8,0.25,200,32,2,3), chrome(0xf5f5f5,{rough:0.04}));
+    knot.position.set(0.7,0.2,0); scene.add(knot);
+    objects.push({m:knot,rs:0.4,bx:0.7,by:0.2,bz:0,fa:0.2,i:1});
+
+    const sph = new THREE.Mesh(new THREE.SphereGeometry(0.52,48,48), chrome(0xffffff,{rough:0.02}));
+    sph.position.set(2.0,-0.7,0.8); scene.add(sph);
+    objects.push({m:sph,rs:0.15,bx:2.0,by:-0.7,bz:0.8,fa:0.22,i:2});
+
+    const oct = new THREE.Mesh(new THREE.OctahedronGeometry(0.4,0), chrome(0xd6ff3c,{rough:0.08,env:2.5}));
+    oct.position.set(1.5,1.3,0.5); oct.rotation.set(0.3,0.5,0); scene.add(oct);
+    objects.push({m:oct,rs:0.5,bx:1.5,by:1.3,bz:0.5,fa:0.15,i:3});
+
+    const torus = new THREE.Mesh(new THREE.TorusGeometry(0.48,0.16,40,80), chrome(0xffffff,{rough:0.06}));
+    torus.position.set(-0.7,-1.2,0.6); torus.rotation.set(Math.PI/3,0.3,0.5); scene.add(torus);
+    objects.push({m:torus,rs:0.3,bx:-0.7,by:-1.2,bz:0.6,fa:0.2,i:4});
+
+    let mx=0,my=0;
+    window.addEventListener('mousemove',(e)=>{ mx=(e.clientX/window.innerWidth-0.5); my=(e.clientY/window.innerHeight-0.5); });
+
+    const clock = new THREE.Clock();
+    function animate(){
+        const t = clock.getElapsedTime();
+        objects.forEach(o=>{
+            o.m.rotation.x += o.rs*0.008;
+            o.m.rotation.y += o.rs*0.011;
+            o.m.position.y = o.by + Math.sin(t*0.8 + o.i)*o.fa;
+        });
+        camera.position.x += (mx*1.4 - camera.position.x)*0.05;
+        camera.position.y += (-my*1.0 - camera.position.y)*0.05;
+        camera.lookAt(0,0,0);
+        renderer.render(scene,camera);
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    window.addEventListener('resize', ()=>{
+        camera.aspect = heroCanvas.clientWidth / heroCanvas.clientHeight;
+        camera.updateProjectionMatrix();
+        size();
+    });
+}
+</script>
+
+<!-- track CTA click (reuses parent landing's tracker if present) -->
+<script>
+document.getElementById('cta-register')?.addEventListener('click',()=>{ try{ window.parent?.track?.('presentation_cta_click',{page:'ochiq_dars_prezentatsiya'}); }catch(e){} });
+</script>
+
+</body>
+</html>
