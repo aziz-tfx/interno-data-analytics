@@ -235,6 +235,9 @@
     .speaker-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(18px,3vw,50px);align-items:center;flex:1}
     .speaker-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:1/1.05;background:var(--card-light)}
     .speaker-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .speaker-monogram{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(120% 120% at 30% 0%,#1f1f1f 0%,#0c0c0c 70%)}
+    .speaker-monogram b{font-size:clamp(3rem,8vw,6rem);font-weight:900;letter-spacing:-0.04em;color:var(--lime);line-height:1}
+    .speaker-monogram small{font-size:clamp(0.78rem,1.3vw,1rem);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted)}
     .speaker-float{position:absolute;padding:9px 16px;border-radius:var(--radius-pill);font-size:clamp(0.66rem,1vw,0.82rem);font-weight:700;display:flex;align-items:center;gap:7px}
     .speaker-float.tr{top:16px;right:16px}
     .speaker-float.bl{bottom:16px;left:16px}
@@ -346,7 +349,7 @@
                 </div>
                 <div class="title-foot reveal">
                     <span class="scribble">INTERNO School</span>
-                    <span class="tag liquid-glass">Spiker: Shoxjahon Turg'unaliyev</span>
+                    <span class="tag liquid-glass">Spiker: Asliddin Omonboyev</span>
                 </div>
             </div>
         </section>
@@ -564,22 +567,23 @@
                 <div class="s-num reveal"><span class="br">[</span> 10 <span class="br">]</span></div>
                 <div class="speaker-grid">
                     <div class="speaker-photo reveal">
-                        <img src="/tilda/speaker-shoxjahon.jpg" alt="Shoxjahon Turg'unaliyev — Data Analyst & Python Developer" loading="lazy">
-                        <div class="speaker-float tr liquid-glass">🐍 Python</div>
-                        <div class="speaker-float bl liquid-glass">📊 Analytics</div>
+                        <img src="/tilda/speaker-asliddin.jpg" alt="Asliddin Omonboyev — Data Analyst & Python Developer" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="speaker-monogram" style="display:none"><b>OA</b><small>Asliddin Omonboyev</small></div>
+                        <div class="speaker-float tr liquid-glass">🤖 Telegram Bot</div>
+                        <div class="speaker-float bl liquid-glass">📊 Data analyst</div>
                     </div>
                     <div>
                         <span class="s-kicker liquid-glass reveal">Ochiq darsning spikeri</span>
-                        <h2 class="s-title reveal" style="font-size:clamp(1.6rem,3.6vw,3rem)">Shoxjahon <span class="accent">Turg'unaliyev</span></h2>
-                        <p class="speaker-role reveal">Data Analyst &amp; Python Developer · AQSh loyihalari</p>
+                        <h2 class="s-title reveal" style="font-size:clamp(1.6rem,3.6vw,3rem)">Asliddin <span class="accent">Omonboyev</span></h2>
+                        <p class="speaker-role reveal">Data Analyst · Python Developer · Telegram Bot Builder</p>
                         <div class="speaker-stats reveal">
-                            <div><div class="sp-stat-v">5+</div><div class="sp-stat-l">Yil tajriba</div></div>
-                            <div><div class="sp-stat-v">50+</div><div class="sp-stat-l">Loyiha</div></div>
-                            <div><div class="sp-stat-v">30+</div><div class="sp-stat-l">Mijoz</div></div>
+                            <div><div class="sp-stat-v">21</div><div class="sp-stat-l">Yosh</div></div>
+                            <div><div class="sp-stat-v">2022</div><div class="sp-stat-l">Faoliyat boshlandi</div></div>
+                            <div><div class="sp-stat-v">API</div><div class="sp-stat-l">Integratsiya</div></div>
                         </div>
-                        <p class="speaker-bio reveal">2023-yildan beri asosan <strong>AQSh kompaniyalari</strong> bilan freelance ishlaydi — data-driven yechimlar, biznes-avtomatizatsiya va interaktiv dashboardlar yaratadi. Qo'lda ishlov berishni <strong>80% ga qisqartirgan</strong>.</p>
+                        <p class="speaker-bio reveal"><strong>Python, SQL, Power BI</strong>, API integratsiya va <strong>Telegram botlar</strong> orqali real muammolarni avtomatlashtiradi. Ma'lumotlarni tozalash, tahlil qilish va chiroyli <strong>dashboardlarga</strong> aylantirishga ixtisoslashgan.</p>
                         <div class="speaker-tech reveal">
-                            <span class="liquid-glass">Python</span><span class="liquid-glass">Pandas</span><span class="liquid-glass">Power BI</span><span class="liquid-glass">SQL</span><span class="liquid-glass">Tableau</span><span class="liquid-glass">Django</span>
+                            <span class="liquid-glass">Python</span><span class="liquid-glass">SQL</span><span class="liquid-glass">Power BI</span><span class="liquid-glass">Pandas</span><span class="liquid-glass">API</span><span class="liquid-glass">Telegram Bot</span>
                         </div>
                     </div>
                 </div>
