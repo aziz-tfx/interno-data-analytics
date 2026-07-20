@@ -1940,6 +1940,15 @@ if (heroCanvas && window.innerWidth > 768) {
         // Final submit
         regForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+
+            // Guard: if a lead was already sent this session, show success WITHOUT
+            // POSTing again — otherwise the same person lands in AmoCRM twice.
+            if (sessionStorage.getItem('lead_submitted') === '1') {
+                this.style.display = 'none';
+                document.getElementById('form-success').classList.add('show');
+                return;
+            }
+
             const name = document.getElementById('name').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const city = document.getElementById('city').value;
@@ -1968,6 +1977,11 @@ if (heroCanvas && window.innerWidth > 768) {
                     })
                 });
             } catch (err) {}
+
+            // Mark submitted so the exit popup / hero popup won't send a duplicate lead.
+            try { sessionStorage.setItem('lead_submitted', '1'); } catch(e) {}
+            try { if (window.track) window.track('form_submit', { form: 'registration' }); } catch(e) {}
+            try { if (window.fbq) fbq('track', 'Lead', { source: 'main_form' }); } catch(e) {}
 
             this.style.display = 'none';
             document.getElementById('form-success').classList.add('show');
@@ -2109,6 +2123,12 @@ if (heroCanvas && window.innerWidth > 768) {
     if (heroPopupForm) {
         heroPopupForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+            // Guard: already-sent lead → show success, no second POST to AmoCRM.
+            if (sessionStorage.getItem('lead_submitted') === '1') {
+                if (heroPopupBody) heroPopupBody.style.display = 'none';
+                if (heroPopupSuccess) heroPopupSuccess.classList.add('show');
+                return;
+            }
             const name = hpNameInput.value.trim();
             const phone = hpPhoneInput.value.trim();
             if (!name || phone.replace(/\D/g, '').length < 9) {
@@ -2145,7 +2165,9 @@ if (heroCanvas && window.innerWidth > 768) {
     let hasSubmitted = sessionStorage.getItem('lead_submitted') === '1';
 
     function showExitModal() {
-        if (exitShown || hasSubmitted) return;
+        // Never show the exit-popup lead form if a lead was already submitted
+        // (main form, hero popup, or a prior exit submit) — avoids a duplicate in AmoCRM.
+        if (exitShown || hasSubmitted || sessionStorage.getItem('lead_submitted') === '1') return;
         exitShown = true;
         sessionStorage.setItem('exit_shown', '1');
         exitModal.classList.add('show');
@@ -2178,6 +2200,12 @@ if (heroCanvas && window.innerWidth > 768) {
     if (exitForm) {
         exitForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            // Guard: already-sent lead → show success, no duplicate POST.
+            if (sessionStorage.getItem('lead_submitted') === '1') {
+                document.querySelector('.exit-modal-body').style.display = 'none';
+                document.querySelector('.exit-modal-success').classList.add('show');
+                return;
+            }
             const phone = document.getElementById('exit-phone').value.trim();
             if (!phone) return;
             hasSubmitted = true; try { sessionStorage.setItem('lead_submitted', '1'); } catch(e) {}
@@ -2197,12 +2225,8 @@ if (heroCanvas && window.innerWidth > 768) {
         });
     }
 
-    // Mark on form success
-    document.getElementById('registration-form').addEventListener('submit', () => {
-        hasSubmitted = true; try { sessionStorage.setItem('lead_submitted', '1'); } catch(e) {}
-        track('form_submit', { form: 'registration' });
-        if (window.fbq) fbq('track', 'Lead', { source: 'main_form' });
-    });
+    // (Lead flag + analytics are set inside each form's own success handler above,
+    //  so a lead is marked only after a real POST — never on an empty/invalid submit.)
 })();
 </script>
 
