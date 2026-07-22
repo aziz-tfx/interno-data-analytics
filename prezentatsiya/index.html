@@ -255,6 +255,16 @@
     .price-note{margin-top:clamp(16px,2.4vh,24px);display:flex;gap:10px;align-items:center;justify-content:center;color:var(--black);background:var(--lime);border-radius:var(--radius-pill);padding:12px 22px;font-size:clamp(0.76rem,1.1vw,0.95rem);font-weight:700;align-self:center}
     .price-note b{font-weight:900}
 
+    /* payment options */
+    .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.7vw,22px);align-content:center}
+    .pay-card{border-radius:var(--radius-lg);padding:clamp(20px,2.5vw,36px);display:flex;flex-direction:column;gap:clamp(8px,1.2vh,12px);position:relative}
+    .pay-emoji{font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1}
+    .pay-disc{font-size:clamp(1.6rem,3.4vw,2.8rem);font-weight:900;letter-spacing:-0.03em;color:var(--lime);line-height:1}
+    .pay-name{font-size:clamp(0.95rem,1.4vw,1.25rem);font-weight:800;text-transform:uppercase;letter-spacing:-0.01em}
+    .pay-desc{font-size:clamp(0.76rem,1.08vw,0.94rem);color:var(--text-muted);line-height:1.5}
+    .pay-banks{margin-top:clamp(16px,2.6vh,28px);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+    .pay-banks-label{font-size:clamp(0.8rem,1.2vw,1rem);font-weight:800;color:var(--white)}
+
     /* speaker */
     .speaker-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(18px,3vw,50px);align-items:center;flex:1}
     .speaker-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:1/1.05;background:var(--card-light)}
@@ -421,6 +431,7 @@
         .g4,.g5,.g3{grid-template-columns:repeat(2,1fr)}
         .salary-grid{grid-template-columns:1fr}
         .price-grid{grid-template-columns:1fr}
+        .pay-grid{grid-template-columns:1fr}
         .slide-3d{width:90%;opacity:.5;right:-20%}
         .dots{display:none}
         .hint{display:none}
@@ -847,25 +858,54 @@
                         <div class="price-tier">Standart</div>
                         <div class="price-base">5 000 000 <small>so'm</small></div>
                         <div class="price-sub">To'liq kurs · 3 oy</div>
-                        <div class="price-rows">
-                            <div class="price-rows-tag">Chegirma bilan</div>
-                            <div class="price-row"><span class="price-off">−10%</span><span class="price-new">4 500 000 <small>so'm</small></span></div>
-                            <div class="price-row"><span class="price-off">−20%</span><span class="price-new">4 000 000 <small>so'm</small></span></div>
-                        </div>
                     </div>
                     <div class="price-card primary">
                         <div class="price-badge">Tavsiya etamiz</div>
                         <div class="price-tier">VIP</div>
                         <div class="price-base">7 000 000 <small>so'm</small></div>
                         <div class="price-sub">Kengaytirilgan format · 3 oy</div>
-                        <div class="price-rows">
-                            <div class="price-rows-tag">Chegirma bilan</div>
-                            <div class="price-row"><span class="price-off">−10%</span><span class="price-new">6 300 000 <small>so'm</small></span></div>
-                            <div class="price-row"><span class="price-off">−20%</span><span class="price-new">5 600 000 <small>so'm</small></span></div>
-                        </div>
                     </div>
                 </div>
-                <div class="price-note reveal">🎯 <span>Ochiq dars ishtirokchilariga <b>−10% va −20% chegirma</b> — joyni bugun band qiling</span></div>
+                <div class="price-note reveal">💳 <span>Tez to'lovda <b>−20% gacha chegirma</b> yoki <b>foizsiz muddatli to'lov</b> — batafsil keyingi slaydda</span></div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE — PAYMENT OPTIONS ===================== -->
+        <section class="slide" data-name="To'lov">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 17 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">TO'LOV <span class="accent">IMKONIYATLARI</span></h2>
+                    <p class="s-sub reveal">O'zingizga qulay usulni tanlang — tez to'lovda chegirma yoki foizsiz bo'lib-bo'lib.</p>
+                </div>
+                <div class="pay-grid stg">
+                    <div class="pay-card liquid-glass">
+                        <div class="pay-emoji">🟨</div>
+                        <div class="pay-disc">−20%</div>
+                        <div class="pay-name">24 soat ichida</div>
+                        <div class="pay-desc">Konsultatsiyadan so'ng 24 soat ichida to'liq to'lov qilsangiz — 20% chegirma.</div>
+                    </div>
+                    <div class="pay-card liquid-glass">
+                        <div class="pay-emoji">🟩</div>
+                        <div class="pay-disc">−10%</div>
+                        <div class="pay-name">48 soat ichida</div>
+                        <div class="pay-desc">Konsultatsiyadan so'ng 48 soat ichida to'liq to'lov qilsangiz — 10% chegirma.</div>
+                    </div>
+                    <div class="pay-card liquid-glass">
+                        <div class="pay-emoji">🟧</div>
+                        <div class="pay-disc">0%</div>
+                        <div class="pay-name">Muddatli to'lov</div>
+                        <div class="pay-desc">3 / 4 / 6 oyga foizsiz bo'lib-bo'lib to'lash imkoniyati.</div>
+                    </div>
+                </div>
+                <div class="pay-banks reveal">
+                    <span class="pay-banks-label">📍 Oyma-oy to'lov:</span>
+                    <span class="tag liquid-glass">Anor Bank</span>
+                    <span class="tag liquid-glass">Alif Nasiya</span>
+                    <span class="tag liquid-glass">Variant Nasiya</span>
+                    <span class="tag liquid-glass">Uzum Nasiya</span>
+                    <span class="tag liquid-glass">Paylater</span>
+                </div>
             </div>
         </section>
 
