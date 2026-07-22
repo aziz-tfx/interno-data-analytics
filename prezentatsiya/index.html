@@ -231,6 +231,30 @@
     .salary-amt{font-size:clamp(1.7rem,3.6vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1}
     .salary-per{font-size:clamp(0.78rem,1.1vw,0.95rem);opacity:.6;margin-top:8px;text-transform:uppercase;letter-spacing:0.03em;font-weight:600}
 
+    /* pricing */
+    .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,30px);flex:1;align-content:center}
+    .price-card{border-radius:var(--radius-lg);padding:clamp(22px,2.8vw,42px);display:flex;flex-direction:column;position:relative}
+    .price-card.primary{background:var(--lime)!important;color:var(--black)}
+    .price-card.primary::before{display:none}
+    .price-badge{position:absolute;top:clamp(16px,2vw,26px);right:clamp(16px,2vw,26px);padding:6px 15px;border-radius:var(--radius-pill);background:var(--black);color:var(--lime);font-size:clamp(0.6rem,0.9vw,0.72rem);font-weight:800;text-transform:uppercase;letter-spacing:0.04em}
+    .price-tier{font-size:clamp(0.78rem,1.2vw,1rem);font-weight:800;text-transform:uppercase;letter-spacing:0.09em;color:var(--lime);margin-bottom:14px}
+    .price-card.primary .price-tier{color:rgba(0,0,0,.6)}
+    .price-base{font-size:clamp(1.8rem,3.9vw,3.1rem);font-weight:900;letter-spacing:-0.03em;line-height:1;display:flex;align-items:baseline;gap:10px}
+    .price-base small{font-size:clamp(0.78rem,1.15vw,1rem);font-weight:700;opacity:.55;letter-spacing:0.02em}
+    .price-sub{font-size:clamp(0.7rem,1vw,0.85rem);color:var(--text-muted);margin-top:8px;text-transform:uppercase;letter-spacing:0.03em;font-weight:600}
+    .price-card.primary .price-sub{color:rgba(0,0,0,.55)}
+    .price-rows{margin-top:clamp(16px,2.4vh,26px);display:flex;flex-direction:column;gap:8px}
+    .price-rows-tag{font-size:clamp(0.62rem,0.95vw,0.76rem);font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:4px}
+    .price-card.primary .price-rows-tag{color:rgba(0,0,0,.5)}
+    .price-row{display:flex;align-items:center;justify-content:space-between;padding:clamp(9px,1.3vw,13px) clamp(13px,1.6vw,18px);border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid var(--border)}
+    .price-card.primary .price-row{background:rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.14)}
+    .price-off{font-size:clamp(0.7rem,1vw,0.9rem);font-weight:800;color:var(--lime)}
+    .price-card.primary .price-off{color:var(--black)}
+    .price-new{font-size:clamp(0.85rem,1.35vw,1.2rem);font-weight:800}
+    .price-new small{font-size:0.72em;font-weight:700;opacity:.55;margin-left:5px}
+    .price-note{margin-top:clamp(16px,2.4vh,24px);display:flex;gap:10px;align-items:center;justify-content:center;color:var(--black);background:var(--lime);border-radius:var(--radius-pill);padding:12px 22px;font-size:clamp(0.76rem,1.1vw,0.95rem);font-weight:700;align-self:center}
+    .price-note b{font-weight:900}
+
     /* speaker */
     .speaker-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(18px,3vw,50px);align-items:center;flex:1}
     .speaker-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:1/1.05;background:var(--card-light)}
@@ -396,6 +420,7 @@
         .stat-grid{grid-template-columns:repeat(2,1fr)}
         .g4,.g5,.g3{grid-template-columns:repeat(2,1fr)}
         .salary-grid{grid-template-columns:1fr}
+        .price-grid{grid-template-columns:1fr}
         .slide-3d{width:90%;opacity:.5;right:-20%}
         .dots{display:none}
         .hint{display:none}
@@ -806,6 +831,43 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- ===================== SLIDE — PRICING ===================== -->
+        <section class="slide" data-name="Narx">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 16 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">KURS <span class="accent">NARXI</span></h2>
+                    <p class="s-sub reveal">Toshkent · 3 oylik dastur. Ochiq darsda ro'yxatdan o'tganlarga — maxsus chegirmalar.</p>
+                </div>
+                <div class="price-grid stg">
+                    <div class="price-card liquid-glass">
+                        <div class="price-tier">Standart</div>
+                        <div class="price-base">6 000 000 <small>so'm</small></div>
+                        <div class="price-sub">To'liq kurs narxi</div>
+                        <div class="price-rows">
+                            <div class="price-rows-tag">Chegirma bilan</div>
+                            <div class="price-row"><span class="price-off">−10%</span><span class="price-new">5 400 000 <small>so'm</small></span></div>
+                            <div class="price-row"><span class="price-off">−15%</span><span class="price-new">5 100 000 <small>so'm</small></span></div>
+                            <div class="price-row"><span class="price-off">−20%</span><span class="price-new">4 800 000 <small>so'm</small></span></div>
+                        </div>
+                    </div>
+                    <div class="price-card primary">
+                        <div class="price-badge">Tavsiya etamiz</div>
+                        <div class="price-tier">VIP</div>
+                        <div class="price-base">9 200 000 <small>so'm</small></div>
+                        <div class="price-sub">Kengaytirilgan format</div>
+                        <div class="price-rows">
+                            <div class="price-rows-tag">Chegirma bilan</div>
+                            <div class="price-row"><span class="price-off">−10%</span><span class="price-new">8 280 000 <small>so'm</small></span></div>
+                            <div class="price-row"><span class="price-off">−15%</span><span class="price-new">7 820 000 <small>so'm</small></span></div>
+                            <div class="price-row"><span class="price-off">−20%</span><span class="price-new">7 360 000 <small>so'm</small></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-note reveal">🎯 <span>Ochiq dars ishtirokchilariga <b>−20% gacha chegirma</b> — joyni bugun band qiling</span></div>
             </div>
         </section>
 
