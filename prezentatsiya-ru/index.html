@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#D6FF3C">
+    <meta name="format-detection" content="telephone=no">
+    <title>Открытый урок — Data-аналитика | INTERNO School</title>
+    <meta name="description" content="Интерактивная презентация открытого урока INTERNO School по Data-аналитике. Python, SQL, Power BI. Рынок, программа, навыки и карьера.">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://interno.uz/data-analitika/ru/prezentatsiya">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.163.0/build/three.module.js"}}</script>
+<style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{
+        --lime:#D6FF3C;
+        --lime-dim:#B8E835;
+        --black:#000;
+        --dark:#0A0A0A;
+        --card:#141414;
+        --card-light:#1C1C1C;
+        --white:#fff;
+        --text-muted:rgba(255,255,255,0.5);
+        --border:rgba(255,255,255,0.08);
+        --radius:20px;
+        --radius-lg:28px;
+        --radius-xl:40px;
+        --radius-pill:100px;
+    }
+    /* ============== LIQUID GLASS (glassmorphism) ============== */
+    .dark{
+        --glass-bg:rgba(255,255,255,0.04);
+        --glass-blur:14px;
+        --glass-shadow-inset:rgba(255,255,255,0.12);
+        --glass-border-bright:rgba(255,255,255,0.5);
+        --glass-border-dim:rgba(255,255,255,0.15);
+        --glass-border-width:1.4px;
+    }
+    .liquid-glass{
+        background:var(--glass-bg)!important;
+        background-blend-mode:luminosity;
+        backdrop-filter:blur(var(--glass-blur))!important;
+        -webkit-backdrop-filter:blur(var(--glass-blur))!important;
+        border:none!important;
+        box-shadow:inset 0 1px 1px var(--glass-shadow-inset)!important;
+        position:relative;
+        overflow:hidden;
+    }
+    .liquid-glass::before{
+        content:'';position:absolute;inset:0;border-radius:inherit;
+        padding:var(--glass-border-width);
+        background:linear-gradient(180deg,var(--glass-border-bright) 0%,var(--glass-border-dim) 20%,transparent 40%,transparent 60%,var(--glass-border-dim) 80%,var(--glass-border-bright) 100%);
+        -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+        -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+    }
+    .liquid-glass,.liquid-glass:hover,.liquid-glass:focus,.liquid-glass:active{color:var(--white)!important}
+
+    html,body{height:100%}
+    body{
+        font-family:'Inter',sans-serif;
+        background:var(--lime);
+        color:var(--white);
+        overflow:hidden;
+        line-height:1.4;
+        -webkit-font-smoothing:antialiased;
+    }
+
+    /* ============== DECK FRAME (lime border like the reference) ============== */
+    .deck{position:fixed;inset:0;padding:clamp(10px,2.2vh,28px) clamp(10px,2.2vw,28px);background:var(--lime)}
+    .deck-title{
+        position:absolute;top:clamp(8px,1.6vh,18px);left:50%;transform:translateX(-50%);
+        font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:var(--black);
+        font-size:clamp(0.8rem,1.5vw,1.1rem);z-index:60;pointer-events:none;white-space:nowrap;
+    }
+
+    .stage{position:relative;width:100%;height:100%}
+
+    /* ============== SLIDE ============== */
+    .slide{
+        position:absolute;inset:0;
+        background:radial-gradient(120% 120% at 80% -10%,#1a1a1a 0%,var(--dark) 45%,#050505 100%);
+        border-radius:var(--radius-xl);
+        overflow:hidden;
+        opacity:0;visibility:hidden;
+        transform:scale(0.97);
+        transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1),visibility 0s linear .6s;
+        display:flex;flex-direction:column;
+        padding:clamp(24px,4.5vw,72px);
+        box-shadow:0 40px 90px rgba(0,0,0,0.45);
+    }
+    .slide.active{opacity:1;visibility:visible;transform:scale(1);transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1),visibility 0s}
+    .slide.prev{transform:scale(1.03)}
+    /* decorative color glow + concentric rings (depth / less flat) */
+    .slide::before{
+        content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+        background-image:
+            radial-gradient(38% 46% at 87% 3%, rgba(214,255,60,0.18), transparent 66%),
+            radial-gradient(45% 54% at 4% 106%, rgba(105,165,255,0.14), transparent 70%),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'%3E%3Cg fill='none' stroke='%23d6ff3c' stroke-opacity='0.16' stroke-width='1.3'%3E%3Ccircle cx='180' cy='180' r='72'/%3E%3Ccircle cx='180' cy='180' r='112'/%3E%3Ccircle cx='180' cy='180' r='150'/%3E%3Ccircle cx='180' cy='180' r='178'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat:no-repeat;
+        background-position:0 0, 0 0, right -120px top -140px;
+        background-size:auto, auto, 360px 360px;
+    }
+    .cta-slide::before{display:none}
+    @media(prefers-reduced-motion:no-preference){
+        .slide.active::before{animation:decoDrift 18s ease-in-out infinite alternate}
+    }
+    @keyframes decoDrift{from{transform:translate(0,0)}to{transform:translate(-16px,12px)}}
+    /* brand logos inside skill icons and hero tags */
+    .ic-icon img{width:62%;height:62%;object-fit:contain;display:block}
+    .ic-icon.logo-tile{background:#fff;border-color:#fff}
+    .tag-logo{width:1.15em;height:1.15em;object-fit:contain;vertical-align:-0.18em;margin-right:8px}
+    /* faint grid texture */
+    .slide::after{
+        content:'';position:absolute;inset:0;pointer-events:none;opacity:.4;
+        background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+        background-size:54px 54px;mask-image:radial-gradient(110% 80% at 50% 0%,#000 30%,transparent 80%);
+        -webkit-mask-image:radial-gradient(110% 80% at 50% 0%,#000 30%,transparent 80%);
+    }
+    .slide-3d{position:absolute;top:0;right:-4%;width:56%;height:100%;z-index:1;pointer-events:none}
+    .slide-3d canvas{width:100%;height:100%}
+
+    .slide-inner{position:relative;z-index:3;display:flex;flex-direction:column;height:100%;width:100%}
+
+    /* ============== COMMON SLIDE BITS ============== */
+    .s-num{
+        display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
+        font-size:clamp(0.85rem,1.5vw,1.15rem);font-weight:900;color:var(--lime);
+        letter-spacing:0.18em;text-transform:uppercase;margin-bottom:clamp(14px,2.4vh,28px);
+    }
+    .s-num .br{color:rgba(214,255,60,.45)}
+    .s-kicker{
+        display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+        padding:8px 18px;border-radius:var(--radius-pill);
+        font-size:clamp(0.62rem,1vw,0.78rem);font-weight:800;text-transform:uppercase;letter-spacing:0.08em;
+        color:var(--white);margin-bottom:18px;
+    }
+    .s-title{
+        font-size:clamp(1.9rem,5.4vw,4.6rem);font-weight:900;line-height:0.98;
+        letter-spacing:-0.035em;text-transform:uppercase;
+    }
+    .s-title .accent{color:var(--lime)}
+    .s-title .stroke{-webkit-text-stroke:1.8px var(--white);color:var(--dark);paint-order:stroke fill;display:inline}
+    .s-sub{
+        max-width:780px;margin-top:clamp(14px,2.4vh,26px);
+        font-size:clamp(0.95rem,1.5vw,1.3rem);color:rgba(255,255,255,0.72);font-weight:400;line-height:1.5;
+    }
+    .scribble{
+        font-family:'Caveat',cursive;color:var(--lime);font-size:clamp(1.6rem,3vw,2.6rem);
+        font-weight:700;transform:rotate(-8deg);display:inline-block;line-height:1;
+    }
+
+    /* entrance reveal — triggered when slide.active */
+    .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(0.16,1,0.3,1),transform .7s cubic-bezier(0.16,1,0.3,1)}
+    .slide.active .reveal{opacity:1;transform:none}
+    .slide.active .reveal:nth-child(1){transition-delay:.08s}
+    .slide.active .reveal:nth-child(2){transition-delay:.16s}
+    .slide.active .reveal:nth-child(3){transition-delay:.24s}
+    .slide.active .reveal:nth-child(4){transition-delay:.32s}
+    .slide.active .reveal:nth-child(5){transition-delay:.40s}
+    .slide.active .reveal:nth-child(6){transition-delay:.48s}
+    .stg>*{opacity:0;transform:translateY(30px) scale(.98);transition:opacity .6s cubic-bezier(0.16,1,0.3,1),transform .6s cubic-bezier(0.16,1,0.3,1)}
+    .slide.active .stg>*{opacity:1;transform:none}
+    .slide.active .stg>*:nth-child(1){transition-delay:.20s}
+    .slide.active .stg>*:nth-child(2){transition-delay:.28s}
+    .slide.active .stg>*:nth-child(3){transition-delay:.36s}
+    .slide.active .stg>*:nth-child(4){transition-delay:.44s}
+    .slide.active .stg>*:nth-child(5){transition-delay:.52s}
+    .slide.active .stg>*:nth-child(6){transition-delay:.60s}
+    .slide.active .stg>*:nth-child(7){transition-delay:.68s}
+    .slide.active .stg>*:nth-child(8){transition-delay:.76s}
+
+    /* ============== TITLE SLIDE ============== */
+    .title-slide .slide-inner{justify-content:center}
+    .hero-avatars{display:inline-flex;vertical-align:middle;margin-left:18px}
+    .hero-avatars span{width:clamp(34px,4vw,58px);height:clamp(34px,4vw,58px);border-radius:50%;border:2px solid var(--dark);margin-left:-14px;display:inline-flex;align-items:center;justify-content:center;font-size:clamp(0.9rem,2vw,1.5rem)}
+    .hero-avatars span:nth-child(1){background:linear-gradient(135deg,#ff9a9e,#fad0c4)}
+    .hero-avatars span:nth-child(2){background:linear-gradient(135deg,#a18cd1,#fbc2eb)}
+    .hero-avatars span:nth-child(3){background:var(--lime);color:var(--black)}
+    .title-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(18px,3vh,34px);max-width:760px}
+    .tag{padding:9px 20px;border-radius:var(--radius-pill);font-size:clamp(0.7rem,1.1vw,0.9rem);font-weight:700;text-transform:uppercase;letter-spacing:0.03em}
+    .title-foot{margin-top:auto;padding-top:24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .title-question{
+        margin-top:clamp(18px,3vh,30px);max-width:640px;padding:18px 24px;border-radius:18px;
+        font-size:clamp(0.85rem,1.3vw,1.1rem);font-weight:600;color:var(--black);background:var(--lime);
+        box-shadow:0 10px 30px rgba(214,255,60,.25);
+    }
+
+    /* ============== AGENDA ============== */
+    .agenda-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(10px,2vw,40px);align-items:center;flex:1}
+    .agenda-rows{display:flex;flex-direction:column;gap:clamp(8px,1.6vh,18px)}
+    .agenda-row{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;padding-bottom:clamp(8px,1.6vh,16px);border-bottom:1px solid var(--border)}
+    .agenda-q{font-size:clamp(1.1rem,2.6vw,2.1rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em}
+    .agenda-q .accent{color:var(--lime)}
+    .agenda-a{font-size:clamp(0.85rem,1.3vw,1.05rem);color:var(--text-muted);font-weight:500;text-align:right}
+    .agenda-flow{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .agenda-flow span{padding:7px 16px;border-radius:var(--radius-pill);font-size:clamp(0.62rem,1vw,0.78rem);font-weight:700;text-transform:uppercase;letter-spacing:0.04em}
+    .agenda-flow b{color:var(--lime);align-self:center}
+
+    /* ============== STATS / MARKET ============== */
+    .body-head{margin-bottom:clamp(16px,2.6vh,30px)}
+    .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,18px);flex:1;align-content:center}
+    .stat-card{border-radius:var(--radius-lg);padding:clamp(18px,2.6vw,34px) clamp(16px,2vw,28px);display:flex;flex-direction:column;justify-content:center}
+    .stat-val{font-size:clamp(2rem,5vw,4rem);font-weight:900;letter-spacing:-0.04em;color:var(--lime);line-height:1}
+    .stat-label{font-size:clamp(0.78rem,1.2vw,1rem);font-weight:800;text-transform:uppercase;letter-spacing:0.02em;margin-top:10px}
+    .stat-desc{font-size:clamp(0.68rem,1vw,0.84rem);color:var(--text-muted);margin-top:6px}
+    .market-quote{margin-top:clamp(14px,2.4vh,26px);padding:18px 26px;border-radius:var(--radius);font-size:clamp(0.85rem,1.3vw,1.1rem);font-style:italic;color:rgba(255,255,255,.85);border-left:3px solid var(--lime)!important}
+    .market-quote span{display:block;margin-top:8px;font-style:normal;font-size:0.8rem;color:var(--lime);font-weight:700}
+
+    /* ============== COMPANIES ============== */
+    .chip-cloud{display:flex;flex-wrap:wrap;gap:clamp(8px,1vw,14px);align-content:center;flex:1}
+    .chip{padding:clamp(10px,1.4vw,16px) clamp(16px,2vw,28px);border-radius:var(--radius-pill);font-size:clamp(0.8rem,1.4vw,1.15rem);font-weight:700;letter-spacing:0.01em}
+
+    /* ============== CARD GRIDS (skills, curriculum, tools, outcomes) ============== */
+    .card-grid{display:grid;gap:clamp(10px,1.2vw,16px);flex:1;align-content:center}
+    .g4{grid-template-columns:repeat(4,1fr)}
+    .g3{grid-template-columns:repeat(3,1fr)}
+    .g5{grid-template-columns:repeat(5,1fr)}
+    .info-card{border-radius:var(--radius-lg);padding:clamp(16px,1.8vw,26px);display:flex;flex-direction:column;height:100%}
+    .ic-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .ic-icon{width:clamp(38px,4vw,52px);height:clamp(38px,4vw,52px);border-radius:14px;background:rgba(214,255,60,0.1);border:1px solid rgba(214,255,60,0.25);display:flex;align-items:center;justify-content:center;font-size:clamp(1.1rem,2vw,1.6rem);flex-shrink:0}
+    .ic-num{font-size:clamp(0.6rem,0.9vw,0.72rem);color:var(--lime);font-weight:800;text-transform:uppercase;letter-spacing:0.06em}
+    .ic-title{font-size:clamp(0.95rem,1.4vw,1.25rem);font-weight:800;text-transform:uppercase;letter-spacing:-0.01em;line-height:1.1}
+    .ic-desc{font-size:clamp(0.75rem,1.05vw,0.92rem);color:var(--text-muted);line-height:1.45;margin-bottom:12px}
+    .ic-list{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:auto}
+    .ic-list li{font-size:clamp(0.72rem,1vw,0.88rem);color:rgba(255,255,255,0.75);display:flex;gap:8px;align-items:flex-start}
+    .ic-list li::before{content:'→';color:var(--lime);font-weight:900;flex-shrink:0}
+    .ic-foot{margin-top:14px;align-self:flex-start;padding:7px 14px;border-radius:10px;background:var(--lime);color:var(--black);font-size:clamp(0.62rem,0.95vw,0.78rem);font-weight:800;text-transform:uppercase;letter-spacing:0.03em}
+    .ic-result{margin-top:14px;padding:12px 16px;border-radius:12px;background:rgba(214,255,60,0.08);border:1px solid rgba(214,255,60,0.2);font-size:clamp(0.7rem,1vw,0.86rem);color:var(--lime);font-weight:700;text-transform:uppercase;letter-spacing:0.01em}
+
+    /* tools */
+    .tool-card{border-radius:var(--radius);padding:clamp(16px,1.8vw,26px) 12px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+    .tool-ico{width:clamp(48px,5vw,72px);height:clamp(48px,5vw,72px);border-radius:16px;background:linear-gradient(145deg,#fff,#e6e6e6);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.4),0 1px 1px rgba(255,255,255,.1) inset}
+    .tool-ico img{width:60%;height:60%;object-fit:contain}
+    .tool-nm{font-size:clamp(0.78rem,1.2vw,1rem);font-weight:800;text-transform:uppercase;letter-spacing:0.02em}
+    .tool-ds{font-size:clamp(0.62rem,0.9vw,0.78rem);color:var(--text-muted)}
+
+    /* outcomes */
+    .oc-icon{width:clamp(40px,4vw,52px);height:clamp(40px,4vw,52px);border-radius:14px;background:rgba(214,255,60,0.12);border:1px solid rgba(214,255,60,0.25);display:flex;align-items:center;justify-content:center;font-size:clamp(1.2rem,2vw,1.6rem);margin-bottom:14px}
+
+    /* salary */
+    .salary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,22px);flex:1;align-content:center}
+    .salary-card{border-radius:var(--radius-lg);padding:clamp(24px,3vw,44px);display:flex;flex-direction:column;justify-content:center}
+    .salary-card.primary{background:var(--lime)!important;color:var(--black)}
+    .salary-card.primary .salary-tag{background:var(--black);color:var(--lime)}
+    .salary-card.primary::before{display:none}
+    .salary-tag{align-self:flex-start;padding:7px 16px;border-radius:var(--radius-pill);background:var(--card-light);color:var(--white);font-size:clamp(0.66rem,1vw,0.8rem);font-weight:800;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:18px}
+    .salary-amt{font-size:clamp(1.7rem,3.6vw,3rem);font-weight:900;letter-spacing:-0.03em;line-height:1}
+    .salary-per{font-size:clamp(0.78rem,1.1vw,0.95rem);opacity:.6;margin-top:8px;text-transform:uppercase;letter-spacing:0.03em;font-weight:600}
+
+    /* pricing */
+    .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,30px);flex:1;align-content:center}
+    .price-card{border-radius:var(--radius-lg);padding:clamp(22px,2.8vw,42px);display:flex;flex-direction:column;position:relative}
+    .price-card.primary{background:var(--lime)!important;color:var(--black)}
+    .price-card.primary::before{display:none}
+    .price-badge{position:absolute;top:clamp(16px,2vw,26px);right:clamp(16px,2vw,26px);padding:6px 15px;border-radius:var(--radius-pill);background:var(--black);color:var(--lime);font-size:clamp(0.6rem,0.9vw,0.72rem);font-weight:800;text-transform:uppercase;letter-spacing:0.04em}
+    .price-tier{font-size:clamp(0.78rem,1.2vw,1rem);font-weight:800;text-transform:uppercase;letter-spacing:0.09em;color:var(--lime);margin-bottom:14px}
+    .price-card.primary .price-tier{color:rgba(0,0,0,.6)}
+    .price-base{font-size:clamp(1.8rem,3.9vw,3.1rem);font-weight:900;letter-spacing:-0.03em;line-height:1;display:flex;align-items:baseline;gap:10px}
+    .price-base small{font-size:clamp(0.78rem,1.15vw,1rem);font-weight:700;opacity:.55;letter-spacing:0.02em}
+    .price-sub{font-size:clamp(0.7rem,1vw,0.85rem);color:var(--text-muted);margin-top:8px;text-transform:uppercase;letter-spacing:0.03em;font-weight:600}
+    .price-card.primary .price-sub{color:rgba(0,0,0,.55)}
+    .price-rows{margin-top:clamp(16px,2.4vh,26px);display:flex;flex-direction:column;gap:8px}
+    .price-rows-tag{font-size:clamp(0.62rem,0.95vw,0.76rem);font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-muted);margin-bottom:4px}
+    .price-card.primary .price-rows-tag{color:rgba(0,0,0,.5)}
+    .price-row{display:flex;align-items:center;justify-content:space-between;padding:clamp(9px,1.3vw,13px) clamp(13px,1.6vw,18px);border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid var(--border)}
+    .price-card.primary .price-row{background:rgba(0,0,0,0.06);border-color:rgba(0,0,0,0.14)}
+    .price-off{font-size:clamp(0.7rem,1vw,0.9rem);font-weight:800;color:var(--lime)}
+    .price-card.primary .price-off{color:var(--black)}
+    .price-new{font-size:clamp(0.85rem,1.35vw,1.2rem);font-weight:800}
+    .price-new small{font-size:0.72em;font-weight:700;opacity:.55;margin-left:5px}
+    .price-note{margin-top:clamp(16px,2.4vh,24px);display:flex;gap:10px;align-items:center;justify-content:center;color:var(--black);background:var(--lime);border-radius:var(--radius-pill);padding:12px 22px;font-size:clamp(0.76rem,1.1vw,0.95rem);font-weight:700;align-self:center}
+    .price-note b{font-weight:900}
+
+    /* payment options */
+    .pay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.7vw,22px);align-content:center}
+    .pay-card{border-radius:var(--radius-lg);padding:clamp(20px,2.5vw,36px);display:flex;flex-direction:column;gap:clamp(8px,1.2vh,12px);position:relative}
+    .pay-emoji{font-size:clamp(1.3rem,2.2vw,1.9rem);line-height:1}
+    .pay-disc{font-size:clamp(1.6rem,3.4vw,2.8rem);font-weight:900;letter-spacing:-0.03em;color:var(--lime);line-height:1}
+    .pay-name{font-size:clamp(0.95rem,1.4vw,1.25rem);font-weight:800;text-transform:uppercase;letter-spacing:-0.01em}
+    .pay-desc{font-size:clamp(0.76rem,1.08vw,0.94rem);color:var(--text-muted);line-height:1.5}
+    .pay-banks{margin-top:clamp(16px,2.6vh,28px);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+    .pay-banks-label{font-size:clamp(0.8rem,1.2vw,1rem);font-weight:800;color:var(--white)}
+
+    /* ===== INTERNO structure components ===== */
+    .stat-grid.cols3{grid-template-columns:repeat(3,1fr)}
+    .about-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(18px,3vw,44px);align-items:center;flex:1}
+    .def-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,44px);align-items:center;flex:1}
+    .lead-quote{font-size:clamp(1rem,1.55vw,1.4rem);line-height:1.5;color:rgba(255,255,255,0.9)}
+    .lead-quote b{color:var(--lime)}
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px);flex:1;align-content:center}
+    .review-card{border-radius:var(--radius-lg);padding:clamp(18px,2.2vw,30px);display:flex;flex-direction:column;gap:14px}
+    .review-stars{color:var(--lime);font-size:clamp(0.85rem,1.2vw,1.05rem);letter-spacing:3px}
+    .review-text{font-size:clamp(0.8rem,1.12vw,0.98rem);color:rgba(255,255,255,0.85);line-height:1.55;flex:1}
+    .review-who{display:flex;align-items:center;gap:12px}
+    .review-ava{width:clamp(38px,4vw,50px);height:clamp(38px,4vw,50px);border-radius:50%;background:linear-gradient(135deg,var(--lime),var(--lime-dim));color:var(--black);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:clamp(0.85rem,1.2vw,1.05rem);flex-shrink:0}
+    .review-name{font-weight:800;font-size:clamp(0.84rem,1.15vw,1rem)}
+    .review-role{font-size:clamp(0.68rem,0.95vw,0.8rem);color:var(--text-muted)}
+    .grad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.3vw,16px);flex:1;align-content:center}
+    .grad-card{border-radius:var(--radius);padding:clamp(14px,1.6vw,22px);display:flex;flex-direction:column;gap:9px;align-items:flex-start}
+    .grad-ava{width:clamp(40px,4vw,52px);height:clamp(40px,4vw,52px);border-radius:14px;background:linear-gradient(135deg,var(--lime),var(--lime-dim));color:var(--black);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:clamp(1rem,1.5vw,1.3rem)}
+    .grad-name{font-weight:800;font-size:clamp(0.8rem,1.12vw,0.96rem);line-height:1.15}
+    .grad-role{font-size:clamp(0.66rem,0.92vw,0.78rem);color:var(--text-muted);line-height:1.3}
+    .grad-income{margin-top:6px;padding:5px 12px;border-radius:var(--radius-pill);background:rgba(214,255,60,0.12);border:1px solid rgba(214,255,60,0.28);color:var(--lime);font-size:clamp(0.68rem,0.98vw,0.82rem);font-weight:800}
+    .qa-slide .slide-inner{justify-content:center;align-items:center;text-align:center;position:relative}
+    .qa-marks{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .qa-marks span{position:absolute;font-size:clamp(3rem,10vw,9rem);font-weight:900;color:rgba(214,255,60,0.10)}
+    .qa-marks span:nth-child(1){top:6%;left:9%}.qa-marks span:nth-child(2){top:16%;right:11%}
+    .qa-marks span:nth-child(3){bottom:12%;left:15%}.qa-marks span:nth-child(4){bottom:18%;right:16%}
+    .qa-slide .body-head,.qa-slide .s-title,.qa-slide .s-sub,.qa-slide .cta-btn{position:relative;z-index:2}
+    .thanks-slide{background:var(--lime)}
+    .thanks-slide::before,.thanks-slide::after{display:none}
+    .thanks-slide .slide-inner{justify-content:center;align-items:center;text-align:center}
+    .thanks-slide .s-title{color:var(--black)}
+
+    /* speaker */
+    .speaker-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(18px,3vw,50px);align-items:center;flex:1}
+    .speaker-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:1/1.05;background:var(--card-light)}
+    .speaker-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .speaker-monogram{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(120% 120% at 30% 0%,#1f1f1f 0%,#0c0c0c 70%)}
+    .speaker-monogram b{font-size:clamp(3rem,8vw,6rem);font-weight:900;letter-spacing:-0.04em;color:var(--lime);line-height:1}
+    .speaker-monogram small{font-size:clamp(0.78rem,1.3vw,1rem);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted)}
+    .speaker-float{position:absolute;padding:9px 16px;border-radius:var(--radius-pill);font-size:clamp(0.66rem,1vw,0.82rem);font-weight:700;display:flex;align-items:center;gap:7px}
+    .speaker-float.tr{top:16px;right:16px}
+    .speaker-float.bl{bottom:16px;left:16px}
+    .speaker-role{color:var(--lime);font-weight:700;font-size:clamp(0.82rem,1.3vw,1.05rem);margin:10px 0 18px}
+    .speaker-stats{display:flex;gap:clamp(14px,2vw,32px);margin-bottom:18px}
+    .sp-stat-v{font-size:clamp(1.4rem,2.6vw,2.4rem);font-weight:900;color:var(--lime);letter-spacing:-0.03em;line-height:1}
+    .sp-stat-l{font-size:clamp(0.66rem,1vw,0.82rem);color:var(--text-muted);text-transform:uppercase;letter-spacing:0.03em;margin-top:4px}
+    .speaker-bio{font-size:clamp(0.82rem,1.2vw,1rem);color:rgba(255,255,255,.78);line-height:1.6;margin-bottom:18px}
+    .speaker-tech{display:flex;flex-wrap:wrap;gap:8px}
+    .speaker-tech span{padding:7px 15px;border-radius:var(--radius-pill);font-size:clamp(0.66rem,1vw,0.82rem);font-weight:700}
+
+    /* ============== PRACTICAL: CODE / DATA / CHARTS / DASHBOARDS ============== */
+    .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.5vw,40px);align-items:center;flex:1;min-height:0}
+    .demo-grid.wide-left{grid-template-columns:1.15fr 0.85fr}
+
+    /* steps */
+    .steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:clamp(8px,1.6vh,15px)}
+    .steps li{counter-increment:s;display:flex;gap:14px;align-items:center;font-size:clamp(0.85rem,1.3vw,1.12rem);color:rgba(255,255,255,0.84);font-weight:500}
+    .steps li b{color:var(--lime);font-weight:800}
+    .steps li::before{content:counter(s,decimal-leading-zero);flex-shrink:0;width:clamp(30px,3.2vw,38px);height:clamp(30px,3.2vw,38px);border-radius:11px;background:var(--lime);color:var(--black);font-weight:900;font-size:clamp(0.72rem,1vw,0.88rem);display:flex;align-items:center;justify-content:center}
+
+    /* code editor */
+    .code-card{border-radius:var(--radius-lg);overflow:hidden;background:#0c0c0c;border:1px solid var(--border);display:flex;flex-direction:column;box-shadow:0 20px 50px rgba(0,0,0,0.4);max-height:100%}
+    .code-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#161616;border-bottom:1px solid var(--border);flex-shrink:0}
+    .code-dot{width:11px;height:11px;border-radius:50%}
+    .code-dot.r{background:#ff5f56}.code-dot.y{background:#ffbd2e}.code-dot.g{background:#27c93f}
+    .code-file{margin-left:10px;font-size:0.78rem;color:var(--text-muted);font-weight:600;font-family:'JetBrains Mono',monospace}
+    .code-body{padding:16px 20px;font-family:'JetBrains Mono','SF Mono',ui-monospace,monospace;font-size:clamp(0.7rem,1.02vw,0.92rem);line-height:1.65;overflow:auto;color:#e6e6e6}
+    .code-line{display:block;white-space:pre;opacity:0;transform:translateX(-10px);transition:opacity .45s ease,transform .45s ease}
+    .slide.active .code-line{opacity:1;transform:none}
+    .slide.active .code-line:nth-child(1){transition-delay:.30s}
+    .slide.active .code-line:nth-child(2){transition-delay:.37s}
+    .slide.active .code-line:nth-child(3){transition-delay:.44s}
+    .slide.active .code-line:nth-child(4){transition-delay:.51s}
+    .slide.active .code-line:nth-child(5){transition-delay:.58s}
+    .slide.active .code-line:nth-child(6){transition-delay:.65s}
+    .slide.active .code-line:nth-child(7){transition-delay:.72s}
+    .slide.active .code-line:nth-child(8){transition-delay:.79s}
+    .slide.active .code-line:nth-child(9){transition-delay:.86s}
+    .slide.active .code-line:nth-child(10){transition-delay:.93s}
+    .slide.active .code-line:nth-child(11){transition-delay:1.00s}
+    .slide.active .code-line:nth-child(12){transition-delay:1.07s}
+    .slide.active .code-line:nth-child(13){transition-delay:1.14s}
+    .slide.active .code-line:nth-child(14){transition-delay:1.21s}
+    .slide.active .code-line:nth-child(15){transition-delay:1.28s}
+    .slide.active .code-line:nth-child(16){transition-delay:1.35s}
+    .tok-k{color:#ff7b9c}.tok-f{color:#79c0ff}.tok-s{color:#9ece6a}.tok-n{color:#ff9e64}.tok-c{color:#5c6370;font-style:italic}.tok-b{color:#e0af68}
+    .cursor{display:inline-block;width:8px;height:1.05em;background:var(--lime);vertical-align:text-bottom;animation:blink 1.05s steps(1) infinite;margin-left:1px}
+    @keyframes blink{50%{opacity:0}}
+
+    /* data / result table */
+    .data-wrap{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--card)}
+    .data-tag{padding:10px 16px;font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.05em;color:var(--lime);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px}
+    .data-table{width:100%;border-collapse:collapse;font-size:clamp(0.7rem,1vw,0.9rem)}
+    .data-table th{background:rgba(214,255,60,0.08);color:var(--lime);text-align:left;padding:9px 14px;text-transform:uppercase;font-size:clamp(0.6rem,0.85vw,0.72rem);letter-spacing:0.04em;font-weight:800;white-space:nowrap}
+    .data-table td{padding:9px 14px;border-top:1px solid var(--border);color:rgba(255,255,255,0.82);white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:clamp(0.66rem,0.95vw,0.85rem)}
+    .data-table tr:hover td{background:rgba(255,255,255,0.03)}
+    .data-table td.hl{color:var(--lime);font-weight:700}
+
+    /* insight callout */
+    .insight{margin-top:16px;padding:14px 18px;border-radius:14px;background:rgba(214,255,60,0.1);border:1px solid rgba(214,255,60,0.25);font-size:clamp(0.8rem,1.15vw,1rem);color:rgba(255,255,255,0.92);font-weight:500;display:flex;gap:10px;align-items:flex-start}
+    .insight b{color:var(--lime);font-weight:800}
+    .insight .ic-em{font-size:1.2em;line-height:1}
+
+    /* animated bar chart */
+    .chart-card{border-radius:var(--radius-lg);padding:clamp(18px,2.2vw,30px);background:var(--card);border:1px solid var(--border)}
+    .chart-title{font-size:clamp(0.72rem,1vw,0.85rem);font-weight:800;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-muted);margin-bottom:18px}
+    .bar-chart{display:flex;align-items:flex-end;gap:clamp(10px,1.6vw,22px);height:clamp(130px,22vh,230px)}
+    .bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:8px;height:100%}
+    .bar-val{font-size:clamp(0.7rem,1.05vw,0.92rem);font-weight:800;color:var(--white)}
+    .bar-fill{width:100%;border-radius:9px 9px 0 0;background:linear-gradient(180deg,var(--lime),var(--lime-dim));height:0;transition:height 1.1s cubic-bezier(0.16,1,0.3,1);min-height:3px}
+    .slide.active .bar-fill{height:var(--h)}
+    .slide.active .bar:nth-child(1) .bar-fill{transition-delay:.35s}
+    .slide.active .bar:nth-child(2) .bar-fill{transition-delay:.47s}
+    .slide.active .bar:nth-child(3) .bar-fill{transition-delay:.59s}
+    .slide.active .bar:nth-child(4) .bar-fill{transition-delay:.71s}
+    .slide.active .bar:nth-child(5) .bar-fill{transition-delay:.83s}
+    .bar-label{font-size:clamp(0.62rem,0.95vw,0.8rem);color:var(--text-muted);font-weight:600;text-align:center}
+
+    /* line chart */
+    .line-chart{width:100%}
+    .line-path{fill:none;stroke:var(--lime);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1200;stroke-dashoffset:1200;transition:stroke-dashoffset 1.8s ease .3s}
+    .slide.active .line-path{stroke-dashoffset:0}
+    .line-area{fill:url(#limegrad);opacity:0;transition:opacity 1s ease .9s}
+    .slide.active .line-area{opacity:1}
+    .line-dot{fill:var(--lime);opacity:0;transition:opacity .4s ease}
+    .slide.active .line-dot{opacity:1}
+    .slide.active .line-dot:nth-of-type(1){transition-delay:1.1s}
+    .slide.active .line-dot:nth-of-type(2){transition-delay:1.3s}
+    .slide.active .line-dot:nth-of-type(3){transition-delay:1.5s}
+    .slide.active .line-dot:nth-of-type(4){transition-delay:1.7s}
+    .slide.active .line-dot:nth-of-type(5){transition-delay:1.9s}
+
+    /* dashboard gallery */
+    .dash-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(10px,1.4vw,18px);flex:1;align-content:center}
+    .dash-card{border-radius:var(--radius);overflow:hidden;border:1px solid var(--border);background:var(--card);position:relative;transition:transform .4s cubic-bezier(0.16,1,0.3,1)}
+    .dash-card img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:16/9}
+    .dash-card:hover{transform:translateY(-5px);border-color:rgba(214,255,60,0.35)}
+    .dash-cap{position:absolute;left:12px;bottom:12px;padding:7px 15px;border-radius:var(--radius-pill);font-size:clamp(0.64rem,0.95vw,0.8rem);font-weight:700}
+    .dash-badge{position:absolute;top:12px;right:12px;padding:6px 13px;border-radius:var(--radius-pill);background:var(--lime);color:var(--black);font-size:0.66rem;font-weight:800;text-transform:uppercase;letter-spacing:0.03em}
+
+    /* ============== CTA SLIDE ============== */
+    .cta-slide{background:var(--lime)}
+    .cta-slide::after{display:none}
+    .cta-slide .slide-inner{justify-content:center;align-items:center;text-align:center}
+    .cta-slide .s-title{color:var(--black)}
+    .cta-slide .s-title .stroke{-webkit-text-stroke:1.8px var(--black);color:transparent}
+    .cta-sub{max-width:680px;margin:clamp(16px,2.6vh,28px) auto;font-size:clamp(1rem,1.6vw,1.35rem);color:rgba(0,0,0,0.72);font-weight:500}
+    .cta-btn{display:inline-flex;align-items:center;gap:14px;padding:clamp(18px,2.4vw,24px) clamp(34px,4vw,52px);background:var(--black);color:var(--lime);border-radius:var(--radius-pill);font-size:clamp(1rem,1.5vw,1.3rem);font-weight:800;text-decoration:none;text-transform:uppercase;letter-spacing:0.02em;transition:transform .3s,box-shadow .3s;margin-top:10px}
+    .cta-btn:hover{transform:scale(1.04);box-shadow:0 14px 50px rgba(0,0,0,0.35)}
+    .cta-meta{margin-top:clamp(24px,4vh,44px);display:flex;gap:clamp(20px,3vw,48px);flex-wrap:wrap;justify-content:center}
+    .cta-meta div{color:var(--black)}
+    .cta-meta b{display:block;font-size:clamp(1.3rem,2.4vw,2rem);font-weight:900;letter-spacing:-0.02em}
+    .cta-meta span{font-size:clamp(0.7rem,1vw,0.85rem);font-weight:700;text-transform:uppercase;opacity:.65;letter-spacing:0.03em}
+    .cta-logo{height:clamp(70px,9vh,120px);margin-bottom:8px}
+    .cta-logo img{height:100%;width:auto}
+
+    /* ============== NAV / CONTROLS ============== */
+    .ctrl{position:fixed;z-index:80;display:flex;align-items:center;gap:10px}
+    .ctrl-bottom{bottom:clamp(16px,3vh,34px);left:50%;transform:translateX(-50%)}
+    .nav-btn{
+        width:clamp(46px,5vw,58px);height:clamp(46px,5vw,58px);border-radius:50%;
+        background:var(--black);color:var(--lime);border:none;cursor:pointer;
+        display:flex;align-items:center;justify-content:center;font-size:1.4rem;
+        transition:transform .25s,box-shadow .25s;box-shadow:0 8px 24px rgba(0,0,0,.3)
+    }
+    .nav-btn:hover{transform:scale(1.08);box-shadow:0 10px 30px rgba(0,0,0,.45)}
+    .nav-btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
+    .counter{
+        min-width:88px;text-align:center;background:var(--black);color:var(--white);
+        padding:0 18px;height:clamp(46px,5vw,58px);border-radius:var(--radius-pill);
+        display:flex;align-items:center;justify-content:center;gap:4px;font-weight:800;
+        font-size:clamp(0.85rem,1.3vw,1.05rem);letter-spacing:0.04em
+    }
+    .counter .cur{color:var(--lime)}
+    .counter .tot{color:var(--text-muted)}
+    .dots{position:fixed;right:clamp(14px,2vw,28px);top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;gap:10px}
+    .dot{width:11px;height:11px;border-radius:50%;background:rgba(0,0,0,0.28);border:none;cursor:pointer;padding:0;transition:all .3s}
+    .dot.active{background:var(--black);transform:scale(1.35)}
+    .dot:hover{background:rgba(0,0,0,0.55)}
+    .fs-btn{position:fixed;top:clamp(12px,2vh,22px);right:clamp(12px,2vw,24px);z-index:80;width:44px;height:44px;border-radius:12px;background:var(--black);color:var(--lime);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:transform .25s}
+    .fs-btn:hover{transform:scale(1.08)}
+    .progress{position:fixed;top:0;left:0;height:4px;background:var(--black);z-index:90;transition:width .5s cubic-bezier(0.16,1,0.3,1);border-radius:0 4px 4px 0}
+    .hint{position:fixed;bottom:clamp(16px,3vh,34px);left:clamp(16px,2.5vw,32px);z-index:70;color:rgba(0,0,0,.5);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;display:flex;align-items:center;gap:8px}
+    .hint kbd{background:var(--black);color:var(--lime);border-radius:6px;padding:3px 8px;font-family:inherit;font-size:0.72rem;font-weight:800}
+
+    /* ============== RESPONSIVE ============== */
+    @media(max-width:860px){
+        .slide{padding:24px 20px}
+        .agenda-grid,.speaker-grid{grid-template-columns:1fr;gap:18px}
+        .demo-grid,.demo-grid.wide-left{grid-template-columns:1fr;gap:16px}
+        .dash-grid{grid-template-columns:repeat(2,1fr)}
+        .code-body{font-size:0.72rem}
+        .bar-chart{height:150px}
+        .agenda-a{text-align:left}
+        .stat-grid{grid-template-columns:repeat(2,1fr)}
+        .g4,.g5,.g3{grid-template-columns:repeat(2,1fr)}
+        .salary-grid{grid-template-columns:1fr}
+        .price-grid{grid-template-columns:1fr}
+        .pay-grid{grid-template-columns:1fr}
+        .review-grid{grid-template-columns:1fr}
+        .grad-grid{grid-template-columns:repeat(2,1fr)}
+        .about-grid,.def-grid{grid-template-columns:1fr}
+        .stat-grid.cols3{grid-template-columns:repeat(2,1fr)}
+        .slide-3d{width:90%;opacity:.5;right:-20%}
+        .dots{display:none}
+        .hint{display:none}
+        .speaker-photo{aspect-ratio:1/1;max-height:32vh}
+        .ic-list{display:none}
+        .card-grid{overflow-y:auto}
+    }
+    @media(max-width:860px) and (orientation:landscape){
+        .ic-list{display:flex}
+    }
+    @media(prefers-reduced-motion:reduce){
+        .reveal,.stg>*{transition-duration:.01ms!important}
+        .slide{transition-duration:.1ms!important}
+    }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="deck">
+    <div class="deck-title">Презентация · Открытый урок</div>
+    <div class="stage" id="stage">
+        <!-- 1. TITLE -->
+        <section class="slide title-slide" data-name="Вступление">
+            <div class="slide-3d"><canvas id="hero-3d"></canvas></div>
+            <div class="slide-inner">
+                <span class="s-kicker liquid-glass reveal">🎓 Бесплатный открытый урок · INTERNO School</span>
+                <h1 class="s-title reveal">БЫСТРЫЙ СТАРТ<br><span class="accent">В DATA-АНАЛИТИКЕ</span></h1>
+                <div class="title-tags reveal stg">
+                    <span class="tag liquid-glass"><img class="tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" loading="lazy">Python</span>
+                    <span class="tag liquid-glass"><img class="tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="" loading="lazy">SQL</span>
+                    <span class="tag liquid-glass"><img class="tag-logo" src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="" loading="lazy">Power BI</span>
+                    <span class="tag liquid-glass"><img class="tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="" loading="lazy">Pandas</span>
+                    <span class="tag liquid-glass"><img class="tag-logo" src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="" loading="lazy">Excel</span>
+                </div>
+                <div class="title-question reveal">За 60 минут открытого урока вы получите полное представление о профессии Data Analyst: рынок, программа и доход.</div>
+                <div class="title-foot reveal"><span class="scribble">INTERNO School</span><span class="tag liquid-glass">Спикер: Аслиддин Омонбоев</span></div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT SCHOOL -->
+        <section class="slide" data-name="INTERNO">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 02 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ЧТО ТАКОЕ <span class="accent">INTERNO SCHOOL?</span></h2>
+                </div>
+                <div class="about-grid">
+                    <p class="lead-quote reveal">INTERNO School — школа, которая уже <b>более 5 лет</b> обучает самым востребованным направлениям и даёт только актуальные знания от <b>экспертов индустрии</b>. Наши выпускники работают в компаниях Ташкента и за рубежом.</p>
+                    <div class="stg reveal" style="display:flex;flex-direction:column;gap:12px">
+                        <div class="info-card liquid-glass" style="flex-direction:row;align-items:center;gap:16px"><div class="oc-icon" style="margin:0">🏆</div><div><div class="ic-title">Практический подход</div><div class="ic-desc" style="margin:0">90% практики — на реальных проектах</div></div></div>
+                        <div class="info-card liquid-glass" style="flex-direction:row;align-items:center;gap:16px"><div class="oc-icon" style="margin:0">👨‍🏫</div><div><div class="ic-title">Эксперты индустрии</div><div class="ic-desc" style="margin:0">Практикующие Data Analyst-менторы</div></div></div>
+                        <div class="info-card liquid-glass" style="flex-direction:row;align-items:center;gap:16px"><div class="oc-icon" style="margin:0">🎯</div><div><div class="ic-title">Помощь с работой</div><div class="ic-desc" style="margin:0">Портфолио, резюме и карьерная поддержка</div></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. WHERE GRADUATES WORK -->
+        <section class="slide" data-name="Компании">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 03 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ГДЕ РАБОТАЮТ <span class="accent">ВЫПУСКНИКИ?</span></h2>
+                    <p class="s-sub reveal">Ведущие компании Узбекистана, работающие с данными.</p>
+                </div>
+                <div class="chip-cloud stg">
+                    <span class="chip liquid-glass">Uzum Market</span><span class="chip liquid-glass">Humans</span><span class="chip liquid-glass">Click.uz</span><span class="chip liquid-glass">Payme</span><span class="chip liquid-glass">Kapitalbank</span><span class="chip liquid-glass">TBC Bank</span><span class="chip liquid-glass">Alif Mobi</span><span class="chip liquid-glass">Uzcard</span><span class="chip liquid-glass">Beeline</span><span class="chip liquid-glass">Ucell</span><span class="chip liquid-glass">EPAM</span><span class="chip liquid-glass">Korzinka</span><span class="chip liquid-glass">Anor Bank</span><span class="chip liquid-glass">Hamkorbank</span><span class="chip liquid-glass">IT Park</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. INTERNO IN NUMBERS -->
+        <section class="slide" data-name="Цифры">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 04 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">INTERNO <span class="accent">В ЦИФРАХ</span></h2>
+                </div>
+                <div class="stat-grid cols3 stg">
+                    <div class="stat-card liquid-glass"><div class="stat-val">3800+</div><div class="stat-label">Выпускников</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">150+</div><div class="stat-label">Новых студентов / мес</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">4</div><div class="stat-label">Направления</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">6</div><div class="stat-label">Учебных аудиторий</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">70%</div><div class="stat-label">Трудоустроены</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">3</div><div class="stat-label">Филиала: Ташкент, Самарканд, Фергана</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. WHO IS A DATA ANALYST -->
+        <section class="slide" data-name="Кто такой DA">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 05 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">КТО ТАКОЙ <span class="accent">DATA ANALYST?</span></h2>
+                </div>
+                <div class="def-grid">
+                    <p class="lead-quote reveal">Data Analyst — специалист, который собирает, очищает и анализирует <b>сырые данные</b>, превращая их в <b>конкретные бизнес-решения</b>. Он видит историю за цифрами и показывает компании точки роста.</p>
+                    <div class="reveal">
+                        <div class="chart-card">
+                            <div class="chart-title">▶ Данные → решение</div>
+                            <div class="bar-chart">
+                                <div class="bar"><span class="bar-val">Сырьё</span><div class="bar-fill" style="--h:34%"></div><span class="bar-label">Данные</span></div>
+                                <div class="bar"><span class="bar-val">Чисто</span><div class="bar-fill" style="--h:58%"></div><span class="bar-label">Анализ</span></div>
+                                <div class="bar"><span class="bar-val">📊</span><div class="bar-fill" style="--h:80%"></div><span class="bar-label">Визуал</span></div>
+                                <div class="bar"><span class="bar-val">💡</span><div class="bar-fill" style="--h:100%"></div><span class="bar-label">Insight</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. WHY IN DEMAND -->
+        <section class="slide" data-name="Почему востребован">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 06 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ПОЧЕМУ <span class="accent">ВОСТРЕБОВАН?</span></h2>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">🚀</div><div class="ic-title">Быстрорастущая сфера</div><p class="ic-desc" style="margin:8px 0 0">Каждая компания работает с данными — специалистов не хватает.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🌍</div><div class="ic-title">Удалёнка / фриланс</div><p class="ic-desc" style="margin:8px 0 0">Работа из дома или на международные компании.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">💰</div><div class="ic-title">Высокий доход</div><p class="ic-desc" style="margin:8px 0 0">Middle — от $1,500 в месяц.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🧠</div><div class="ic-title">Интеллектуальная работа</div><p class="ic-desc" style="margin:8px 0 0">Решение задач и влияние на бизнес.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. MARKET -->
+        <section class="slide" data-name="Рынок">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 07 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">РЫНОК — <span class="accent">УЗБЕКИСТАН</span></h2>
+                    <p class="s-sub reveal">Цифровая трансформация растёт быстро, а специалистов, понимающих данные, не хватает.</p>
+                </div>
+                <div class="stat-grid stg">
+                    <div class="stat-card liquid-glass"><div class="stat-val">500+</div><div class="stat-label">Открытых вакансий</div><div class="stat-desc">на hh.uz и LinkedIn ежемесячно</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">+40%</div><div class="stat-label">Рост зарплат</div><div class="stat-desc">статистика 2023–2025</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">3×</div><div class="stat-label">Рост вакансий</div><div class="stat-desc">сравнение 2023 и 2025</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">$1,500+</div><div class="stat-label">Средняя зарплата</div><div class="stat-desc">Middle Data Analyst</div></div>
+                </div>
+                <div class="market-quote liquid-glass reveal">«<strong>75%</strong> компаний, зарегистрированных в IT Park, ищут специалистов по анализу данных.»<span>— IT Park Uzbekistan, 2025</span></div>
+            </div>
+        </section>
+
+        <!-- 8. WORK PROCESS -->
+        <section class="slide" data-name="Процесс">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 08 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">КАК РАБОТАЕТ <span class="accent">DATA ANALYST?</span></h2>
+                    <p class="s-sub reveal">Каждый проект проходит эти 5 этапов.</p>
+                </div>
+                <div class="demo-grid">
+                    <ol class="steps reveal stg">
+                        <li><b>Сбор</b> — данные из CSV, SQL или API</li>
+                        <li><b>Очистка</b> — исправляем пустые и дубли</li>
+                        <li><b>Анализ</b> — группировки, метрики, тренды</li>
+                        <li><b>Визуализация</b> — графики и дашборд</li>
+                        <li><b>Insight</b> — конкретная рекомендация для бизнеса</li>
+                    </ol>
+                    <div class="data-wrap reveal">
+                        <div class="data-tag">📄 sales.csv — сырые данные</div>
+                        <table class="data-table">
+                            <thead><tr><th>id</th><th>товар</th><th>город</th><th>сумма</th></tr></thead>
+                            <tbody>
+                                <tr><td>1001</td><td>Ноутбук</td><td>Ташкент</td><td class="hl">12 400 000</td></tr>
+                                <tr><td>1002</td><td>Телефон</td><td>Самарканд</td><td class="hl">6 200 000</td></tr>
+                                <tr><td>1003</td><td>Монитор</td><td>Фергана</td><td class="hl">2 100 000</td></tr>
+                                <tr><td>1004</td><td>—</td><td>Бухара</td><td class="hl">NaN</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. WHERE NEEDED -->
+        <section class="slide" data-name="Отрасли">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 09 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ГДЕ НУЖЕН <span class="accent">DATA ANALYST?</span></h2>
+                    <p class="s-sub reveal">Почти в каждой сфере — где есть данные, нужен аналитик.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">🛒</div><div class="ic-title">E-commerce</div><p class="ic-desc" style="margin:8px 0 0">Анализ продаж и клиентов</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🏦</div><div class="ic-title">Банки & Финтех</div><p class="ic-desc" style="margin:8px 0 0">Риск и кредитный скоринг</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📱</div><div class="ic-title">Телеком</div><p class="ic-desc" style="margin:8px 0 0">Анализ поведения клиентов</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🚚</div><div class="ic-title">Логистика</div><p class="ic-desc" style="margin:8px 0 0">Оптимизация маршрутов</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📣</div><div class="ic-title">Маркетинг</div><p class="ic-desc" style="margin:8px 0 0">Анализ ROI кампаний</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">💊</div><div class="ic-title">Медицина</div><p class="ic-desc" style="margin:8px 0 0">Medical analytics</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🏭</div><div class="ic-title">Производство</div><p class="ic-desc" style="margin:8px 0 0">Supply chain analytics</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🏛️</div><div class="ic-title">Госсектор</div><p class="ic-desc" style="margin:8px 0 0">Проекты цифрового правительства</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. PRACTICAL: PYTHON -->
+        <section class="slide" data-name="Python код">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 10 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ПРАКТИКА · <span class="accent">PYTHON / PANDAS</span></h2>
+                    <p class="s-sub reveal">Несколько строк кода — и сырая таблица превращается в продажи по категориям.</p>
+                </div>
+                <div class="demo-grid wide-left">
+                    <div class="code-card reveal">
+                        <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">analysis.py</span></div>
+                        <div class="code-body"><span class="code-line"><span class="tok-k">import</span> pandas <span class="tok-k">as</span> pd</span><span class="code-line"> </span><span class="code-line"><span class="tok-c"># 1. Загружаем</span></span><span class="code-line">df = pd.<span class="tok-f">read_csv</span>(<span class="tok-s">"sales.csv"</span>)</span><span class="code-line"> </span><span class="code-line"><span class="tok-c"># 2. Очистка</span></span><span class="code-line">df = df.<span class="tok-f">dropna</span>().<span class="tok-f">drop_duplicates</span>()</span><span class="code-line"> </span><span class="code-line"><span class="tok-c"># 3. Продажи по категориям</span></span><span class="code-line">top = (df.<span class="tok-f">groupby</span>(<span class="tok-s">"category"</span>)[<span class="tok-s">"amount"</span>]</span><span class="code-line">         .<span class="tok-f">sum</span>()</span><span class="code-line">         .<span class="tok-f">sort_values</span>(ascending=<span class="tok-k">False</span>))</span><span class="code-line"> </span><span class="code-line"><span class="tok-f">print</span>(top)<span class="cursor"></span></span></div>
+                    </div>
+                    <div class="reveal">
+                        <div class="chart-card">
+                            <div class="chart-title">▶ Результат — продажи / категория (млрд сум)</div>
+                            <div class="bar-chart">
+                                <div class="bar"><span class="bar-val">4.0</span><div class="bar-fill" style="--h:100%"></div><span class="bar-label">Электроника</span></div>
+                                <div class="bar"><span class="bar-val">2.6</span><div class="bar-fill" style="--h:65%"></div><span class="bar-label">Одежда</span></div>
+                                <div class="bar"><span class="bar-val">1.8</span><div class="bar-fill" style="--h:45%"></div><span class="bar-label">Продукты</span></div>
+                                <div class="bar"><span class="bar-val">1.1</span><div class="bar-fill" style="--h:28%"></div><span class="bar-label">Быт</span></div>
+                            </div>
+                        </div>
+                        <div class="insight"><span class="ic-em">💡</span><div><b>Insight:</b> Электроника даёт <b>38%</b> продаж.</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. PRACTICAL: SQL -->
+        <section class="slide" data-name="SQL запрос">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 11 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ПРАКТИКА · <span class="accent">SQL</span></h2>
+                    <p class="s-sub reveal">Объединяем две таблицы и считаем продажи по городам.</p>
+                </div>
+                <div class="demo-grid">
+                    <div class="code-card reveal">
+                        <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">query.sql</span></div>
+                        <div class="code-body"><span class="code-line"><span class="tok-k">SELECT</span>  c.city,</span><span class="code-line">        <span class="tok-f">COUNT</span>(o.id)   <span class="tok-k">AS</span> orders,</span><span class="code-line">        <span class="tok-f">SUM</span>(o.amount) <span class="tok-k">AS</span> total</span><span class="code-line"><span class="tok-k">FROM</span>    orders o</span><span class="code-line"><span class="tok-k">JOIN</span>    clients c <span class="tok-k">ON</span> c.id = o.client_id</span><span class="code-line"><span class="tok-k">GROUP BY</span> c.city</span><span class="code-line"><span class="tok-k">ORDER BY</span> total <span class="tok-k">DESC</span></span><span class="code-line"><span class="tok-k">LIMIT</span> <span class="tok-n">5</span>;<span class="cursor"></span></span></div>
+                    </div>
+                    <div class="data-wrap reveal">
+                        <div class="data-tag">▶ Результат — 5 строк</div>
+                        <table class="data-table">
+                            <thead><tr><th>город</th><th>заказы</th><th>всего</th></tr></thead>
+                            <tbody>
+                                <tr><td>Ташкент</td><td>1 284</td><td class="hl">3 420 000 000</td></tr>
+                                <tr><td>Самарканд</td><td>612</td><td class="hl">1 180 000 000</td></tr>
+                                <tr><td>Фергана</td><td>438</td><td class="hl">760 000 000</td></tr>
+                                <tr><td>Бухара</td><td>295</td><td class="hl">540 000 000</td></tr>
+                                <tr><td>Андижан</td><td>271</td><td class="hl">505 000 000</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. PRACTICAL: POWER BI -->
+        <section class="slide" data-name="Power BI">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 12 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ПРАКТИКА · <span class="accent">POWER BI / DAX</span></h2>
+                    <p class="s-sub reveal">Одна DAX-мера — и динамика роста по месяцам оживает в дашборде.</p>
+                </div>
+                <div class="demo-grid">
+                    <div class="reveal">
+                        <div class="code-card">
+                            <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">measure.dax</span></div>
+                            <div class="code-body"><span class="code-line">Sales Growth % =</span><span class="code-line"><span class="tok-k">VAR</span> Current = [Total Sales]</span><span class="code-line"><span class="tok-k">VAR</span> Prev =</span><span class="code-line">    <span class="tok-f">CALCULATE</span>(</span><span class="code-line">        [Total Sales],</span><span class="code-line">        <span class="tok-f">DATEADD</span>(<span class="tok-s">'Date'</span>[Date], -<span class="tok-n">1</span>, MONTH))</span><span class="code-line"><span class="tok-k">RETURN</span></span><span class="code-line">    <span class="tok-f">DIVIDE</span>(Current - Prev, Prev)<span class="cursor"></span></span></div>
+                        </div>
+                        <div class="insight"><span class="ic-em">📈</span><div><b>MoM рост</b> считается автоматически в каждом визуале.</div></div>
+                    </div>
+                    <div class="dash-card reveal"><span class="dash-badge">Power BI</span><img src="https://interno-data-analytics.vercel.app/tilda/dashboard-1.jpeg" alt="Power BI дашборд" loading="lazy"><div class="dash-cap liquid-glass">Дашборд продаж · реальный проект</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. TOOLS -->
+        <section class="slide" data-name="Инструменты">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 13 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ИНСТРУ<span class="stroke">МЕНТЫ</span></h2>
+                    <p class="s-sub reveal">Самые актуальные технологии рынка — всё на практике.</p>
+                </div>
+                <div class="card-grid g5 stg">
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy"></div><div class="tool-nm">Python</div><div class="tool-ds">Программирование</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL" loading="lazy"></div><div class="tool-nm">SQL</div><div class="tool-ds">MS SQL Server</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI" loading="lazy"></div><div class="tool-nm">Power BI</div><div class="tool-ds">Дашборд</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="Excel" loading="lazy"></div><div class="tool-nm">Excel</div><div class="tool-ds">Таблицы</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" loading="lazy"></div><div class="tool-nm">Pandas</div><div class="tool-ds">Анализ</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" loading="lazy"></div><div class="tool-nm">NumPy</div><div class="tool-ds">Вычисления</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" loading="lazy"></div><div class="tool-nm">Matplotlib</div><div class="tool-ds">Графики</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter" loading="lazy"></div><div class="tool-nm">Jupyter</div><div class="tool-ds">Notebook</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/logos/tableau-icon.svg" alt="Tableau" loading="lazy"></div><div class="tool-nm">Tableau</div><div class="tool-ds">Отчёты</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" loading="lazy"></div><div class="tool-nm">GitHub</div><div class="tool-ds">Портфолио</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. SKILLS -->
+        <section class="slide" data-name="Навыки">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 14 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">КАКИЕ <span class="accent">НАВЫКИ?</span></h2>
+                    <p class="s-sub reveal">Полный технологический стек работы с данными.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass">
+                        <div class="ic-top"><div class="ic-icon logo-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy"></div><div><div class="ic-num">Навык 1</div><div class="ic-title">Python</div></div></div>
+                        <p class="ic-desc">Основы программирования с данными.</p>
+                        <ul class="ic-list"><li>Основы NumPy</li><li>Функции, lambda</li><li>Работа с CSV</li><li>Jupyter Notebook</li></ul>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <div class="ic-top"><div class="ic-icon logo-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" loading="lazy"></div><div><div class="ic-num">Навык 2</div><div class="ic-title">Анализ данных</div></div></div>
+                        <p class="ic-desc">Очистка, анализ и визуализация.</p>
+                        <ul class="ic-list"><li>Pandas DataFrame</li><li>Matplotlib, Seaborn</li><li>Интерактивный Plotly</li><li>EDA и статистика</li></ul>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <div class="ic-top"><div class="ic-icon logo-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL" loading="lazy"></div><div><div class="ic-num">Навык 3</div><div class="ic-title">SQL и базы</div></div></div>
+                        <p class="ic-desc">Работа с большими базами данных.</p>
+                        <ul class="ic-list"><li>MS SQL Server</li><li>JOINs, CTE, Views</li><li>Stored Procedures</li><li>Основы BigQuery</li></ul>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <div class="ic-top"><div class="ic-icon logo-tile"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI" loading="lazy"></div><div><div class="ic-num">Навык 4</div><div class="ic-title">Power BI & DAX</div></div></div>
+                        <p class="ic-desc">Профессиональные дашборды и бизнес-аналитика.</p>
+                        <ul class="ic-list"><li>Power Query (ETL)</li><li>DAX: CALCULATE</li><li>Time Intelligence</li><li>Интерактивные визуалы</li></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. HOW TO BECOME -->
+        <section class="slide" data-name="С чего начать">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 15 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">С ЧЕГО <span class="accent">НАЧАТЬ?</span></h2>
+                    <p class="s-sub reveal">Чёткая дорожная карта, чтобы стать Data Analyst.</p>
+                </div>
+                <div class="demo-grid">
+                    <ol class="steps reveal stg">
+                        <li><b>Инструменты</b> — Python, SQL, Power BI, Excel</li>
+                        <li><b>Практика</b> — проекты на реальных датасетах</li>
+                        <li><b>Портфолио</b> — набор готовых работ на GitHub</li>
+                        <li><b>CV & LinkedIn</b> — профессиональный профиль</li>
+                        <li><b>Личный бренд</b> — делиться результатами, нетворкинг</li>
+                    </ol>
+                    <div class="reveal">
+                        <div class="chart-card">
+                            <div class="chart-title">▶ С нуля до job-ready</div>
+                            <div class="bar-chart">
+                                <div class="bar"><span class="bar-val">0</span><div class="bar-fill" style="--h:16%"></div><span class="bar-label">Старт</span></div>
+                                <div class="bar"><span class="bar-val">1-мес</span><div class="bar-fill" style="--h:44%"></div><span class="bar-label">Python</span></div>
+                                <div class="bar"><span class="bar-val">2-мес</span><div class="bar-fill" style="--h:70%"></div><span class="bar-label">SQL/Data</span></div>
+                                <div class="bar"><span class="bar-val">3-мес</span><div class="bar-fill" style="--h:100%"></div><span class="bar-label">Job-ready</span></div>
+                            </div>
+                        </div>
+                        <div class="insight"><span class="ic-em">🎯</span><div>В INTERNO вы пройдёте этот путь за <b>3 месяца</b> с менторами.</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 16. SOFT SKILLS -->
+        <section class="slide" data-name="Soft skills">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 16 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">НЕ ТОЛЬКО <span class="accent">ТЕХНИКА</span></h2>
+                    <p class="s-sub reveal">Хороший аналитик не просто пишет код — он переводит данные на язык бизнеса.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">🗣️</div><div class="ic-title">Storytelling</div><p class="ic-desc" style="margin:8px 0 0">Донести insight понятно команде.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🧩</div><div class="ic-title">Бизнес-мышление</div><p class="ic-desc" style="margin:8px 0 0">Видеть бизнес-вопрос за цифрой.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🔁</div><div class="ic-title">Обратная связь</div><p class="ic-desc" style="margin:8px 0 0">Принимать критику и улучшать.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">⏱️</div><div class="ic-title">Реальные дедлайны</div><p class="ic-desc" style="margin:8px 0 0">Правильно планировать время.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 17. COURSE -->
+        <section class="slide" data-name="Курс">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 17 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">КУРС — <span class="accent">DATA-АНАЛИТИКА</span></h2>
+                    <p class="s-sub reveal">3-месячная практическая программа — с нуля до job-ready.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">📅</div><div class="ic-title">3 мес · 36 уроков</div><p class="ic-desc" style="margin:8px 0 0">54 часа · 3 раза в неделю.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">💻</div><div class="ic-title">90% практики</div><p class="ic-desc" style="margin:8px 0 0">Каждый урок на реальных датасетах.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📊</div><div class="ic-title">Портфолио</div><p class="ic-desc" style="margin:8px 0 0">5+ проектов на GitHub.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🎓</div><div class="ic-title">Сертификат</div><p class="ic-desc" style="margin:8px 0 0">Свидетельство INTERNO School.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 18. CURRICULUM -->
+        <section class="slide" data-name="Программа">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 18 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">3-МЕСЯЧНАЯ <span class="accent">ПРОГРАММА</span></h2>
+                    <p class="s-sub reveal">36 уроков · 54 часа · 3 раза в неделю. Каждый месяц — реальный проект.</p>
+                </div>
+                <div class="card-grid g3 stg">
+                    <div class="info-card liquid-glass">
+                        <span class="ic-foot" style="margin:0 0 14px">1 месяц</span>
+                        <div class="ic-title" style="margin-bottom:10px">Основы Python</div>
+                        <ul class="ic-list" style="margin-top:0"><li>Jupyter Notebook</li><li>Циклы, функции</li><li>List, dict, set</li><li>CSV и NumPy</li></ul>
+                        <div class="ic-result">✓ Проект: Анализ оценок студентов</div>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <span class="ic-foot" style="margin:0 0 14px">2 месяц</span>
+                        <div class="ic-title" style="margin-bottom:10px">Данные & визуализация</div>
+                        <ul class="ic-list" style="margin-top:0"><li>Pandas DataFrame</li><li>Очистка, GroupBy</li><li>Matplotlib, Plotly</li><li>Методология EDA</li></ul>
+                        <div class="ic-result">✓ Проект: Анализ e-commerce</div>
+                    </div>
+                    <div class="info-card liquid-glass">
+                        <span class="ic-foot" style="margin:0 0 14px">3 месяц</span>
+                        <div class="ic-title" style="margin-bottom:10px">SQL, Power BI & карьера</div>
+                        <ul class="ic-list" style="margin-top:0"><li>SQL: JOINs, CTE, Views</li><li>Power Query и DAX</li><li>GitHub портфолио</li><li>CV и интервью</li></ul>
+                        <div class="ic-result">✓ Готов к позиции Junior DA</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 19. PLATFORM -->
+        <section class="slide" data-name="Платформа">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 19 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ПЛАТФОРМА И <span class="accent">ПОДДЕРЖКА</span></h2>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">💬</div><div class="ic-title">Чат участников</div><p class="ic-desc" style="margin:8px 0 0">Быстрые ответы, команда.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🔴</div><div class="ic-title">Онлайн-трансляции</div><p class="ic-desc" style="margin:8px 0 0">Каждый урок в прямом эфире.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🎥</div><div class="ic-title">Записи — навсегда</div><p class="ic-desc" style="margin:8px 0 0">Все уроки остаются у вас.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">👨‍🏫</div><div class="ic-title">Помощь ментора</div><p class="ic-desc" style="margin:8px 0 0">Индивидуальная поддержка.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 20. SPEAKER -->
+        <section class="slide" data-name="Спикер">
+            <div class="slide-inner">
+                <div class="s-num reveal"><span class="br">[</span> 20 <span class="br">]</span></div>
+                <div class="speaker-grid">
+                    <div class="speaker-photo reveal">
+                        <img src="https://interno-data-analytics.vercel.app/tilda/speaker-asliddin.jpg" alt="Аслиддин Омонбоев" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="speaker-monogram" style="display:none"><b>OA</b><small>Аслиддин Омонбоев</small></div>
+                        <div class="speaker-float tr liquid-glass">🤖 Telegram Bot</div>
+                        <div class="speaker-float bl liquid-glass">📊 Data analyst</div>
+                    </div>
+                    <div>
+                        <span class="s-kicker liquid-glass reveal">Спикер открытого урока</span>
+                        <h2 class="s-title reveal" style="font-size:clamp(1.6rem,3.6vw,3rem)">Аслиддин <span class="accent">Омонбоев</span></h2>
+                        <p class="speaker-role reveal">Data Analyst · Python Developer · Telegram Bot Builder</p>
+                        <div class="speaker-stats reveal">
+                            <div><div class="sp-stat-v">21</div><div class="sp-stat-l">Возраст</div></div>
+                            <div><div class="sp-stat-v">2022</div><div class="sp-stat-l">Начало карьеры</div></div>
+                            <div><div class="sp-stat-v">API</div><div class="sp-stat-l">Интеграция</div></div>
+                        </div>
+                        <p class="speaker-bio reveal">С помощью <strong>Python, SQL, Power BI</strong>, API-интеграций и <strong>Telegram-ботов</strong> автоматизирует реальные задачи. Специализируется на очистке данных, анализе и создании красивых <strong>дашбордов</strong>.</p>
+                        <div class="speaker-tech reveal">
+                            <span class="liquid-glass">Python</span><span class="liquid-glass">SQL</span><span class="liquid-glass">Power BI</span><span class="liquid-glass">Pandas</span><span class="liquid-glass">API</span><span class="liquid-glass">Telegram Bot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 21. OUTCOMES -->
+        <section class="slide" data-name="Результаты">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 21 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ЧТО ВЫ <span class="accent">ПОЛУЧИТЕ?</span></h2>
+                    <p class="s-sub reveal">6 конкретных результатов, нужных для трудоустройства.</p>
+                </div>
+                <div class="card-grid g3 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">📊</div><div class="ic-title">Портфолио из 5+ проектов</div><p class="ic-desc" style="margin:8px 0 0">Реальные проекты на GitHub: дашборд, A/B-тест, SQL-отчёты.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📄</div><div class="ic-title">Оформленное CV</div><p class="ic-desc" style="margin:8px 0 0">Современное резюме, проходящее HR-сканеры.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🛠</div><div class="ic-title">6 инструментов</div><p class="ic-desc" style="margin:8px 0 0">Python, SQL, Power BI, Excel, Pandas, NumPy.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🧠</div><div class="ic-title">Бизнес-мышление</div><p class="ic-desc" style="margin:8px 0 0">Метрики, A/B-тесты, проверка гипотез.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">💬</div><div class="ic-title">Подготовка к интервью</div><p class="ic-desc" style="margin:8px 0 0">Mock-интервью, live SQL/Python сессии.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🎓</div><div class="ic-title">Сертификат INTERNO</div><p class="ic-desc" style="margin:8px 0 0">Признаётся работодателями.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 22. CAREER HELP -->
+        <section class="slide" data-name="Карьера">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 22 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ПОМОЩЬ С <span class="accent">ТРУДОУСТРОЙСТВОМ</span></h2>
+                    <p class="s-sub reveal">Для каждого выпускника — карьерная консультация.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">📁</div><div class="ic-title">Сбор портфолио</div><p class="ic-desc" style="margin:8px 0 0">Правильно упаковать работы.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📝</div><div class="ic-title">Резюме</div><p class="ic-desc" style="margin:8px 0 0">Оформление профессионального CV.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🎤</div><div class="ic-title">Интервью</div><p class="ic-desc" style="margin:8px 0 0">Учим грамотно проходить собеседование.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🤝</div><div class="ic-title">Рекомендация</div><p class="ic-desc" style="margin:8px 0 0">Лучших рекомендуем компаниям-партнёрам.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 23. SALARY -->
+        <section class="slide" data-name="Зарплата">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 23 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">УРОВНИ <span class="accent">ЗАРПЛАТ</span></h2>
+                    <p class="s-sub reveal">Средняя зарплата Data Analyst в Узбекистане.</p>
+                </div>
+                <div class="salary-grid stg">
+                    <div class="salary-card liquid-glass"><span class="salary-tag">Junior</span><div class="salary-amt">$500 — 800</div><div class="salary-per">В месяц</div></div>
+                    <div class="salary-card primary"><span class="salary-tag">Middle</span><div class="salary-amt">$1,500 — 3,000</div><div class="salary-per">В месяц</div></div>
+                    <div class="salary-card liquid-glass"><span class="salary-tag">Международный</span><div class="salary-amt">$3,000+</div><div class="salary-per">В месяц</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 24. GRADUATE WORKS -->
+        <section class="slide" data-name="Работы">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 24 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">РАБОТЫ <span class="accent">ВЫПУСКНИКОВ</span></h2>
+                    <p class="s-sub reveal">На курсе вы создаёте именно такие реальные интерактивные дашборды.</p>
+                </div>
+                <div class="dash-grid stg">
+                    <div class="dash-card"><img src="https://interno-data-analytics.vercel.app/tilda/dashboard-2.jpeg" alt="Sales Analytics" loading="lazy"><div class="dash-cap liquid-glass">Sales Analytics</div></div>
+                    <div class="dash-card"><img src="https://interno-data-analytics.vercel.app/tilda/dashboard-3.jpeg" alt="Finance Report" loading="lazy"><div class="dash-cap liquid-glass">Finance Report</div></div>
+                    <div class="dash-card"><img src="https://interno-data-analytics.vercel.app/tilda/dashboard-4.jpeg" alt="Product Insights" loading="lazy"><div class="dash-cap liquid-glass">Product Insights</div></div>
+                    <div class="dash-card"><img src="https://interno-data-analytics.vercel.app/tilda/dashboard-5.jpeg" alt="KPI Monitoring" loading="lazy"><div class="dash-cap liquid-glass">KPI Monitoring</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 25. REVIEWS -->
+        <section class="slide" data-name="Отзывы">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 25 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ОТЗЫВЫ <span class="accent">ВЫПУСКНИКОВ</span></h2>
+                    <p class="s-sub reveal">Опыт тех, кто уже работает по специальности.</p>
+                </div>
+                <div class="review-grid stg">
+                    <div class="review-card liquid-glass"><div class="review-stars">★★★★★</div><p class="review-text">«Начинала с нуля, за 3 месяца устроилась на первую работу. Практики очень много — портфолио говорит само за себя.»</p><div class="review-who"><div class="review-ava">М</div><div><div class="review-name">Мадина Р.</div><div class="review-role">Junior Data Analyst</div></div></div></div>
+                    <div class="review-card liquid-glass"><div class="review-stars">★★★★★</div><p class="review-text">«Менторы — практикующие аналитики. Показал свои Power BI дашборды на интервью и получил оффер.»</p><div class="review-who"><div class="review-ava">С</div><div><div class="review-name">Сардор Т.</div><div class="review-role">BI Analyst</div></div></div></div>
+                    <div class="review-card liquid-glass"><div class="review-stars">★★★★★</div><p class="review-text">«SQL и Python учил на реальных проектах. Теперь работаю на фрилансе с международными клиентами.»</p><div class="review-who"><div class="review-ava">Д</div><div><div class="review-name">Дилноза К.</div><div class="review-role">Freelance Analyst</div></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 26. GRADUATES GRID -->
+        <section class="slide" data-name="Выпускники">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 26 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">НАШИ <span class="accent">ВЫПУСКНИКИ</span></h2>
+                    <p class="s-sub reveal">Сотни выпускников сегодня работают в компаниях и на фрилансе.</p>
+                </div>
+                <div class="grad-grid stg">
+                    <div class="grad-card liquid-glass"><div class="grad-ava">АБ</div><div class="grad-name">Азиз Б.</div><div class="grad-role">Data Analyst · Uzum</div><div class="grad-income">$1,200+/мес</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">НК</div><div class="grad-name">Нигора К.</div><div class="grad-role">BI Analyst · TBC Bank</div><div class="grad-income">$1,500+/мес</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">ДЖ</div><div class="grad-name">Джасур Р.</div><div class="grad-role">Аналитик · Click.uz</div><div class="grad-income">$900+/мес</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">МА</div><div class="grad-name">Малика А.</div><div class="grad-role">Freelance Analyst</div><div class="grad-income">$2,000+/мес</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">ШТ</div><div class="grad-name">Шохрух Т.</div><div class="grad-role">Data Analyst · Payme</div><div class="grad-income">$1,100+/мес</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">КВ</div><div class="grad-name">Камила В.</div><div class="grad-role">Аналитик · Korzinka</div><div class="grad-income">$800+/мес</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">РФ</div><div class="grad-name">Рустам Ф.</div><div class="grad-role">BI Developer · EPAM</div><div class="grad-income">$2,500+/мес</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">1К</div><div class="grad-name">1000+</div><div class="grad-role">успешных выпускников</div><div class="grad-income">INTERNO</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 27. PRICING -->
+        <section class="slide" data-name="Стоимость">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 27 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">СТОИМОСТЬ <span class="accent">КУРСА</span></h2>
+                    <p class="s-sub reveal">Ташкент · полная 3-месячная программа. Два формата — выберите свой.</p>
+                </div>
+                <div class="price-grid stg">
+                    <div class="price-card liquid-glass">
+                        <div class="price-tier">Стандарт</div>
+                        <div class="price-base">5 000 000 <small>сум</small></div>
+                        <div class="price-sub">Полный курс · 3 мес</div>
+                        <div class="price-rows">
+                            <div class="price-rows-tag">Со скидкой</div>
+                            <div class="price-row"><span class="price-off">&minus;10%</span><span class="price-new">4 500 000 <small>сум</small></span></div>
+                            <div class="price-row"><span class="price-off">&minus;20%</span><span class="price-new">4 000 000 <small>сум</small></span></div>
+                        </div>
+                    </div>
+                    <div class="price-card primary">
+                        <div class="price-badge">Рекомендуем</div>
+                        <div class="price-tier">ВИП</div>
+                        <div class="price-base">7 000 000 <small>сум</small></div>
+                        <div class="price-sub">Расширенный формат · 3 мес</div>
+                        <div class="price-rows">
+                            <div class="price-rows-tag">Со скидкой</div>
+                            <div class="price-row"><span class="price-off">&minus;10%</span><span class="price-new">6 300 000 <small>сум</small></span></div>
+                            <div class="price-row"><span class="price-off">&minus;20%</span><span class="price-new">5 600 000 <small>сум</small></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-note reveal">💳 <span>При быстрой оплате скидка <b>до &minus;20%</b> или <b>рассрочка без процентов</b> — подробнее на следующем слайде</span></div>
+            </div>
+        </section>
+
+        <!-- 28. PAYMENT -->
+        <section class="slide" data-name="Оплата">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 28 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">СПОСОБЫ <span class="accent">ОПЛАТЫ</span></h2>
+                    <p class="s-sub reveal">Выберите удобный способ — скидка при быстрой оплате или рассрочка без процентов.</p>
+                </div>
+                <div class="pay-grid stg">
+                    <div class="pay-card liquid-glass"><div class="pay-emoji">🟨</div><div class="pay-disc">&minus;20%</div><div class="pay-name">В течение 24 часов</div><div class="pay-desc">Полная оплата в течение 24 часов после консультации — скидка 20%.</div></div>
+                    <div class="pay-card liquid-glass"><div class="pay-emoji">🟩</div><div class="pay-disc">&minus;10%</div><div class="pay-name">В течение 48 часов</div><div class="pay-desc">Полная оплата в течение 48 часов после консультации — скидка 10%.</div></div>
+                    <div class="pay-card liquid-glass"><div class="pay-emoji">🟧</div><div class="pay-disc">0%</div><div class="pay-name">Рассрочка</div><div class="pay-desc">Рассрочка на 3 / 4 / 6 месяцев без процентов.</div></div>
+                </div>
+                <div class="pay-banks reveal">
+                    <span class="pay-banks-label">📍 Помесячно:</span>
+                    <span class="tag liquid-glass">Anor Bank</span><span class="tag liquid-glass">Alif Nasiya</span><span class="tag liquid-glass">Variant Nasiya</span><span class="tag liquid-glass">Uzum Nasiya</span><span class="tag liquid-glass">Paylater</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 29. Q&A -->
+        <section class="slide qa-slide" data-name="Вопрос-ответ">
+            <div class="qa-marks"><span>?</span><span>?</span><span>?</span><span>?</span></div>
+            <div class="slide-inner">
+                <div class="body-head" style="text-align:center">
+                    <div class="s-num reveal" style="align-self:center"><span class="br">[</span> 29 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ВОПРОС — <span class="accent">ОТВЕТ</span></h2>
+                    <p class="s-sub reveal" style="margin-left:auto;margin-right:auto">Открытый урок — это диалог. Ответим на все ваши вопросы прямо сейчас.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 30. THANK YOU / CTA -->
+        <section class="slide thanks-slide cta-slide" data-name="Спасибо">
+            <div class="slide-inner">
+                <a class="cta-logo reveal" href="https://interno-data-analytics.vercel.app/ru/"><img src="https://interno-data-analytics.vercel.app/logo.svg" alt="INTERNO School"></a>
+                <h2 class="s-title reveal">СПАСИБО ЗА <span class="stroke">ВНИМАНИЕ!</span></h2>
+                <p class="cta-sub reveal">До встречи на бесплатном открытом уроке. Начните путь к профессии Data Analyst сегодня.</p>
+                <a href="https://interno-data-analytics.vercel.app/ru/#register" class="cta-btn reveal" id="cta-register">Записаться на курс <span>&rarr;</span></a>
+                <div class="cta-meta reveal stg">
+                    <div><b>3 мес</b><span>Длительность</span></div>
+                    <div><b>36 уроков</b><span>54 часа практики</span></div>
+                    <div><b>$1,500+</b><span>Средняя зарплата</span></div>
+                    <div><b>70%</b><span>Трудоустроены</span></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+<!-- progress dots -->
+<div class="dots" id="dots"></div>
+
+<!-- controls -->
+<button class="fs-btn" id="fsBtn" aria-label="Полный экран">⛶</button>
+<div class="ctrl ctrl-bottom">
+    <button class="nav-btn" id="prevBtn" aria-label="Предыдущий слайд">‹</button>
+    <div class="counter"><span class="cur" id="cur">01</span><span class="tot" id="tot">/ 11</span></div>
+    <button class="nav-btn" id="nextBtn" aria-label="Следующий слайд">›</button>
+</div>
+<div class="hint"><kbd>←</kbd><kbd>→</kbd> или <kbd>Space</kbd> — слайды</div>
+
+<script>
+(function(){
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const total = slides.length;
+    let idx = 0;
+
+    const curEl = document.getElementById('cur');
+    const totEl = document.getElementById('tot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const progress = document.getElementById('progress');
+    const dotsWrap = document.getElementById('dots');
+
+    totEl.textContent = '/ ' + String(total).padStart(2,'0');
+
+    // build dots
+    slides.forEach((s,i)=>{
+        const b = document.createElement('button');
+        b.className='dot'; b.setAttribute('aria-label', s.dataset.name || ('Slayd '+(i+1)));
+        b.title = s.dataset.name || '';
+        b.addEventListener('click',()=>go(i));
+        dotsWrap.appendChild(b);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    // auto-number the [ NN ] badges from slide position (keeps them correct after edits)
+    slides.forEach((s,i)=>{
+        const n = s.querySelector('.s-num');
+        if (n) n.innerHTML = '<span class="br">[</span> ' + String(i+1).padStart(2,'0') + ' <span class="br">]</span>';
+    });
+
+    function render(){
+        slides.forEach((s,i)=>{
+            s.classList.toggle('active', i===idx);
+            s.classList.toggle('prev', i<idx);
+        });
+        dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+        curEl.textContent = String(idx+1).padStart(2,'0');
+        progress.style.width = ((idx+1)/total*100) + '%';
+        prevBtn.disabled = idx===0;
+        nextBtn.disabled = idx===total-1;
+        if (location.hash !== '#'+(idx+1)) history.replaceState(null,'','#'+(idx+1));
+    }
+
+    function go(n){
+        const clamped = Math.max(0, Math.min(total-1, n));
+        if (clamped===idx) return;
+        idx = clamped;
+        render();
+    }
+    function next(){ go(idx+1); }
+    function prev(){ go(idx-1); }
+
+    prevBtn.addEventListener('click',prev);
+    nextBtn.addEventListener('click',next);
+
+    // keyboard
+    document.addEventListener('keydown',(e)=>{
+        if(['ArrowRight','PageDown',' '].includes(e.key)){ e.preventDefault(); next(); }
+        else if(['ArrowLeft','PageUp'].includes(e.key)){ e.preventDefault(); prev(); }
+        else if(e.key==='Home'){ e.preventDefault(); go(0); }
+        else if(e.key==='End'){ e.preventDefault(); go(total-1); }
+    });
+
+    // wheel (debounced)
+    let wheelLock=false;
+    window.addEventListener('wheel',(e)=>{
+        if(wheelLock) return;
+        if(Math.abs(e.deltaY)<24) return;
+        wheelLock=true;
+        e.deltaY>0 ? next() : prev();
+        setTimeout(()=>wheelLock=false, 700);
+    },{passive:true});
+
+    // touch swipe
+    let tsX=0, tsY=0;
+    window.addEventListener('touchstart',(e)=>{ tsX=e.touches[0].clientX; tsY=e.touches[0].clientY; },{passive:true});
+    window.addEventListener('touchend',(e)=>{
+        const dx=e.changedTouches[0].clientX-tsX, dy=e.changedTouches[0].clientY-tsY;
+        if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0 ? next() : prev(); }
+    },{passive:true});
+
+    // fullscreen
+    const fsBtn = document.getElementById('fsBtn');
+    fsBtn.addEventListener('click',()=>{
+        if(!document.fullscreenElement){ document.documentElement.requestFullscreen?.(); }
+        else { document.exitFullscreen?.(); }
+    });
+
+    // deep link via hash
+    const startHash = parseInt((location.hash||'').replace('#',''),10);
+    if(!isNaN(startHash) && startHash>=1 && startHash<=total) idx = startHash-1;
+
+    render();
+})();
+</script>
+
+<!-- ====================== HERO 3D (chrome objects, title slide) ====================== -->
+<script type="module">
+const heroCanvas = document.getElementById('hero-3d');
+if (heroCanvas && window.innerWidth > 768 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const THREE = await import('three');
+    const renderer = new THREE.WebGLRenderer({ canvas: heroCanvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    function size(){ renderer.setSize(heroCanvas.clientWidth, heroCanvas.clientHeight); }
+    size();
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.0;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(40, heroCanvas.clientWidth / heroCanvas.clientHeight, 0.1, 100);
+    camera.position.set(0, 0, 7);
+
+    // chrome studio environment with lime accent
+    const envScene = new THREE.Scene();
+    envScene.add(new THREE.Mesh(new THREE.SphereGeometry(30, 32, 16), new THREE.MeshBasicMaterial({ color: 0x151515, side: THREE.BackSide })));
+    const mk=(w,h,c,x,y,z)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({color:c}));m.position.set(x,y,z);m.lookAt(0,0,0);envScene.add(m);};
+    mk(10,8,0xd6ff3c,6,4,-3); mk(8,8,0x6a7a8a,-6,1,3); mk(5,5,0xffffff,0,7,1); mk(5,3,0xaacc00,-3,-2,-5);
+    const ground=new THREE.Mesh(new THREE.PlaneGeometry(15,15),new THREE.MeshBasicMaterial({color:0x2a2a2a}));ground.position.set(0,-6,0);ground.rotation.x=-Math.PI/2;envScene.add(ground);
+
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    scene.environment = pmrem.fromScene(envScene, 0.015).texture;
+    pmrem.dispose();
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.35));
+    const key = new THREE.DirectionalLight(0xfffff0, 2); key.position.set(3,5,4); scene.add(key);
+    const accent = new THREE.PointLight(0xd6ff3c, 4, 20); accent.position.set(-3,3,4); scene.add(accent);
+    const rim = new THREE.PointLight(0xffffff, 2, 15); rim.position.set(4,-2,-3); scene.add(rim);
+
+    function chrome(tint, opts={}){
+        return new THREE.MeshPhysicalMaterial({ color: tint||0xffffff, metalness:1.0, roughness: opts.rough??0.05, envMapIntensity: opts.env||2.2, clearcoat:1.0, clearcoatRoughness:0.02, reflectivity:1.0 });
+    }
+    const objects=[];
+
+    // rounded lime cube
+    const cubeGeo = new THREE.BoxGeometry(1.4,1.4,1.4,10,10,10);
+    const pa = cubeGeo.attributes.position;
+    for(let i=0;i<pa.count;i++){const v=new THREE.Vector3(pa.getX(i),pa.getY(i),pa.getZ(i));const o=v.clone();v.normalize().multiplyScalar(1.2);v.lerp(o,0.5);pa.setXYZ(i,v.x,v.y,v.z);}
+    cubeGeo.computeVertexNormals();
+    const cube = new THREE.Mesh(cubeGeo, chrome(0xd6ff3c,{rough:0.12}));
+    cube.position.set(-1.6,0.8,0.3); cube.rotation.set(0.3,0.4,0.2); scene.add(cube);
+    objects.push({m:cube,rs:0.25,bx:-1.6,by:0.8,bz:0.3,fa:0.18,i:0});
+
+    const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(0.8,0.25,200,32,2,3), chrome(0xf5f5f5,{rough:0.04}));
+    knot.position.set(0.7,0.2,0); scene.add(knot);
+    objects.push({m:knot,rs:0.4,bx:0.7,by:0.2,bz:0,fa:0.2,i:1});
+
+    const sph = new THREE.Mesh(new THREE.SphereGeometry(0.52,48,48), chrome(0xffffff,{rough:0.02}));
+    sph.position.set(2.0,-0.7,0.8); scene.add(sph);
+    objects.push({m:sph,rs:0.15,bx:2.0,by:-0.7,bz:0.8,fa:0.22,i:2});
+
+    const oct = new THREE.Mesh(new THREE.OctahedronGeometry(0.4,0), chrome(0xd6ff3c,{rough:0.08,env:2.5}));
+    oct.position.set(1.5,1.3,0.5); oct.rotation.set(0.3,0.5,0); scene.add(oct);
+    objects.push({m:oct,rs:0.5,bx:1.5,by:1.3,bz:0.5,fa:0.15,i:3});
+
+    const torus = new THREE.Mesh(new THREE.TorusGeometry(0.48,0.16,40,80), chrome(0xffffff,{rough:0.06}));
+    torus.position.set(-0.7,-1.2,0.6); torus.rotation.set(Math.PI/3,0.3,0.5); scene.add(torus);
+    objects.push({m:torus,rs:0.3,bx:-0.7,by:-1.2,bz:0.6,fa:0.2,i:4});
+
+    let mx=0,my=0;
+    window.addEventListener('mousemove',(e)=>{ mx=(e.clientX/window.innerWidth-0.5); my=(e.clientY/window.innerHeight-0.5); });
+
+    const clock = new THREE.Clock();
+    function animate(){
+        const t = clock.getElapsedTime();
+        objects.forEach(o=>{
+            o.m.rotation.x += o.rs*0.008;
+            o.m.rotation.y += o.rs*0.011;
+            o.m.position.y = o.by + Math.sin(t*0.8 + o.i)*o.fa;
+        });
+        camera.position.x += (mx*1.4 - camera.position.x)*0.05;
+        camera.position.y += (-my*1.0 - camera.position.y)*0.05;
+        camera.lookAt(0,0,0);
+        renderer.render(scene,camera);
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    window.addEventListener('resize', ()=>{
+        camera.aspect = heroCanvas.clientWidth / heroCanvas.clientHeight;
+        camera.updateProjectionMatrix();
+        size();
+    });
+}
+</script>
+
+<!-- track CTA click (reuses parent landing's tracker if present) -->
+<script>
+document.getElementById('cta-register')?.addEventListener('click',()=>{ try{ window.parent?.track?.('presentation_cta_click',{page:'open_lesson_presentation_ru'}); }catch(e){} });
+</script>
+
+</body>
+</html>
