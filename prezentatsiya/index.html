@@ -285,6 +285,37 @@
     .pay-banks{margin-top:clamp(16px,2.6vh,28px);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
     .pay-banks-label{font-size:clamp(0.8rem,1.2vw,1rem);font-weight:800;color:var(--white)}
 
+    /* ===== INTERNO structure components ===== */
+    .stat-grid.cols3{grid-template-columns:repeat(3,1fr)}
+    .about-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:clamp(18px,3vw,44px);align-items:center;flex:1}
+    .def-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,3vw,44px);align-items:center;flex:1}
+    .lead-quote{font-size:clamp(1rem,1.55vw,1.4rem);line-height:1.5;color:rgba(255,255,255,0.9)}
+    .lead-quote b{color:var(--lime)}
+    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px);flex:1;align-content:center}
+    .review-card{border-radius:var(--radius-lg);padding:clamp(18px,2.2vw,30px);display:flex;flex-direction:column;gap:14px}
+    .review-stars{color:var(--lime);font-size:clamp(0.85rem,1.2vw,1.05rem);letter-spacing:3px}
+    .review-text{font-size:clamp(0.8rem,1.12vw,0.98rem);color:rgba(255,255,255,0.85);line-height:1.55;flex:1}
+    .review-who{display:flex;align-items:center;gap:12px}
+    .review-ava{width:clamp(38px,4vw,50px);height:clamp(38px,4vw,50px);border-radius:50%;background:linear-gradient(135deg,var(--lime),var(--lime-dim));color:var(--black);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:clamp(0.85rem,1.2vw,1.05rem);flex-shrink:0}
+    .review-name{font-weight:800;font-size:clamp(0.84rem,1.15vw,1rem)}
+    .review-role{font-size:clamp(0.68rem,0.95vw,0.8rem);color:var(--text-muted)}
+    .grad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.3vw,16px);flex:1;align-content:center}
+    .grad-card{border-radius:var(--radius);padding:clamp(14px,1.6vw,22px);display:flex;flex-direction:column;gap:9px;align-items:flex-start}
+    .grad-ava{width:clamp(40px,4vw,52px);height:clamp(40px,4vw,52px);border-radius:14px;background:linear-gradient(135deg,var(--lime),var(--lime-dim));color:var(--black);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:clamp(1rem,1.5vw,1.3rem)}
+    .grad-name{font-weight:800;font-size:clamp(0.8rem,1.12vw,0.96rem);line-height:1.15}
+    .grad-role{font-size:clamp(0.66rem,0.92vw,0.78rem);color:var(--text-muted);line-height:1.3}
+    .grad-income{margin-top:6px;padding:5px 12px;border-radius:var(--radius-pill);background:rgba(214,255,60,0.12);border:1px solid rgba(214,255,60,0.28);color:var(--lime);font-size:clamp(0.68rem,0.98vw,0.82rem);font-weight:800}
+    .qa-slide .slide-inner{justify-content:center;align-items:center;text-align:center;position:relative}
+    .qa-marks{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+    .qa-marks span{position:absolute;font-size:clamp(3rem,10vw,9rem);font-weight:900;color:rgba(214,255,60,0.10)}
+    .qa-marks span:nth-child(1){top:6%;left:9%}.qa-marks span:nth-child(2){top:16%;right:11%}
+    .qa-marks span:nth-child(3){bottom:12%;left:15%}.qa-marks span:nth-child(4){bottom:18%;right:16%}
+    .qa-slide .body-head,.qa-slide .s-title,.qa-slide .s-sub,.qa-slide .cta-btn{position:relative;z-index:2}
+    .thanks-slide{background:var(--lime)}
+    .thanks-slide::before,.thanks-slide::after{display:none}
+    .thanks-slide .slide-inner{justify-content:center;align-items:center;text-align:center}
+    .thanks-slide .s-title{color:var(--black)}
+
     /* speaker */
     .speaker-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(18px,3vw,50px);align-items:center;flex:1}
     .speaker-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:1/1.05;background:var(--card-light)}
@@ -452,6 +483,10 @@
         .salary-grid{grid-template-columns:1fr}
         .price-grid{grid-template-columns:1fr}
         .pay-grid{grid-template-columns:1fr}
+        .review-grid{grid-template-columns:1fr}
+        .grad-grid{grid-template-columns:repeat(2,1fr)}
+        .about-grid,.def-grid{grid-template-columns:1fr}
+        .stat-grid.cols3{grid-template-columns:repeat(2,1fr)}
         .slide-3d{width:90%;opacity:.5;right:-20%}
         .dots{display:none}
         .hint{display:none}
@@ -474,154 +509,392 @@
 <div class="deck">
     <div class="deck-title">Prezentatsiya · Ochiq dars</div>
     <div class="stage" id="stage">
-
-        <!-- ===================== SLIDE 1 — TITLE ===================== -->
+        <!-- 1. TITLE -->
         <section class="slide title-slide" data-name="Kirish">
             <div class="slide-3d"><canvas id="hero-3d"></canvas></div>
             <div class="slide-inner">
-                <div class="s-num reveal"><span class="br">[</span> 01 <span class="br">]</span></div>
-                <h1 class="s-title reveal">
-                    DATA <span class="stroke">ANALITIKA</span><span class="hero-avatars"><span>🧑‍💻</span><span>👩‍💼</span><span>📊</span></span><br>
-                    <span class="accent">NOLDAN PRO</span> 3 OYDA
-                </h1>
+                <span class="s-kicker liquid-glass reveal">🎓 Bepul ochiq dars · INTERNO School</span>
+                <h1 class="s-title reveal">DATA ANALITIKADA<br><span class="accent">TEZKOR START</span></h1>
                 <div class="title-tags reveal stg">
                     <span class="tag liquid-glass"><img class="tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="" loading="lazy">Python</span>
                     <span class="tag liquid-glass"><img class="tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="" loading="lazy">SQL</span>
                     <span class="tag liquid-glass"><img class="tag-logo" src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="" loading="lazy">Power BI</span>
                     <span class="tag liquid-glass"><img class="tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="" loading="lazy">Pandas</span>
                     <span class="tag liquid-glass"><img class="tag-logo" src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="" loading="lazy">Excel</span>
-                    <span class="tag liquid-glass"><img class="tag-logo" src="https://api.iconify.design/mdi/github.svg?color=%23ffffff" alt="" loading="lazy">GitHub</span>
-                    <span class="tag liquid-glass">DAX</span>
                 </div>
-                <div class="title-question reveal">
-                    Bugungi 60 daqiqalik bepul ochiq darsda O'zbekistondagi eng talab qilinadigan
-                    <strong>Data Analyst</strong> kasbini qanday egallashni ko'rib chiqamiz.
+                <div class="title-question reveal">60 daqiqalik ochiq darsda Data Analyst kasbi, bozor, dastur va daromad imkoniyatlari bilan to'liq tanishasiz.</div>
+                <div class="title-foot reveal"><span class="scribble">INTERNO School</span><span class="tag liquid-glass">Spiker: Asliddin Omonboyev</span></div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT SCHOOL -->
+        <section class="slide" data-name="INTERNO">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 02 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">INTERNO SCHOOL <span class="accent">NIMA?</span></h2>
                 </div>
-                <div class="title-foot reveal">
-                    <span class="scribble">INTERNO School</span>
-                    <span class="tag liquid-glass">Spiker: Asliddin Omonboyev</span>
+                <div class="about-grid">
+                    <p class="lead-quote reveal">INTERNO School — <b>5 yildan ortiq</b> vaqtdan beri eng talab qilinadigan yo'nalishlar bo'yicha faqat dolzarb bilim beradigan zamonaviy maktab. Bilimlarni <b>soha ekspertlari</b> o'rgatadi, bitiruvchilarimiz esa Toshkent va xalqaro kompaniyalarda ishlaydi.</p>
+                    <div class="stg reveal" style="display:flex;flex-direction:column;gap:12px">
+                        <div class="info-card liquid-glass" style="flex-direction:row;align-items:center;gap:16px"><div class="oc-icon" style="margin:0">🏆</div><div><div class="ic-title">Amaliy yo'nalish</div><div class="ic-desc" style="margin:0">90% amaliyot — real loyihalar ustida</div></div></div>
+                        <div class="info-card liquid-glass" style="flex-direction:row;align-items:center;gap:16px"><div class="oc-icon" style="margin:0">👨‍🏫</div><div><div class="ic-title">Soha ekspertlari</div><div class="ic-desc" style="margin:0">Amaldagi Data Analyst mentorlar</div></div></div>
+                        <div class="info-card liquid-glass" style="flex-direction:row;align-items:center;gap:16px"><div class="oc-icon" style="margin:0">🎯</div><div><div class="ic-title">Ishga yo'naltirish</div><div class="ic-desc" style="margin:0">Portfolio, CV va karyera qo'llab-quvvatlash</div></div></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== SLIDE 2 — AGENDA ===================== -->
-        <section class="slide" data-name="Reja">
+        <!-- 3. WHERE GRADUATES WORK -->
+        <section class="slide" data-name="Kompaniyalar">
             <div class="slide-inner">
-                <div class="s-num reveal"><span class="br">[</span> 02 <span class="br">]</span></div>
-                <h2 class="s-title reveal">BUGUN NIMA <span class="accent">KO'RAMIZ?</span></h2>
-                <div class="agenda-grid">
-                    <div class="agenda-rows reveal stg" style="margin-top:24px">
-                        <div class="agenda-row"><div class="agenda-q">Nima <span class="accent">qilamiz?</span></div><div class="agenda-a">Data Analyst kasbi va bozorni o'rganamiz</div></div>
-                        <div class="agenda-row"><div class="agenda-q">Qanday <span class="accent">o'rganamiz?</span></div><div class="agenda-a">Python · SQL · Power BI — amaliy stack</div></div>
-                        <div class="agenda-row"><div class="agenda-q">Qancha <span class="accent">vaqtda?</span></div><div class="agenda-a">3 oy · 36 dars · 54 soat</div></div>
-                        <div class="agenda-row" style="border-bottom:none"><div class="agenda-q">Natija <span class="accent">nima?</span></div><div class="agenda-a">Job-ready Junior Data Analyst + portfolio</div></div>
-                    </div>
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 03 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">BITIRUVCHILAR <span class="accent">QAYERDA ISHLAYDI?</span></h2>
+                    <p class="s-sub reveal">Bular O'zbekistonda ma'lumot bilan ishlaydigan yetakchi kompaniyalar.</p>
+                </div>
+                <div class="chip-cloud stg">
+                    <span class="chip liquid-glass">Uzum Market</span><span class="chip liquid-glass">Humans</span><span class="chip liquid-glass">Click.uz</span><span class="chip liquid-glass">Payme</span><span class="chip liquid-glass">Kapitalbank</span><span class="chip liquid-glass">TBC Bank</span><span class="chip liquid-glass">Alif Mobi</span><span class="chip liquid-glass">Uzcard</span><span class="chip liquid-glass">Beeline</span><span class="chip liquid-glass">Ucell</span><span class="chip liquid-glass">EPAM</span><span class="chip liquid-glass">Korzinka</span><span class="chip liquid-glass">Anor Bank</span><span class="chip liquid-glass">Hamkorbank</span><span class="chip liquid-glass">IT Park</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. INTERNO IN NUMBERS -->
+        <section class="slide" data-name="Raqamlar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 04 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">INTERNO <span class="accent">RAQAMLARDA</span></h2>
+                </div>
+                <div class="stat-grid cols3 stg">
+                    <div class="stat-card liquid-glass"><div class="stat-val">3800+</div><div class="stat-label">Bitiruvchi</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">150+</div><div class="stat-label">Yangi talaba / oy</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">4</div><div class="stat-label">Yo'nalish</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">6</div><div class="stat-label">O'quv auditoriya</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">70%</div><div class="stat-label">Ishga joylashgan</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">3</div><div class="stat-label">Filial: Toshkent, Samarqand, Farg'ona</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. WHO IS A DATA ANALYST -->
+        <section class="slide" data-name="DA kim?">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 05 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">DATA ANALYST <span class="accent">KIM?</span></h2>
+                </div>
+                <div class="def-grid">
+                    <p class="lead-quote reveal">Data Analyst — <b>xom ma'lumotni</b> yig'ib, tozalab, tahlil qiladigan va uni biznes uchun <b>aniq qarorga</b> aylantiradigan mutaxassis. U raqamlar ortidagi hikoyani ko'radi va kompaniyaga qayerda o'sish borligini ko'rsatadi.</p>
                     <div class="reveal">
-                        <p class="s-sub">Ushbu prezentatsiya — ochiq darsning yo'l xaritasi. Har bir bo'limni birma-bir ochib boramiz:</p>
-                        <div class="agenda-flow">
-                            <span class="liquid-glass">Bozor</span><b>→</b>
-                            <span class="liquid-glass">Ko'nikmalar</span><b>→</b>
-                            <span class="liquid-glass">Dastur</span><b>→</b>
-                            <span class="liquid-glass">Jonli amaliyot</span><b>→</b>
-                            <span class="liquid-glass">Dashboardlar</span><b>→</b>
-                            <span class="liquid-glass">Karyera</span>
+                        <div class="chart-card">
+                            <div class="chart-title">▶ Ma'lumot → qaror</div>
+                            <div class="bar-chart">
+                                <div class="bar"><span class="bar-val">Xom</span><div class="bar-fill" style="--h:34%"></div><span class="bar-label">Ma'lumot</span></div>
+                                <div class="bar"><span class="bar-val">Toza</span><div class="bar-fill" style="--h:58%"></div><span class="bar-label">Tahlil</span></div>
+                                <div class="bar"><span class="bar-val">📊</span><div class="bar-fill" style="--h:80%"></div><span class="bar-label">Vizual</span></div>
+                                <div class="bar"><span class="bar-val">💡</span><div class="bar-fill" style="--h:100%"></div><span class="bar-label">Insight</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== SLIDE 3 — MARKET STATS ===================== -->
+        <!-- 6. WHY IN DEMAND -->
+        <section class="slide" data-name="Nega talab">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 06 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">NEGA <span class="accent">TALAB QILINADI?</span></h2>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">🚀</div><div class="ic-title">Tez o'sayotgan soha</div><p class="ic-desc" style="margin:8px 0 0">Har bir kompaniya ma'lumot bilan ishlaydi — mutaxassis yetishmaydi.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🌍</div><div class="ic-title">Masofadan / frilans</div><p class="ic-desc" style="margin:8px 0 0">Uydan yoki xalqaro kompaniyalarga ishlash imkoniyati.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">💰</div><div class="ic-title">Yuqori daromad</div><p class="ic-desc" style="margin:8px 0 0">Middle daraja — $1,500+ dan boshlanadi.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🧠</div><div class="ic-title">Intellektual ish</div><p class="ic-desc" style="margin:8px 0 0">Muammoni yechish va biznesga ta'sir ko'rsatish.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. MARKET -->
         <section class="slide" data-name="Bozor">
             <div class="slide-inner">
                 <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 03 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">DATA ANALYST — <span class="accent">YANGI IT KASBI</span></h2>
-                    <p class="s-sub reveal">O'zbekistonda raqamli transformatsiya tez sur'atda rivojlanmoqda — ammo ma'lumotni tushunadigan mutaxassislar yetarli emas.</p>
+                    <div class="s-num reveal"><span class="br">[</span> 07 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">BOZOR — <span class="accent">O'ZBEKISTON</span></h2>
+                    <p class="s-sub reveal">Raqamli transformatsiya tez rivojlanmoqda, ammo ma'lumotni tushunadigan mutaxassislar yetarli emas.</p>
                 </div>
                 <div class="stat-grid stg">
                     <div class="stat-card liquid-glass"><div class="stat-val">500+</div><div class="stat-label">Ochiq vakansiya</div><div class="stat-desc">hh.uz va LinkedIn'da har oyda</div></div>
-                    <div class="stat-card liquid-glass"><div class="stat-val">+40%</div><div class="stat-label">Maosh o'sishi</div><div class="stat-desc">2023–2025 yillar statistikasi</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">+40%</div><div class="stat-label">Maosh o'sishi</div><div class="stat-desc">2023–2025 statistikasi</div></div>
                     <div class="stat-card liquid-glass"><div class="stat-val">3×</div><div class="stat-label">Vakansiyalar o'sishi</div><div class="stat-desc">2023 va 2025 taqqoslash</div></div>
-                    <div class="stat-card liquid-glass"><div class="stat-val">$1,500+</div><div class="stat-label">O'rtacha maosh</div><div class="stat-desc">Middle Data Analyst, Toshkent</div></div>
+                    <div class="stat-card liquid-glass"><div class="stat-val">$1,500+</div><div class="stat-label">O'rtacha maosh</div><div class="stat-desc">Middle Data Analyst</div></div>
                 </div>
-                <div class="market-quote liquid-glass reveal">
-                    "2024-yilda IT Parkda ro'yxatdan o'tgan kompaniyalarning <strong>75% i</strong> ma'lumot tahlili bo'yicha mutaxassislarni qidirmoqda."
-                    <span>— IT Park Uzbekistan, 2025</span>
-                </div>
+                <div class="market-quote liquid-glass reveal">"IT Parkda ro'yxatdan o'tgan kompaniyalarning <strong>75% i</strong> ma'lumot tahlili mutaxassislarini qidirmoqda."<span>— IT Park Uzbekistan, 2025</span></div>
             </div>
         </section>
 
-        <!-- ===================== SLIDE 4 — COMPANIES ===================== -->
-        <section class="slide" data-name="Kompaniyalar">
+        <!-- 8. WORK PROCESS -->
+        <section class="slide" data-name="Jarayon">
             <div class="slide-inner">
                 <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 04 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">KIM <span class="accent">QIDIRMOQDA?</span></h2>
-                    <p class="s-sub reveal">Bular bugun O'zbekistonda Data Analyst qidirayotgan yetakchi kompaniyalar.</p>
+                    <div class="s-num reveal"><span class="br">[</span> 08 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">DATA ANALYST <span class="accent">QANDAY ISHLAYDI?</span></h2>
+                    <p class="s-sub reveal">Har bir loyiha xuddi shu 5 bosqichdan o'tadi.</p>
                 </div>
-                <div class="chip-cloud stg">
-                    <span class="chip liquid-glass">Uzum Market</span>
-                    <span class="chip liquid-glass">Humans</span>
-                    <span class="chip liquid-glass">Click.uz</span>
-                    <span class="chip liquid-glass">Payme</span>
-                    <span class="chip liquid-glass">Kapitalbank</span>
-                    <span class="chip liquid-glass">TBC Bank</span>
-                    <span class="chip liquid-glass">Alif Mobi</span>
-                    <span class="chip liquid-glass">Uzcard</span>
-                    <span class="chip liquid-glass">Beeline</span>
-                    <span class="chip liquid-glass">Ucell</span>
-                    <span class="chip liquid-glass">EPAM</span>
-                    <span class="chip liquid-glass">Korzinka</span>
-                    <span class="chip liquid-glass">Anor Bank</span>
-                    <span class="chip liquid-glass">Hamkorbank</span>
-                    <span class="chip liquid-glass">IT Park</span>
+                <div class="demo-grid">
+                    <ol class="steps reveal stg">
+                        <li><b>Yig'ish</b> — CSV, SQL yoki API'dan ma'lumot olamiz</li>
+                        <li><b>Tozalash</b> — bo'sh va takror qatorlarni tuzatamiz</li>
+                        <li><b>Tahlil</b> — guruhlash, metrikalar, trendlar</li>
+                        <li><b>Vizualizatsiya</b> — grafik va dashboard</li>
+                        <li><b>Insight</b> — biznes uchun aniq tavsiya</li>
+                    </ol>
+                    <div class="data-wrap reveal">
+                        <div class="data-tag">📄 sales.csv — xom ma'lumot</div>
+                        <table class="data-table">
+                            <thead><tr><th>id</th><th>mahsulot</th><th>shahar</th><th>summa</th></tr></thead>
+                            <tbody>
+                                <tr><td>1001</td><td>Noutbuk</td><td>Toshkent</td><td class="hl">12 400 000</td></tr>
+                                <tr><td>1002</td><td>Telefon</td><td>Samarqand</td><td class="hl">6 200 000</td></tr>
+                                <tr><td>1003</td><td>Monitor</td><td>Farg'ona</td><td class="hl">2 100 000</td></tr>
+                                <tr><td>1004</td><td>—</td><td>Buxoro</td><td class="hl">NaN</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== SLIDE 5 — SKILLS ===================== -->
+        <!-- 9. WHERE NEEDED (industries) -->
+        <section class="slide" data-name="Sohalar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 09 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">DATA ANALYST <span class="accent">QAYERDA KERAK?</span></h2>
+                    <p class="s-sub reveal">Deyarli har bir sohada — ma'lumot bor joyda tahlilchi kerak.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">🛒</div><div class="ic-title">E-commerce</div><p class="ic-desc" style="margin:8px 0 0">Sotuv va mijozlar tahlili</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🏦</div><div class="ic-title">Bank & Fintech</div><p class="ic-desc" style="margin:8px 0 0">Risk va kredit skoring</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📱</div><div class="ic-title">Telecom</div><p class="ic-desc" style="margin:8px 0 0">Mijozlar xulqi tahlili</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🚚</div><div class="ic-title">Logistika</div><p class="ic-desc" style="margin:8px 0 0">Marshrut optimizatsiyasi</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📣</div><div class="ic-title">Marketing</div><p class="ic-desc" style="margin:8px 0 0">Kampaniya ROI tahlili</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">💊</div><div class="ic-title">Tibbiyot</div><p class="ic-desc" style="margin:8px 0 0">Medical analytics</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🏭</div><div class="ic-title">Ishlab chiqarish</div><p class="ic-desc" style="margin:8px 0 0">Supply chain analytics</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🏛️</div><div class="ic-title">Davlat</div><p class="ic-desc" style="margin:8px 0 0">Raqamli hukumat loyihalari</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. PRACTICAL: PYTHON -->
+        <section class="slide" data-name="Python kod">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 10 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">AMALIYOT · <span class="accent">PYTHON / PANDAS</span></h2>
+                    <p class="s-sub reveal">Bir necha qator kod — va xom jadval kategoriya bo'yicha savdoga aylanadi.</p>
+                </div>
+                <div class="demo-grid wide-left">
+                    <div class="code-card reveal">
+                        <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">analysis.py</span></div>
+                        <div class="code-body"><span class="code-line"><span class="tok-k">import</span> pandas <span class="tok-k">as</span> pd</span><span class="code-line"> </span><span class="code-line"><span class="tok-c"># 1. Yuklaymiz</span></span><span class="code-line">df = pd.<span class="tok-f">read_csv</span>(<span class="tok-s">"sales.csv"</span>)</span><span class="code-line"> </span><span class="code-line"><span class="tok-c"># 2. Tozalash</span></span><span class="code-line">df = df.<span class="tok-f">dropna</span>().<span class="tok-f">drop_duplicates</span>()</span><span class="code-line"> </span><span class="code-line"><span class="tok-c"># 3. Kategoriya bo'yicha savdo</span></span><span class="code-line">top = (df.<span class="tok-f">groupby</span>(<span class="tok-s">"kategoriya"</span>)[<span class="tok-s">"summa"</span>]</span><span class="code-line">         .<span class="tok-f">sum</span>()</span><span class="code-line">         .<span class="tok-f">sort_values</span>(ascending=<span class="tok-k">False</span>))</span><span class="code-line"> </span><span class="code-line"><span class="tok-f">print</span>(top)<span class="cursor"></span></span></div>
+                    </div>
+                    <div class="reveal">
+                        <div class="chart-card">
+                            <div class="chart-title">▶ Natija — savdo / kategoriya (mlrd so'm)</div>
+                            <div class="bar-chart">
+                                <div class="bar"><span class="bar-val">4.0</span><div class="bar-fill" style="--h:100%"></div><span class="bar-label">Elektronika</span></div>
+                                <div class="bar"><span class="bar-val">2.6</span><div class="bar-fill" style="--h:65%"></div><span class="bar-label">Kiyim</span></div>
+                                <div class="bar"><span class="bar-val">1.8</span><div class="bar-fill" style="--h:45%"></div><span class="bar-label">Oziq-ovqat</span></div>
+                                <div class="bar"><span class="bar-val">1.1</span><div class="bar-fill" style="--h:28%"></div><span class="bar-label">Uy-ro'zg'or</span></div>
+                            </div>
+                        </div>
+                        <div class="insight"><span class="ic-em">💡</span><div><b>Insight:</b> Elektronika savdoning <b>38%</b>ini beradi.</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. PRACTICAL: SQL -->
+        <section class="slide" data-name="SQL so'rov">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 11 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">AMALIYOT · <span class="accent">SQL</span></h2>
+                    <p class="s-sub reveal">Ikki jadvalni birlashtirib, shaharlar bo'yicha savdoni hisoblaymiz.</p>
+                </div>
+                <div class="demo-grid">
+                    <div class="code-card reveal">
+                        <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">query.sql</span></div>
+                        <div class="code-body"><span class="code-line"><span class="tok-k">SELECT</span>  c.shahar,</span><span class="code-line">        <span class="tok-f">COUNT</span>(o.id)   <span class="tok-k">AS</span> buyurtmalar,</span><span class="code-line">        <span class="tok-f">SUM</span>(o.summa)  <span class="tok-k">AS</span> jami_savdo</span><span class="code-line"><span class="tok-k">FROM</span>    buyurtmalar o</span><span class="code-line"><span class="tok-k">JOIN</span>    mijozlar   c <span class="tok-k">ON</span> c.id = o.mijoz_id</span><span class="code-line"><span class="tok-k">GROUP BY</span> c.shahar</span><span class="code-line"><span class="tok-k">ORDER BY</span> jami_savdo <span class="tok-k">DESC</span></span><span class="code-line"><span class="tok-k">LIMIT</span> <span class="tok-n">5</span>;<span class="cursor"></span></span></div>
+                    </div>
+                    <div class="data-wrap reveal">
+                        <div class="data-tag">▶ Natija — 5 qator</div>
+                        <table class="data-table">
+                            <thead><tr><th>shahar</th><th>buyurtmalar</th><th>jami_savdo</th></tr></thead>
+                            <tbody>
+                                <tr><td>Toshkent</td><td>1 284</td><td class="hl">3 420 000 000</td></tr>
+                                <tr><td>Samarqand</td><td>612</td><td class="hl">1 180 000 000</td></tr>
+                                <tr><td>Farg'ona</td><td>438</td><td class="hl">760 000 000</td></tr>
+                                <tr><td>Buxoro</td><td>295</td><td class="hl">540 000 000</td></tr>
+                                <tr><td>Andijon</td><td>271</td><td class="hl">505 000 000</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. PRACTICAL: POWER BI -->
+        <section class="slide" data-name="Power BI">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 12 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">AMALIYOT · <span class="accent">POWER BI / DAX</span></h2>
+                    <p class="s-sub reveal">Bitta DAX o'lchovi — oylik o'sish dinamikasi dashboardda jonlanadi.</p>
+                </div>
+                <div class="demo-grid">
+                    <div class="reveal">
+                        <div class="code-card">
+                            <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">measure.dax</span></div>
+                            <div class="code-body"><span class="code-line">Savdo O'sishi % =</span><span class="code-line"><span class="tok-k">VAR</span> Joriy = [Jami Savdo]</span><span class="code-line"><span class="tok-k">VAR</span> Otgan =</span><span class="code-line">    <span class="tok-f">CALCULATE</span>(</span><span class="code-line">        [Jami Savdo],</span><span class="code-line">        <span class="tok-f">DATEADD</span>(<span class="tok-s">'Sana'</span>[Date], -<span class="tok-n">1</span>, MONTH))</span><span class="code-line"><span class="tok-k">RETURN</span></span><span class="code-line">    <span class="tok-f">DIVIDE</span>(Joriy - Otgan, Otgan)<span class="cursor"></span></span></div>
+                        </div>
+                        <div class="insight"><span class="ic-em">📈</span><div><b>MoM o'sish</b> har bir vizualda avtomatik hisoblanadi.</div></div>
+                    </div>
+                    <div class="dash-card reveal"><span class="dash-badge">Power BI</span><img src="/tilda/dashboard-1.jpeg" alt="Power BI dashboardi" loading="lazy"><div class="dash-cap liquid-glass">Sotuv dashboardi · real loyiha</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. TOOLS -->
+        <section class="slide" data-name="Vositalar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 13 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">VOSI<span class="stroke">TALAR</span></h2>
+                    <p class="s-sub reveal">Bozordagi eng dolzarb texnologiyalar — barchasi kursda amaliy tarzda.</p>
+                </div>
+                <div class="card-grid g5 stg">
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy"></div><div class="tool-nm">Python</div><div class="tool-ds">Dasturlash</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL" loading="lazy"></div><div class="tool-nm">SQL</div><div class="tool-ds">MS SQL Server</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI" loading="lazy"></div><div class="tool-nm">Power BI</div><div class="tool-ds">Dashboard</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="Excel" loading="lazy"></div><div class="tool-nm">Excel</div><div class="tool-ds">Jadvallar</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" loading="lazy"></div><div class="tool-nm">Pandas</div><div class="tool-ds">Tahlil</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" loading="lazy"></div><div class="tool-nm">NumPy</div><div class="tool-ds">Hisoblash</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" loading="lazy"></div><div class="tool-nm">Matplotlib</div><div class="tool-ds">Grafiklar</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter" loading="lazy"></div><div class="tool-nm">Jupyter</div><div class="tool-ds">Notebook</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/logos/tableau-icon.svg" alt="Tableau" loading="lazy"></div><div class="tool-nm">Tableau</div><div class="tool-ds">Hisobot</div></div>
+                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" loading="lazy"></div><div class="tool-nm">GitHub</div><div class="tool-ds">Portfolio</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 14. SKILLS -->
         <section class="slide" data-name="Ko'nikmalar">
             <div class="slide-inner">
                 <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 05 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">4 TA <span class="accent">KO'NIKMA</span></h2>
+                    <div class="s-num reveal"><span class="br">[</span> 14 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">QANDAY <span class="accent">KO'NIKMALAR?</span></h2>
                     <p class="s-sub reveal">Ma'lumotlar bilan ishlashning to'liq texnologik stecki.</p>
                 </div>
                 <div class="card-grid g4 stg">
                     <div class="info-card liquid-glass">
                         <div class="ic-top"><div class="ic-icon logo-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy"></div><div><div class="ic-num">Ko'nikma 1</div><div class="ic-title">Python</div></div></div>
-                        <p class="ic-desc">Data Analyst ishining asosi — ma'lumotlar bilan dasturlash.</p>
+                        <p class="ic-desc">Ma'lumotlar bilan dasturlash asoslari.</p>
                         <ul class="ic-list"><li>NumPy asoslari</li><li>Funksiyalar, lambda</li><li>CSV bilan ishlash</li><li>Jupyter Notebook</li></ul>
-                        <span class="ic-foot">1-oy · 12 dars</span>
                     </div>
                     <div class="info-card liquid-glass">
                         <div class="ic-top"><div class="ic-icon logo-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" loading="lazy"></div><div><div class="ic-num">Ko'nikma 2</div><div class="ic-title">Data tahlili</div></div></div>
-                        <p class="ic-desc">Ma'lumotlarni tozalash, tahlil va vizualizatsiya.</p>
+                        <p class="ic-desc">Tozalash, tahlil va vizualizatsiya.</p>
                         <ul class="ic-list"><li>Pandas DataFrame</li><li>Matplotlib, Seaborn</li><li>Interaktiv Plotly</li><li>EDA va statistika</li></ul>
-                        <span class="ic-foot">2-oy · 12 dars</span>
                     </div>
                     <div class="info-card liquid-glass">
-                        <div class="ic-top"><div class="ic-icon logo-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server" loading="lazy"></div><div><div class="ic-num">Ko'nikma 3</div><div class="ic-title">SQL & bazalar</div></div></div>
-                        <p class="ic-desc">Yirik kompaniyalardagi ma'lumot bazalari bilan ishlash.</p>
+                        <div class="ic-top"><div class="ic-icon logo-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL" loading="lazy"></div><div><div class="ic-num">Ko'nikma 3</div><div class="ic-title">SQL & bazalar</div></div></div>
+                        <p class="ic-desc">Yirik ma'lumot bazalari bilan ishlash.</p>
                         <ul class="ic-list"><li>MS SQL Server</li><li>JOINs, CTE, Views</li><li>Stored Procedures</li><li>BigQuery asoslari</li></ul>
-                        <span class="ic-foot">3-oy · 6 dars</span>
                     </div>
                     <div class="info-card liquid-glass">
                         <div class="ic-top"><div class="ic-icon logo-tile"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI" loading="lazy"></div><div><div class="ic-num">Ko'nikma 4</div><div class="ic-title">Power BI & DAX</div></div></div>
                         <p class="ic-desc">Professional dashboardlar va biznes-analitika.</p>
                         <ul class="ic-list"><li>Power Query (ETL)</li><li>DAX: CALCULATE</li><li>Time Intelligence</li><li>Interaktiv visuallar</li></ul>
-                        <span class="ic-foot">3-oy · 6 dars</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== SLIDE 6 — CURRICULUM ===================== -->
+        <!-- 15. HOW TO BECOME -->
+        <section class="slide" data-name="Qanday boshlash">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 15 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">NIMADAN <span class="accent">BOSHLASH KERAK?</span></h2>
+                    <p class="s-sub reveal">Data Analyst bo'lishning aniq yo'l xaritasi.</p>
+                </div>
+                <div class="demo-grid">
+                    <ol class="steps reveal stg">
+                        <li><b>Dasturlarni o'rganish</b> — Python, SQL, Power BI, Excel</li>
+                        <li><b>Amaliyot</b> — real datasetlar ustida loyihalar</li>
+                        <li><b>Portfolio</b> — GitHub'da tayyor ishlar to'plami</li>
+                        <li><b>CV & LinkedIn</b> — professional profil</li>
+                        <li><b>Shaxsiy brend</b> — natijalarni ulashish, networking</li>
+                    </ol>
+                    <div class="reveal">
+                        <div class="chart-card">
+                            <div class="chart-title">▶ Noldan job-ready gacha</div>
+                            <div class="bar-chart">
+                                <div class="bar"><span class="bar-val">0</span><div class="bar-fill" style="--h:16%"></div><span class="bar-label">Start</span></div>
+                                <div class="bar"><span class="bar-val">1-oy</span><div class="bar-fill" style="--h:44%"></div><span class="bar-label">Python</span></div>
+                                <div class="bar"><span class="bar-val">2-oy</span><div class="bar-fill" style="--h:70%"></div><span class="bar-label">SQL/Data</span></div>
+                                <div class="bar"><span class="bar-val">3-oy</span><div class="bar-fill" style="--h:100%"></div><span class="bar-label">Job-ready</span></div>
+                            </div>
+                        </div>
+                        <div class="insight"><span class="ic-em">🎯</span><div>INTERNO'da bu yo'lni <b>3 oyda</b> mentorlar bilan bosib o'tasiz.</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 16. SOFT SKILLS -->
+        <section class="slide" data-name="Soft skills">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 16 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">TEXNIKADAN <span class="accent">TASHQARI</span></h2>
+                    <p class="s-sub reveal">Yaxshi analitik nafaqat kod yozadi — u ma'lumotni biznes tiliga tarjima qiladi.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">🗣️</div><div class="ic-title">Storytelling</div><p class="ic-desc" style="margin:8px 0 0">Insightni jamoaga tushunarli yetkazish.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🧩</div><div class="ic-title">Biznes-fikrlash</div><p class="ic-desc" style="margin:8px 0 0">Raqam ortidagi biznes-savolni ko'rish.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🔁</div><div class="ic-title">Feedback</div><p class="ic-desc" style="margin:8px 0 0">Tanqidni qabul qilish va yaxshilash.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">⏱️</div><div class="ic-title">Real dedlaynlar</div><p class="ic-desc" style="margin:8px 0 0">Vaqtni to'g'ri rejalashtirish.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 17. COURSE -->
+        <section class="slide" data-name="Kurs">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 17 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">KURS — <span class="accent">DATA ANALITIKA</span></h2>
+                    <p class="s-sub reveal">3 oylik amaliy dastur — noldan job-ready darajagacha.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">📅</div><div class="ic-title">3 oy · 36 dars</div><p class="ic-desc" style="margin:8px 0 0">54 soat · haftada 3 marta.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">💻</div><div class="ic-title">90% amaliyot</div><p class="ic-desc" style="margin:8px 0 0">Har dars real datasetlar ustida.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📊</div><div class="ic-title">Portfolio</div><p class="ic-desc" style="margin:8px 0 0">5+ loyiha GitHub'da tayyor.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🎓</div><div class="ic-title">Sertifikat</div><p class="ic-desc" style="margin:8px 0 0">INTERNO School guvohnomasi.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 18. CURRICULUM -->
         <section class="slide" data-name="Dastur">
             <div class="slide-inner">
                 <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 06 <span class="br">]</span></div>
+                    <div class="s-num reveal"><span class="br">[</span> 18 <span class="br">]</span></div>
                     <h2 class="s-title reveal">3 OYLIK <span class="accent">DASTUR</span></h2>
                     <p class="s-sub reveal">36 dars · 54 soat · haftada 3 marta. Har oy real loyiha bilan yakunlanadi.</p>
                 </div>
@@ -648,201 +921,29 @@
             </div>
         </section>
 
-        <!-- ===================== SLIDE — PRACTICAL: CASE STUDY ===================== -->
-        <section class="slide" data-name="Amaliyot">
+        <!-- 19. PLATFORM / SUPPORT -->
+        <section class="slide" data-name="Platforma">
             <div class="slide-inner">
                 <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 07 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">XOM DATADAN <span class="accent">INSIGHTGACHA</span></h2>
-                    <p class="s-sub reveal">Ochiq darsda biz real e-commerce ma'lumotini jonli tahlil qilamiz — 5 qadamda.</p>
+                    <div class="s-num reveal"><span class="br">[</span> 19 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">PLATFORMA VA <span class="accent">QO'LLAB-QUVVATLASH</span></h2>
                 </div>
-                <div class="demo-grid">
-                    <ol class="steps reveal stg">
-                        <li><b>Yuklash</b> — CSV yoki SQL'dan ma'lumotni olamiz</li>
-                        <li><b>Tozalash</b> — bo'sh va takror qatorlarni olib tashlaymiz</li>
-                        <li><b>Tahlil</b> — guruhlash, agregatsiya, trendlar</li>
-                        <li><b>Vizualizatsiya</b> — grafik va dashboard</li>
-                        <li><b>Insight</b> — biznes uchun aniq xulosa</li>
-                    </ol>
-                    <div class="data-wrap reveal">
-                        <div class="data-tag">📄 sales.csv — xom ma'lumot</div>
-                        <table class="data-table">
-                            <thead><tr><th>id</th><th>sana</th><th>mahsulot</th><th>shahar</th><th>summa</th></tr></thead>
-                            <tbody>
-                                <tr><td>1001</td><td>2025-01-04</td><td>Noutbuk</td><td>Toshkent</td><td class="hl">12 400 000</td></tr>
-                                <tr><td>1002</td><td>2025-01-04</td><td>Telefon</td><td>Samarqand</td><td class="hl">6 200 000</td></tr>
-                                <tr><td>1003</td><td>2025-01-05</td><td>Quloqchin</td><td>Toshkent</td><td class="hl">450 000</td></tr>
-                                <tr><td>1004</td><td>2025-01-05</td><td>—</td><td>Buxoro</td><td class="hl">NaN</td></tr>
-                                <tr><td>1005</td><td>2025-01-06</td><td>Monitor</td><td>Farg'ona</td><td class="hl">2 100 000</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">💬</div><div class="ic-title">Ishtirokchilar chati</div><p class="ic-desc" style="margin:8px 0 0">Savollarga tezkor javob, jamoa.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🔴</div><div class="ic-title">Jonli translyatsiya</div><p class="ic-desc" style="margin:8px 0 0">Har bir dars onlayn efirda.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🎥</div><div class="ic-title">Yozuvlar — abadiy</div><p class="ic-desc" style="margin:8px 0 0">Barcha darslar sizda qoladi.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">👨‍🏫</div><div class="ic-title">Mentor yordami</div><p class="ic-desc" style="margin:8px 0 0">Individual qo'llab-quvvatlash.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== SLIDE — PRACTICAL: PYTHON / PANDAS ===================== -->
-        <section class="slide" data-name="Python kod">
-            <div class="slide-inner">
-                <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 08 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">PYTHON · <span class="accent">PANDAS</span></h2>
-                    <p class="s-sub reveal">Bir necha qator kod — va xom jadval kategoriya bo'yicha savdoga aylanadi.</p>
-                </div>
-                <div class="demo-grid wide-left">
-                    <div class="code-card reveal">
-                        <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">analysis.py</span></div>
-                        <div class="code-body"><span class="code-line"><span class="tok-k">import</span> pandas <span class="tok-k">as</span> pd</span><span class="code-line"> </span><span class="code-line"><span class="tok-c"># 1. Ma'lumotni yuklaymiz</span></span><span class="code-line">df = pd.<span class="tok-f">read_csv</span>(<span class="tok-s">"sales.csv"</span>)</span><span class="code-line"> </span><span class="code-line"><span class="tok-c"># 2. Tozalash: bo'sh + takror</span></span><span class="code-line">df = df.<span class="tok-f">dropna</span>().<span class="tok-f">drop_duplicates</span>()</span><span class="code-line"> </span><span class="code-line"><span class="tok-c"># 3. Kategoriya bo'yicha savdo</span></span><span class="code-line">top = (df.<span class="tok-f">groupby</span>(<span class="tok-s">"kategoriya"</span>)[<span class="tok-s">"summa"</span>]</span><span class="code-line">         .<span class="tok-f">sum</span>()</span><span class="code-line">         .<span class="tok-f">sort_values</span>(ascending=<span class="tok-k">False</span>))</span><span class="code-line"> </span><span class="code-line"><span class="tok-f">print</span>(top)<span class="cursor"></span></span></div>
-                    </div>
-                    <div class="reveal">
-                        <div class="chart-card">
-                            <div class="chart-title">▶ Natija — savdo / kategoriya (mlrd so'm)</div>
-                            <div class="bar-chart">
-                                <div class="bar"><span class="bar-val">4.0</span><div class="bar-fill" style="--h:100%"></div><span class="bar-label">Elektronika</span></div>
-                                <div class="bar"><span class="bar-val">2.6</span><div class="bar-fill" style="--h:65%"></div><span class="bar-label">Kiyim</span></div>
-                                <div class="bar"><span class="bar-val">1.8</span><div class="bar-fill" style="--h:45%"></div><span class="bar-label">Oziq-ovqat</span></div>
-                                <div class="bar"><span class="bar-val">1.1</span><div class="bar-fill" style="--h:28%"></div><span class="bar-label">Uy-ro'zg'or</span></div>
-                            </div>
-                        </div>
-                        <div class="insight"><span class="ic-em">💡</span><div><b>Insight:</b> Elektronika umumiy savdoning <b>38%</b>ini beradi — marketing byudjetini shu yo'nalishga yo'naltirish foydali.</div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================== SLIDE — PRACTICAL: SQL ===================== -->
-        <section class="slide" data-name="SQL so'rov">
-            <div class="slide-inner">
-                <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 09 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">SQL — <span class="accent">JONLI SO'ROV</span></h2>
-                    <p class="s-sub reveal">Ikki jadvalni birlashtirib, shaharlar bo'yicha savdoni hisoblaymiz.</p>
-                </div>
-                <div class="demo-grid">
-                    <div class="code-card reveal">
-                        <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">query.sql</span></div>
-                        <div class="code-body"><span class="code-line"><span class="tok-k">SELECT</span>  c.shahar,</span><span class="code-line">        <span class="tok-f">COUNT</span>(o.id)   <span class="tok-k">AS</span> buyurtmalar,</span><span class="code-line">        <span class="tok-f">SUM</span>(o.summa)  <span class="tok-k">AS</span> jami_savdo</span><span class="code-line"><span class="tok-k">FROM</span>    buyurtmalar o</span><span class="code-line"><span class="tok-k">JOIN</span>    mijozlar   c <span class="tok-k">ON</span> c.id = o.mijoz_id</span><span class="code-line"><span class="tok-k">WHERE</span>   o.sana >= <span class="tok-s">'2025-01-01'</span></span><span class="code-line"><span class="tok-k">GROUP BY</span> c.shahar</span><span class="code-line"><span class="tok-k">ORDER BY</span> jami_savdo <span class="tok-k">DESC</span></span><span class="code-line"><span class="tok-k">LIMIT</span> <span class="tok-n">5</span>;<span class="cursor"></span></span></div>
-                    </div>
-                    <div class="data-wrap reveal">
-                        <div class="data-tag">▶ Natija — 5 qator</div>
-                        <table class="data-table">
-                            <thead><tr><th>shahar</th><th>buyurtmalar</th><th>jami_savdo</th></tr></thead>
-                            <tbody>
-                                <tr><td>Toshkent</td><td>1 284</td><td class="hl">3 420 000 000</td></tr>
-                                <tr><td>Samarqand</td><td>612</td><td class="hl">1 180 000 000</td></tr>
-                                <tr><td>Farg'ona</td><td>438</td><td class="hl">760 000 000</td></tr>
-                                <tr><td>Buxoro</td><td>295</td><td class="hl">540 000 000</td></tr>
-                                <tr><td>Andijon</td><td>271</td><td class="hl">505 000 000</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================== SLIDE — PRACTICAL: POWER BI / DAX ===================== -->
-        <section class="slide" data-name="Power BI">
-            <div class="slide-inner">
-                <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 10 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">POWER BI · <span class="accent">DAX</span></h2>
-                    <p class="s-sub reveal">Bitta DAX o'lchovi — va oylik o'sish dinamikasi dashboardda jonlanadi.</p>
-                </div>
-                <div class="demo-grid">
-                    <div class="reveal">
-                        <div class="code-card">
-                            <div class="code-bar"><span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span><span class="code-file">measure.dax</span></div>
-                            <div class="code-body"><span class="code-line">Savdo O'sishi % =</span><span class="code-line"><span class="tok-k">VAR</span> Joriy = [Jami Savdo]</span><span class="code-line"><span class="tok-k">VAR</span> Otgan =</span><span class="code-line">    <span class="tok-f">CALCULATE</span>(</span><span class="code-line">        [Jami Savdo],</span><span class="code-line">        <span class="tok-f">DATEADD</span>(<span class="tok-s">'Sana'</span>[Date], -<span class="tok-n">1</span>, MONTH))</span><span class="code-line"><span class="tok-k">RETURN</span></span><span class="code-line">    <span class="tok-f">DIVIDE</span>(Joriy - Otgan, Otgan)<span class="cursor"></span></span></div>
-                        </div>
-                        <div class="insight"><span class="ic-em">📈</span><div><b>MoM o'sish</b> har bir vizualda avtomatik hisoblanadi — filtrlar o'zgarsa, real vaqtda yangilanadi.</div></div>
-                    </div>
-                    <div class="dash-card reveal"><span class="dash-badge">Power BI</span><img src="/tilda/dashboard-1.jpeg" alt="Power BI sotuv dashboardi" loading="lazy"><div class="dash-cap liquid-glass">Sotuv dashboardi · real loyiha</div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================== SLIDE — VISUAL: DASHBOARD GALLERY ===================== -->
-        <section class="slide" data-name="Dashboardlar">
-            <div class="slide-inner">
-                <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 11 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">SIZ YARATADIGAN <span class="accent">DASHBOARDLAR</span></h2>
-                    <p class="s-sub reveal">Kursda aynan shunday real, interaktiv ishlarni portfolioingizga qo'shasiz.</p>
-                </div>
-                <div class="dash-grid stg">
-                    <div class="dash-card"><img src="/tilda/dashboard-2.jpeg" alt="Savdo tahlili dashboardi" loading="lazy"><div class="dash-cap liquid-glass">Sales Analytics</div></div>
-                    <div class="dash-card"><img src="/tilda/dashboard-3.jpeg" alt="Moliyaviy dashboard" loading="lazy"><div class="dash-cap liquid-glass">Finance Report</div></div>
-                    <div class="dash-card"><img src="/tilda/dashboard-4.jpeg" alt="Mahsulot tahlili dashboardi" loading="lazy"><div class="dash-cap liquid-glass">Product Insights</div></div>
-                    <div class="dash-card"><img src="/tilda/dashboard-5.jpeg" alt="KPI monitoring dashboardi" loading="lazy"><div class="dash-cap liquid-glass">KPI Monitoring</div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================== SLIDE 7 — TOOLS ===================== -->
-        <section class="slide" data-name="Vositalar">
-            <div class="slide-inner">
-                <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 07 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">VOSI<span class="stroke">TALAR</span></h2>
-                    <p class="s-sub reveal">Bozordagi eng dolzarb texnologiyalar — barchasi kursda amaliy tarzda.</p>
-                </div>
-                <div class="card-grid g5 stg">
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" loading="lazy"></div><div class="tool-nm">Python</div><div class="tool-ds">Dasturlash</div></div>
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL" loading="lazy"></div><div class="tool-nm">SQL</div><div class="tool-ds">MS SQL Server</div></div>
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Power BI" loading="lazy"></div><div class="tool-nm">Power BI</div><div class="tool-ds">Dashboard</div></div>
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/vscode-icons/file-type-excel.svg" alt="Excel" loading="lazy"></div><div class="tool-nm">Excel</div><div class="tool-ds">Jadvallar</div></div>
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="Pandas" loading="lazy"></div><div class="tool-nm">Pandas</div><div class="tool-ds">Tahlil</div></div>
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/numpy/numpy-original.svg" alt="NumPy" loading="lazy"></div><div class="tool-nm">NumPy</div><div class="tool-ds">Hisoblash</div></div>
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" loading="lazy"></div><div class="tool-nm">Matplotlib</div><div class="tool-ds">Grafiklar</div></div>
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter" loading="lazy"></div><div class="tool-nm">Jupyter</div><div class="tool-ds">Notebook</div></div>
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://api.iconify.design/logos/tableau-icon.svg" alt="Tableau" loading="lazy"></div><div class="tool-nm">Tableau</div><div class="tool-ds">Hisobot</div></div>
-                    <div class="tool-card liquid-glass"><div class="tool-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" loading="lazy"></div><div class="tool-nm">GitHub</div><div class="tool-ds">Portfolio</div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================== SLIDE 8 — OUTCOMES ===================== -->
-        <section class="slide" data-name="Natijalar">
-            <div class="slide-inner">
-                <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 08 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">YAKUNDA SIZ <span class="accent">OLASIZ</span></h2>
-                    <p class="s-sub reveal">Ishga kirishda kerak bo'ladigan 6 ta konkret natija.</p>
-                </div>
-                <div class="card-grid g3 stg">
-                    <div class="info-card liquid-glass"><div class="oc-icon">📊</div><div class="ic-title">5+ loyihali portfolio</div><p class="ic-desc" style="margin:8px 0 0">GitHub'da real loyihalar: dashboard, A/B test, kohort tahlili, SQL hisobotlar.</p></div>
-                    <div class="info-card liquid-glass"><div class="oc-icon">📄</div><div class="ic-title">Rasmiy CV</div><p class="ic-desc" style="margin:8px 0 0">Data Analyst vakansiyalari uchun zamonaviy rezyume — HR skanerlaridan o'tadi.</p></div>
-                    <div class="info-card liquid-glass"><div class="oc-icon">🛠</div><div class="ic-title">6 ta instrument</div><p class="ic-desc" style="margin:8px 0 0">Python, SQL, Power BI, Excel, Pandas, NumPy — bir-biriga bog'liq holda.</p></div>
-                    <div class="info-card liquid-glass"><div class="oc-icon">🧠</div><div class="ic-title">Biznes-fikrlash</div><p class="ic-desc" style="margin:8px 0 0">Metrikalar, A/B testlar, gipotezalarni tekshirish va natijani tushuntirish.</p></div>
-                    <div class="info-card liquid-glass"><div class="oc-icon">💬</div><div class="ic-title">Intervyu tayyorgarlik</div><p class="ic-desc" style="margin:8px 0 0">Mock-intervyular, texnik savollar, live SQL/Python sessiyalar.</p></div>
-                    <div class="info-card liquid-glass"><div class="oc-icon">🎓</div><div class="ic-title">INTERNO sertifikati</div><p class="ic-desc" style="margin:8px 0 0">Ish beruvchilar tomonidan tanilgan kursni tugatish guvohnomasi.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================== SLIDE 9 — SALARY ===================== -->
-        <section class="slide" data-name="Maosh">
-            <div class="slide-inner">
-                <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 09 <span class="br">]</span></div>
-                    <h2 class="s-title reveal">MAOSH <span class="accent">DARAJALARI</span></h2>
-                    <p class="s-sub reveal">O'zbekistonda Data Analyst kasbi bo'yicha o'rtacha oylik maosh.</p>
-                </div>
-                <div class="salary-grid stg">
-                    <div class="salary-card liquid-glass"><span class="salary-tag">Junior</span><div class="salary-amt">$500 — 800</div><div class="salary-per">Oyiga</div></div>
-                    <div class="salary-card primary"><span class="salary-tag">Middle</span><div class="salary-amt">$1,500 — 3,000</div><div class="salary-per">Oyiga</div></div>
-                    <div class="salary-card liquid-glass"><span class="salary-tag">Xalqaro</span><div class="salary-amt">$3,000+</div><div class="salary-per">Oyiga</div></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===================== SLIDE 10 — SPEAKER ===================== -->
+        <!-- 20. SPEAKER -->
         <section class="slide" data-name="Spiker">
             <div class="slide-inner">
-                <div class="s-num reveal"><span class="br">[</span> 10 <span class="br">]</span></div>
+                <div class="s-num reveal"><span class="br">[</span> 20 <span class="br">]</span></div>
                 <div class="speaker-grid">
                     <div class="speaker-photo reveal">
-                        <img src="/tilda/speaker-asliddin.jpg" alt="Asliddin Omonboyev — Data Analyst & Python Developer" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <img src="/tilda/speaker-asliddin.jpg" alt="Asliddin Omonboyev" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
                         <div class="speaker-monogram" style="display:none"><b>OA</b><small>Asliddin Omonboyev</small></div>
                         <div class="speaker-float tr liquid-glass">🤖 Telegram Bot</div>
                         <div class="speaker-float bl liquid-glass">📊 Data analyst</div>
@@ -865,11 +966,117 @@
             </div>
         </section>
 
-        <!-- ===================== SLIDE — PRICING ===================== -->
+        <!-- 21. OUTCOMES -->
+        <section class="slide" data-name="Natijalar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 21 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">YAKUNDA SIZ <span class="accent">OLASIZ</span></h2>
+                    <p class="s-sub reveal">Ishga kirishda kerak bo'ladigan 6 ta konkret natija.</p>
+                </div>
+                <div class="card-grid g3 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">📊</div><div class="ic-title">5+ loyihali portfolio</div><p class="ic-desc" style="margin:8px 0 0">GitHub'da real loyihalar: dashboard, A/B test, SQL hisobotlar.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📄</div><div class="ic-title">Rasmiy CV</div><p class="ic-desc" style="margin:8px 0 0">HR skanerlaridan o'tadigan zamonaviy rezyume.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🛠</div><div class="ic-title">6 ta instrument</div><p class="ic-desc" style="margin:8px 0 0">Python, SQL, Power BI, Excel, Pandas, NumPy.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🧠</div><div class="ic-title">Biznes-fikrlash</div><p class="ic-desc" style="margin:8px 0 0">Metrikalar, A/B testlar, gipotezalarni tekshirish.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">💬</div><div class="ic-title">Intervyu tayyorgarlik</div><p class="ic-desc" style="margin:8px 0 0">Mock-intervyular, live SQL/Python sessiyalar.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🎓</div><div class="ic-title">INTERNO sertifikati</div><p class="ic-desc" style="margin:8px 0 0">Ish beruvchilar tomonidan tanilgan guvohnoma.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 22. CAREER HELP -->
+        <section class="slide" data-name="Karyera">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 22 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">ISHGA JOYLASHISHDA <span class="accent">YORDAM</span></h2>
+                    <p class="s-sub reveal">Har bir bitiruvchi uchun karyera konsultatsiyasi bor.</p>
+                </div>
+                <div class="card-grid g4 stg">
+                    <div class="info-card liquid-glass"><div class="oc-icon">📁</div><div class="ic-title">Portfolio yig'ish</div><p class="ic-desc" style="margin:8px 0 0">Ishlaringizni to'g'ri paketlash.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">📝</div><div class="ic-title">Rezyume</div><p class="ic-desc" style="margin:8px 0 0">Professional CV rasmiylashtirish.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🎤</div><div class="ic-title">Intervyu</div><p class="ic-desc" style="margin:8px 0 0">Suhbatdan gramotali o'tishni o'rgatamiz.</p></div>
+                    <div class="info-card liquid-glass"><div class="oc-icon">🤝</div><div class="ic-title">Tavsiya</div><p class="ic-desc" style="margin:8px 0 0">Eng yaxshilarni hamkor kompaniyalarga tavsiya qilamiz.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 23. SALARY -->
+        <section class="slide" data-name="Maosh">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 23 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">MAOSH <span class="accent">DARAJALARI</span></h2>
+                    <p class="s-sub reveal">O'zbekistonda Data Analyst kasbi bo'yicha o'rtacha oylik maosh.</p>
+                </div>
+                <div class="salary-grid stg">
+                    <div class="salary-card liquid-glass"><span class="salary-tag">Junior</span><div class="salary-amt">$500 — 800</div><div class="salary-per">Oyiga</div></div>
+                    <div class="salary-card primary"><span class="salary-tag">Middle</span><div class="salary-amt">$1,500 — 3,000</div><div class="salary-per">Oyiga</div></div>
+                    <div class="salary-card liquid-glass"><span class="salary-tag">Xalqaro</span><div class="salary-amt">$3,000+</div><div class="salary-per">Oyiga</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 24. GRADUATE WORKS -->
+        <section class="slide" data-name="Ishlar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 24 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">BITIRUVCHILAR <span class="accent">ISHLARI</span></h2>
+                    <p class="s-sub reveal">Kursda aynan shunday real, interaktiv dashboardlarni yaratasiz.</p>
+                </div>
+                <div class="dash-grid stg">
+                    <div class="dash-card"><img src="/tilda/dashboard-2.jpeg" alt="Sales Analytics" loading="lazy"><div class="dash-cap liquid-glass">Sales Analytics</div></div>
+                    <div class="dash-card"><img src="/tilda/dashboard-3.jpeg" alt="Finance Report" loading="lazy"><div class="dash-cap liquid-glass">Finance Report</div></div>
+                    <div class="dash-card"><img src="/tilda/dashboard-4.jpeg" alt="Product Insights" loading="lazy"><div class="dash-cap liquid-glass">Product Insights</div></div>
+                    <div class="dash-card"><img src="/tilda/dashboard-5.jpeg" alt="KPI Monitoring" loading="lazy"><div class="dash-cap liquid-glass">KPI Monitoring</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 25. REVIEWS -->
+        <section class="slide" data-name="Fikrlar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 25 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">BITIRUVCHILAR <span class="accent">FIKRI</span></h2>
+                    <p class="s-sub reveal">Kursdan so'ng o'z sohasida ishlayotganlar tajribasi.</p>
+                </div>
+                <div class="review-grid stg">
+                    <div class="review-card liquid-glass"><div class="review-stars">★★★★★</div><p class="review-text">"Noldan boshladim, 3 oyda birinchi ishimga kirdim. Amaliyot juda ko'p edi — portfolio o'zi gapiradi."</p><div class="review-who"><div class="review-ava">M</div><div><div class="review-name">Madina R.</div><div class="review-role">Junior Data Analyst</div></div></div></div>
+                    <div class="review-card liquid-glass"><div class="review-stars">★★★★★</div><p class="review-text">"Mentorlar amaldagi analitiklar. Power BI dashboardlarimni intervyuda ko'rsatib, ofer oldim."</p><div class="review-who"><div class="review-ava">S</div><div><div class="review-name">Sardor T.</div><div class="review-role">BI Analyst</div></div></div></div>
+                    <div class="review-card liquid-glass"><div class="review-stars">★★★★★</div><p class="review-text">"SQL va Python'ni haqiqiy loyihalarda o'rgandim. Endi frilansda xalqaro mijozlar bilan ishlayapman."</p><div class="review-who"><div class="review-ava">D</div><div><div class="review-name">Dilnoza K.</div><div class="review-role">Freelance Analyst</div></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 26. GRADUATES GRID -->
+        <section class="slide" data-name="Bitiruvchilar">
+            <div class="slide-inner">
+                <div class="body-head">
+                    <div class="s-num reveal"><span class="br">[</span> 26 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">BITIRUVCHI<span class="accent">LARIMIZ</span></h2>
+                    <p class="s-sub reveal">Yuzlab bitiruvchi bugun soha kompaniyalarida va frilansda ishlaydi.</p>
+                </div>
+                <div class="grad-grid stg">
+                    <div class="grad-card liquid-glass"><div class="grad-ava">AB</div><div class="grad-name">Aziz B.</div><div class="grad-role">Data Analyst · Uzum</div><div class="grad-income">$1,200+/oy</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">NK</div><div class="grad-name">Nigora K.</div><div class="grad-role">BI Analyst · TBC Bank</div><div class="grad-income">$1,500+/oy</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">JR</div><div class="grad-name">Jasur R.</div><div class="grad-role">Analyst · Click.uz</div><div class="grad-income">$900+/oy</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">MA</div><div class="grad-name">Malika A.</div><div class="grad-role">Freelance Analyst</div><div class="grad-income">$2,000+/oy</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">ST</div><div class="grad-name">Shoxrux T.</div><div class="grad-role">Data Analyst · Payme</div><div class="grad-income">$1,100+/oy</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">KV</div><div class="grad-name">Kamila V.</div><div class="grad-role">Analyst · Korzinka</div><div class="grad-income">$800+/oy</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">RF</div><div class="grad-name">Rustam F.</div><div class="grad-role">BI Developer · EPAM</div><div class="grad-income">$2,500+/oy</div></div>
+                    <div class="grad-card liquid-glass"><div class="grad-ava">1K</div><div class="grad-name">1000+</div><div class="grad-role">muvaffaqiyatli bitiruvchi</div><div class="grad-income">INTERNO</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 27. PRICING -->
         <section class="slide" data-name="Narx">
             <div class="slide-inner">
                 <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 16 <span class="br">]</span></div>
+                    <div class="s-num reveal"><span class="br">[</span> 27 <span class="br">]</span></div>
                     <h2 class="s-title reveal">KURS <span class="accent">NARXI</span></h2>
                     <p class="s-sub reveal">Toshkent · 3 oylik to'liq dastur. Ikkita format — o'zingizga mosini tanlang.</p>
                 </div>
@@ -880,8 +1087,8 @@
                         <div class="price-sub">To'liq kurs · 3 oy</div>
                         <div class="price-rows">
                             <div class="price-rows-tag">Chegirma bilan</div>
-                            <div class="price-row"><span class="price-off">−10%</span><span class="price-new">4 500 000 <small>so'm</small></span></div>
-                            <div class="price-row"><span class="price-off">−20%</span><span class="price-new">4 000 000 <small>so'm</small></span></div>
+                            <div class="price-row"><span class="price-off">&minus;10%</span><span class="price-new">4 500 000 <small>so'm</small></span></div>
+                            <div class="price-row"><span class="price-off">&minus;20%</span><span class="price-new">4 000 000 <small>so'm</small></span></div>
                         </div>
                     </div>
                     <div class="price-card primary">
@@ -891,66 +1098,59 @@
                         <div class="price-sub">Kengaytirilgan format · 3 oy</div>
                         <div class="price-rows">
                             <div class="price-rows-tag">Chegirma bilan</div>
-                            <div class="price-row"><span class="price-off">−10%</span><span class="price-new">6 300 000 <small>so'm</small></span></div>
-                            <div class="price-row"><span class="price-off">−20%</span><span class="price-new">5 600 000 <small>so'm</small></span></div>
+                            <div class="price-row"><span class="price-off">&minus;10%</span><span class="price-new">6 300 000 <small>so'm</small></span></div>
+                            <div class="price-row"><span class="price-off">&minus;20%</span><span class="price-new">5 600 000 <small>so'm</small></span></div>
                         </div>
                     </div>
                 </div>
-                <div class="price-note reveal">💳 <span>Tez to'lovda <b>−20% gacha chegirma</b> yoki <b>foizsiz muddatli to'lov</b> — batafsil keyingi slaydda</span></div>
+                <div class="price-note reveal">💳 <span>Tez to'lovda <b>&minus;20% gacha chegirma</b> yoki <b>foizsiz muddatli to'lov</b> — batafsil keyingi slaydda</span></div>
             </div>
         </section>
 
-        <!-- ===================== SLIDE — PAYMENT OPTIONS ===================== -->
+        <!-- 28. PAYMENT -->
         <section class="slide" data-name="To'lov">
             <div class="slide-inner">
                 <div class="body-head">
-                    <div class="s-num reveal"><span class="br">[</span> 17 <span class="br">]</span></div>
+                    <div class="s-num reveal"><span class="br">[</span> 28 <span class="br">]</span></div>
                     <h2 class="s-title reveal">TO'LOV <span class="accent">IMKONIYATLARI</span></h2>
                     <p class="s-sub reveal">O'zingizga qulay usulni tanlang — tez to'lovda chegirma yoki foizsiz bo'lib-bo'lib.</p>
                 </div>
                 <div class="pay-grid stg">
-                    <div class="pay-card liquid-glass">
-                        <div class="pay-emoji">🟨</div>
-                        <div class="pay-disc">−20%</div>
-                        <div class="pay-name">24 soat ichida</div>
-                        <div class="pay-desc">Konsultatsiyadan so'ng 24 soat ichida to'liq to'lov qilsangiz — 20% chegirma.</div>
-                    </div>
-                    <div class="pay-card liquid-glass">
-                        <div class="pay-emoji">🟩</div>
-                        <div class="pay-disc">−10%</div>
-                        <div class="pay-name">48 soat ichida</div>
-                        <div class="pay-desc">Konsultatsiyadan so'ng 48 soat ichida to'liq to'lov qilsangiz — 10% chegirma.</div>
-                    </div>
-                    <div class="pay-card liquid-glass">
-                        <div class="pay-emoji">🟧</div>
-                        <div class="pay-disc">0%</div>
-                        <div class="pay-name">Muddatli to'lov</div>
-                        <div class="pay-desc">3 / 4 / 6 oyga foizsiz bo'lib-bo'lib to'lash imkoniyati.</div>
-                    </div>
+                    <div class="pay-card liquid-glass"><div class="pay-emoji">🟨</div><div class="pay-disc">&minus;20%</div><div class="pay-name">24 soat ichida</div><div class="pay-desc">Konsultatsiyadan so'ng 24 soat ichida to'liq to'lov qilsangiz — 20% chegirma.</div></div>
+                    <div class="pay-card liquid-glass"><div class="pay-emoji">🟩</div><div class="pay-disc">&minus;10%</div><div class="pay-name">48 soat ichida</div><div class="pay-desc">Konsultatsiyadan so'ng 48 soat ichida to'liq to'lov qilsangiz — 10% chegirma.</div></div>
+                    <div class="pay-card liquid-glass"><div class="pay-emoji">🟧</div><div class="pay-disc">0%</div><div class="pay-name">Muddatli to'lov</div><div class="pay-desc">3 / 4 / 6 oyga foizsiz bo'lib-bo'lib to'lash imkoniyati.</div></div>
                 </div>
                 <div class="pay-banks reveal">
                     <span class="pay-banks-label">📍 Oyma-oy to'lov:</span>
-                    <span class="tag liquid-glass">Anor Bank</span>
-                    <span class="tag liquid-glass">Alif Nasiya</span>
-                    <span class="tag liquid-glass">Variant Nasiya</span>
-                    <span class="tag liquid-glass">Uzum Nasiya</span>
-                    <span class="tag liquid-glass">Paylater</span>
+                    <span class="tag liquid-glass">Anor Bank</span><span class="tag liquid-glass">Alif Nasiya</span><span class="tag liquid-glass">Variant Nasiya</span><span class="tag liquid-glass">Uzum Nasiya</span><span class="tag liquid-glass">Paylater</span>
                 </div>
             </div>
         </section>
 
-        <!-- ===================== SLIDE 11 — CTA ===================== -->
-        <section class="slide cta-slide" data-name="Yozilish">
+        <!-- 29. Q&A -->
+        <section class="slide qa-slide" data-name="Savol-javob">
+            <div class="qa-marks"><span>?</span><span>?</span><span>?</span><span>?</span></div>
+            <div class="slide-inner">
+                <div class="body-head" style="text-align:center">
+                    <div class="s-num reveal" style="align-self:center"><span class="br">[</span> 29 <span class="br">]</span></div>
+                    <h2 class="s-title reveal">SAVOL — <span class="accent">JAVOB</span></h2>
+                    <p class="s-sub reveal" style="margin-left:auto;margin-right:auto">Ochiq dars — bu muloqot. Barcha savollaringizga hoziroq javob beramiz.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 30. THANK YOU / CTA -->
+        <section class="slide thanks-slide cta-slide" data-name="Rahmat">
             <div class="slide-inner">
                 <a class="cta-logo reveal" href="../"><img src="/logo.svg" alt="INTERNO School"></a>
-                <h2 class="s-title reveal">BEPUL OCHIQ <span class="stroke">DARSGA</span> YOZILING</h2>
-                <p class="cta-sub reveal">60 daqiqalik bepul darsda kurs, mentorlar va karyera imkoniyatlari bilan tanishasiz. Endi navbat sizda.</p>
-                <a href="../#register" class="cta-btn reveal" id="cta-register">Hozir yozilish <span>→</span></a>
+                <h2 class="s-title reveal">E'TIBORINGIZ <span class="stroke">UCHUN</span> RAHMAT!</h2>
+                <p class="cta-sub reveal">Bepul ochiq darsda ko'rishguncha. Data Analyst bo'lish yo'lini bugun boshlang.</p>
+                <a href="../#register" class="cta-btn reveal" id="cta-register">Kursga yozilish <span>&rarr;</span></a>
                 <div class="cta-meta reveal stg">
                     <div><b>3 oy</b><span>O'qish davomiyligi</span></div>
                     <div><b>36 dars</b><span>54 soat amaliyot</span></div>
                     <div><b>$1,500+</b><span>O'rtacha maosh</span></div>
-                    <div><b>85%</b><span>Ish topdi</span></div>
+                    <div><b>70%</b><span>Ish topdi</span></div>
                 </div>
             </div>
         </section>
