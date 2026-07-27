@@ -465,6 +465,11 @@
     .dot:hover{background:rgba(0,0,0,0.55)}
     .fs-btn{position:fixed;top:clamp(12px,2vh,22px);right:clamp(12px,2vw,24px);z-index:80;width:44px;height:44px;border-radius:12px;background:var(--black);color:var(--lime);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:transform .25s}
     .fs-btn:hover{transform:scale(1.08)}
+    .lang-sw{position:fixed;top:clamp(12px,2vh,22px);right:calc(clamp(12px,2vw,24px) + 54px);z-index:80;display:flex;align-items:center;gap:2px;height:44px;padding:4px;background:var(--black);border-radius:12px}
+    .lang-sw a{display:flex;align-items:center;height:100%;padding:0 12px;border-radius:9px;font-size:0.8rem;font-weight:800;letter-spacing:0.04em;text-transform:uppercase;text-decoration:none;color:var(--text-muted);transition:color .2s,background .2s}
+    .lang-sw a.active{background:var(--lime);color:var(--black)}
+    .lang-sw a:hover:not(.active){color:#fff}
+    @media(max-width:520px){.lang-sw a{padding:0 9px;font-size:0.72rem}}
     .progress{position:fixed;top:0;left:0;height:4px;background:var(--black);z-index:90;transition:width .5s cubic-bezier(0.16,1,0.3,1);border-radius:0 4px 4px 0}
     .hint{position:fixed;bottom:clamp(16px,3vh,34px);left:clamp(16px,2.5vw,32px);z-index:70;color:rgba(0,0,0,.5);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;display:flex;align-items:center;gap:8px}
     .hint kbd{background:var(--black);color:var(--lime);border-radius:6px;padding:3px 8px;font-family:inherit;font-size:0.72rem;font-weight:800}
@@ -1163,6 +1168,10 @@
 
 <!-- controls -->
 <button class="fs-btn" id="fsBtn" aria-label="To'liq ekran">⛶</button>
+<div class="lang-sw" role="group" aria-label="Til / Язык">
+    <a href="/prezentatsiya" class="active" aria-current="page">UZ</a>
+    <a href="/prezentatsiya-ru">RU</a>
+</div>
 <div class="ctrl ctrl-bottom">
     <button class="nav-btn" id="prevBtn" aria-label="Oldingi slayd">‹</button>
     <div class="counter"><span class="cur" id="cur">01</span><span class="tot" id="tot">/ 11</span></div>
