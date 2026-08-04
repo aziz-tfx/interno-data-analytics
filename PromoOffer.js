@@ -22,7 +22,14 @@
   var style = document.createElement('style');
   style.textContent = [
     '.promo-offer{padding:24px 20px}',
-    '.promo-offer__card{position:relative;max-width:760px;margin:0 auto;background:#101012;color:#F2EFE9;border:1px solid rgba(242,239,233,.1);border-radius:28px;padding:40px 36px;overflow:hidden}',
+    '.promo-offer__card{position:relative;max-width:760px;margin:0 auto;background:#101012;color:#F2EFE9;border:1px solid rgba(242,239,233,.1);border-radius:28px;padding:40px 36px;overflow:hidden;display:flex;align-items:center;gap:36px}',
+    '.promo-offer__fig{flex:none;width:180px}',
+    '.promo-offer__img{display:block;width:180px;height:180px;animation:promoFloat 3s ease-in-out infinite alternate}',
+    '.promo-offer__fig-shadow{width:120px;height:20px;margin:2px auto 0;border-radius:50%;background:radial-gradient(ellipse at center,#000 0%,transparent 70%);opacity:.25;animation:promoShadow 3s ease-in-out infinite alternate}',
+    '@keyframes promoFloat{from{transform:translateY(0)}to{transform:translateY(-12px)}}',
+    '@keyframes promoShadow{from{transform:scaleX(1);opacity:.25}to{transform:scaleX(.72);opacity:.15}}',
+    '@media(prefers-reduced-motion:reduce){.promo-offer__img,.promo-offer__fig-shadow{animation:none}}',
+    '.promo-offer__body{min-width:0}',
     '.promo-offer__card::before{content:"";position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(234,81,1,.35),transparent 70%)}',
     '.promo-offer__head{display:flex;align-items:center;gap:12px;margin-bottom:18px}',
     '.promo-offer__badge{display:inline-block;background:#EA5101;color:#F2EFE9;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:6px 14px}',
@@ -34,7 +41,7 @@
     '.promo-offer__note{color:#8A8A92;font-size:13.5px;margin:0 0 24px}',
     '.promo-offer__cta{display:inline-block;border:0;font-family:inherit;background:#EA5101;color:#F2EFE9;font-weight:700;font-size:16px;border-radius:999px;padding:16px 34px;cursor:pointer;transition:transform .2s,box-shadow .2s}',
     '.promo-offer__cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(234,81,1,.35)}',
-    '@media(max-width:640px){.promo-offer{padding:16px 12px}.promo-offer__card{padding:28px 22px;border-radius:22px}.promo-offer__gifts li{font-size:15px}.promo-offer__cta{display:block;text-align:center}}'
+    '@media(max-width:640px){.promo-offer{padding:16px 12px}.promo-offer__card{padding:28px 22px;border-radius:22px;flex-direction:column;gap:18px;text-align:left}.promo-offer__fig{width:120px;margin:0 auto}.promo-offer__img{width:120px;height:120px}.promo-offer__fig-shadow{width:84px;height:14px}.promo-offer__gifts li{font-size:15px}.promo-offer__cta{display:block;width:100%;text-align:center}}'
   ].join('\n');
   document.head.appendChild(style);
 
@@ -42,14 +49,20 @@
   el.className = 'promo-offer';
   el.innerHTML =
     '<div class="promo-offer__card">' +
-      '<div class="promo-offer__head">' +
-        '<span class="promo-offer__badge"></span>' +
-        '<span class="promo-offer__mech">1 → 3</span>' +
+      '<div class="promo-offer__fig" aria-hidden="true">' +
+        '<img class="promo-offer__img" src="/promo-gift-3d.png" alt="" width="180" height="180" loading="lazy">' +
+        '<div class="promo-offer__fig-shadow"></div>' +
       '</div>' +
-      '<h2 class="promo-offer__title"></h2>' +
-      '<ul class="promo-offer__gifts"><li></li><li></li></ul>' +
-      '<p class="promo-offer__note"></p>' +
-      '<button type="button" class="promo-offer__cta"></button>' +
+      '<div class="promo-offer__body">' +
+        '<div class="promo-offer__head">' +
+          '<span class="promo-offer__badge"></span>' +
+          '<span class="promo-offer__mech">1 → 3</span>' +
+        '</div>' +
+        '<h2 class="promo-offer__title"></h2>' +
+        '<ul class="promo-offer__gifts"><li></li><li></li></ul>' +
+        '<p class="promo-offer__note"></p>' +
+        '<button type="button" class="promo-offer__cta"></button>' +
+      '</div>' +
     '</div>';
   anchor.parentNode.insertBefore(el, anchor);
 
