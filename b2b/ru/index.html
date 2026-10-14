@@ -2029,7 +2029,6 @@ if (heroCanvas && window.innerWidth > 768) {
     document.querySelectorAll('a[href="#register"],.nav-cta,.hero-cta,.mob-cta').forEach(el => {
         el.addEventListener('click', () => {
             track('click_cta', { location: el.closest('section,nav')?.id || 'unknown', text: el.textContent.trim().slice(0, 40) });
-            if (window.fbq) fbq('track', 'Lead', { source: 'vercel_landing', type: 'cta_click' });
         });
     });
 
