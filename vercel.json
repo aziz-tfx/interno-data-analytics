@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/ru/index.html", "destination": "/ru/", "permanent": true },
+    { "source": "/b2b/index.html", "destination": "/b2b/", "permanent": true },
+    { "source": "/b2b/ru/index.html", "destination": "/b2b/ru/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "interno-data-analytics.vercel.app" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
+    },
+    {
+      "source": "/(llms.txt|robots.txt|sitemap.xml)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+    }
+  ]
+}
