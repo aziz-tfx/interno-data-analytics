@@ -1,0 +1,133 @@
+# Data-аналитика — INTERNO School
+
+> Курс data-аналитики INTERNO School: 3 месяца, 36 уроков, 54 часа. Python, SQL и Power BI — с нуля до уровня Junior Data Analyst. Ташкент, Самарканд, Фергана или онлайн. Первый шаг — бесплатный открытый урок (60 минут).
+
+> INTERNO School data analitika kursi: 3 oy, 36 dars, 54 soat. Python, SQL va Power BI — noldan Junior Data Analyst darajasigacha. Toshkent, Samarqand, Farg'ona yoki online. Birinchi qadam — 60 daqiqalik bepul ochiq dars.
+
+- [Курс на русском](https://data.internoedu.uz/ru/)
+- [Kurs o'zbek tilida](https://data.internoedu.uz/)
+- [Корпоративное обучение (B2B)](https://data.internoedu.uz/b2b/ru/) · [Korporativ o'qitish (B2B)](https://data.internoedu.uz/b2b/)
+- [INTERNO School — все курсы](https://internoedu.uz/) · [barcha kurslar](https://internoedu.uz/uz/)
+
+## Ключевые факты
+
+- Длительность: 3 месяца (12 недель), 36 уроков, 54 часа; 3 раза в неделю по 1,5 часа
+- Формат: офлайн в Ташкенте, Самарканде и Фергане или онлайн (прямой эфир или запись)
+- Язык обучения: узбекский или русский
+- Опыт не нужен: технические знания и опыт программирования не требуются
+- Каждый месяц заканчивается реальным проектом; в итоге — портфолио на GitHub, CV и сертификат INTERNO School
+- Стоимость сообщают на бесплатном открытом уроке
+
+## Программа
+
+1. Месяц 1 — Python и анализ данных (12 уроков): основы Python, функции, list/dict, CSV, NumPy, Pandas (Series, DataFrame), очистка данных, Matplotlib, Seaborn, Plotly, EDA и описательная статистика. Проект: анализ данных e-commerce.
+2. Месяц 2 — SQL и базы данных (12 уроков): SELECT/WHERE/ORDER BY, агрегаты и GROUP BY/HAVING, JOIN, MS SQL Server и SSMS, оконные функции, CTE, Views, хранимые процедуры и триггеры, Data Warehouse и BigQuery. Проект: SQL Analytics Dashboard.
+3. Месяц 3 — Power BI и карьера (12 уроков): Power Query, DAX (CALCULATE, FILTER, IF), Time Intelligence (YoY, MoM, running total), профессиональные дашборды, GitHub-портфолио, CV, LinkedIn, подготовка к собеседованию, capstone-проект и Demo Day.
+
+Инструменты: Python, SQL (MS SQL Server), Power BI, Excel, Pandas, NumPy, Matplotlib, Jupyter, Tableau, GitHub.
+
+## Спикер
+
+- Asliddin Omonboyev (Аслиддин Омонбоев) — Data Analyst & Python Developer, Telegram bot builder, спикер открытого урока. Python, SQL, Power BI, интеграции с API и Telegram-боты; опыт с 2022 года.
+
+## Частые вопросы
+
+### Для кого курс?
+
+Для всех: технических знаний и опыта программирования не нужно. Обучение с нуля до профессионального уровня.
+
+### Сколько длится курс?
+
+3 месяца: 12 недель, 36 уроков, 54 часа. 3 раза в неделю по 1,5 часа, каждый месяц — крупный практический проект.
+
+### Что такое открытый урок?
+
+Бесплатный ознакомительный урок (60 минут): формат курса и программа. Никаких обязательств.
+
+### Выдаётся ли сертификат?
+
+Да, после успешного окончания курса — сертификат INTERNO School.
+
+### Можно ли учиться онлайн?
+
+Да, есть онлайн-формат: уроки в прямом эфире или в записи.
+
+### Сколько стоит?
+
+Цену сообщают на бесплатном открытом уроке.
+
+## Корпоративное обучение (B2B)
+
+Программа для компаний от 5 сотрудников: Python, SQL и Power BI, стандартно 3 месяца (можно растянуть до 3–6 месяцев). Офлайн (в офисе компании или у нас), онлайн или гибрид. Сертификат каждому сотруднику. Подробности: https://data.internoedu.uz/b2b/ru/
+
+## Другие курсы INTERNO School
+
+- [Искусственный интеллект](https://ai.internoedu.uz)
+- [Бухгалтерия](https://buxgalteriya.internoedu.uz)
+- [Графический дизайн](https://graphic.internoedu.uz)
+- [Дизайн интерьера](https://interior.internoedu.uz)
+- [Архитектура](https://architecture.internoedu.uz)
+- [Видеомонтаж](https://videomontaj.internoedu.uz)
+
+## Контакты
+
+- +998 78 113 18 08
+- https://t.me/interno_school
+- https://instagram.com/interno.school
+- https://internoedu.uz/
+
+---
+
+# Data analitika — INTERNO School (o'zbekcha)
+
+## Asosiy faktlar
+
+- Davomiyligi: 3 oy (12 hafta), 36 dars, 54 soat; haftada 3 marta, har dars 1.5 soat
+- Format: Toshkent, Samarqand va Farg'onada oflayn yoki online (jonli efir yoki yozuv)
+- O'qish tili: o'zbek yoki rus
+- Tajriba shart emas: texnik bilim va dasturlash tajribasi talab qilinmaydi
+- Har oy real loyiha bilan yakunlanadi; natijada — GitHub portfolio, CV va INTERNO School sertifikati
+- Narxi bepul ochiq darsda aytiladi
+
+## Dastur
+
+1. 1-oy — Python va data tahlili (12 dars): Python asoslari, funksiyalar, list/dict, CSV, NumPy, Pandas, ma'lumotlarni tozalash, Matplotlib, Seaborn, Plotly, EDA. Loyiha: e-commerce ma'lumotlari tahlili.
+2. 2-oy — SQL va ma'lumotlar bazasi (12 dars): SELECT, GROUP BY, JOINs, MS SQL Server va SSMS, Window Functions, CTE, Views, Stored Procedures, Data Warehouse va BigQuery. Loyiha: SQL Analytics Dashboard.
+3. 3-oy — Power BI va karyera (12 dars): Power Query, DAX, Time Intelligence, professional dashboardlar, GitHub portfolio, CV, LinkedIn, intervyuga tayyorgarlik, Capstone loyiha va Demo Day.
+
+## Spiker
+
+- Asliddin Omonboyev — Data Analyst & Python Developer, Telegram bot builder, ochiq dars spikeri. Python, SQL, Power BI, API integratsiya va Telegram botlar; 2022-yildan beri tajriba.
+
+## Ko'p so'raladigan savollar
+
+### Kurs kimlar uchun?
+
+Har kim uchun: texnik bilim yoki dasturlash tajribasi talab qilinmaydi. Noldan professional darajagacha o'rgatamiz.
+
+### Kurs qancha vaqt davom etadi?
+
+3 oy: 12 hafta, 36 dars, 54 soat. Haftada 3 marta, har biri 1.5 soat; har oyda katta amaliy loyiha.
+
+### Ochiq dars nima?
+
+Bepul 60 daqiqalik tanishuv darsi: kurs formati va dastur bilan tanishasiz. Hech qanday majburiyat yo'q.
+
+### Sertifikat beriladi?
+
+Ha, kursni muvaffaqiyatli tugatgandan so'ng INTERNO School sertifikati beriladi.
+
+### Online o'qish mumkinmi?
+
+Ha, online format mavjud: darslarni jonli efirda yoki yozuvda ko'rish mumkin.
+
+### Narxi qancha?
+
+Kurs narxi bepul ochiq darsda aytiladi.
+
+## Aloqa
+
+- +998 78 113 18 08
+- https://t.me/interno_school
+- https://instagram.com/interno.school
+- https://internoedu.uz/uz/
