@@ -713,6 +713,7 @@
         .hero-popup-success.show{display:block;animation:popIn 0.5s cubic-bezier(0.16,1,0.3,1)}
         .hero-popup-success-icon{font-size:3.5rem;margin-bottom:12px}
     </style>
+  <script src="/funnel.js" defer></script>
 </head>
 <body>
 
@@ -1969,7 +1970,9 @@ if (heroCanvas && window.innerWidth > 768) {
                         name, phone,
                         city: city + ' | Form-lang: ' + language + ' | Team: ' + (formData.level || 'N/A') + ' | Goal: ' + (formData.goal || 'N/A'),
                         lang: 'ru',
-                        landing: 'b2b'
+                        landing: 'b2b',
+                        utm: (window.funnel ? funnel.utm() : {}),
+                        page: location.href
                     })
                 });
             } catch (err) {}
@@ -2145,7 +2148,7 @@ if (heroCanvas && window.innerWidth > 768) {
                 await fetch('/api/lead', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, phone, city: 'Source: hero_popup_b2b_ru', lang: 'ru', landing: 'b2b' })
+                    body: JSON.stringify({ name, phone, city: 'Source: hero_popup_b2b_ru', lang: 'ru', landing: 'b2b', utm: (window.funnel ? funnel.utm() : {}), page: location.href })
                 });
             } catch (err) {}
 
@@ -2216,7 +2219,7 @@ if (heroCanvas && window.innerWidth > 768) {
                 await fetch('/api/lead', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: 'Exit popup lead', phone, city: 'exit_intent_b2b_ru', lang: 'ru', landing: 'b2b' })
+                    body: JSON.stringify({ name: 'Exit popup lead', phone, city: 'exit_intent_b2b_ru', lang: 'ru', landing: 'b2b', utm: (window.funnel ? funnel.utm() : {}), page: location.href })
                 });
             } catch(err) {}
 

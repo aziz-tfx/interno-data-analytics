@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
     try {
-        const { name, phone, city, lang, landing } = req.body;
+        const { name, phone, city, lang, landing, utm, page } = req.body || {};
         if (!name || !phone) return res.status(400).json({ error: 'Name and phone required' });
 
         // Build a visible language/landing tag so AmoCRM operators can tell apart
@@ -34,13 +34,21 @@ export default async function handler(req, res) {
             ? (langTag === 'RU' ? 'interno-data-analytics.vercel.app/b2b/ru' : 'interno-data-analytics.vercel.app/b2b')
             : (langTag === 'RU' ? 'interno-data-analytics.vercel.app/ru' : 'interno-data-analytics.vercel.app');
 
-        const note = [
+        const noteParts = [
             'Lang: ' + (langTag || 'N/A'),
             'Landing: ' + (isB2B ? 'B2B' : 'B2C'),
             'Shahar/Kompaniya: ' + (city || 'N/A'),
             'Kurs: ' + courseLabel,
             'Manba: ' + sourceUrl,
-        ].join(' | ');
+        ];
+        // UTM первого касания (funnel.js) — для отчёта «объявление → заявка → оплата» в amoCRM
+        const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid', 'ttclid'];
+        const utmPairs = (utm && typeof utm === 'object')
+            ? UTM_KEYS.filter(k => typeof utm[k] === 'string' && utm[k]).map(k => `${k}=${utm[k].slice(0, 200)}`)
+            : [];
+        if (utmPairs.length) noteParts.push('UTM: ' + utmPairs.join(' · '));
+        if (typeof page === 'string' && page) noteParts.push('Sahifa: ' + page.slice(0, 300));
+        const note = noteParts.join(' | ');
 
         // Build multipart/form-data exactly like the AmoCRM form does
         const boundary = '----FormBoundary' + Math.random().toString(36).substring(2);
@@ -75,7 +83,8 @@ export default async function handler(req, res) {
         const responseText = await amoResponse.text();
         console.log('AmoCRM response:', amoResponse.status, responseText, '| name:', finalName);
 
-        return res.status(200).json({
+        // при отказе amo отвечаем ошибкой — иначе аналитика засчитает потерянную заявку как успешную
+        return res.status(amoResponse.ok ? 200 : 502).json({
             success: amoResponse.ok,
             status: amoResponse.status,
         });

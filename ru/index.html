@@ -714,6 +714,7 @@
             .modal-panel h3{font-size:28px}
         }
     </style>
+  <script src="/funnel.js" defer></script>
 </head>
 <body>
 
@@ -1680,7 +1681,9 @@
                         name, phone,
                         city: city + ' | Form-lang: ' + language + ' | Level: ' + (formData.level || 'N/A') + ' | Goal: ' + (formData.goal || 'N/A'),
                         lang: 'ru',
-                        landing: 'b2c'
+                        landing: 'b2c',
+                        utm: (window.funnel ? funnel.utm() : {}),
+                        page: location.href
                     })
                 });
             } catch (err) {}
@@ -1856,7 +1859,7 @@
                 await fetch('/api/lead', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, phone, city: 'Source: hero_popup_ru', lang: 'ru', landing: 'b2c' })
+                    body: JSON.stringify({ name, phone, city: 'Source: hero_popup_ru', lang: 'ru', landing: 'b2c', utm: (window.funnel ? funnel.utm() : {}), page: location.href })
                 });
             } catch (err) {}
 
@@ -1927,7 +1930,7 @@
                 await fetch('/api/lead', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: 'Exit popup lead', phone, city: 'exit_intent', lang: 'ru', landing: 'b2c' })
+                    body: JSON.stringify({ name: 'Exit popup lead', phone, city: 'exit_intent', lang: 'ru', landing: 'b2c', utm: (window.funnel ? funnel.utm() : {}), page: location.href })
                 });
             } catch(err) {}
 
